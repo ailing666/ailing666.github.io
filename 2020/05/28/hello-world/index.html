@@ -40,6 +40,8 @@
 
 <body>
   
+  <canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 999; pointer-events: none;"></canvas>
+  
   <div id="app">
     <main class="content on">
       <section class="outer">
@@ -122,25 +124,11 @@
       
       <!-- reward -->
       
-      <div id="reward-btn">
-        Donate
-      </div>
-      
     </div>
     
     
       <!-- copyright -->
       
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>Copyright： </strong>
-              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
-            </li>
-          </ul>
-        </div>
-        
     <footer class="article-footer">
       
           
@@ -221,7 +209,7 @@
         notify: false,
         verify: false,
         avatar: 'monsterid',
-        placeholder: '给我的文章加点评论吧~',
+        placeholder: '欢迎发表您的见解哟~',
         recordIP: true
     });
     const infoEle = document.querySelector('#vcomments .info');
@@ -277,23 +265,10 @@
     <ul>
       <li>
         
-        
-        
-        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-        <span class="division">|</span>
-        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
-        
       </li>
     </ul>
     <ul>
       <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
         
       </li>
     </ul>
@@ -303,8 +278,6 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -422,7 +395,7 @@
 <script>
   try {
     var typed = new Typed("#subtitle", {
-      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      strings: ['因为热爱，所以专注，因为专注，所以坚持', '开心生活，努力工作，持续学习', '今天不努力，明天变垃圾！'],
       startDelay: 0,
       typeSpeed: 200,
       loop: true,
@@ -574,13 +547,17 @@
 
 <!-- busuanzi  -->
 
-
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
-
-
 <!-- ClickLove -->
 
+
+<script src="/js/clickLove.js"></script>
+
+
 <!-- ClickBoom -->
+
+
+<script src="/js/clickBoom.js"></script>
+
 
 <!-- CodeCopy -->
 
@@ -644,6 +621,23 @@
 
 
 
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
     
   </div>
 </body>
