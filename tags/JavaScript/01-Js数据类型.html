@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> Hexo</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="page-"
+  class="article article-type-page"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+       
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+</ul>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;  js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; &#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="number">10</span>);<span class="comment">//number</span></span><br><span class="line"><span class="comment">//typeof 返回的是一个字符串类型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (<span class="keyword">typeof</span> <span class="number">10</span>));<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="string">&#x27;hello&#x27;</span>);<span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">false</span>);<span class="comment">//boolean</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">undefined</span>);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo);<span class="comment">//function</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> []);<span class="comment">//object</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> &#123;&#125;);<span class="comment">//object</span></span><br><span class="line"><span class="comment">// typeof不仅可以检测单个值，加小括号可以检测表达式</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> (<span class="number">10</span> + <span class="string">&#x27;10&#x27;</span>));<span class="comment">//string</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+</ul>
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的 <code>prototype</code> 属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> <span class="built_in">Function</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(foo <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;10&#x27;</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> <span class="built_in">String</span>()</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>);<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(b <span class="keyword">instanceof</span> <span class="built_in">String</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Array</span>);<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\&quot;</code> 表示 <code>&quot;</code></li>
+<li><code>\&#39;</code> 表示 <code>&#39;</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var str1 = &#x27;1；23&#x27;;</span><br><span class="line">  var str2 = &#x27;小艾 同学&#x27;;</span><br><span class="line">  var str3 = &#x27;ab,cd&#x27;;</span><br><span class="line"></span><br><span class="line">  // 注意：</span><br><span class="line">  // 中文、英文字母、数字都占一个字符</span><br><span class="line">  // 中英文标点符号都占一个字符</span><br><span class="line">  // 空格也占一个字符</span><br><span class="line">  console.log(str1.length);//4</span><br><span class="line">  console.log(str2.length);//5</span><br><span class="line">  console.log(str3.length);//5</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串 + 任意数据类型 = 拼接之后的新字符串;</span><br></pre></td></tr></table></figure>
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="built_in">console</span>.log(<span class="number">10</span> + <span class="literal">null</span>);<span class="comment">//10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">10</span> + <span class="literal">true</span>);<span class="comment">//11</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//当加号的左侧或右侧为一个字符串类型时，就会作为连接符</span></span><br><span class="line">  <span class="comment">//将任何数据类型都转为字符串，在返回拼接后的新字符串</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;10&#x27;</span> + <span class="literal">null</span>);<span class="comment">//10null</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">true</span> + <span class="string">&#x27;10&#x27;</span>);<span class="comment">//true10</span></span><br><span class="line"><span class="comment">//复杂数据类型也会隐式转换为字符串哦</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;小艾同学&#x27;</span> + &#123;&#125;);<span class="comment">//小艾同学[object Object]</span></span><br></pre></td></tr></table></figure>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串与变量拼接</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="comment">// 要想在字符串中插入一个变量，就不能让该变量暴露在引号中</span></span><br><span class="line"><span class="comment">//可以用引引加加口诀， &#x27;+a+&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;小艾同学a分&#x27;</span>);<span class="comment">//小艾同学a分</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;小艾同学&#x27;</span> + a + <span class="string">&#x27;分&#x27;</span>);<span class="comment">//小艾同学100分</span></span><br></pre></td></tr></table></figure>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>$&#123;&#125;</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">`小<span class="subst">$&#123;a&#125;</span>艾同<span class="subst">$&#123;b&#125;</span>学`</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> str= <span class="string">&#x27;123456&#x27;</span>;</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">let</span> char <span class="keyword">of</span> str)&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;字符：&quot;</span>+char);</span><br><span class="line"> <span class="comment">// 字符：1</span></span><br><span class="line"> <span class="comment">// 字符：2</span></span><br><span class="line"> <span class="comment">// 字符：3</span></span><br><span class="line"> <span class="comment">// 字符：4</span></span><br><span class="line"> <span class="comment">// 字符：5</span></span><br><span class="line"> <span class="comment">// 字符：6</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">0x9</span>;<span class="comment">//前面加0x就是十六进制</span></span><br><span class="line">    <span class="keyword">var</span> num1 = <span class="number">07</span>;<span class="comment">//前面加0代表八进制</span></span><br><span class="line">    <span class="keyword">var</span> num2 = <span class="number">2e8</span>;<span class="comment">//e表示科学计数法次幂</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(num);<span class="comment">//9</span></span><br><span class="line">    <span class="built_in">console</span>.log(num1);<span class="comment">//7</span></span><br><span class="line">    <span class="built_in">console</span>.log(num2);<span class="comment">//1.7976931348623157e+308</span></span><br><span class="line">    <span class="comment">// Number最大范围</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE);<span class="comment">//1.7976931348623157e+308</span></span><br><span class="line">    <span class="comment">// Number最小范围</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_VALUE);<span class="comment">//5e-324</span></span><br><span class="line">    <span class="comment">// 无穷大Infinity</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE * <span class="number">2</span>);<span class="comment">//Infinity</span></span><br><span class="line">    <span class="comment">// 无穷小-Infinity</span></span><br><span class="line">    <span class="built_in">console</span>.log(-<span class="built_in">Number</span>.MAX_VALUE * <span class="number">2</span>);<span class="comment">//-Infinity</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&display=inline&height=667&margin=%5Bobject%20Object%5D&originHeight=667&originWidth=859&size=0&status=done&style=none&width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// NaN不等于任何</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">NaN</span> == <span class="literal">NaN</span>);<span class="comment">//false</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">NaN</span> =-= <span class="literal">NaN</span>);<span class="comment">//false</span></span><br><span class="line">  <span class="comment">// 返回NaN的情况</span></span><br><span class="line">  <span class="comment">// 1.字符串计算</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a&#x27;</span> - <span class="number">1</span>);<span class="comment">//NaN</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2.类型转换时开头有无法转换成数字的值</span></span><br><span class="line">  <span class="comment">// 不能转换的一定要在开头</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;1a&#x27;</span>));<span class="comment">//1</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">&#x27;a1&#x27;</span>));<span class="comment">//NaN</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>());<span class="comment">//NaN</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">&#x27;x&#x27;</span>));<span class="comment">//NaN</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="string">&#x27;x&#x27;</span>));<span class="comment">//NaN</span></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// isNaN()，判断传入的参数是否为NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 只有0/0会返回true，其他任何数值都是false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">0</span> / <span class="number">0</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">0</span> / <span class="number">1</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">1</span> / <span class="number">0</span>)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="number">10</span>)); <span class="comment">//false（ 10 是一个数值）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//能转为数字的别的类型也会返回false,无法转换的返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">&quot;10&quot;</span>)); <span class="comment">//false（可以被转换成数值 10）</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">&quot;a10&quot;</span>)); <span class="comment">//true（可以被转换成数值 10）</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">&quot;hello&quot;</span>)); <span class="comment">//true（不能转换成数值）</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">true</span>)); <span class="comment">//false（可以被转换成数值 1）</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a target="_blank" rel="noopener" href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">//0.30000000000000004</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span>);<span class="comment">//false ---&gt; 布尔类型</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span>);<span class="comment">//false ---&gt; 字符串类型</span></span><br></pre></td></tr></table></figure>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>); <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  // 变量声明了未赋值，返回的即使undefined</span><br><span class="line">  var a;</span><br><span class="line">  console.log(a);//undefined</span><br><span class="line">  </span><br><span class="line">  // 检测undefined类型</span><br><span class="line">  console.log(typeof undefined);//undefined</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// null与undefined</span><br><span class="line">console.log(null == undefined);//ture</span><br><span class="line">console.log(null === undefined);//false</span><br><span class="line"></span><br><span class="line">// 计算</span><br><span class="line">console.log(1 + null);//1</span><br><span class="line">console.log(1 + undefined);//NaN</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&display=inline&height=954&margin=%5Bobject%20Object%5D&originHeight=954&originWidth=1713&size=0&status=done&style=none&width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  var a = 10;</span><br><span class="line">  var b = a;</span><br><span class="line">  b = 20;</span><br><span class="line"></span><br><span class="line">  var arr = [&#x27;小&#x27;,&#x27;艾&#x27;,&#x27;同学&#x27;];</span><br><span class="line">  var arr1 = arr;</span><br><span class="line">  arr1.push(&#x27;666&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  // 基本数据类型复制后，改变复制的变量，原值不受影响</span><br><span class="line">  console.log(a);//10</span><br><span class="line">  console.log(b );//20</span><br><span class="line"></span><br><span class="line">  // 引用类型复制后，改变复制的变量，原值也会跟着改变</span><br><span class="line">  console.log(arr);//[&#x27;小&#x27;,&#x27;艾&#x27;,&#x27;同学&#x27;,&#x27;666&#x27;]</span><br><span class="line">  console.log(arr1);//[&#x27;小&#x27;,&#x27;艾&#x27;,&#x27;同学&#x27;,&#x27;666&#x27;]</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&display=inline&height=1214&margin=%5Bobject%20Object%5D&originHeight=1214&originWidth=2880&size=0&status=done&style=none&width=2880"></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/tags/JavaScript/01-Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+    
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+      <li>
+          <img src="/images/beian.png"></img>
+          <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123" target="_black" rel="nofollow">浙公网安备01234567890123号</a>
+      </li>
+        
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src=''></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
