@@ -154,7 +154,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>手写Promise</title>
     <url>/2021/08/04/%E6%89%8B%E5%86%99Promise/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
 <p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p>
@@ -293,5 +293,12 @@ dfd.reject = reject;
 
 <p>完结啦~</p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>专题</tag>
+      </tags>
   </entry>
 </search>
