@@ -1,6 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2021/08/02/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>浏览器事件环EventLoop</title>
+    <url>/2021/08/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E7%8E%AFEventLoop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p> 进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+<p> 后端代码都是采用多进程</p>
+<p>线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
+<ol>
+<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
+</li>
+<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
+</li>
+<li><p>事件触发线程 EventLoop</p>
+</li>
+<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
+</li>
+</ol>
+<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
+<li>宏任务<ul>
+<li> &lt;执行脚本 script&gt;</li>
+<li>setTimeout </li>
+<li>setInterval </li>
+<li>setImmediate </li>
+<li>事件</li>
+<li>ajax </li>
+<li> MessageChannel (I/O)</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>微任务</p>
+<ul>
+<li><p>promise</p>
+</li>
+<li><p>MutationObserer（监视DOM树的变化）</p>
+</li>
+<li><p>node中的process.nextTick</p>
+</li>
+</ul>
+</li>
+<li><p>渲染有关</p>
+<ul>
+<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
+<li> requestIDleCallback 空闲时间执行 </li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>总结</p>
+<ol>
+<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
+</li>
+<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
+</li>
+<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
+</li>
+<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
+</li>
+<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
+</li>
+<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
+<p>​    </p>
+</li>
+</ol>
+</li>
+</ol>
+<p>画图功底有限…</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png"></p>
+<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1："><a href="#案例1：" class="headerlink" title="案例1："></a>案例1：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.style.background = <span class="string">&#x27;red&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">document</span>.body.style.background = <span class="string">&#x27;green&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">  <span class="built_in">document</span>.body.style.background = <span class="string">&#x27;yellow&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
+<h3 id="案例2："><a href="#案例2：" class="headerlink" title="案例2："></a>案例2：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">&quot;btn&quot;</span>&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;micro task1&#x27;</span>))</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;click1&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;micro task2&#x27;</span>))</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;click2&#x27;</span>);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
+<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
+<h3 id="案例3："><a href="#案例3：" class="headerlink" title="案例3："></a>案例3：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">&quot;btn&quot;</span>&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="comment">// 3</span></span><br><span class="line">  btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;micro task1&#x27;</span>))</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;click1&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;micro task2&#x27;</span>))</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;click2&#x27;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  btn.click()</span><br></pre></td></tr></table></figure>
+
+<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
+<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
+<h3 id="案例4："><a href="#案例4：" class="headerlink" title="案例4："></a>案例4：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Promise1&#x27;</span>)</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;setTimeout2&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;setTimeout1&#x27;</span>);</span><br><span class="line">  <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Promise2&#x27;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
+<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
+<ol>
+<li><p>第一轮先将栈里的任务分别放入</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
+</li>
+<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
+</li>
+<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
+</li>
+</ol>
+<h3 id="案例5："><a href="#案例5：" class="headerlink" title="案例5："></a>案例5：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">async</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">6</span>);</span><br><span class="line">  resolve(<span class="number">7</span>)</span><br><span class="line">&#125;)</span><br><span class="line">promise.then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">async</span>();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码执行结果是：16238745</p>
+<p>原因是：</p>
+<ol>
+<li><p>解释async…await</p>
+<ol>
+<li><p>async 执行后返回的是一个promise</p>
+</li>
+<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
+<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
+</li>
+</ol>
+</li>
+<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
+</li>
+<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
+</li>
+<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
+</li>
+<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
+</li>
+<li><p>继续执行微任务7then，打印7</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
+</li>
+<li><p>继续执行微任务4then，打印4</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
+</li>
+<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
+</li>
+<li><p>此时宏任务，微任务全部清空，程序结束</p>
+</li>
+</ol>
+<h3 id="案例6："><a href="#案例6：" class="headerlink" title="案例6："></a>案例6：</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">4</span>);</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">5</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上述打印结果为0,1,2,3,4,5</p>
+<p>原因是</p>
+<ol>
+<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
+</li>
+<li><p>将then0和then1放入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
+</li>
+<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
+</li>
+<li><p>执行then1打印，将then2压入栈中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
+</li>
+<li><p>由于return一个promise的特性，then会延迟执行</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
+</li>
+<li><p>执行then2打印then2，将then3压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
+</li>
+<li><p>执行then，将4传入then中，将then4压入队列</p>
+</li>
+<li><p>执行then3，打印3，将then5压入队列中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
+</li>
+<li><p>依次执行，打印4,5，程序结束</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01-我的足迹</title>
+    <url>/2021/08/03/01-%E6%88%91%E7%9A%84%E8%B6%B3%E8%BF%B9/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg"></p>
+<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
+]]></content>
+      <categories>
+        <category>旅行</category>
+      </categories>
+      <tags>
+        <tag>旅行</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>01-Js数据类型</title>
     <url>/2021/08/03/01-Js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
@@ -121,37 +325,6 @@
       <tags>
         <tag>JavaScript</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>01-我的足迹</title>
-    <url>/2021/08/03/01-%E6%88%91%E7%9A%84%E8%B6%B3%E8%BF%B9/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg"></p>
-<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
-]]></content>
-      <categories>
-        <category>旅行</category>
-      </categories>
-      <tags>
-        <tag>旅行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/08/02/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>手写Promise</title>
