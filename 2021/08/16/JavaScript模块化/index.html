@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>JavaScript模块化 |  Hexo</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-JavaScript模块化"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  JavaScript模块化
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/08/16/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96/" class="article-date">
+  <time datetime="2021-08-16T09:46:42.594Z" itemprop="datePublished">2021-08-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">11 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
+<ul>
+<li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构； </li>
+<li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li>
+<li>也可以通过某种方式，导入另外模块中的变量、函数、对象等；</li>
+</ul>
+<p>按照这种结构划分开发程序的过程，就是模块化开发的过程</p>
+<h2 id="二、没有模块化带来的问题"><a href="#二、没有模块化带来的问题" class="headerlink" title="二、没有模块化带来的问题"></a>二、没有模块化带来的问题</h2><ol>
+<li>污染全局作用域</li>
+<li>开发人员必须主观解决模块和代码库的依赖关系</li>
+<li>文件只能按照script标签的书写顺序进行加载</li>
+<li>在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪</li>
+</ol>
+<p>开发项目时，aaa和bbb给变量命名的时候都命名为<code>flag</code>，在index引入时根据<code>flag</code>的值作相应逻辑，这时候会因为命名冲突产生报错，<code>flag</code>会因为引入文件的顺序而产生不确定性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// aaa.js</span></span><br><span class="line"><span class="keyword">let</span> flag = <span class="literal">true</span></span><br><span class="line">·</span><br><span class="line"><span class="comment">// bbb.js</span></span><br><span class="line"><span class="keyword">let</span> flag = fals</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629107910242-1629107910236.png"></p>
+<h2 id="三、模块化方案"><a href="#三、模块化方案" class="headerlink" title="三、模块化方案"></a>三、模块化方案</h2><h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><p>CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了<br>体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS</p>
+<p>CommonJS规范的核心变量：exports、module.exports、require；</p>
+<p>exports和module.exports可以负责对模块中的内容进行导出； </p>
+<p>require函数负责导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</p>
+<h4 id="1-exports"><a href="#1-exports" class="headerlink" title="1.exports"></a>1.exports</h4><p>exports是一个对象，在这个对象中添加很多个属性，添加的属性会导出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">id</span>:<span class="number">757</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Hello &quot;</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 挂载到对象可以使用别名</span></span><br><span class="line"><span class="built_in">exports</span>.ageAlias = age</span><br><span class="line"><span class="built_in">exports</span>.obj = obj</span><br><span class="line"><span class="built_in">exports</span>.sayHello = sayHello</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo =  <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>)</span><br><span class="line">foo.ageAlias = <span class="number">99</span></span><br><span class="line"><span class="built_in">console</span>.log(foo.ageAlias);</span><br><span class="line"><span class="built_in">console</span>.log(foo.obj);</span><br><span class="line">foo.sayHello(<span class="string">&#x27;loveZero&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="思考：exports导出在内存如何体现"><a href="#思考：exports导出在内存如何体现" class="headerlink" title="思考：exports导出在内存如何体现"></a>思考：exports导出在内存如何体现</h5><ol>
+<li>1s后在foo.js中修改age值，2s后在bar里打印，值为修改后的值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">exports</span>.age = <span class="number">23</span>;</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.age = age</span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;bar---age&#x27;</span>, foo.age); <span class="comment">// 18</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;bar---age&#x27;</span>, foo.age); <span class="comment">// 23</span></span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>1s后再bar里修改age的值，2s后再foo里打印age为bar修改后的值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;foo---age&#x27;</span>, <span class="built_in">exports</span>.age); <span class="comment">// 99</span></span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.age = age</span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  foo.age = <span class="number">99</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>结论</li>
+</ol>
+<p>exports导出的对象和require接受的对象指向统一引用地址</p>
+<p>相当于一个浅拷贝，本质是引用赋值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629185027808-1629185027801.png"></p>
+<h4 id="2-module-exports"><a href="#2-module-exports" class="headerlink" title="2.module.exports"></a>2.module.exports</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">id</span>: <span class="number">757</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Hello &quot;</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="attr">ageAlias</span>: age,</span><br><span class="line">  obj,</span><br><span class="line">  sayHello</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;bar---obj&#x27;</span>, foo.obj);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;bar---age&#x27;</span>, foo.ageAlias);</span><br><span class="line">foo.sayHello(<span class="string">&#x27;loveZero&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="思考：exports和module-exports区别"><a href="#思考：exports和module-exports区别" class="headerlink" title="思考：exports和module.exports区别"></a>思考：exports和module.exports区别</h5><p>先打印一下他们是否相等</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(&#123;&#125; === &#123;&#125;); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">exports</span> === <span class="built_in">module</span>.exports); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>两个对象<code>===</code>，说明他们指向统一引用地址，就是赋值关系</p>
+<p>是exports赋值给module.exports还是module.exports赋值给exports呢？需要进一步验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;module.exports&#x27;</span>, <span class="built_in">module</span>.exports); <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;exports&#x27;</span>, <span class="built_in">exports</span>); <span class="comment">// &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; age &#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="attr">name</span>: <span class="string">&#x27;loveZero&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;module.exports&#x27;</span>, <span class="built_in">module</span>.exports);  <span class="comment">// &#123; name: &#x27;loveZero&#x27; &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;exports&#x27;</span>, <span class="built_in">exports</span>); <span class="comment">// &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>, foo) <span class="comment">// &#123; name: &#x27;loveZero&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过上述代码可以看出，module.exports和exports初始值都是空对象，通过module.exports导出age后，改变module.exports的值，之后打印exports的值仍为空对象，bar中引入的值是module.exports的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;module.exports&#x27;</span>, <span class="built_in">module</span>.exports); <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;exports&#x27;</span>, <span class="built_in">exports</span>); <span class="comment">// &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.age = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span> = &#123; <span class="attr">name</span>: <span class="string">&#x27;loveZero&#x27;</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;module.exports&#x27;</span>, <span class="built_in">module</span>.exports);  <span class="comment">// &#123; age: 200 &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;exports&#x27;</span>, <span class="built_in">exports</span>); <span class="comment">// &#123; name: &#x27;loveZero&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;foo&#x27;</span>, foo) <span class="comment">// &#123; age: 200 &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>通过上述验证可以看到，module.exports和exports初始值都是空对象，通过exports将age导出后，修改exports的值，此时module.exports的值为<code>&#123; age: 200 &#125;</code>，exports的值为<code>&#123; name: &#39;loveZero&#39; &#125;</code> ，bar中引用的值是module.exports的值</p>
+<h6 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h6><ol>
+<li>module.exports 初始值为一个空对象 {}</li>
+<li>exports 是指向的 module.exports 的引用</li>
+<li>require导出的内容是module.exports的指向的内存块内容，并不是exports的。</li>
+</ol>
+<h4 id="3-require"><a href="#3-require" class="headerlink" title="3.require"></a>3.require</h4><p>require是一个函数，可以帮助我们引入一个文件（模块）中导入的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;X&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-查找路径"><a href="#1-查找路径" class="headerlink" title="1. 查找路径"></a>1. 查找路径</h5><h6 id="1-X是一个核心模块"><a href="#1-X是一个核心模块" class="headerlink" title="1. X是一个核心模块"></a>1. X是一个核心模块</h6><p> 直接返回核心模块，并且停止查找</p>
+<h6 id="2-X是一个以-或-或根目录开头的"><a href="#2-X是一个以-或-或根目录开头的" class="headerlink" title="2.X是一个以./或../或根目录开头的"></a>2.X是一个以./或../或根目录开头的</h6><p> 第一步：将X当做一个文件在对应的目录下查找；</p>
+<ol>
+<li><p>如果有后缀名，按照后缀名的格式查找对应的文件 </p>
+</li>
+<li><p>如果没有后缀名，会按照如下顺序： </p>
+<ol>
+<li>直接查找文件X </li>
+<li>查找X.js文件 </li>
+<li>查找X.json文件 </li>
+<li>查找X.node文件</li>
+</ol>
+</li>
+</ol>
+<p>第二步：没有找到对应的文件，将X作为一个目录</p>
+<p> 查找目录下面的index文件 </p>
+<ol>
+<li>查找X/index.js文件</li>
+<li>查找X/index.json文件</li>
+<li>查找X/index.node文件</li>
+</ol>
+<p>如果没有找到，那么报错：not found</p>
+<h6 id="3-直接是一个X（没有路径），并且X不是一个核心模块"><a href="#3-直接是一个X（没有路径），并且X不是一个核心模块" class="headerlink" title="3.直接是一个X（没有路径），并且X不是一个核心模块"></a>3.直接是一个X（没有路径），并且X不是一个核心模块</h6><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629188758555-1629188758546.png"></p>
+<p> 如果上面的路径中都没有找到，那么报错：not found</p>
+<h5 id="2-模块的加载过程"><a href="#2-模块的加载过程" class="headerlink" title="2.模块的加载过程"></a>2.模块的加载过程</h5><h6 id="模块在被第一次引入时，模块中的js代码会被运行一次"><a href="#模块在被第一次引入时，模块中的js代码会被运行一次" class="headerlink" title="模块在被第一次引入时，模块中的js代码会被运行一次"></a>模块在被第一次引入时，模块中的js代码会被运行一次</h6><h6 id="模块被多次引入时，会缓存，最终只加载（运行）一次"><a href="#模块被多次引入时，会缓存，最终只加载（运行）一次" class="headerlink" title="模块被多次引入时，会缓存，最终只加载（运行）一次"></a>模块被多次引入时，会缓存，最终只加载（运行）一次</h6><p>当模块被引用后，module中的loaded属性会改为true，会缓存起来，该模块再次被引用时，将不再重新加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629190140490-1629190140472.png"></p>
+<h6 id="如果有循环引入，使用深度优先算法"><a href="#如果有循环引入，使用深度优先算法" class="headerlink" title="如果有循环引入，使用深度优先算法"></a>如果有循环引入，使用深度优先算法</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// aaa.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;aaa&#x27;</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./ccc&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// bbb.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;bbb&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./ccc&#x27;</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./eee&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ccc.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ccc&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./ddd&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ddd.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ddd&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./eee&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// eee.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;eee&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;main&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./aaa&#x27;</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;./bbb&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// main</span></span><br><span class="line"><span class="comment">// aaa</span></span><br><span class="line"><span class="comment">// ccc</span></span><br><span class="line"><span class="comment">// ddd</span></span><br><span class="line"><span class="comment">// eee</span></span><br><span class="line"><span class="comment">// bbb</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629189768881-1629189768875.png"></p>
+<h4 id="4-特点"><a href="#4-特点" class="headerlink" title="4.特点"></a>4.特点</h4><ol>
+<li>CommonJS模块加载js文件的过程是运行时加载的，并且是同步的<ol>
+<li>一个文件没有加载结束之前，后面的代码都不会执行</li>
+</ol>
+</li>
+<li>导出的是一个对象<ol>
+<li>导出的和引入的指向都是同一个对象，所以一个变量修改了对象的属性，所有的地方都会被修改</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">exports</span>.age = age</span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> foo = <span class="built_in">require</span>(<span class="string">&#x27;./foo&#x27;</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(foo);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;后面的代码&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="2-ES-Module"><a href="#2-ES-Module" class="headerlink" title="2.ES Module"></a>2.ES Module</h3><p>基本使用：</p>
+<ol>
+<li>普通script标签执行顺序与书写顺序有关，而加上<code>type=&quot;module&quot;</code>后，script将为异步引入，不会阻塞后面的标签</li>
+<li>export 导出模块</li>
+<li>import 导入模块</li>
+</ol>
+<h4 id="1-export"><a href="#1-export" class="headerlink" title="1.export"></a>1.export</h4><p>第一种导出方式：在语句声明的前面直接加上export关键字</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html</span></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./index.js&quot;</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./normal.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; name, age, sayHello &#125; <span class="keyword">from</span> <span class="string">&#x27;./modules/bar.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="built_in">console</span>.log(age);</span><br><span class="line">sayHello(<span class="string">&#x27;hah&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> name = <span class="string">&quot;loveZero&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;你好&quot;</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控制台结果为</span></span><br><span class="line">我是普通的script标签</span><br><span class="line">loveZero</span><br><span class="line"><span class="number">18</span></span><br><span class="line">你好hah</span><br></pre></td></tr></table></figure>
+
+<p>第二种导出方式：将所有需要导出的标识符，放到export后面的 {}中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&quot;loveZero&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;你好&quot;</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  <span class="comment">// 可以给导出的变量起别名，使用时也需要使用别名</span></span><br><span class="line">  name <span class="keyword">as</span> nameAlias,</span><br><span class="line">  age,</span><br><span class="line">  sayHello</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong style="color:red;">注意</strong>:这里的 {}不是表示对象</p>
+<h4 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h4><p>第一种导出方式：import {标识符列表} from ‘模块’</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以通过as 起别名</span></span><br><span class="line"><span class="keyword">import</span> &#123; nameAlias, age <span class="keyword">as</span> ageAlias, sayHello &#125; <span class="keyword">from</span> <span class="string">&#x27;./modules/bar.js&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>第二种导出方式：通过 * 将模块功能放到一个模块功能对象（a module object）上</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> foo <span class="keyword">from</span> <span class="string">&#x27;./modules/bar.js&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(foo.age);</span><br><span class="line"><span class="built_in">console</span>.log(foo.nameAlias);</span><br><span class="line">foo.sayHello(<span class="string">&#x27;???&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-export和import混用"><a href="#3-export和import混用" class="headerlink" title="3.export和import混用"></a>3.export和import混用</h4><p>这里相当于是引入了bar里的age，同时导出了age</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">export</span> &#123; age &#125; <span class="keyword">from</span> <span class="string">&#x27;./bar.js&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>使用场景：</p>
+<p>在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中，这样方便指定统一的接口规范，也方便阅读</p>
+<h4 id="4-default"><a href="#4-default" class="headerlink" title="4.default"></a>4.default</h4><p>默认导出:</p>
+<ul>
+<li><p>默认导出export时可以不需要指定名字；</p>
+</li>
+<li><p>在导入时不需要使用 {}，并且可以自己来指定名字</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fun.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;do something&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> fun <span class="keyword">from</span> <span class="string">&#x27;./modules/fun.js&#x27;</span></span><br><span class="line">fun()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-import函数"><a href="#5-import函数" class="headerlink" title="5.import函数"></a>5.import函数</h4><p> 不可以在逻辑代码中使用import加载模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; age &#125; <span class="keyword">from</span> <span class="string">&#x27;./modules/bar.js&#x27;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(age);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629268467258-1629268467253.png"></p>
+<p>因为ES Module在被JS引擎解析时，就必须知道它的依赖关系</p>
+<p>可以通过import函数进行动态加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./modules/bar.js&#x27;</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;在then中的打印&quot;</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(res.age);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(err);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-特点"><a href="#6-特点" class="headerlink" title="6.特点"></a>6.特点</h4><ol>
+<li><p> ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p>
+</li>
+<li><p>ES Module是静态解析的，而不是动态或者运行时解析的</p>
+</li>
+<li><p>ES Module通过export导出的是变量本身的引用</p>
+<ol>
+<li> export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li>
+<li>模块环境记录会和变量进行 绑定（binding），并且这个绑定是实时的</li>
+<li>在导入的地方，可以实时的获取到绑定的最新值</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  age = <span class="number">999</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  age,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; age &#125; <span class="keyword">from</span> <span class="string">&#x27;./foo.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(age); <span class="comment">// 999</span></span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li> 在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// foo.js</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(age); <span class="comment">// 18</span></span><br><span class="line">&#125;, <span class="number">2000</span>)</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  age,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; age &#125; <span class="keyword">from</span> <span class="string">&#x27;./foo.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  age = <span class="number">999</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<p>无法修改且会报错</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629269598906-1629269598890.png"></p>
+<p>内存里大概是这个样子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629270422607-1629270422597.png"></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/08/16/JavaScript%E6%A8%A1%E5%9D%97%E5%8C%96/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2021/08/06/Node/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2019-2021
+        <i class="ri-heart-fill heart_icon"></i> LoveZero
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src=''></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/zfb.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wx.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+ 
+<script src="/js/dz.js"></script>
+ 
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=579954&auto=1&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+    
+
+  </div>
+</body>
+
+</html>
