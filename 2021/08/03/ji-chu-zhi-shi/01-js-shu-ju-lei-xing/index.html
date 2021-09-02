@@ -4,18 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Node中的内置模块, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="01-Js数据类型, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="Node中的内置模块一、path从路径中获取信息
-dirname：获取文件的父文件夹
-basename：获取文件名
-extname：获取文件扩展名
-
-const path = require(&#39;path&#39;);
-// 1.获取路径的信息
-co">
+    <meta name="description" content="一、为什么要区分不同的数据类型在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。
+二、JS中一共有七种数据类型
+基本数据类型（值类型）：String 字符串、Nu">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@ co">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Node中的内置模块 | 小艾同学的博客</title>
+    <title>01-Js数据类型 | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -75,7 +70,7 @@ co">
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/blog/atom.xml" title="小艾同学的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="小艾同学的博客" type="application/atom+xml">
 </head>
 
 <body>
@@ -84,7 +79,7 @@ co">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/blog/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
                     <img src="/medias/my.png" class="logo-img" alt="LOGO">
                     
@@ -307,13 +302,13 @@ co">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Node中的内置模块
+                        01-Js数据类型
                     </div>
                 </div>
             </div>
@@ -424,12 +419,8 @@ co">
                     
                     <div class="article-tag">
                         
-                        <a href="/blog/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
-                            <span class="chip bg-color">学习</span>
-                        </a>
-                        
-                        <a href="/blog/tags/Node/" target="_blank">
-                            <span class="chip bg-color">Node</span>
+                        <a href="/tags/JavaScript/" target="_blank">
+                            <span class="chip bg-color">JavaScript</span>
                         </a>
                         
                     </div>
@@ -440,7 +431,7 @@ co">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                             学习
                         </a>
                         
@@ -452,7 +443,7 @@ co">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-18
+                    2021-08-03
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -466,14 +457,14 @@ co">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
                 
@@ -489,403 +480,248 @@ co">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
-<li>dirname：获取文件的父文件夹</li>
-<li>basename：获取文件名</li>
-<li>extname：获取文件扩展名</li>
+                <h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
 </ul>
-<pre><code class="js">const path = require('path');
-// 1.获取路径的信息
-const filepath = '/User/loveZero/abc.txt';
-
-console.log(path.dirname(filepath)); // /User/loveZero
-console.log(path.basename(filepath)); // abc.txt
-console.log(path.extname(filepath)); // .txt
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
 </code></pre>
-<h3 id="路径拼接"><a href="#路径拼接" class="headerlink" title="路径拼接"></a>路径拼接</h3><h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>只是拼接各个path片段</p>
-<pre><code class="js">const basepath = '../User/loveZero';
-const filename = './abc.txt';
-
-const filepath1 = path.join(basepath, filename);
-console.log(filepath1); // ..\User\loveZero\abc.txt
-</code></pre>
-<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h4><p>会判断拼接的路径字符串中,是否有以/或./或../开头的路径</p>
-<p>有的话就返回一个以相对于当前的工作目录（working directory）的绝对路径。</p>
-<ol>
-<li>参数从后向前，若字符以 / 开头，不会拼接到前面的路径；</li>
-<li>若以 ../ 开头，拼接前面的路径，但是不含前面一节的最后一层路径；</li>
-<li>若以 ./ 开头 或者没有符号 则拼接前面路径</li>
-</ol>
-<pre><code class="js">const basepath = '../User/loveZero';
-const filename = './abc.txt';
-const filepath2 = path.resolve(basepath, filename);
-console.log(filepath2); // c:\Users\loveZero\Desktop\my\User\loveZero\abc.txt
-</code></pre>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
-<li>join是把各个path片段连接在一起， resolve把‘／’当成根目录</li>
-<li>resolve在传入的第一参数为非根路径时，会返回一个带当前目录路径的绝对路径。</li>
-</ol>
-<pre><code class="js">console.log(path.resolve()) // c:\Users\loveZero\Desktop\my\study-demo
-console.log(path.resolve('')) // c:\Users\loveZero\Desktop\my\study-demo
-console.log(path.resolve(__dirname)) // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
-console.log(path.resolve('/img/books', '/net'))   // c:\net
-console.log(path.resolve('img/books', '/net'))    // c:\net
-console.log(path.resolve('img/books', './net'))   // c:\Users\loveZero\Desktop\my\study-demo\img\books\net
-console.log(path.resolve('/img/books', './net'))   // c:\img\books\net
-console.log(path.resolve('/img/books', 'net'))     // c:\img\books\net
-console.log(path.resolve('/img/books', '../net'))         // c:\img\net
-console.log(path.resolve('src', '/img/books', '../net'))   // c:\img\net
-console.log(path.resolve('src', './img/books', '../net'))   // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
-console.log(path.resolve('src', 'img/books', '../net'))     // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
-</code></pre>
-<pre><code class="js">console.log(path.join())           // .
-console.log(path.join(''))         // .
-console.log(path.join(__dirname))  // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
-console.log(path.join('/img/books', '/net'))   // \img\books\net
-console.log(path.join('img/books', '/net'))    // img\books\net
-console.log(path.join('img/books', './net'))   // img\books\net
-console.log(path.join('/img/books', './net'))   // \img\books\net
-console.log(path.join('/img/books', 'net'))     // \img\books\net
-console.log(path.join('/img/books', '../net'))         // \img\net
-console.log(path.join('src', '/img/books', '../net'))   // src\img\net
-console.log(path.join('src', './img/books', '../net'))   // src\img\net
-console.log(path.join('src', 'img/books', '../net'))     // src\img\net
-</code></pre>
-<h2 id="二、fs"><a href="#二、fs" class="headerlink" title="二、fs"></a>二、fs</h2><p>fs是File System的缩写，表示文件系统</p>
-<h3 id="1-获取文件状态"><a href="#1-获取文件状态" class="headerlink" title="1.获取文件状态"></a>1.获取文件状态</h3><h4 id="同步获取"><a href="#同步获取" class="headerlink" title="同步获取"></a>同步获取</h4><pre><code class="js">const fs = require('fs');
-const info = fs.statSync('./abc.txt');
-console.log(info);
-console.log("后续需要执行的代码");
-/**
- Stats {
-  dev: 3728757869,
-  mode: 33206,
-  nlink: 1,
-  uid: 0,
-  gid: 0,
-  rdev: 0,
-  blksize: 4096,
-  ino: 8725724278139394,
-  size: 3,
-  blocks: 0,
-  atimeMs: 1629275163060.15,
-  mtimeMs: 1629275163060.15,
-  ctimeMs: 1629275163060.15,
-  birthtimeMs: 1629275160923.6409,
-  atime: 2021-08-18T08:26:03.060Z,
-  mtime: 2021-08-18T08:26:03.060Z,
-  ctime: 2021-08-18T08:26:03.060Z,
-  birthtime: 2021-08-18T08:26:00.924Z
- }
-  后续需要执行的代码
- */
-</code></pre>
-<h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><pre><code class="js">fs.stat('./abc.txt', (err, info) =&gt; {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log(info);
-  // 判断是否是文件
-  console.log(info.isFile());
-  // 判断是否是文件夹
-  console.log(info.isDirectory());
-});
-console.log("后续需要执行的代码");
-/*
-后续需要执行的代码
-Stats {
-  dev: 3728757869,
-  mode: 33206,
-  nlink: 1,
-  uid: 0,
-  gid: 0,
-  rdev: 0,
-  blksize: 4096,
-  ino: 8725724278139394,
-  size: 3,
-  blocks: 0,
-  atimeMs: 1629275163060.15,
-  mtimeMs: 1629275163060.15,
-  ctimeMs: 1629275163060.15,
-  birthtimeMs: 1629275160923.6409,
-  atime: 2021-08-18T08:26:03.060Z,
-  mtime: 2021-08-18T08:26:03.060Z,
-  ctime: 2021-08-18T08:26:03.060Z,
-  birthtime: 2021-08-18T08:26:00.924Z
-}
-true
-false
-*/
-</code></pre>
-<h4 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h4><pre><code class="js">fs.promises.stat('./abc.txt').then(info =&gt; {
-  console.log(info);
-}).catch(err =&gt; {
-  console.log(err);
-});
-console.log("后续需要执行的代码");
-</code></pre>
-<h3 id="2-文件描述符"><a href="#2-文件描述符" class="headerlink" title="2.文件描述符"></a>2.文件描述符</h3><p><strong>文件描述符</strong>（file descriptor）在形式上是一个非负整数。实际上，它是一个索引值，每一个文件描述符会与一个打开文件相对应。</p>
-<p>每个打开的文件都分配了一个称为文件描述符的简单的数字标识符。</p>
-<p>在系统层，所有文件系统操作都使用这些文件描述符来标识和跟踪每个特定的文件</p>
-<pre><code class="js">const fs = require('fs');
-
-fs.open("./abc.txt", (err, fd) =&gt; {
-  if (err) {
-    console.log('err', err);
-    return;
-  }
-
-  console.log(fd);
-  //  fd就是文件描述符，一旦获得了文件描述符，就可以通过任何方式执行所需的所有操作
-  // 通过描述符去获取文件的信息
-  fs.fstat(fd, (err, info) =&gt; {
-    console.log(info);
-  })
-})
-</code></pre>
-<h3 id="3-文件读写"><a href="#3-文件读写" class="headerlink" title="3.文件读写"></a>3.文件读写</h3><h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629278489244-1629278489240.png"></p>
-<pre><code class="js">const fs = require('fs');
-
-fs.readFile("./abc.txt", 'utf-8', (err, data) =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.log(data)
-});
-</code></pre>
-<ol>
-<li>如果不指定encoding格式，默认将以<buffer>格式返回</buffer></li>
-<li>如果options是字符串格式，默认是encoding值</li>
-</ol>
-<h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><pre><code class="js">const fs = require('fs')
-
-const content = '一些内容'
-
-fs.writeFile('./abc.txt', content, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
-</code></pre>
-<p>将内容追加到文件末尾</p>
-<pre><code class="js">fs.appendFile('./abc.txt', content, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
-</code></pre>
-<h4 id="flag选项"><a href="#flag选项" class="headerlink" title="flag选项"></a>flag选项</h4><ul>
-<li>w打开文件写入，默认值；</li>
-<li>w+打开文件进行读写，如果不存在则创建文件；</li>
-<li>r+打开文件进行读写，如果不存在那么抛出异常；</li>
-<li>r打开文件读取，读取时的默认值；</li>
-<li>a打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；</li>
-<li>a+打开文件以进行读写，将流放在文件末尾。如果不存在则创建文件</li>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
 </ul>
-<pre><code class="js">fs.writeFile('./abc.txt', content, { flag: 'a+' }, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
 </code></pre>
-<h3 id="4-文件夹操作"><a href="#4-文件夹操作" class="headerlink" title="4.文件夹操作"></a>4.文件夹操作</h3><h4 id="1-判断文件夹是否存在"><a href="#1-判断文件夹是否存在" class="headerlink" title="1.判断文件夹是否存在"></a>1.判断文件夹是否存在</h4><p>方式一</p>
-<pre><code class="js">fs.existsSync('./loveZero')
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
 </code></pre>
-<p>方式二</p>
-<pre><code class="js">const dirname = './loveZero';
-// 检查文件是否存在于当前目录中。
-fs.access(dirname, fs.constants.F_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不存在' : '存在'}`);
-});
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
 
-// 检查文件是否可读。
-fs.access(dirname, fs.constants.R_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不可读' : '可读'}`);
-});
-
-// 检查文件是否可写。
-fs.access(dirname, fs.constants.W_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不可写' : '可写'}`);
-});
-
-// 检查文件是否存在于当前目录中、以及是否可写。
-fs.access(dirname, fs.constants.F_OK | fs.constants.W_OK, (err) =&gt; {
-  if (err) {
-    console.error(
-      `${dirname} ${err.code === 'ENOENT' ? '不存在' : '只可读'}`);
-  } else {
-    console.log(`${dirname} 存在，且可写`);
-  }
-});
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
 </code></pre>
-<h4 id="2-创建文件夹"><a href="#2-创建文件夹" class="headerlink" title="2.创建文件夹"></a>2.创建文件夹</h4><p>使用 <code>fs.mkdir()</code> 或 <code>fs.mkdirSync()</code> 可以创建新的文件夹。</p>
-<pre><code class="js">if (!fs.existsSync(dirname)) {
-  fs.mkdir(dirname, err =&gt; {
-    console.log(err);
-  });
-}
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
 </code></pre>
-<h4 id="3-读取目录内容"><a href="#3-读取目录内容" class="headerlink" title="3.读取目录内容"></a>3.读取目录内容</h4><pre><code class="js">const folderPath = '../fs'
-fs.readdir(folderPath, (err, files) =&gt; {
-  console.log(files);
-});
-/*
-[
-  '01-获取文件状态.js',
-  '02-文件描述符.js',
-  '03-文件读取.js',
-  '04-文件写入.js',
-  '05-文件夹操作.js',
-  'abc.txt',
-  'loveZero'
-]*/
-</code></pre>
-<p>递归遍历文件夹里的所有文件</p>
-<pre><code class="js">const fs = require('fs');
-const path = require('path');
-const dirname = './loveZero';
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
 
-function getFiles(dirname) {
-  fs.readdir(dirname, { withFileTypes: true }, (err, files) =&gt; {
-    for (let file of files) {
-      if (file.isDirectory()) {
-        const filepath = path.resolve(dirname, file.name);
-        getFiles(filepath);
-      } else {
-        console.log(file.name);
-      }
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
+</code></pre>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
+</code></pre>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
     }
-  });
-}
-
-getFiles(dirname);
-/*
-aaa.txt
-第二层aaa.txt
-第三层aaa.txt
-*/
 </code></pre>
-<h4 id="4-文件夹重命名"><a href="#4-文件夹重命名" class="headerlink" title="4.文件夹重命名"></a>4.文件夹重命名</h4><pre><code class="js">fs.rename('./oldName', './newName', err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-})
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
 </code></pre>
-<h4 id="5-文件夹删除"><a href="#5-文件夹删除" class="headerlink" title="5.文件夹删除"></a>5.文件夹删除</h4><p>安装<code>npm install fs-extra</code></p>
-<pre><code class="js">const fs = require('fs-extra')
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
 
-const folder = './newName'
-
-fs.remove(folder, err =&gt; {
-  console.error(err)
-})
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
 </code></pre>
-<p>递归删除非空文件夹</p>
-<pre><code class="js">function removeDir(dir) {
-  let files = fs.readdirSync(dir)
-  for (var i = 0; i &lt; files.length; i++) {
-    let newPath = path.join(dir, files[i]);
-    let stat = fs.statSync(newPath)
-    if (stat.isDirectory()) {
-      //如果是文件夹就递归下去
-      removeDir(newPath);
-    } else {
-      //删除文件
-      fs.unlinkSync(newPath);
-    }
-  }
-  fs.rmdirSync(dir)//如果文件夹是空的，就将自己删除掉
-}
-removeDir(folder);
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
 </code></pre>
-<h2 id="三、events"><a href="#三、events" class="headerlink" title="三、events"></a>三、events</h2><h3 id="1-监听和触发事件"><a href="#1-监听和触发事件" class="headerlink" title="1.监听和触发事件"></a>1.监听和触发事件</h3><p><code>emitter.on</code>和<code>emitter.addListener</code>监听事件</p>
-<p><code>emitter.emit</code>触发事件</p>
-<p>addListener是on的别名，没什么区别</p>
-<pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-// 监听某一个事件
-// addListener是on的alias简写
-emitter.on('click', (args) =&gt; {
-  console.log("click事件on监听", args);
-})
-
-emitter.addListener('click', (args) =&gt; {
-  console.log("click事件addListener监听", args);
-})
-
-setTimeout(() =&gt; {
-  emitter.emit("click", "loveZero");
-}, 1000);
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a target="_blank" rel="noopener" href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
 </code></pre>
-<h3 id="2-移除监听"><a href="#2-移除监听" class="headerlink" title="2.移除监听"></a>2.移除监听</h3><p><code>emitter.off</code>跟上对应的函数可以移除监听，<code>on</code>和<code>addListener</code>一样</p>
-<pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-function onClick(args) {
-  console.log("click事件on监听", args);
-}
-emitter.on('click', onClick)
-
-function addListenerClick(args) {
-  console.log("click事件addListener监听", args);
-
-}
-emitter.addListener('click', addListenerClick)
-
-setTimeout(() =&gt; {
-  emitter.emit("click", "loveZero");
-  // emitter.off("click", onClick);
-  // emitter.off("click", addListenerClick);
-  emitter.emit("click", "loveZero");
-}, 1000);
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
 </code></pre>
-<pre><code class="js">  // 移除所有对某一事件的监听
-  emitter.removeAllListeners('click')
-/*
-click事件on监听 loveZero
-click事件addListener监听 loveZero
-*/
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
 </code></pre>
-<h3 id="3-获取事件信息"><a href="#3-获取事件信息" class="headerlink" title="3.获取事件信息"></a>3.获取事件信息</h3><pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-function onClick(args) {
-  console.log("click事件on监听", args);
-}
-emitter.on('click', onClick)
-
-function addListenerClick(args) {
-  console.log("click事件addListener监听", args);
-}
-emitter.addListener('click', addListenerClick)
-
-emitter.on('input', (args) =&gt; {
-  console.log(args);
-})
-
-// 获取监听事件名
-console.log(emitter.eventNames()); // [ 'click', 'input' ]
-// 获取click事件监听的次数
-console.log(emitter.listenerCount("click")); // 2
-// 获取click事件监听函数
-console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: addListenerClick] ]
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
+      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
 </code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
 
             </div>
             <hr />
@@ -1044,9 +880,9 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Node中的内置模块》
+                    《01-Js数据类型》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/blog/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -1090,34 +926,33 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/2021/08/19/bao-guan-li-gong-ju/">
+                <a href="/2021/08/03/lu-xing/01-wo-de-zu-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="包管理工具">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="01-我的足迹">
                         
-                        <span class="card-title">包管理工具</span>
+                        <span class="card-title">01-我的足迹</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            包管理工具一、NpmNode Package Manager，就是Node包管理器
-1. npm管理的包存放在哪里发布包其实是发布到registry上面的；
-当我们安装一个包时其实是从registry上面下载的包；
-2. 项目配置文件 pa
+                            我的足迹
+旅行经历2021/4/26 - 2021/5/5 去了云南
+
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
-                                    学习
+                            <a href="/categories/%E6%97%85%E8%A1%8C/" class="post-category" target="_blank">
+                                    旅行
                                 </a>
                             
                             
@@ -1127,12 +962,8 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
-                        <span class="chip bg-color">学习</span>
-                    </a>
-                    
-                    <a href="/blog/tags/Node/" target="_blank">
-                        <span class="chip bg-color">Node</span>
+                    <a href="/tags/%E6%97%85%E8%A1%8C/" target="_blank">
+                        <span class="chip bg-color">旅行</span>
                     </a>
                     
                 </div>
@@ -1143,37 +974,35 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/08/16/javascript-mo-kuai-hua/">
+                <a href="/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="JavaScript模块化">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="01-Js数据类型">
                         
-                        <span class="card-title">JavaScript模块化</span>
+                        <span class="card-title">01-Js数据类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript模块化一、什么是模块化模块化开发最终的目的是将程序划分成一个个小的模块
-
-这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构； 
-这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；
-也可
+                            一、为什么要区分不同的数据类型在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。
+二、JS中一共有七种数据类型
+基本数据类型（值类型）：String 字符串、Nu
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                                     学习
                                 </a>
                             
@@ -1181,11 +1010,12 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -1340,7 +1170,7 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">16.4k</span>
+            <span class="white-color">16.3k</span>
             
 
             <br>
@@ -1385,7 +1215,7 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 
 
 
-    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fa fa-rss"></i>
     </a>
 </div>
@@ -1466,7 +1296,7 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/blog/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
     <!-- 回到顶部按钮 -->

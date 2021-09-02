@@ -4,11 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="浏览器事件环EventLoop, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="description" content="浏览器事件环EventLoop1.进程和“线程”  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）
+  后端代码都是采用多进程
+  线程 ： 常见的线程有哪些 (JS是单线程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | 小艾同学的博客</title>
+    <title>浏览器事件环EventLoop | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -68,7 +70,7 @@
 
 <meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/blog/atom.xml" title="小艾同学的博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="小艾同学的博客" type="application/atom+xml">
 </head>
 
 <body>
@@ -77,7 +79,7 @@
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
-                <a href="/blog/" class="waves-effect waves-light">
+                <a href="/" class="waves-effect waves-light">
                     
                     <img src="/medias/my.png" class="logo-img" alt="LOGO">
                     
@@ -300,13 +302,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        浏览器事件环EventLoop
                     </div>
                 </div>
             </div>
@@ -416,11 +418,28 @@
                 <div class="col s7">
                     
                     <div class="article-tag">
-                        <span class="chip bg-color">无标签</span>
+                        
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
+                            <span class="chip bg-color">学习</span>
+                        </a>
+                        
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" target="_blank">
+                            <span class="chip bg-color">浏览器</span>
+                        </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                            学习
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -428,7 +447,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-02
+                    2021-08-06
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -442,14 +461,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
                 
@@ -465,19 +484,235 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new "My New Post"
+                <h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+<p>  后端代码都是采用多进程</p>
+<p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
+<ol>
+<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
+</li>
+<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
+</li>
+<li><p>事件触发线程 EventLoop</p>
+</li>
+<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
+</li>
+</ol>
+<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
+<li><p>宏任务</p>
+<ul>
+<li>&lt;执行脚本 script&gt;</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+<li>事件</li>
+<li>ajax</li>
+<li>MessageChannel (I/O)</li>
+</ul>
+</li>
+<li><p>微任务</p>
+<ul>
+<li><p>promise</p>
+</li>
+<li><p>MutationObserer（监视DOM树的变化）</p>
+</li>
+<li><p>node中的process.nextTick</p>
+</li>
+</ul>
+</li>
+<li><p>渲染有关</p>
+<ul>
+<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
+<li>requestIDleCallback 空闲时间执行</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ol>
+<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
+</li>
+<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
+</li>
+<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
+</li>
+<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
+</li>
+<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
+</li>
+<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>画图功底有限…</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p>
+<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'
+    console.log(1);
+    setTimeout(() =&gt; {
+      document.body.style.background = 'green'
+      console.log(2);
+    }, 0)
+    Promise.resolve().then(() =&gt; {
+      console.log(3);
+      document.body.style.background = 'yellow'
+    })
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
+<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
+<h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    // 3
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+    btn.click()
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
+<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
+<h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log('Promise1')
+      setTimeout(() =&gt; {
+        console.log('setTimeout2')
+      }, 0);
+    })
+    setTimeout(() =&gt; {
+      console.log('setTimeout1');
+      Promise.resolve().then(() =&gt; {
+        console.log('Promise2')
+      })
+    }, 0);
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
+<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
+<ol>
+<li><p>第一轮先将栈里的任务分别放入</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
+</li>
+<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
+</li>
+<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
+</li>
+</ol>
+<h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);
+    async function async() {
+      console.log(2);
+      await console.log(3);
+      console.log(4)
+    }
+    setTimeout(() =&gt; {
+      console.log(5);
+    }, 0);
+    const promise = new Promise((resolve, reject) =&gt; {
+      console.log(6);
+      resolve(7)
+    })
+    promise.then(res =&gt; {
+      console.log(res)
+    })
+    async();
+    console.log(8);
+</code></pre>
+<p>上述代码执行结果是：16238745</p>
+<p>原因是：</p>
+<ol>
+<li><p>解释async…await</p>
+<ol>
+<li><p>async 执行后返回的是一个promise</p>
+</li>
+<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
+<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
+</li>
+</ol>
+</li>
+<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
+</li>
+<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
+</li>
+<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
+</li>
+<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
+</li>
+<li><p>继续执行微任务7then，打印7</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
+</li>
+<li><p>继续执行微任务4then，打印4</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
+</li>
+<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
+</li>
+<li><p>此时宏任务，微任务全部清空，程序结束</p>
+</li>
+</ol>
+<h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log(0);
+      return Promise.resolve(4);
+    }).then((res) =&gt; {
+      console.log(res)
+    })
+    Promise.resolve().then(() =&gt; {
+      console.log(1);
+    }).then(() =&gt; {
+      console.log(2);
+    }).then(() =&gt; {
+      console.log(3);
+    }).then(() =&gt; {
+      console.log(5);
+    })
+</code></pre>
+<p>上述打印结果为0,1,2,3,4,5</p>
+<p>原因是</p>
+<ol>
+<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
+</li>
+<li><p>将then0和then1放入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
+</li>
+<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
+</li>
+<li><p>执行then1打印，将then2压入栈中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
+</li>
+<li><p>由于return一个promise的特性，then会延迟执行</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
+</li>
+<li><p>执行then2打印then2，将then3压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
+</li>
+<li><p>执行then，将4传入then中，将then4压入队列</p>
+</li>
+<li><p>执行then3，打印3，将then5压入队列中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
+</li>
+<li><p>依次执行，打印4,5，程序结束</p>
+</li>
+</ol>
 
             </div>
             <hr />
@@ -636,9 +871,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《浏览器事件环EventLoop》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/blog/2021/08/02/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -682,33 +917,39 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blog/2021/08/03/01-js-shu-ju-lei-xing/">
+                <a href="/2021/08/16/javascript/javascript-mo-kuai-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="01-Js数据类型">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="JavaScript模块化">
                         
-                        <span class="card-title">01-Js数据类型</span>
+                        <span class="card-title">JavaScript模块化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、为什么要区分不同的数据类型在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。
-二、JS中一共有七种数据类型
-基本数据类型（值类型）：String 字符串、Nu
+                            JavaScript模块化一、什么是模块化模块化开发最终的目的是将程序划分成一个个小的模块
+
+这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；
+这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；
+也可以
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/blog/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                                     学习
+                                </a>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -718,7 +959,11 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/JavaScript/" target="_blank">
+                    <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
+                        <span class="chip bg-color">专题</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
                         <span class="chip bg-color">JavaScript</span>
                     </a>
                     
@@ -730,34 +975,57 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2021/08/02/hello-world/">
+                <a href="/2021/08/04/javascript/shou-xie-promise/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="手写Promise">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">手写Promise</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            手写Promise1.基本使用举个简单例子：
+你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-02
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-04
                             </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
+                                    学习
+                                </a>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
+                        <span class="chip bg-color">专题</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -909,7 +1177,7 @@
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">16.4k</span>
+            <span class="white-color">16.3k</span>
             
 
             <br>
@@ -954,7 +1222,7 @@
 
 
 
-    <a href="/blog/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fa fa-rss"></i>
     </a>
 </div>
@@ -1035,7 +1303,7 @@
 <script src="/js/search.js"></script>
 <script type="text/javascript">
 $(function () {
-    searchFunc("/blog/" + "search.xml", 'searchInput', 'searchResult');
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
 });
 </script>
     <!-- 回到顶部按钮 -->

@@ -1,277 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>01-Js数据类型</title>
-    <url>/blog/2021/08/03/01-js-shu-ju-lei-xing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
-<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
-<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
-<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
-</ul>
-<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
-<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
-<li>typeof()返回的是一个字符串类型</li>
-<li>typeof()检测的特殊值<ul>
-<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
-<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
-console.log(typeof 10);//number
-//typeof 返回的是一个字符串类型
-console.log(typeof (typeof 10));//string
-console.log(typeof 'hello');//string
-console.log(typeof false);//boolean
-console.log(typeof undefined);//undefined
-console.log(typeof null);//object
-console.log(typeof foo);//function
-console.log(typeof []);//object
-console.log(typeof {});//object
-// typeof不仅可以检测单个值，加小括号可以检测表达式
-console.log(typeof (10 + '10'));//string
-</code></pre>
-<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
-</ul>
-</li>
-</ul>
-<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
-<pre><code class="javascript">    console.log(foo instanceof Function);//true
-    console.log(foo instanceof Object);//true
-</code></pre>
-<pre><code class="javascript">    var a = '10'
-    let b = new String()
-    console.log('a' instanceof String);//false
-    console.log(b instanceof String);//true
-    console.log([] instanceof Array);//true
-    console.log({} instanceof Array);//false
-    console.log({} instanceof Object);//true
-</code></pre>
-<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
-<ul>
-<li><code>\"</code> 表示 <code>"</code></li>
-<li><code>\'</code> 表示 <code>'</code></li>
-<li><code>\\</code> 表示<code>\</code></li>
-<li><code>\r</code> 表示回车</li>
-<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
-<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
-<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
-</ul>
-<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
-<pre><code>  &lt;script&gt;
-    var str1 = '1；23';
-    var str2 = '小艾 同学';
-    var str3 = 'ab,cd';
-
-    // 注意：
-    // 中文、英文字母、数字都占一个字符
-    // 中英文标点符号都占一个字符
-    // 空格也占一个字符
-    console.log(str1.length);//4
-    console.log(str2.length);//5
-    console.log(str3.length);//5
-  &lt;/script&gt;
-</code></pre>
-<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
-<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
-</code></pre>
-<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
-<pre><code class="javascript">    console.log(10 + null);//10
-    console.log(10 + true);//11
-
-    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
-    //将任何数据类型都转为字符串，在返回拼接后的新字符串
-    console.log('10' + null);//10null
-    console.log(true + '10');//true10
-        //复杂数据类型也会隐式转换为字符串哦
-    console.log('小艾同学' + {});//小艾同学[object Object]
-</code></pre>
-<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
-<pre><code class="javascript">    // 字符串与变量拼接
-    let a = 100;
-    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
-    //可以用引引加加口诀， '+a+'
-    console.log('小艾同学a分');//小艾同学a分
-    console.log('小艾同学' + a + '分');//小艾同学100分
-</code></pre>
-<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
-<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
-</code></pre>
-<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
-    for(let char of str){
-      console.log("字符："+char);
-    // 字符：1
-    // 字符：2
-    // 字符：3
-    // 字符：4
-    // 字符：5
-    // 字符：6
-    }
-</code></pre>
-<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
-<pre><code class="javascript">    &lt;script&gt;
-        var num = 0x9;//前面加0x就是十六进制
-        var num1 = 07;//前面加0代表八进制
-        var num2 = 2e8;//e表示科学计数法次幂
-
-        console.log(num);//9
-        console.log(num1);//7
-        console.log(num2);//1.7976931348623157e+308
-        // Number最大范围
-        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-        // Number最小范围
-        console.log(Number.MIN_VALUE);//5e-324
-        // 无穷大Infinity
-        console.log(Number.MAX_VALUE * 2);//Infinity
-        // 无穷小-Infinity
-        console.log(-Number.MAX_VALUE * 2);//-Infinity
-    &lt;/script&gt;
-</code></pre>
-<blockquote>
-<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
-</blockquote>
-<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
-<li>十进制转十进制</li>
-</ul>
-<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
-<ul>
-<li>二进制转十进制</li>
-</ul>
-<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
-<ul>
-<li>八进制转十进制(以0开头就是八进制)</li>
-</ul>
-<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
-<ul>
-<li>十六进制转十进制(以0x开头就是十六进制)</li>
-</ul>
-<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
-<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
-<li>十进制转二进制</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
-<ul>
-<li>别的进制同理</li>
-</ul>
-<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
-<p>特点：NaN不等于任何东西，包括他自己</p>
-<pre><code class="javascript">  &lt;script&gt;
-    // NaN不等于任何
-    console.log(NaN == NaN);//false
-    console.log(NaN =-= NaN);//false
-    // 返回NaN的情况
-    // 1.字符串计算
-    console.log('a' - 1);//NaN
-
-    // 2.类型转换时开头有无法转换成数字的值
-    // 不能转换的一定要在开头
-    console.log(parseFloat('1a'));//1
-    console.log(parseFloat('a1'));//NaN
-    console.log(parseFloat());//NaN
-    console.log(parseInt('x'));//NaN
-    console.log(Number('x'));//NaN
-  &lt;/script&gt;
-</code></pre>
-<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
-<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
-    console.log(isNaN(NaN)); //true
-
-    // 只有0/0会返回true，其他任何数值都是false
-    console.log(isNaN(0 / 0)); //true
-    console.log(isNaN(0 / 1)); //false
-    console.log(isNaN(1 / 0)); //false
-    console.log(isNaN(10)); //false（ 10 是一个数值）
-
-    //能转为数字的别的类型也会返回false,无法转换的返回true
-    console.log(isNaN("10")); //false（可以被转换成数值 10）
-    console.log(isNaN("a10")); //true（可以被转换成数值 10）
-    console.log(isNaN("hello")); //true（不能转换成数值）
-    console.log(isNaN(true)); //false（可以被转换成数值 1）
-</code></pre>
-<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
-<pre><code class="javascript">       var a = 0.1 + 0.2;
-    console.log(a);  //0.30000000000000004
-</code></pre>
-<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
-<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
-    console.log('false');//false ---&gt; 字符串类型
-</code></pre>
-<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
-<pre><code class="javascript">    console.log(typeof null); // object
-</code></pre>
-<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<pre><code>    &lt;script&gt;
-      // 变量声明了未赋值，返回的即使undefined
-      var a;
-      console.log(a);//undefined
-      
-      // 检测undefined类型
-      console.log(typeof undefined);//undefined
-    &lt;/script&gt;
-</code></pre>
-<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<pre><code>    // null与undefined
-    console.log(null == undefined);//ture
-    console.log(null === undefined);//false
-
-    // 计算
-    console.log(1 + null);//1
-    console.log(1 + undefined);//NaN
-</code></pre>
-<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
-<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
-<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
-</ul>
-<blockquote>
-<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
-</blockquote>
-<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
-<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
-<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
-</ul>
-<pre><code>  &lt;script&gt;
-    var a = 10;
-    var b = a;
-    b = 20;
-
-    var arr = ['小','艾','同学'];
-    var arr1 = arr;
-    arr1.push('666');
-
-
-    // 基本数据类型复制后，改变复制的变量，原值不受影响
-    console.log(a);//10
-    console.log(b );//20
-
-    // 引用类型复制后，改变复制的变量，原值也会跟着改变
-    console.log(arr);//['小','艾','同学','666']
-    console.log(arr1);//['小','艾','同学','666']
-  &lt;/script&gt;
-</code></pre>
-<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>01-我的足迹</title>
-    <url>/blog/2021/08/03/01-wo-de-zu-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg"></p>
-<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
-]]></content>
-      <categories>
-        <category>旅行</category>
-      </categories>
-      <tags>
-        <tag>旅行</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript模块化</title>
-    <url>/blog/2021/08/16/javascript-mo-kuai-hua/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
+    <url>/2021/08/16/javascript/javascript-mo-kuai-hua/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
 <ul>
-<li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构； </li>
+<li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；</li>
 <li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li>
 <li>也可以通过某种方式，导入另外模块中的变量、函数、对象等；</li>
 </ul>
@@ -292,7 +26,7 @@ let flag = fals
 <p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629107910242-1629107910236.png"></p>
 <h2 id="三、模块化方案"><a href="#三、模块化方案" class="headerlink" title="三、模块化方案"></a>三、模块化方案</h2><h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><p>CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了<br>体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS</p>
 <p>CommonJS规范的核心变量：exports、module.exports、require；</p>
-<p>exports和module.exports可以负责对模块中的内容进行导出； </p>
+<p>exports和module.exports可以负责对模块中的内容进行导出；</p>
 <p>require函数负责导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</p>
 <h4 id="1-exports"><a href="#1-exports" class="headerlink" title="1.exports"></a>1.exports</h4><p>exports是一个对象，在这个对象中添加很多个属性，添加的属性会导出</p>
 <pre><code class="js">// foo.js
@@ -432,19 +166,19 @@ console.log('foo', foo) // { age: 200 }
 <h5 id="1-查找路径"><a href="#1-查找路径" class="headerlink" title="1. 查找路径"></a>1. 查找路径</h5><h6 id="1-X是一个核心模块"><a href="#1-X是一个核心模块" class="headerlink" title="1. X是一个核心模块"></a>1. X是一个核心模块</h6><p> 直接返回核心模块，并且停止查找</p>
 <h6 id="2-X是一个以-或-或根目录开头的"><a href="#2-X是一个以-或-或根目录开头的" class="headerlink" title="2.X是一个以./或../或根目录开头的"></a>2.X是一个以./或../或根目录开头的</h6><p> 第一步：将X当做一个文件在对应的目录下查找；</p>
 <ol>
-<li><p>如果有后缀名，按照后缀名的格式查找对应的文件 </p>
+<li><p>如果有后缀名，按照后缀名的格式查找对应的文件</p>
 </li>
-<li><p>如果没有后缀名，会按照如下顺序： </p>
+<li><p>如果没有后缀名，会按照如下顺序：</p>
 <ol>
-<li>直接查找文件X </li>
-<li>查找X.js文件 </li>
-<li>查找X.json文件 </li>
+<li>直接查找文件X</li>
+<li>查找X.js文件</li>
+<li>查找X.json文件</li>
 <li>查找X.node文件</li>
 </ol>
 </li>
 </ol>
 <p>第二步：没有找到对应的文件，将X作为一个目录</p>
-<p> 查找目录下面的index文件 </p>
+<p> 查找目录下面的index文件</p>
 <ol>
 <li>查找X/index.js文件</li>
 <li>查找X/index.json文件</li>
@@ -614,13 +348,13 @@ if (true) {
 }
 </code></pre>
 <h4 id="6-特点"><a href="#6-特点" class="headerlink" title="6.特点"></a>6.特点</h4><ol>
-<li><p> ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p>
+<li><p>ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p>
 </li>
 <li><p>ES Module是静态解析的，而不是动态或者运行时解析的</p>
 </li>
 <li><p>ES Module通过export导出的是变量本身的引用</p>
 <ol>
-<li> export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li>
+<li>export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li>
 <li>模块环境记录会和变量进行 绑定（binding），并且这个绑定是实时的</li>
 <li>在导入的地方，可以实时的获取到绑定的最新值</li>
 </ol>
@@ -641,7 +375,7 @@ setTimeout(() =&gt; {
 }, 2000)
 </code></pre>
 <ol start="4">
-<li> 在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li>
+<li>在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li>
 </ol>
 <pre><code class="js">// foo.js
 let age = 18;
@@ -669,15 +403,17 @@ setTimeout(() =&gt; {
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>学习</tag>
+        <tag>专题</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
     <title>Buffer</title>
-    <url>/blog/2021/08/19/buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+    <url>/2021/08/19/node/buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
 <table>
 <thead>
 <tr>
@@ -732,6 +468,7 @@ console.log(buffer2.toString('utf16le')); // 你好
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>Node</category>
       </categories>
       <tags>
         <tag>学习</tag>
@@ -741,8 +478,8 @@ console.log(buffer2.toString('utf16le')); // 你好
   </entry>
   <entry>
     <title>Node中的内置模块</title>
-    <url>/blog/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
+    <url>/2021/08/18/node/node-zhong-de-nei-zhi-mo-kuai/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
 <li>dirname：获取文件的父文件夹</li>
 <li>basename：获取文件名</li>
 <li>extname：获取文件扩展名</li>
@@ -1142,6 +879,7 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>Node</category>
       </categories>
       <tags>
         <tag>学习</tag>
@@ -1149,271 +887,262 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/blog/2021/08/02/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new "My New Post"
+    <title>01-Js数据类型</title>
+    <url>/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+</ul>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>浏览器事件环EventLoop</title>
-    <url>/blog/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p> 进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
-<p> 后端代码都是采用多进程</p>
-<p>线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
-<ol>
-<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
-</li>
-<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
-</li>
-<li><p>事件触发线程 EventLoop</p>
-</li>
-<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
-</li>
-</ol>
-<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
-<li>宏任务<ul>
-<li> &lt;执行脚本 script&gt;</li>
-<li>setTimeout </li>
-<li>setInterval </li>
-<li>setImmediate </li>
-<li>事件</li>
-<li>ajax </li>
-<li> MessageChannel (I/O)</li>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
 </ul>
 </li>
-</ol>
-<ol start="2">
-<li><p>微任务</p>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
+</code></pre>
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
+</code></pre>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
 <ul>
-<li><p>promise</p>
-</li>
-<li><p>MutationObserer（监视DOM树的变化）</p>
-</li>
-<li><p>node中的process.nextTick</p>
-</li>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
 </ul>
-</li>
-<li><p>渲染有关</p>
-<ul>
-<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
-<li> requestIDleCallback 空闲时间执行 </li>
-</ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>总结</p>
-<ol>
-<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
-</li>
-<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
-</li>
-<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
-</li>
-<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
-</li>
-<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
-</li>
-<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
-<p>​    </p>
-</li>
-</ol>
-</li>
-</ol>
-<p>画图功底有限…</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png"></p>
-<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1："><a href="#案例1：" class="headerlink" title="案例1："></a>案例1：</h3><pre><code class="js">    document.body.style.background = 'red'
-    console.log(1);
-    setTimeout(() =&gt; {
-      document.body.style.background = 'green'
-      console.log(2);
-    }, 0)
-    Promise.resolve().then(() =&gt; {
-      console.log(3);
-      document.body.style.background = 'yellow'
-    })
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
+
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
 </code></pre>
-<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
-<h3 id="案例2："><a href="#案例2：" class="headerlink" title="案例2："></a>案例2：</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
-  &lt;script&gt;
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task1'))
-      console.log('click1');
-    })
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task2'))
-      console.log('click2');
-    })
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
 </code></pre>
-<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
-<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
-<h3 id="案例3："><a href="#案例3：" class="headerlink" title="案例3："></a>案例3：</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
-  &lt;script&gt;
-    // 3
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task1'))
-      console.log('click1');
-    })
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task2'))
-      console.log('click2');
-    })
-    btn.click()
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
+
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
 </code></pre>
-<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
-<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
-<h3 id="案例4："><a href="#案例4：" class="headerlink" title="案例4："></a>案例4：</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
-      console.log('Promise1')
-      setTimeout(() =&gt; {
-        console.log('setTimeout2')
-      }, 0);
-    })
-    setTimeout(() =&gt; {
-      console.log('setTimeout1');
-      Promise.resolve().then(() =&gt; {
-        console.log('Promise2')
-      })
-    }, 0);
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
 </code></pre>
-<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
-<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
-<ol>
-<li><p>第一轮先将栈里的任务分别放入</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
-</li>
-<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
-</li>
-<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
-</li>
-<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
-</li>
-<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
-</li>
-</ol>
-<h3 id="案例5："><a href="#案例5：" class="headerlink" title="案例5："></a>案例5：</h3><pre><code class="js">    console.log(1);
-    async function async() {
-      console.log(2);
-      await console.log(3);
-      console.log(4)
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
     }
-    setTimeout(() =&gt; {
-      console.log(5);
-    }, 0);
-    const promise = new Promise((resolve, reject) =&gt; {
-      console.log(6);
-      resolve(7)
-    })
-    promise.then(res =&gt; {
-      console.log(res)
-    })
-    async();
-    console.log(8);
 </code></pre>
-<p>上述代码执行结果是：16238745</p>
-<p>原因是：</p>
-<ol>
-<li><p>解释async…await</p>
-<ol>
-<li><p>async 执行后返回的是一个promise</p>
-</li>
-<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
-<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
-</li>
-</ol>
-</li>
-<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
-</li>
-<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
-</li>
-<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
-</li>
-<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
-</li>
-<li><p>继续执行微任务7then，打印7</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
-</li>
-<li><p>继续执行微任务4then，打印4</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
-</li>
-<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
-</li>
-<li><p>此时宏任务，微任务全部清空，程序结束</p>
-</li>
-</ol>
-<h3 id="案例6："><a href="#案例6：" class="headerlink" title="案例6："></a>案例6：</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
-      console.log(0);
-      return Promise.resolve(4);
-    }).then((res) =&gt; {
-      console.log(res)
-    })
-    Promise.resolve().then(() =&gt; {
-      console.log(1);
-    }).then(() =&gt; {
-      console.log(2);
-    }).then(() =&gt; {
-      console.log(3);
-    }).then(() =&gt; {
-      console.log(5);
-    })
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
 </code></pre>
-<p>上述打印结果为0,1,2,3,4,5</p>
-<p>原因是</p>
-<ol>
-<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
-</li>
-<li><p>将then0和then1放入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
-</li>
-<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
-</li>
-<li><p>执行then1打印，将then2压入栈中</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
-</li>
-<li><p>由于return一个promise的特性，then会延迟执行</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
-</li>
-<li><p>执行then2打印then2，将then3压入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
-</li>
-<li><p>执行then，将4传入then中，将then4压入队列</p>
-</li>
-<li><p>执行then3，打印3，将then5压入队列中</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
-</li>
-<li><p>依次执行，打印4,5，程序结束</p>
-</li>
-</ol>
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
+
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
+</code></pre>
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+</code></pre>
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
+</code></pre>
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
+</code></pre>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
+</code></pre>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
+      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
+</code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
 ]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
-        <tag>学习</tag>
-        <tag>浏览器</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
     <title>包管理工具</title>
-    <url>/blog/2021/08/19/bao-guan-li-gong-ju/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
+    <url>/2021/08/19/xue-xi/bao-guan-li-gong-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
 <h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
 <p>当我们安装一个包时其实是从registry上面下载的包；</p>
 <h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
@@ -1588,9 +1317,11 @@ npm i axios -D
 <li><p>requires：使用requires来跟着模块的依赖关系；</p>
 </li>
 <li><p>dependencies：项目的依赖</p>
-</li>
+<ul>
 <li><ul>
 <li>version表示实际安装的axios的版本；</li>
+</ul>
+</li>
 <li>resolved用来记录下载的地址，registry仓库中的位置；</li>
 <li>requires记录当前模块的依赖；</li>
 <li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
@@ -1600,10 +1331,10 @@ npm i axios -D
 </li>
 </ul>
 <h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
-<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包： </p>
+<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包：</p>
 <ul>
-<li>npm uninstall package </li>
-<li>npm uninstall package –save-dev </li>
+<li>npm uninstall package</li>
+<li>npm uninstall package –save-dev</li>
 <li>npm uninstall package -D</li>
 </ul>
 <p>强制重新build</p>
@@ -1649,21 +1380,263 @@ cnpm config get registry # https://r.npm.taobao.org/
       </tags>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/blog/2021/09/02/test/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>]]></content>
+    <title>浏览器事件环EventLoop</title>
+    <url>/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+<p>  后端代码都是采用多进程</p>
+<p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
+<ol>
+<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
+</li>
+<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
+</li>
+<li><p>事件触发线程 EventLoop</p>
+</li>
+<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
+</li>
+</ol>
+<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
+<li><p>宏任务</p>
+<ul>
+<li>&lt;执行脚本 script&gt;</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+<li>事件</li>
+<li>ajax</li>
+<li>MessageChannel (I/O)</li>
+</ul>
+</li>
+<li><p>微任务</p>
+<ul>
+<li><p>promise</p>
+</li>
+<li><p>MutationObserer（监视DOM树的变化）</p>
+</li>
+<li><p>node中的process.nextTick</p>
+</li>
+</ul>
+</li>
+<li><p>渲染有关</p>
+<ul>
+<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
+<li>requestIDleCallback 空闲时间执行</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ol>
+<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
+</li>
+<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
+</li>
+<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
+</li>
+<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
+</li>
+<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
+</li>
+<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>画图功底有限…</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p>
+<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'
+    console.log(1);
+    setTimeout(() =&gt; {
+      document.body.style.background = 'green'
+      console.log(2);
+    }, 0)
+    Promise.resolve().then(() =&gt; {
+      console.log(3);
+      document.body.style.background = 'yellow'
+    })
+</code></pre>
+<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+</code></pre>
+<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
+<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
+<h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    // 3
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+    btn.click()
+</code></pre>
+<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
+<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
+<h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log('Promise1')
+      setTimeout(() =&gt; {
+        console.log('setTimeout2')
+      }, 0);
+    })
+    setTimeout(() =&gt; {
+      console.log('setTimeout1');
+      Promise.resolve().then(() =&gt; {
+        console.log('Promise2')
+      })
+    }, 0);
+</code></pre>
+<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
+<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
+<ol>
+<li><p>第一轮先将栈里的任务分别放入</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
+</li>
+<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
+</li>
+<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
+</li>
+</ol>
+<h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);
+    async function async() {
+      console.log(2);
+      await console.log(3);
+      console.log(4)
+    }
+    setTimeout(() =&gt; {
+      console.log(5);
+    }, 0);
+    const promise = new Promise((resolve, reject) =&gt; {
+      console.log(6);
+      resolve(7)
+    })
+    promise.then(res =&gt; {
+      console.log(res)
+    })
+    async();
+    console.log(8);
+</code></pre>
+<p>上述代码执行结果是：16238745</p>
+<p>原因是：</p>
+<ol>
+<li><p>解释async…await</p>
+<ol>
+<li><p>async 执行后返回的是一个promise</p>
+</li>
+<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
+<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
+</li>
+</ol>
+</li>
+<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
+</li>
+<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
+</li>
+<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
+</li>
+<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
+</li>
+<li><p>继续执行微任务7then，打印7</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
+</li>
+<li><p>继续执行微任务4then，打印4</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
+</li>
+<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
+</li>
+<li><p>此时宏任务，微任务全部清空，程序结束</p>
+</li>
+</ol>
+<h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log(0);
+      return Promise.resolve(4);
+    }).then((res) =&gt; {
+      console.log(res)
+    })
+    Promise.resolve().then(() =&gt; {
+      console.log(1);
+    }).then(() =&gt; {
+      console.log(2);
+    }).then(() =&gt; {
+      console.log(3);
+    }).then(() =&gt; {
+      console.log(5);
+    })
+</code></pre>
+<p>上述打印结果为0,1,2,3,4,5</p>
+<p>原因是</p>
+<ol>
+<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
+</li>
+<li><p>将then0和then1放入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
+</li>
+<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
+</li>
+<li><p>执行then1打印，将then2压入栈中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
+</li>
+<li><p>由于return一个promise的特性，then会延迟执行</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
+</li>
+<li><p>执行then2打印then2，将then3压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
+</li>
+<li><p>执行then，将4传入then中，将then4压入队列</p>
+</li>
+<li><p>执行then3，打印3，将then5压入队列中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
+</li>
+<li><p>依次执行，打印4,5，程序结束</p>
+</li>
+</ol>
+]]></content>
       <categories>
         <category>学习</category>
       </categories>
       <tags>
         <tag>学习</tag>
-        <tag>Node</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01-我的足迹</title>
+    <url>/2021/08/03/lu-xing/01-wo-de-zu-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg" alt="我的足迹"></p>
+<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
+]]></content>
+      <categories>
+        <category>旅行</category>
+      </categories>
+      <tags>
+        <tag>旅行</tag>
       </tags>
   </entry>
   <entry>
     <title>手写Promise</title>
-    <url>/blog/2021/08/04/shou-xie-promise/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
+    <url>/2021/08/04/javascript/shou-xie-promise/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
 <p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p>
 <p>1.悬而未决：你 [不知道] 你是否会得到手机直到下礼拜（<strong style="color:#17a2b8;">等待态</strong>）。</p>
 <p>2.解决：你老妈给你买了，因为发工资有钱了（<strong style="color:#17a2b8;">成功态</strong>）。</p>
@@ -1671,7 +1644,7 @@ cnpm config get registry # https://r.npm.taobao.org/
 <p>总结：</p>
 <ol>
 <li>Promise 有三个状态 ：<ol>
-<li> 默认状态叫等待态 pending</li>
+<li>默认状态叫等待态 pending</li>
 <li>resolve表示成功态 fulfilled</li>
 <li>reject表示变成失败态 rejected</li>
 </ol>
@@ -1823,7 +1796,7 @@ promise6.then((data) =&gt; {
   console.log('err', err)
 })
 </code></pre>
-<h3 id="2-根据promiseaplus官网-的规则，手写自己的Promise"><a href="#2-根据promiseaplus官网-的规则，手写自己的Promise" class="headerlink" title="2.根据promiseaplus官网  的规则，手写自己的Promise"></a>2.根据<a href="https://promisesaplus.com/">promiseaplus官网 </a> 的规则，手写自己的Promise</h3><h4 id="1-一个基本的promise，满足异步promise，但无法进行链式调用"><a href="#1-一个基本的promise，满足异步promise，但无法进行链式调用" class="headerlink" title="1.一个基本的promise，满足异步promise，但无法进行链式调用"></a>1.一个基本的promise，满足异步promise，但无法进行链式调用</h4><pre><code class="js">
+<h3 id="2-根据promiseaplus官网-的规则，手写自己的Promise"><a href="#2-根据promiseaplus官网-的规则，手写自己的Promise" class="headerlink" title="2.根据promiseaplus官网 的规则，手写自己的Promise"></a>2.根据<a href="https://promisesaplus.com/">promiseaplus官网</a> 的规则，手写自己的Promise</h3><h4 id="1-一个基本的promise，满足异步promise，但无法进行链式调用"><a href="#1-一个基本的promise，满足异步promise，但无法进行链式调用" class="headerlink" title="1.一个基本的promise，满足异步promise，但无法进行链式调用"></a>1.一个基本的promise，满足异步promise，但无法进行链式调用</h4><pre><code class="js">
 const PENDING = 'PENDING'; // 默认等待态
 const FULFILLED = 'FULFILLED'; // 成功态 
 const REJECTED = 'REJECTED'; // 失败态
@@ -2082,7 +2055,7 @@ module.exports = Promise
 <h4 id="3-运行官方测试"><a href="#3-运行官方测试" class="headerlink" title="3.运行官方测试"></a>3.运行官方测试</h4><ol>
 <li><p><code>npm install promises-aplus-tests -g</code> 安装测试工具</p>
 </li>
-<li><p>在promise.js中写 </p>
+<li><p>在promise.js中写</p>
 </li>
 <li><pre><code class="js">// 官方提供的测试静态方法
 Promise.deferred = function () {
@@ -2676,10 +2649,11 @@ module.exports = Promise
 ]]></content>
       <categories>
         <category>学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>专题</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
