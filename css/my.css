@@ -1,1 +1,12 @@
-/* Here is your custom css styles. */
+/*控制整个滚动条*/
+::-webkit-scrollbar {
+  background-color: lightgray;
+  width: 4px;
+  background-clip: padding-box;
+}
+
+/*滚动条中间滑动部分*/
+::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 5px;
+}
