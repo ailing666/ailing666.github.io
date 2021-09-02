@@ -2,8 +2,8 @@
 <search>
   <entry>
     <title>01-Js数据类型</title>
-    <url>/2021/08/03/01-js-shu-ju-lei-xing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+    <url>/blog/2021/08/03/01-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
 <h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
 <li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
 <li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
@@ -255,8 +255,8 @@ console.log(typeof (10 + '10'));//string
   </entry>
   <entry>
     <title>01-我的足迹</title>
-    <url>/2021/08/03/01-wo-de-zu-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg"></p>
+    <url>/blog/2021/08/03/01-wo-de-zu-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg"></p>
 <h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
 ]]></content>
       <categories>
@@ -268,8 +268,8 @@ console.log(typeof (10 + '10'));//string
   </entry>
   <entry>
     <title>Buffer</title>
-    <url>/2021/08/19/buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+    <url>/blog/2021/08/19/buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
 <table>
 <thead>
 <tr>
@@ -333,8 +333,8 @@ console.log(buffer2.toString('utf16le')); // 你好
   </entry>
   <entry>
     <title>JavaScript模块化</title>
-    <url>/2021/08/16/javascript-mo-kuai-hua/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
+    <url>/blog/2021/08/16/javascript-mo-kuai-hua/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
 <ul>
 <li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构； </li>
 <li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li>
@@ -741,8 +741,8 @@ setTimeout(() =&gt; {
   </entry>
   <entry>
     <title>Node中的内置模块</title>
-    <url>/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
+    <url>/blog/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
 <li>dirname：获取文件的父文件夹</li>
 <li>basename：获取文件名</li>
 <li>extname：获取文件扩展名</li>
@@ -1150,8 +1150,8 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2021/08/02/hello-world/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <url>/blog/2021/08/02/hello-world/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new "My New Post"
 </code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -1168,8 +1168,8 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
   </entry>
   <entry>
     <title>test</title>
-    <url>/2021/09/02/test/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>]]></content>
+    <url>/blog/2021/09/02/test/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -1180,8 +1180,8 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
   </entry>
   <entry>
     <title>包管理工具</title>
-    <url>/2021/08/19/bao-guan-li-gong-ju/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
+    <url>/blog/2021/08/19/bao-guan-li-gong-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
 <h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
 <p>当我们安装一个包时其实是从registry上面下载的包；</p>
 <h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
@@ -1418,8 +1418,8 @@ cnpm config get registry # https://r.npm.taobao.org/
   </entry>
   <entry>
     <title>浏览器事件环EventLoop</title>
-    <url>/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p> 进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+    <url>/blog/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p> 进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
 <p> 后端代码都是采用多进程</p>
 <p>线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
 <ol>
@@ -1662,8 +1662,8 @@ cnpm config get registry # https://r.npm.taobao.org/
   </entry>
   <entry>
     <title>手写Promise</title>
-    <url>/2021/08/04/shou-xie-promise/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
+    <url>/blog/2021/08/04/shou-xie-promise/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
 <p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p>
 <p>1.悬而未决：你 [不知道] 你是否会得到手机直到下礼拜（<strong style="color:#17a2b8;">等待态</strong>）。</p>
 <p>2.解决：你老妈给你买了，因为发工资有钱了（<strong style="color:#17a2b8;">成功态</strong>）。</p>
