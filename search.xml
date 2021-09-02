@@ -267,71 +267,6 @@ console.log(typeof (10 + '10'));//string
       </tags>
   </entry>
   <entry>
-    <title>Buffer</title>
-    <url>/blog/2021/08/19/buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
-<table>
-<thead>
-<tr>
-<th>128</th>
-<th>64</th>
-<th>32</th>
-<th>16</th>
-<th>8</th>
-<th>4</th>
-<th>2</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
-<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
-console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
-</code></pre>
-<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
-<pre><code class="js">
-const buffer2 = Buffer.from('你好', 'utf16le');
-console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
-// buffer转字符串
-console.log(buffer2.toString('utf16le')); // 你好
-</code></pre>
-<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p>
-<p>查看-&gt;复制-&gt;克隆地址</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p>
-<p>建分支，推到远端</p>
-<p>点进去，发布容器</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p>
-<p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p>
-<p>点击私有化</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p>
-<p>登录</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Node</tag>
-        <tag>Buffer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript模块化</title>
     <url>/blog/2021/08/16/javascript-mo-kuai-hua/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
@@ -737,6 +672,71 @@ setTimeout(() =&gt; {
       </categories>
       <tags>
         <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Buffer</title>
+    <url>/blog/2021/08/19/buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+<table>
+<thead>
+<tr>
+<th>128</th>
+<th>64</th>
+<th>32</th>
+<th>16</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
+<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
+console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
+</code></pre>
+<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
+<pre><code class="js">
+const buffer2 = Buffer.from('你好', 'utf16le');
+console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
+// buffer转字符串
+console.log(buffer2.toString('utf16le')); // 你好
+</code></pre>
+<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p>
+<p>查看-&gt;复制-&gt;克隆地址</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p>
+<p>建分支，推到远端</p>
+<p>点进去，发布容器</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p>
+<p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p>
+<p>点击私有化</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p>
+<p>登录</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
+        <tag>Buffer</tag>
       </tags>
   </entry>
   <entry>
@@ -1167,256 +1167,6 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 ]]></content>
   </entry>
   <entry>
-    <title>test</title>
-    <url>/blog/2021/09/02/test/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>包管理工具</title>
-    <url>/blog/2021/08/19/bao-guan-li-gong-ju/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
-<h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
-<p>当我们安装一个包时其实是从registry上面下载的包；</p>
-<h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
-<p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p>
-<h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p>
-<p>name默认值是当前文件夹的名称(不能有中文)</p>
-<pre><code class="js">{
-  "name": "npm",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
-</code></pre>
-<h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul>
-<li><code>name</code> 设置了应用程序/软件包的名称。</li>
-<li><code>version</code> 表明了当前的版本。</li>
-<li><code>description</code> 是应用程序/软件包的简短描述。</li>
-<li><code>main</code> 设置了应用程序的入口点。</li>
-<li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li>
-<li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li>
-<li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li>
-<li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li>
-<li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li>
-<li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li>
-</ul>
-<p>其中必写属性是<code>name</code>和<code>version</code></p>
-<h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul>
-<li>名称不能超过214个字符</li>
-<li>名称不能以点或者下划线开头</li>
-<li>包的名称中不能包含大写字母</li>
-<li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li>
-<li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul>
-<li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li>
-</ul>
-</li>
-</ul>
-<p>查看包名是否被占用</p>
-<p>使用<code>npm view</code></p>
-<p>能查询到信息说明已被使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p>
-<p>抛出404说明该包名未被使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p>
-<h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote>
-<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
-</blockquote>
-<ul>
-<li>版本号由主版本.此版本.补丁版本组成</li>
-<li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li>
-</ul>
-<h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p>
-<p>keywords用于给你的模块添加关键字。</p>
-<p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p>
-<pre><code class="json">{
-   "description": "说明信息",
-   "keywords": [
-      "node",
-      "配置",
-      "json"
-    ]
-}
-</code></pre>
-<h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p>
-<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
-<h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p>
-<pre><code class="json">{
-  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",
-  "contributors": [
-    {
-      "name": "贡献者",
-      "email": "example@example.com",
-      "url": "http://xxx.com"
-    }
-  ]
-}
-</code></pre>
-<h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p>
-<h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p>
-<p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
-<p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p>
-<pre><code class="json">  "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
-  },
-</code></pre>
-<h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p>
-<p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p>
-<pre><code class="json">  "engines": {
-    "node": "&gt;= 6.0.0",
-    "npm": "&gt;= 3.0.0"
-  },
-</code></pre>
-<h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p>
-<p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p>
-<p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p>
-<pre><code class="json">  "dependencies": {
-    "vue": "^2.5.2"
-  },
-</code></pre>
-<h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p>
-<p>npm的包通常需要遵从semver版本规范：</p>
-<ul>
-<li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
-<li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
-</ul>
-<p>semver版本规范是X.Y.Z：</p>
-<ul>
-<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
-<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
-<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
-</ul>
-<p>我们这里解释一下 ^和~的区别：</p>
-<ul>
-<li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li>
-<li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li>
-</ul>
-<h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p>
-<p>比如yarn的全局安装：</p>
-<pre><code class="npm">npm install yarn -g
-</code></pre>
-<p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p>
-<h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p>
-<pre><code class="npm"># 安装开发和生产依赖
-npm install axios --save
-npm install axios -S
-npm install axios
-npm i axios
-
-# 开发者
-npm install axios --save-dev
-npm install axios -D
-npm i axios -D
-</code></pre>
-<h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{
-  "name": "npm",
-  "version": "1.0.0",
-  "lockfileVersion": 1,
-  "requires": true,
-  "dependencies": {
-    "axios": {
-      "version": "0.20.0",
-      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",
-      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",
-      "requires": {
-        "follow-redirects": "^1.10.0"
-      }
-    },
-    "follow-redirects": {
-      "version": "1.13.0",
-      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",
-      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="
-    }
-  }
-}
-</code></pre>
-<ul>
-<li><p>name：项目的名称；</p>
-</li>
-<li><p>version：项目的版本；</p>
-</li>
-<li><p>lockfileVersion：lock文件的版本；</p>
-</li>
-<li><p>requires：使用requires来跟着模块的依赖关系；</p>
-</li>
-<li><p>dependencies：项目的依赖</p>
-</li>
-<li><ul>
-<li>version表示实际安装的axios的版本；</li>
-<li>resolved用来记录下载的地址，registry仓库中的位置；</li>
-<li>requires记录当前模块的依赖；</li>
-<li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
-<li>当前项目依赖axios，但是axios依赖follow-redireacts；</li>
-<li>axios中的属性如下</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
-<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包： </p>
-<ul>
-<li>npm uninstall package </li>
-<li>npm uninstall package –save-dev </li>
-<li>npm uninstall package -D</li>
-</ul>
-<p>强制重新build</p>
-<ul>
-<li>npm rebuild</li>
-</ul>
-<p>清除缓存</p>
-<ul>
-<li>npm cache clean</li>
-</ul>
-<h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p>
-<ul>
-<li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li>
-<li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li>
-<li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li>
-<li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li>
-</ul>
-<p>这里给出一张常用命令的对比</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p>
-<h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p>
-<p>查看npm镜像：</p>
-<pre><code class="text">npm config get registry # npm config get registry
-</code></pre>
-<p>我们可以直接设置npm的镜像：</p>
-<pre><code class="text">npm config set registry https://registry.npm.taobao.org
-</code></pre>
-<p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p>
-<ul>
-<li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li>
-<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
-</ul>
-<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p>
-<pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm config get registry # https://r.npm.taobao.org/
-</code></pre>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>浏览器事件环EventLoop</title>
     <url>/blog/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p> 进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
@@ -1658,6 +1408,256 @@ cnpm config get registry # https://r.npm.taobao.org/
       <tags>
         <tag>学习</tag>
         <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>包管理工具</title>
+    <url>/blog/2021/08/19/bao-guan-li-gong-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
+<h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
+<p>当我们安装一个包时其实是从registry上面下载的包；</p>
+<h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
+<p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p>
+<h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p>
+<p>name默认值是当前文件夹的名称(不能有中文)</p>
+<pre><code class="js">{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+</code></pre>
+<h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul>
+<li><code>name</code> 设置了应用程序/软件包的名称。</li>
+<li><code>version</code> 表明了当前的版本。</li>
+<li><code>description</code> 是应用程序/软件包的简短描述。</li>
+<li><code>main</code> 设置了应用程序的入口点。</li>
+<li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li>
+<li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li>
+<li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li>
+<li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li>
+</ul>
+<p>其中必写属性是<code>name</code>和<code>version</code></p>
+<h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul>
+<li>名称不能超过214个字符</li>
+<li>名称不能以点或者下划线开头</li>
+<li>包的名称中不能包含大写字母</li>
+<li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li>
+<li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul>
+<li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li>
+</ul>
+</li>
+</ul>
+<p>查看包名是否被占用</p>
+<p>使用<code>npm view</code></p>
+<p>能查询到信息说明已被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p>
+<p>抛出404说明该包名未被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p>
+<h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+</blockquote>
+<ul>
+<li>版本号由主版本.此版本.补丁版本组成</li>
+<li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li>
+</ul>
+<h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p>
+<p>keywords用于给你的模块添加关键字。</p>
+<p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p>
+<pre><code class="json">{
+   "description": "说明信息",
+   "keywords": [
+      "node",
+      "配置",
+      "json"
+    ]
+}
+</code></pre>
+<h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+<h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p>
+<pre><code class="json">{
+  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",
+  "contributors": [
+    {
+      "name": "贡献者",
+      "email": "example@example.com",
+      "url": "http://xxx.com"
+    }
+  ]
+}
+</code></pre>
+<h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p>
+<h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p>
+<p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
+<p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p>
+<pre><code class="json">  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "test": "npm run unit",
+    "lint": "eslint --ext .js,.vue src test/unit",
+    "build": "node build/build.js"
+  },
+</code></pre>
+<h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p>
+<p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p>
+<pre><code class="json">  "engines": {
+    "node": "&gt;= 6.0.0",
+    "npm": "&gt;= 3.0.0"
+  },
+</code></pre>
+<h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p>
+<p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p>
+<p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p>
+<pre><code class="json">  "dependencies": {
+    "vue": "^2.5.2"
+  },
+</code></pre>
+<h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p>
+<p>npm的包通常需要遵从semver版本规范：</p>
+<ul>
+<li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<p>semver版本规范是X.Y.Z：</p>
+<ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<p>我们这里解释一下 ^和~的区别：</p>
+<ul>
+<li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li>
+</ul>
+<h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p>
+<p>比如yarn的全局安装：</p>
+<pre><code class="npm">npm install yarn -g
+</code></pre>
+<p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p>
+<h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p>
+<pre><code class="npm"># 安装开发和生产依赖
+npm install axios --save
+npm install axios -S
+npm install axios
+npm i axios
+
+# 开发者
+npm install axios --save-dev
+npm install axios -D
+npm i axios -D
+</code></pre>
+<h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{
+  "name": "npm",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "axios": {
+      "version": "0.20.0",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",
+      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",
+      "requires": {
+        "follow-redirects": "^1.10.0"
+      }
+    },
+    "follow-redirects": {
+      "version": "1.13.0",
+      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",
+      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="
+    }
+  }
+}
+</code></pre>
+<ul>
+<li><p>name：项目的名称；</p>
+</li>
+<li><p>version：项目的版本；</p>
+</li>
+<li><p>lockfileVersion：lock文件的版本；</p>
+</li>
+<li><p>requires：使用requires来跟着模块的依赖关系；</p>
+</li>
+<li><p>dependencies：项目的依赖</p>
+</li>
+<li><ul>
+<li>version表示实际安装的axios的版本；</li>
+<li>resolved用来记录下载的地址，registry仓库中的位置；</li>
+<li>requires记录当前模块的依赖；</li>
+<li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
+<li>当前项目依赖axios，但是axios依赖follow-redireacts；</li>
+<li>axios中的属性如下</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
+<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包： </p>
+<ul>
+<li>npm uninstall package </li>
+<li>npm uninstall package –save-dev </li>
+<li>npm uninstall package -D</li>
+</ul>
+<p>强制重新build</p>
+<ul>
+<li>npm rebuild</li>
+</ul>
+<p>清除缓存</p>
+<ul>
+<li>npm cache clean</li>
+</ul>
+<h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p>
+<ul>
+<li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li>
+<li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li>
+<li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li>
+<li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li>
+</ul>
+<p>这里给出一张常用命令的对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p>
+<h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p>
+<p>查看npm镜像：</p>
+<pre><code class="text">npm config get registry # npm config get registry
+</code></pre>
+<p>我们可以直接设置npm的镜像：</p>
+<pre><code class="text">npm config set registry https://registry.npm.taobao.org
+</code></pre>
+<p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p>
+<ul>
+<li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li>
+<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
+</ul>
+<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p>
+<pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm config get registry # https://r.npm.taobao.org/
+</code></pre>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/blog/2021/09/02/test/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\blog\assets\css\APlayer.min.css"><script src="\blog\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="test"><a href="#test" class="headerlink" title="test"></a>test</h1>]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
       </tags>
   </entry>
   <entry>
