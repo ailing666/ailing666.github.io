@@ -1,229 +1,2659 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Buffer</title>
-      <link href="/2021/08/19/node/buffer/"/>
-      <url>/2021/08/19/node/buffer/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p><table><thead><tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr></thead><tbody><tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr></tbody></table><h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p><p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p><h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;</code></pre><h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p><pre><code class="js">const buffer2 = Buffer.from('你好', 'utf16le');console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;// buffer转字符串console.log(buffer2.toString('utf16le')); // 你好</code></pre><h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p><p>查看-&gt;复制-&gt;克隆地址</p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p><p>建分支，推到远端</p><p>点进去，发布容器</p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p><p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p><p>点击私有化</p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p><p>登录</p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>JavaScript模块化</title>
+    <url>/2021/08/16/javascript/javascript-mo-kuai-hua/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
+<ul>
+<li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；</li>
+<li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li>
+<li>也可以通过某种方式，导入另外模块中的变量、函数、对象等；</li>
+</ul>
+<p>按照这种结构划分开发程序的过程，就是模块化开发的过程</p>
+<h2 id="二、没有模块化带来的问题"><a href="#二、没有模块化带来的问题" class="headerlink" title="二、没有模块化带来的问题"></a>二、没有模块化带来的问题</h2><ol>
+<li>污染全局作用域</li>
+<li>开发人员必须主观解决模块和代码库的依赖关系</li>
+<li>文件只能按照script标签的书写顺序进行加载</li>
+<li>在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪</li>
+</ol>
+<p>开发项目时，aaa和bbb给变量命名的时候都命名为<code>flag</code>，在index引入时根据<code>flag</code>的值作相应逻辑，这时候会因为命名冲突产生报错，<code>flag</code>会因为引入文件的顺序而产生不确定性。</p>
+<pre><code class="js">// aaa.js
+let flag = true
+·
+// bbb.js
+let flag = fals
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629107910242-1629107910236.png"></p>
+<h2 id="三、模块化方案"><a href="#三、模块化方案" class="headerlink" title="三、模块化方案"></a>三、模块化方案</h2><h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><p>CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了<br>体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS</p>
+<p>CommonJS规范的核心变量：exports、module.exports、require；</p>
+<p>exports和module.exports可以负责对模块中的内容进行导出；</p>
+<p>require函数负责导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</p>
+<h4 id="1-exports"><a href="#1-exports" class="headerlink" title="1.exports"></a>1.exports</h4><p>exports是一个对象，在这个对象中添加很多个属性，添加的属性会导出</p>
+<pre><code class="js">// foo.js
+let age = 18;
+const obj = {id:757};
+function sayHello(name) {
+  console.log("Hello " + name);
+}
+// 挂载到对象可以使用别名
+exports.ageAlias = age
+exports.obj = obj
+exports.sayHello = sayHello
+
+
+// bar.js
+const foo =  require('./foo')
+foo.ageAlias = 99
+console.log(foo.ageAlias);
+console.log(foo.obj);
+foo.sayHello('loveZero')
+</code></pre>
+<h5 id="思考：exports导出在内存如何体现"><a href="#思考：exports导出在内存如何体现" class="headerlink" title="思考：exports导出在内存如何体现"></a>思考：exports导出在内存如何体现</h5><ol>
+<li>1s后在foo.js中修改age值，2s后在bar里打印，值为修改后的值</li>
+</ol>
+<pre><code class="js">// foo.js
+let age = 18;
+
+setTimeout(() =&gt; {
+  exports.age = 23;
+}, 1000)
+
+exports.age = age
+
+// bar.js
+const foo = require('./foo')
+console.log('bar---age', foo.age); // 18
+setTimeout(() =&gt; {
+  console.log('bar---age', foo.age); // 23
+}, 2000)
+</code></pre>
+<ol start="2">
+<li>1s后再bar里修改age的值，2s后再foo里打印age为bar修改后的值</li>
+</ol>
+<pre><code class="js">// foo.js
+let age = 18;
+
+setTimeout(() =&gt; {
+  console.log('foo---age', exports.age); // 99
+}, 2000)
+
+exports.age = age
+
+// bar.js
+const foo = require('./foo')
+
+// 验证
+setTimeout(() =&gt; {
+  foo.age = 99
+}, 1000)
+</code></pre>
+<ol start="3">
+<li>结论</li>
+</ol>
+<p>exports导出的对象和require接受的对象指向统一引用地址</p>
+<p>相当于一个浅拷贝，本质是引用赋值</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629185027808-1629185027801.png"></p>
+<h4 id="2-module-exports"><a href="#2-module-exports" class="headerlink" title="2.module.exports"></a>2.module.exports</h4><pre><code class="js">// foo.js
+let age = 18;
+const obj = { id: 757 };
+function sayHello(name) {
+  console.log("Hello " + name);
+}
+
+module.exports = {
+  ageAlias: age,
+  obj,
+  sayHello
+}
+
+// bar.js
+const foo = require('./foo')
+console.log('bar---obj', foo.obj);
+console.log('bar---age', foo.ageAlias);
+foo.sayHello('loveZero')
+</code></pre>
+<h5 id="思考：exports和module-exports区别"><a href="#思考：exports和module-exports区别" class="headerlink" title="思考：exports和module.exports区别"></a>思考：exports和module.exports区别</h5><p>先打印一下他们是否相等</p>
+<pre><code class="js">console.log({} === {}); // false
+console.log(exports === module.exports); // true
+</code></pre>
+<p>两个对象<code>===</code>，说明他们指向统一引用地址，就是赋值关系</p>
+<p>是exports赋值给module.exports还是module.exports赋值给exports呢？需要进一步验证</p>
+<pre><code class="js">// foo.js
+let age = 100;
+
+console.log('module.exports', module.exports); // {}
+console.log('exports', exports); // {}
+
+module.exports = { age }
+
+module.exports = { name: 'loveZero' };
+
+console.log('module.exports', module.exports);  // { name: 'loveZero' }
+console.log('exports', exports); // {}
+
+// bar.js
+const foo = require('./foo');
+console.log('foo', foo) // { name: 'loveZero' }
+</code></pre>
+<p>通过上述代码可以看出，module.exports和exports初始值都是空对象，通过module.exports导出age后，改变module.exports的值，之后打印exports的值仍为空对象，bar中引入的值是module.exports的值</p>
+<pre><code class="js">// foo.js
+let age = 100;
+
+console.log('module.exports', module.exports); // {}
+console.log('exports', exports); // {}
+
+exports.age = 200;
+
+exports = { name: 'loveZero' };
+
+console.log('module.exports', module.exports);  // { age: 200 }
+console.log('exports', exports); // { name: 'loveZero' }
+
+
+// bar.js
+const foo = require('./foo');
+console.log('foo', foo) // { age: 200 }
+</code></pre>
+<p>通过上述验证可以看到，module.exports和exports初始值都是空对象，通过exports将age导出后，修改exports的值，此时module.exports的值为<code>{ age: 200 }</code>，exports的值为<code>{ name: 'loveZero' }</code> ，bar中引用的值是module.exports的值</p>
+<h6 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h6><ol>
+<li>module.exports 初始值为一个空对象 {}</li>
+<li>exports 是指向的 module.exports 的引用</li>
+<li>require导出的内容是module.exports的指向的内存块内容，并不是exports的。</li>
+</ol>
+<h4 id="3-require"><a href="#3-require" class="headerlink" title="3.require"></a>3.require</h4><p>require是一个函数，可以帮助我们引入一个文件（模块）中导入的对象</p>
+<pre><code class="js">require('X')
+</code></pre>
+<h5 id="1-查找路径"><a href="#1-查找路径" class="headerlink" title="1. 查找路径"></a>1. 查找路径</h5><h6 id="1-X是一个核心模块"><a href="#1-X是一个核心模块" class="headerlink" title="1. X是一个核心模块"></a>1. X是一个核心模块</h6><p> 直接返回核心模块，并且停止查找</p>
+<h6 id="2-X是一个以-或-或根目录开头的"><a href="#2-X是一个以-或-或根目录开头的" class="headerlink" title="2.X是一个以./或../或根目录开头的"></a>2.X是一个以./或../或根目录开头的</h6><p> 第一步：将X当做一个文件在对应的目录下查找；</p>
+<ol>
+<li><p>如果有后缀名，按照后缀名的格式查找对应的文件</p>
+</li>
+<li><p>如果没有后缀名，会按照如下顺序：</p>
+<ol>
+<li>直接查找文件X</li>
+<li>查找X.js文件</li>
+<li>查找X.json文件</li>
+<li>查找X.node文件</li>
+</ol>
+</li>
+</ol>
+<p>第二步：没有找到对应的文件，将X作为一个目录</p>
+<p> 查找目录下面的index文件</p>
+<ol>
+<li>查找X/index.js文件</li>
+<li>查找X/index.json文件</li>
+<li>查找X/index.node文件</li>
+</ol>
+<p>如果没有找到，那么报错：not found</p>
+<h6 id="3-直接是一个X（没有路径），并且X不是一个核心模块"><a href="#3-直接是一个X（没有路径），并且X不是一个核心模块" class="headerlink" title="3.直接是一个X（没有路径），并且X不是一个核心模块"></a>3.直接是一个X（没有路径），并且X不是一个核心模块</h6><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629188758555-1629188758546.png"></p>
+<p> 如果上面的路径中都没有找到，那么报错：not found</p>
+<h5 id="2-模块的加载过程"><a href="#2-模块的加载过程" class="headerlink" title="2.模块的加载过程"></a>2.模块的加载过程</h5><h6 id="模块在被第一次引入时，模块中的js代码会被运行一次"><a href="#模块在被第一次引入时，模块中的js代码会被运行一次" class="headerlink" title="模块在被第一次引入时，模块中的js代码会被运行一次"></a>模块在被第一次引入时，模块中的js代码会被运行一次</h6><h6 id="模块被多次引入时，会缓存，最终只加载（运行）一次"><a href="#模块被多次引入时，会缓存，最终只加载（运行）一次" class="headerlink" title="模块被多次引入时，会缓存，最终只加载（运行）一次"></a>模块被多次引入时，会缓存，最终只加载（运行）一次</h6><p>当模块被引用后，module中的loaded属性会改为true，会缓存起来，该模块再次被引用时，将不再重新加载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629190140490-1629190140472.png"></p>
+<h6 id="如果有循环引入，使用深度优先算法"><a href="#如果有循环引入，使用深度优先算法" class="headerlink" title="如果有循环引入，使用深度优先算法"></a>如果有循环引入，使用深度优先算法</h6><pre><code class="js">// aaa.js
+console.log('aaa');
+require('./ccc');
+
+// bbb.js
+console.log('bbb');
+
+require('./ccc');
+require('./eee');
+
+// ccc.js
+console.log('ccc');
+
+require('./ddd');
+
+// ddd.js
+console.log('ddd');
+
+require('./eee');
+
+// eee.js
+console.log('eee');
+
+// main.js
+console.log("main")
+
+require('./aaa');
+require('./bbb');
+
+// main
+// aaa
+// ccc
+// ddd
+// eee
+// bbb
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629189768881-1629189768875.png"></p>
+<h4 id="4-特点"><a href="#4-特点" class="headerlink" title="4.特点"></a>4.特点</h4><ol>
+<li>CommonJS模块加载js文件的过程是运行时加载的，并且是同步的<ol>
+<li>一个文件没有加载结束之前，后面的代码都不会执行</li>
+</ol>
+</li>
+<li>导出的是一个对象<ol>
+<li>导出的和引入的指向都是同一个对象，所以一个变量修改了对象的属性，所有的地方都会被修改</li>
+</ol>
+</li>
+</ol>
+<pre><code class="js">// foo.js
+let age = 18;
+exports.age = age
+
+// bar.js
+if (true) {
+  const foo = require('./foo')
+  console.log(foo);
+  console.log('后面的代码');
+}
+</code></pre>
+<h3 id="2-ES-Module"><a href="#2-ES-Module" class="headerlink" title="2.ES Module"></a>2.ES Module</h3><p>基本使用：</p>
+<ol>
+<li>普通script标签执行顺序与书写顺序有关，而加上<code>type="module"</code>后，script将为异步引入，不会阻塞后面的标签</li>
+<li>export 导出模块</li>
+<li>import 导入模块</li>
+</ol>
+<h4 id="1-export"><a href="#1-export" class="headerlink" title="1.export"></a>1.export</h4><p>第一种导出方式：在语句声明的前面直接加上export关键字</p>
+<pre><code class="js">// index.html
+&lt;body&gt;
+  &lt;script src="./index.js" type="module"&gt;&lt;/script&gt;
+  &lt;script src="./normal.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+// index.js
+import { name, age, sayHello } from './modules/bar.js';
+
+console.log(name);
+console.log(age);
+sayHello('hah')
+
+// bar.js
+export const name = "loveZero";
+export const age = 18;
+export const sayHello = function (name) {
+  console.log("你好" + name);
+}
+
+// 控制台结果为
+我是普通的script标签
+loveZero
+18
+你好hah
+</code></pre>
+<p>第二种导出方式：将所有需要导出的标识符，放到export后面的 {}中</p>
+<pre><code class="js">const name = "loveZero";
+const age = 18;
+const sayHello = function (name) {
+  console.log("你好" + name);
+}
+export {
+  // 可以给导出的变量起别名，使用时也需要使用别名
+  name as nameAlias,
+  age,
+  sayHello
+}
+</code></pre>
+<p><strong style="color:red;">注意</strong>:这里的 {}不是表示对象</p>
+<h4 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h4><p>第一种导出方式：import {标识符列表} from ‘模块’</p>
+<pre><code class="js">// 可以通过as 起别名
+import { nameAlias, age as ageAlias, sayHello } from './modules/bar.js';
+</code></pre>
+<p>第二种导出方式：通过 * 将模块功能放到一个模块功能对象（a module object）上</p>
+<pre><code class="js">import * as foo from './modules/bar.js';
+console.log(foo.age);
+console.log(foo.nameAlias);
+foo.sayHello('???')
+</code></pre>
+<h4 id="3-export和import混用"><a href="#3-export和import混用" class="headerlink" title="3.export和import混用"></a>3.export和import混用</h4><p>这里相当于是引入了bar里的age，同时导出了age</p>
+<pre><code class="js">// foo.js
+export { age } from './bar.js';
+</code></pre>
+<p>使用场景：</p>
+<p>在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中，这样方便指定统一的接口规范，也方便阅读</p>
+<h4 id="4-default"><a href="#4-default" class="headerlink" title="4.default"></a>4.default</h4><p>默认导出:</p>
+<ul>
+<li><p>默认导出export时可以不需要指定名字；</p>
+</li>
+<li><p>在导入时不需要使用 {}，并且可以自己来指定名字</p>
+</li>
+</ul>
+<pre><code class="js">// fun.js
+export default function () {
+  console.log("do something");
+}
+
+// index.js
+import fun from './modules/fun.js'
+fun()
+</code></pre>
+<h4 id="5-import函数"><a href="#5-import函数" class="headerlink" title="5.import函数"></a>5.import函数</h4><p> 不可以在逻辑代码中使用import加载模块</p>
+<pre><code class="js">if (true) {
+  import { age } from './modules/bar.js';
+  console.log(age);
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629268467258-1629268467253.png"></p>
+<p>因为ES Module在被JS引擎解析时，就必须知道它的依赖关系</p>
+<p>可以通过import函数进行动态加载</p>
+<pre><code class="js">
+if (true) {
+  import('./modules/bar.js')
+    .then(res =&gt; {
+      console.log("在then中的打印");
+      console.log(res.age);
+    })
+    .catch(err =&gt; {
+      console.log(err);
+    })
+}
+</code></pre>
+<h4 id="6-特点"><a href="#6-特点" class="headerlink" title="6.特点"></a>6.特点</h4><ol>
+<li><p>ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p>
+</li>
+<li><p>ES Module是静态解析的，而不是动态或者运行时解析的</p>
+</li>
+<li><p>ES Module通过export导出的是变量本身的引用</p>
+<ol>
+<li>export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li>
+<li>模块环境记录会和变量进行 绑定（binding），并且这个绑定是实时的</li>
+<li>在导入的地方，可以实时的获取到绑定的最新值</li>
+</ol>
+<pre><code class="js">// foo.js
+let age = 18;
+
+setTimeout(() =&gt; {
+  age = 999
+}, 1000)
+export {
+  age,
+}
+//index.js
+import { age } from './foo.js';
+
+setTimeout(() =&gt; {
+  console.log(age); // 999
+}, 2000)
+</code></pre>
+<ol start="4">
+<li>在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li>
+</ol>
+<pre><code class="js">// foo.js
+let age = 18;
+
+setTimeout(() =&gt; {
+  console.log(age); // 18
+}, 2000)
+export {
+  age,
+}
+
+// index.js
+import { age } from './foo.js';
+
+setTimeout(() =&gt; {
+  age = 999
+}, 1000)
+</code></pre>
+<p>无法修改且会报错</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629269598906-1629269598890.png"></p>
+<p>内存里大概是这个样子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629270422607-1629270422597.png"></p>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
-          <category> Node </category>
-          
+        <category>学习</category>
+        <category>JavaScript</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> Node </tag>
-            
-            <tag> Buffer </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>包管理工具</title>
-      <link href="/2021/08/19/xue-xi/bao-guan-li-gong-ju/"/>
-      <url>/2021/08/19/xue-xi/bao-guan-li-gong-ju/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p><h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p><p>当我们安装一个包时其实是从registry上面下载的包；</p><h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p><p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p><h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p><p>name默认值是当前文件夹的名称(不能有中文)</p><pre><code class="js">{  "name": "npm",  "version": "1.0.0",  "description": "",  "main": "index.js",  "scripts": {    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"  },  "keywords": [],  "author": "",  "license": "ISC"}</code></pre><h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul><li><code>name</code> 设置了应用程序/软件包的名称。</li><li><code>version</code> 表明了当前的版本。</li><li><code>description</code> 是应用程序/软件包的简短描述。</li><li><code>main</code> 设置了应用程序的入口点。</li><li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li><li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li><li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li><li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li><li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li><li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li></ul><p>其中必写属性是<code>name</code>和<code>version</code></p><h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul><li>名称不能超过214个字符</li><li>名称不能以点或者下划线开头</li><li>包的名称中不能包含大写字母</li><li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li><li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul><li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li></ul></li></ul><p>查看包名是否被占用</p><p>使用<code>npm view</code></p><p>能查询到信息说明已被使用</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p><p>抛出404说明该包名未被使用</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p><h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote><p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p></blockquote><ul><li>版本号由主版本.此版本.补丁版本组成</li><li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li></ul><h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p><p>keywords用于给你的模块添加关键字。</p><p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p><pre><code class="json">{   "description": "说明信息",   "keywords": [      "node",      "配置",      "json"    ]}</code></pre><h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p><p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p><h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p><pre><code class="json">{  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",  "contributors": [    {      "name": "贡献者",      "email": "example@example.com",      "url": "http://xxx.com"    }  ]}</code></pre><h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p><h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p><p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p><p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p><pre><code class="json">  "scripts": {    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",    "start": "npm run dev",    "unit": "jest --config test/unit/jest.conf.js --coverage",    "test": "npm run unit",    "lint": "eslint --ext .js,.vue src test/unit",    "build": "node build/build.js"  },</code></pre><h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p><p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p><pre><code class="json">  "engines": {    "node": "&gt;= 6.0.0",    "npm": "&gt;= 3.0.0"  },</code></pre><h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p><p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p><p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p><pre><code class="json">  "dependencies": {    "vue": "^2.5.2"  },</code></pre><h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p><p>npm的包通常需要遵从semver版本规范：</p><ul><li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li><li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li></ul><p>semver版本规范是X.Y.Z：</p><ul><li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li><li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li><li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li></ul><p>我们这里解释一下 ^和~的区别：</p><ul><li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li><li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li></ul><h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p><p>比如yarn的全局安装：</p><pre><code class="npm">npm install yarn -g</code></pre><p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p><h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p><pre><code class="npm"># 安装开发和生产依赖npm install axios --savenpm install axios -Snpm install axiosnpm i axios# 开发者npm install axios --save-devnpm install axios -Dnpm i axios -D</code></pre><h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{  "name": "npm",  "version": "1.0.0",  "lockfileVersion": 1,  "requires": true,  "dependencies": {    "axios": {      "version": "0.20.0",      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",      "requires": {        "follow-redirects": "^1.10.0"      }    },    "follow-redirects": {      "version": "1.13.0",      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="    }  }}</code></pre><ul><li><p>name：项目的名称；</p></li><li><p>version：项目的版本；</p></li><li><p>lockfileVersion：lock文件的版本；</p></li><li><p>requires：使用requires来跟着模块的依赖关系；</p></li><li><p>dependencies：项目的依赖</p><ul><li><ul><li>version表示实际安装的axios的版本；</li></ul></li><li>resolved用来记录下载的地址，registry仓库中的位置；</li><li>requires记录当前模块的依赖；</li><li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li><li>当前项目依赖axios，但是axios依赖follow-redireacts；</li><li>axios中的属性如下</li></ul></li></ul><h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p><h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包：</p><ul><li>npm uninstall package</li><li>npm uninstall package –save-dev</li><li>npm uninstall package -D</li></ul><p>强制重新build</p><ul><li>npm rebuild</li></ul><p>清除缓存</p><ul><li>npm cache clean</li></ul><h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p><ul><li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li><li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li><li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li><li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li></ul><p>这里给出一张常用命令的对比</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p><h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p><p>查看npm镜像：</p><pre><code class="text">npm config get registry # npm config get registry</code></pre><p>我们可以直接设置npm的镜像：</p><pre><code class="text">npm config set registry https://registry.npm.taobao.org</code></pre><p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p><ul><li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li><li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li></ul><p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p><pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.orgcnpm config get registry # https://r.npm.taobao.org/</code></pre>]]></content>
-      
-      
+      <tags>
+        <tag>专题</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Buffer</title>
+    <url>/2021/08/19/node/buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+<table>
+<thead>
+<tr>
+<th>128</th>
+<th>64</th>
+<th>32</th>
+<th>16</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
+<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
+console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
+</code></pre>
+<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
+<pre><code class="js">
+const buffer2 = Buffer.from('你好', 'utf16le');
+console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
+// buffer转字符串
+console.log(buffer2.toString('utf16le')); // 你好
+</code></pre>
+<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p>
+<p>查看-&gt;复制-&gt;克隆地址</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p>
+<p>建分支，推到远端</p>
+<p>点进去，发布容器</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p>
+<p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p>
+<p>点击私有化</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p>
+<p>登录</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
+        <category>学习</category>
+        <category>Node</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> Node </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Node中的内置模块</title>
-      <link href="/2021/08/18/node/node-zhong-de-nei-zhi-mo-kuai/"/>
-      <url>/2021/08/18/node/node-zhong-de-nei-zhi-mo-kuai/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul><li>dirname：获取文件的父文件夹</li><li>basename：获取文件名</li><li>extname：获取文件扩展名</li></ul><pre><code class="js">const path = require('path');// 1.获取路径的信息const filepath = '/User/loveZero/abc.txt';console.log(path.dirname(filepath)); // /User/loveZeroconsole.log(path.basename(filepath)); // abc.txtconsole.log(path.extname(filepath)); // .txt</code></pre><h3 id="路径拼接"><a href="#路径拼接" class="headerlink" title="路径拼接"></a>路径拼接</h3><h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>只是拼接各个path片段</p><pre><code class="js">const basepath = '../User/loveZero';const filename = './abc.txt';const filepath1 = path.join(basepath, filename);console.log(filepath1); // ..\User\loveZero\abc.txt</code></pre><h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h4><p>会判断拼接的路径字符串中,是否有以/或./或../开头的路径</p><p>有的话就返回一个以相对于当前的工作目录（working directory）的绝对路径。</p><ol><li>参数从后向前，若字符以 / 开头，不会拼接到前面的路径；</li><li>若以 ../ 开头，拼接前面的路径，但是不含前面一节的最后一层路径；</li><li>若以 ./ 开头 或者没有符号 则拼接前面路径</li></ol><pre><code class="js">const basepath = '../User/loveZero';const filename = './abc.txt';const filepath2 = path.resolve(basepath, filename);console.log(filepath2); // c:\Users\loveZero\Desktop\my\User\loveZero\abc.txt</code></pre><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol><li>join是把各个path片段连接在一起， resolve把‘／’当成根目录</li><li>resolve在传入的第一参数为非根路径时，会返回一个带当前目录路径的绝对路径。</li></ol><pre><code class="js">console.log(path.resolve()) // c:\Users\loveZero\Desktop\my\study-democonsole.log(path.resolve('')) // c:\Users\loveZero\Desktop\my\study-democonsole.log(path.resolve(__dirname)) // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\pathconsole.log(path.resolve('/img/books', '/net'))   // c:\netconsole.log(path.resolve('img/books', '/net'))    // c:\netconsole.log(path.resolve('img/books', './net'))   // c:\Users\loveZero\Desktop\my\study-demo\img\books\netconsole.log(path.resolve('/img/books', './net'))   // c:\img\books\netconsole.log(path.resolve('/img/books', 'net'))     // c:\img\books\netconsole.log(path.resolve('/img/books', '../net'))         // c:\img\netconsole.log(path.resolve('src', '/img/books', '../net'))   // c:\img\netconsole.log(path.resolve('src', './img/books', '../net'))   // c:\Users\loveZero\Desktop\my\study-demo\src\img\netconsole.log(path.resolve('src', 'img/books', '../net'))     // c:\Users\loveZero\Desktop\my\study-demo\src\img\net</code></pre><pre><code class="js">console.log(path.join())           // .console.log(path.join(''))         // .console.log(path.join(__dirname))  // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\pathconsole.log(path.join('/img/books', '/net'))   // \img\books\netconsole.log(path.join('img/books', '/net'))    // img\books\netconsole.log(path.join('img/books', './net'))   // img\books\netconsole.log(path.join('/img/books', './net'))   // \img\books\netconsole.log(path.join('/img/books', 'net'))     // \img\books\netconsole.log(path.join('/img/books', '../net'))         // \img\netconsole.log(path.join('src', '/img/books', '../net'))   // src\img\netconsole.log(path.join('src', './img/books', '../net'))   // src\img\netconsole.log(path.join('src', 'img/books', '../net'))     // src\img\net</code></pre><h2 id="二、fs"><a href="#二、fs" class="headerlink" title="二、fs"></a>二、fs</h2><p>fs是File System的缩写，表示文件系统</p><h3 id="1-获取文件状态"><a href="#1-获取文件状态" class="headerlink" title="1.获取文件状态"></a>1.获取文件状态</h3><h4 id="同步获取"><a href="#同步获取" class="headerlink" title="同步获取"></a>同步获取</h4><pre><code class="js">const fs = require('fs');const info = fs.statSync('./abc.txt');console.log(info);console.log("后续需要执行的代码");/** Stats {  dev: 3728757869,  mode: 33206,  nlink: 1,  uid: 0,  gid: 0,  rdev: 0,  blksize: 4096,  ino: 8725724278139394,  size: 3,  blocks: 0,  atimeMs: 1629275163060.15,  mtimeMs: 1629275163060.15,  ctimeMs: 1629275163060.15,  birthtimeMs: 1629275160923.6409,  atime: 2021-08-18T08:26:03.060Z,  mtime: 2021-08-18T08:26:03.060Z,  ctime: 2021-08-18T08:26:03.060Z,  birthtime: 2021-08-18T08:26:00.924Z }  后续需要执行的代码 */</code></pre><h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><pre><code class="js">fs.stat('./abc.txt', (err, info) =&gt; {  if (err) {    console.log(err);    return;  }  console.log(info);  // 判断是否是文件  console.log(info.isFile());  // 判断是否是文件夹  console.log(info.isDirectory());});console.log("后续需要执行的代码");/*后续需要执行的代码Stats {  dev: 3728757869,  mode: 33206,  nlink: 1,  uid: 0,  gid: 0,  rdev: 0,  blksize: 4096,  ino: 8725724278139394,  size: 3,  blocks: 0,  atimeMs: 1629275163060.15,  mtimeMs: 1629275163060.15,  ctimeMs: 1629275163060.15,  birthtimeMs: 1629275160923.6409,  atime: 2021-08-18T08:26:03.060Z,  mtime: 2021-08-18T08:26:03.060Z,  ctime: 2021-08-18T08:26:03.060Z,  birthtime: 2021-08-18T08:26:00.924Z}truefalse*/</code></pre><h4 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h4><pre><code class="js">fs.promises.stat('./abc.txt').then(info =&gt; {  console.log(info);}).catch(err =&gt; {  console.log(err);});console.log("后续需要执行的代码");</code></pre><h3 id="2-文件描述符"><a href="#2-文件描述符" class="headerlink" title="2.文件描述符"></a>2.文件描述符</h3><p><strong>文件描述符</strong>（file descriptor）在形式上是一个非负整数。实际上，它是一个索引值，每一个文件描述符会与一个打开文件相对应。</p><p>每个打开的文件都分配了一个称为文件描述符的简单的数字标识符。</p><p>在系统层，所有文件系统操作都使用这些文件描述符来标识和跟踪每个特定的文件</p><pre><code class="js">const fs = require('fs');fs.open("./abc.txt", (err, fd) =&gt; {  if (err) {    console.log('err', err);    return;  }  console.log(fd);  //  fd就是文件描述符，一旦获得了文件描述符，就可以通过任何方式执行所需的所有操作  // 通过描述符去获取文件的信息  fs.fstat(fd, (err, info) =&gt; {    console.log(info);  })})</code></pre><h3 id="3-文件读写"><a href="#3-文件读写" class="headerlink" title="3.文件读写"></a>3.文件读写</h3><h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629278489244-1629278489240.png"></p><pre><code class="js">const fs = require('fs');fs.readFile("./abc.txt", 'utf-8', (err, data) =&gt; {  if (err) {    console.error(err)    return  }  console.log(data)});</code></pre><ol><li>如果不指定encoding格式，默认将以<buffer>格式返回</buffer></li><li>如果options是字符串格式，默认是encoding值</li></ol><h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><pre><code class="js">const fs = require('fs')const content = '一些内容'fs.writeFile('./abc.txt', content, err =&gt; {  if (err) {    console.error(err)    return  }  console.error('文件写入成功')})</code></pre><p>将内容追加到文件末尾</p><pre><code class="js">fs.appendFile('./abc.txt', content, err =&gt; {  if (err) {    console.error(err)    return  }  console.error('文件写入成功')})</code></pre><h4 id="flag选项"><a href="#flag选项" class="headerlink" title="flag选项"></a>flag选项</h4><ul><li>w打开文件写入，默认值；</li><li>w+打开文件进行读写，如果不存在则创建文件；</li><li>r+打开文件进行读写，如果不存在那么抛出异常；</li><li>r打开文件读取，读取时的默认值；</li><li>a打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；</li><li>a+打开文件以进行读写，将流放在文件末尾。如果不存在则创建文件</li></ul><pre><code class="js">fs.writeFile('./abc.txt', content, { flag: 'a+' }, err =&gt; {  if (err) {    console.error(err)    return  }  console.error('文件写入成功')})</code></pre><h3 id="4-文件夹操作"><a href="#4-文件夹操作" class="headerlink" title="4.文件夹操作"></a>4.文件夹操作</h3><h4 id="1-判断文件夹是否存在"><a href="#1-判断文件夹是否存在" class="headerlink" title="1.判断文件夹是否存在"></a>1.判断文件夹是否存在</h4><p>方式一</p><pre><code class="js">fs.existsSync('./loveZero')</code></pre><p>方式二</p><pre><code class="js">const dirname = './loveZero';// 检查文件是否存在于当前目录中。fs.access(dirname, fs.constants.F_OK, (err) =&gt; {  console.log(`${dirname} ${err ? '不存在' : '存在'}`);});// 检查文件是否可读。fs.access(dirname, fs.constants.R_OK, (err) =&gt; {  console.log(`${dirname} ${err ? '不可读' : '可读'}`);});// 检查文件是否可写。fs.access(dirname, fs.constants.W_OK, (err) =&gt; {  console.log(`${dirname} ${err ? '不可写' : '可写'}`);});// 检查文件是否存在于当前目录中、以及是否可写。fs.access(dirname, fs.constants.F_OK | fs.constants.W_OK, (err) =&gt; {  if (err) {    console.error(      `${dirname} ${err.code === 'ENOENT' ? '不存在' : '只可读'}`);  } else {    console.log(`${dirname} 存在，且可写`);  }});</code></pre><h4 id="2-创建文件夹"><a href="#2-创建文件夹" class="headerlink" title="2.创建文件夹"></a>2.创建文件夹</h4><p>使用 <code>fs.mkdir()</code> 或 <code>fs.mkdirSync()</code> 可以创建新的文件夹。</p><pre><code class="js">if (!fs.existsSync(dirname)) {  fs.mkdir(dirname, err =&gt; {    console.log(err);  });}</code></pre><h4 id="3-读取目录内容"><a href="#3-读取目录内容" class="headerlink" title="3.读取目录内容"></a>3.读取目录内容</h4><pre><code class="js">const folderPath = '../fs'fs.readdir(folderPath, (err, files) =&gt; {  console.log(files);});/*[  '01-获取文件状态.js',  '02-文件描述符.js',  '03-文件读取.js',  '04-文件写入.js',  '05-文件夹操作.js',  'abc.txt',  'loveZero']*/</code></pre><p>递归遍历文件夹里的所有文件</p><pre><code class="js">const fs = require('fs');const path = require('path');const dirname = './loveZero';function getFiles(dirname) {  fs.readdir(dirname, { withFileTypes: true }, (err, files) =&gt; {    for (let file of files) {      if (file.isDirectory()) {        const filepath = path.resolve(dirname, file.name);        getFiles(filepath);      } else {        console.log(file.name);      }    }  });}getFiles(dirname);/*aaa.txt第二层aaa.txt第三层aaa.txt*/</code></pre><h4 id="4-文件夹重命名"><a href="#4-文件夹重命名" class="headerlink" title="4.文件夹重命名"></a>4.文件夹重命名</h4><pre><code class="js">fs.rename('./oldName', './newName', err =&gt; {  if (err) {    console.error(err)    return  }})</code></pre><h4 id="5-文件夹删除"><a href="#5-文件夹删除" class="headerlink" title="5.文件夹删除"></a>5.文件夹删除</h4><p>安装<code>npm install fs-extra</code></p><pre><code class="js">const fs = require('fs-extra')const folder = './newName'fs.remove(folder, err =&gt; {  console.error(err)})</code></pre><p>递归删除非空文件夹</p><pre><code class="js">function removeDir(dir) {  let files = fs.readdirSync(dir)  for (var i = 0; i &lt; files.length; i++) {    let newPath = path.join(dir, files[i]);    let stat = fs.statSync(newPath)    if (stat.isDirectory()) {      //如果是文件夹就递归下去      removeDir(newPath);    } else {      //删除文件      fs.unlinkSync(newPath);    }  }  fs.rmdirSync(dir)//如果文件夹是空的，就将自己删除掉}removeDir(folder);</code></pre><h2 id="三、events"><a href="#三、events" class="headerlink" title="三、events"></a>三、events</h2><h3 id="1-监听和触发事件"><a href="#1-监听和触发事件" class="headerlink" title="1.监听和触发事件"></a>1.监听和触发事件</h3><p><code>emitter.on</code>和<code>emitter.addListener</code>监听事件</p><p><code>emitter.emit</code>触发事件</p><p>addListener是on的别名，没什么区别</p><pre><code class="js">const EventEmitter = require("events");// 创建发射器const emitter = new EventEmitter();// 监听某一个事件// addListener是on的alias简写emitter.on('click', (args) =&gt; {  console.log("click事件on监听", args);})emitter.addListener('click', (args) =&gt; {  console.log("click事件addListener监听", args);})setTimeout(() =&gt; {  emitter.emit("click", "loveZero");}, 1000);</code></pre><h3 id="2-移除监听"><a href="#2-移除监听" class="headerlink" title="2.移除监听"></a>2.移除监听</h3><p><code>emitter.off</code>跟上对应的函数可以移除监听，<code>on</code>和<code>addListener</code>一样</p><pre><code class="js">const EventEmitter = require("events");// 创建发射器const emitter = new EventEmitter();function onClick(args) {  console.log("click事件on监听", args);}emitter.on('click', onClick)function addListenerClick(args) {  console.log("click事件addListener监听", args);}emitter.addListener('click', addListenerClick)setTimeout(() =&gt; {  emitter.emit("click", "loveZero");  // emitter.off("click", onClick);  // emitter.off("click", addListenerClick);  emitter.emit("click", "loveZero");}, 1000);</code></pre><pre><code class="js">  // 移除所有对某一事件的监听  emitter.removeAllListeners('click')/*click事件on监听 loveZeroclick事件addListener监听 loveZero*/</code></pre><h3 id="3-获取事件信息"><a href="#3-获取事件信息" class="headerlink" title="3.获取事件信息"></a>3.获取事件信息</h3><pre><code class="js">const EventEmitter = require("events");// 创建发射器const emitter = new EventEmitter();function onClick(args) {  console.log("click事件on监听", args);}emitter.on('click', onClick)function addListenerClick(args) {  console.log("click事件addListener监听", args);}emitter.addListener('click', addListenerClick)emitter.on('input', (args) =&gt; {  console.log(args);})// 获取监听事件名console.log(emitter.eventNames()); // [ 'click', 'input' ]// 获取click事件监听的次数console.log(emitter.listenerCount("click")); // 2// 获取click事件监听函数console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: addListenerClick] ]</code></pre>]]></content>
-      
-      
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
+        <tag>Buffer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node中的内置模块</title>
+    <url>/2021/08/18/node/node-zhong-de-nei-zhi-mo-kuai/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
+<li>dirname：获取文件的父文件夹</li>
+<li>basename：获取文件名</li>
+<li>extname：获取文件扩展名</li>
+</ul>
+<pre><code class="js">const path = require('path');
+// 1.获取路径的信息
+const filepath = '/User/loveZero/abc.txt';
+
+console.log(path.dirname(filepath)); // /User/loveZero
+console.log(path.basename(filepath)); // abc.txt
+console.log(path.extname(filepath)); // .txt
+</code></pre>
+<h3 id="路径拼接"><a href="#路径拼接" class="headerlink" title="路径拼接"></a>路径拼接</h3><h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>只是拼接各个path片段</p>
+<pre><code class="js">const basepath = '../User/loveZero';
+const filename = './abc.txt';
+
+const filepath1 = path.join(basepath, filename);
+console.log(filepath1); // ..\User\loveZero\abc.txt
+</code></pre>
+<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h4><p>会判断拼接的路径字符串中,是否有以/或./或../开头的路径</p>
+<p>有的话就返回一个以相对于当前的工作目录（working directory）的绝对路径。</p>
+<ol>
+<li>参数从后向前，若字符以 / 开头，不会拼接到前面的路径；</li>
+<li>若以 ../ 开头，拼接前面的路径，但是不含前面一节的最后一层路径；</li>
+<li>若以 ./ 开头 或者没有符号 则拼接前面路径</li>
+</ol>
+<pre><code class="js">const basepath = '../User/loveZero';
+const filename = './abc.txt';
+const filepath2 = path.resolve(basepath, filename);
+console.log(filepath2); // c:\Users\loveZero\Desktop\my\User\loveZero\abc.txt
+</code></pre>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<li>join是把各个path片段连接在一起， resolve把‘／’当成根目录</li>
+<li>resolve在传入的第一参数为非根路径时，会返回一个带当前目录路径的绝对路径。</li>
+</ol>
+<pre><code class="js">console.log(path.resolve()) // c:\Users\loveZero\Desktop\my\study-demo
+console.log(path.resolve('')) // c:\Users\loveZero\Desktop\my\study-demo
+console.log(path.resolve(__dirname)) // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
+console.log(path.resolve('/img/books', '/net'))   // c:\net
+console.log(path.resolve('img/books', '/net'))    // c:\net
+console.log(path.resolve('img/books', './net'))   // c:\Users\loveZero\Desktop\my\study-demo\img\books\net
+console.log(path.resolve('/img/books', './net'))   // c:\img\books\net
+console.log(path.resolve('/img/books', 'net'))     // c:\img\books\net
+console.log(path.resolve('/img/books', '../net'))         // c:\img\net
+console.log(path.resolve('src', '/img/books', '../net'))   // c:\img\net
+console.log(path.resolve('src', './img/books', '../net'))   // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
+console.log(path.resolve('src', 'img/books', '../net'))     // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
+</code></pre>
+<pre><code class="js">console.log(path.join())           // .
+console.log(path.join(''))         // .
+console.log(path.join(__dirname))  // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
+console.log(path.join('/img/books', '/net'))   // \img\books\net
+console.log(path.join('img/books', '/net'))    // img\books\net
+console.log(path.join('img/books', './net'))   // img\books\net
+console.log(path.join('/img/books', './net'))   // \img\books\net
+console.log(path.join('/img/books', 'net'))     // \img\books\net
+console.log(path.join('/img/books', '../net'))         // \img\net
+console.log(path.join('src', '/img/books', '../net'))   // src\img\net
+console.log(path.join('src', './img/books', '../net'))   // src\img\net
+console.log(path.join('src', 'img/books', '../net'))     // src\img\net
+</code></pre>
+<h2 id="二、fs"><a href="#二、fs" class="headerlink" title="二、fs"></a>二、fs</h2><p>fs是File System的缩写，表示文件系统</p>
+<h3 id="1-获取文件状态"><a href="#1-获取文件状态" class="headerlink" title="1.获取文件状态"></a>1.获取文件状态</h3><h4 id="同步获取"><a href="#同步获取" class="headerlink" title="同步获取"></a>同步获取</h4><pre><code class="js">const fs = require('fs');
+const info = fs.statSync('./abc.txt');
+console.log(info);
+console.log("后续需要执行的代码");
+/**
+ Stats {
+  dev: 3728757869,
+  mode: 33206,
+  nlink: 1,
+  uid: 0,
+  gid: 0,
+  rdev: 0,
+  blksize: 4096,
+  ino: 8725724278139394,
+  size: 3,
+  blocks: 0,
+  atimeMs: 1629275163060.15,
+  mtimeMs: 1629275163060.15,
+  ctimeMs: 1629275163060.15,
+  birthtimeMs: 1629275160923.6409,
+  atime: 2021-08-18T08:26:03.060Z,
+  mtime: 2021-08-18T08:26:03.060Z,
+  ctime: 2021-08-18T08:26:03.060Z,
+  birthtime: 2021-08-18T08:26:00.924Z
+ }
+  后续需要执行的代码
+ */
+</code></pre>
+<h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><pre><code class="js">fs.stat('./abc.txt', (err, info) =&gt; {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(info);
+  // 判断是否是文件
+  console.log(info.isFile());
+  // 判断是否是文件夹
+  console.log(info.isDirectory());
+});
+console.log("后续需要执行的代码");
+/*
+后续需要执行的代码
+Stats {
+  dev: 3728757869,
+  mode: 33206,
+  nlink: 1,
+  uid: 0,
+  gid: 0,
+  rdev: 0,
+  blksize: 4096,
+  ino: 8725724278139394,
+  size: 3,
+  blocks: 0,
+  atimeMs: 1629275163060.15,
+  mtimeMs: 1629275163060.15,
+  ctimeMs: 1629275163060.15,
+  birthtimeMs: 1629275160923.6409,
+  atime: 2021-08-18T08:26:03.060Z,
+  mtime: 2021-08-18T08:26:03.060Z,
+  ctime: 2021-08-18T08:26:03.060Z,
+  birthtime: 2021-08-18T08:26:00.924Z
+}
+true
+false
+*/
+</code></pre>
+<h4 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h4><pre><code class="js">fs.promises.stat('./abc.txt').then(info =&gt; {
+  console.log(info);
+}).catch(err =&gt; {
+  console.log(err);
+});
+console.log("后续需要执行的代码");
+</code></pre>
+<h3 id="2-文件描述符"><a href="#2-文件描述符" class="headerlink" title="2.文件描述符"></a>2.文件描述符</h3><p><strong>文件描述符</strong>（file descriptor）在形式上是一个非负整数。实际上，它是一个索引值，每一个文件描述符会与一个打开文件相对应。</p>
+<p>每个打开的文件都分配了一个称为文件描述符的简单的数字标识符。</p>
+<p>在系统层，所有文件系统操作都使用这些文件描述符来标识和跟踪每个特定的文件</p>
+<pre><code class="js">const fs = require('fs');
+
+fs.open("./abc.txt", (err, fd) =&gt; {
+  if (err) {
+    console.log('err', err);
+    return;
+  }
+
+  console.log(fd);
+  //  fd就是文件描述符，一旦获得了文件描述符，就可以通过任何方式执行所需的所有操作
+  // 通过描述符去获取文件的信息
+  fs.fstat(fd, (err, info) =&gt; {
+    console.log(info);
+  })
+})
+</code></pre>
+<h3 id="3-文件读写"><a href="#3-文件读写" class="headerlink" title="3.文件读写"></a>3.文件读写</h3><h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629278489244-1629278489240.png"></p>
+<pre><code class="js">const fs = require('fs');
+
+fs.readFile("./abc.txt", 'utf-8', (err, data) =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.log(data)
+});
+</code></pre>
+<ol>
+<li>如果不指定encoding格式，默认将以<buffer>格式返回</buffer></li>
+<li>如果options是字符串格式，默认是encoding值</li>
+</ol>
+<h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><pre><code class="js">const fs = require('fs')
+
+const content = '一些内容'
+
+fs.writeFile('./abc.txt', content, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
+</code></pre>
+<p>将内容追加到文件末尾</p>
+<pre><code class="js">fs.appendFile('./abc.txt', content, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
+</code></pre>
+<h4 id="flag选项"><a href="#flag选项" class="headerlink" title="flag选项"></a>flag选项</h4><ul>
+<li>w打开文件写入，默认值；</li>
+<li>w+打开文件进行读写，如果不存在则创建文件；</li>
+<li>r+打开文件进行读写，如果不存在那么抛出异常；</li>
+<li>r打开文件读取，读取时的默认值；</li>
+<li>a打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；</li>
+<li>a+打开文件以进行读写，将流放在文件末尾。如果不存在则创建文件</li>
+</ul>
+<pre><code class="js">fs.writeFile('./abc.txt', content, { flag: 'a+' }, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
+</code></pre>
+<h3 id="4-文件夹操作"><a href="#4-文件夹操作" class="headerlink" title="4.文件夹操作"></a>4.文件夹操作</h3><h4 id="1-判断文件夹是否存在"><a href="#1-判断文件夹是否存在" class="headerlink" title="1.判断文件夹是否存在"></a>1.判断文件夹是否存在</h4><p>方式一</p>
+<pre><code class="js">fs.existsSync('./loveZero')
+</code></pre>
+<p>方式二</p>
+<pre><code class="js">const dirname = './loveZero';
+// 检查文件是否存在于当前目录中。
+fs.access(dirname, fs.constants.F_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不存在' : '存在'}`);
+});
+
+// 检查文件是否可读。
+fs.access(dirname, fs.constants.R_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不可读' : '可读'}`);
+});
+
+// 检查文件是否可写。
+fs.access(dirname, fs.constants.W_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不可写' : '可写'}`);
+});
+
+// 检查文件是否存在于当前目录中、以及是否可写。
+fs.access(dirname, fs.constants.F_OK | fs.constants.W_OK, (err) =&gt; {
+  if (err) {
+    console.error(
+      `${dirname} ${err.code === 'ENOENT' ? '不存在' : '只可读'}`);
+  } else {
+    console.log(`${dirname} 存在，且可写`);
+  }
+});
+</code></pre>
+<h4 id="2-创建文件夹"><a href="#2-创建文件夹" class="headerlink" title="2.创建文件夹"></a>2.创建文件夹</h4><p>使用 <code>fs.mkdir()</code> 或 <code>fs.mkdirSync()</code> 可以创建新的文件夹。</p>
+<pre><code class="js">if (!fs.existsSync(dirname)) {
+  fs.mkdir(dirname, err =&gt; {
+    console.log(err);
+  });
+}
+</code></pre>
+<h4 id="3-读取目录内容"><a href="#3-读取目录内容" class="headerlink" title="3.读取目录内容"></a>3.读取目录内容</h4><pre><code class="js">const folderPath = '../fs'
+fs.readdir(folderPath, (err, files) =&gt; {
+  console.log(files);
+});
+/*
+[
+  '01-获取文件状态.js',
+  '02-文件描述符.js',
+  '03-文件读取.js',
+  '04-文件写入.js',
+  '05-文件夹操作.js',
+  'abc.txt',
+  'loveZero'
+]*/
+</code></pre>
+<p>递归遍历文件夹里的所有文件</p>
+<pre><code class="js">const fs = require('fs');
+const path = require('path');
+const dirname = './loveZero';
+
+function getFiles(dirname) {
+  fs.readdir(dirname, { withFileTypes: true }, (err, files) =&gt; {
+    for (let file of files) {
+      if (file.isDirectory()) {
+        const filepath = path.resolve(dirname, file.name);
+        getFiles(filepath);
+      } else {
+        console.log(file.name);
+      }
+    }
+  });
+}
+
+getFiles(dirname);
+/*
+aaa.txt
+第二层aaa.txt
+第三层aaa.txt
+*/
+</code></pre>
+<h4 id="4-文件夹重命名"><a href="#4-文件夹重命名" class="headerlink" title="4.文件夹重命名"></a>4.文件夹重命名</h4><pre><code class="js">fs.rename('./oldName', './newName', err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+})
+</code></pre>
+<h4 id="5-文件夹删除"><a href="#5-文件夹删除" class="headerlink" title="5.文件夹删除"></a>5.文件夹删除</h4><p>安装<code>npm install fs-extra</code></p>
+<pre><code class="js">const fs = require('fs-extra')
+
+const folder = './newName'
+
+fs.remove(folder, err =&gt; {
+  console.error(err)
+})
+</code></pre>
+<p>递归删除非空文件夹</p>
+<pre><code class="js">function removeDir(dir) {
+  let files = fs.readdirSync(dir)
+  for (var i = 0; i &lt; files.length; i++) {
+    let newPath = path.join(dir, files[i]);
+    let stat = fs.statSync(newPath)
+    if (stat.isDirectory()) {
+      //如果是文件夹就递归下去
+      removeDir(newPath);
+    } else {
+      //删除文件
+      fs.unlinkSync(newPath);
+    }
+  }
+  fs.rmdirSync(dir)//如果文件夹是空的，就将自己删除掉
+}
+removeDir(folder);
+</code></pre>
+<h2 id="三、events"><a href="#三、events" class="headerlink" title="三、events"></a>三、events</h2><h3 id="1-监听和触发事件"><a href="#1-监听和触发事件" class="headerlink" title="1.监听和触发事件"></a>1.监听和触发事件</h3><p><code>emitter.on</code>和<code>emitter.addListener</code>监听事件</p>
+<p><code>emitter.emit</code>触发事件</p>
+<p>addListener是on的别名，没什么区别</p>
+<pre><code class="js">const EventEmitter = require("events");
+
+// 创建发射器
+const emitter = new EventEmitter();
+
+// 监听某一个事件
+// addListener是on的alias简写
+emitter.on('click', (args) =&gt; {
+  console.log("click事件on监听", args);
+})
+
+emitter.addListener('click', (args) =&gt; {
+  console.log("click事件addListener监听", args);
+})
+
+setTimeout(() =&gt; {
+  emitter.emit("click", "loveZero");
+}, 1000);
+</code></pre>
+<h3 id="2-移除监听"><a href="#2-移除监听" class="headerlink" title="2.移除监听"></a>2.移除监听</h3><p><code>emitter.off</code>跟上对应的函数可以移除监听，<code>on</code>和<code>addListener</code>一样</p>
+<pre><code class="js">const EventEmitter = require("events");
+
+// 创建发射器
+const emitter = new EventEmitter();
+
+function onClick(args) {
+  console.log("click事件on监听", args);
+}
+emitter.on('click', onClick)
+
+function addListenerClick(args) {
+  console.log("click事件addListener监听", args);
+
+}
+emitter.addListener('click', addListenerClick)
+
+setTimeout(() =&gt; {
+  emitter.emit("click", "loveZero");
+  // emitter.off("click", onClick);
+  // emitter.off("click", addListenerClick);
+  emitter.emit("click", "loveZero");
+}, 1000);
+</code></pre>
+<pre><code class="js">  // 移除所有对某一事件的监听
+  emitter.removeAllListeners('click')
+/*
+click事件on监听 loveZero
+click事件addListener监听 loveZero
+*/
+</code></pre>
+<h3 id="3-获取事件信息"><a href="#3-获取事件信息" class="headerlink" title="3.获取事件信息"></a>3.获取事件信息</h3><pre><code class="js">const EventEmitter = require("events");
+
+// 创建发射器
+const emitter = new EventEmitter();
+
+function onClick(args) {
+  console.log("click事件on监听", args);
+}
+emitter.on('click', onClick)
+
+function addListenerClick(args) {
+  console.log("click事件addListener监听", args);
+}
+emitter.addListener('click', addListenerClick)
+
+emitter.on('input', (args) =&gt; {
+  console.log(args);
+})
+
+// 获取监听事件名
+console.log(emitter.eventNames()); // [ 'click', 'input' ]
+// 获取click事件监听的次数
+console.log(emitter.listenerCount("click")); // 2
+// 获取click事件监听函数
+console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: addListenerClick] ]
+</code></pre>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
-          <category> Node </category>
-          
+        <category>学习</category>
+        <category>Node</category>
       </categories>
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01-Js数据类型</title>
+    <url>/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+</ul>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
+</code></pre>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+</ul>
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
+</code></pre>
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
+</code></pre>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
+
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
+</code></pre>
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
+</code></pre>
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
+
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
+</code></pre>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
+</code></pre>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
+    }
+</code></pre>
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
+
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
+</code></pre>
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+</code></pre>
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
+</code></pre>
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
+</code></pre>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
+</code></pre>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
       
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> Node </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JavaScript模块化</title>
-      <link href="/2021/08/16/javascript/javascript-mo-kuai-hua/"/>
-      <url>/2021/08/16/javascript/javascript-mo-kuai-hua/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p><ul><li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；</li><li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li><li>也可以通过某种方式，导入另外模块中的变量、函数、对象等；</li></ul><p>按照这种结构划分开发程序的过程，就是模块化开发的过程</p><h2 id="二、没有模块化带来的问题"><a href="#二、没有模块化带来的问题" class="headerlink" title="二、没有模块化带来的问题"></a>二、没有模块化带来的问题</h2><ol><li>污染全局作用域</li><li>开发人员必须主观解决模块和代码库的依赖关系</li><li>文件只能按照script标签的书写顺序进行加载</li><li>在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪</li></ol><p>开发项目时，aaa和bbb给变量命名的时候都命名为<code>flag</code>，在index引入时根据<code>flag</code>的值作相应逻辑，这时候会因为命名冲突产生报错，<code>flag</code>会因为引入文件的顺序而产生不确定性。</p><pre><code class="js">// aaa.jslet flag = true·// bbb.jslet flag = fals</code></pre><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629107910242-1629107910236.png"></p><h2 id="三、模块化方案"><a href="#三、模块化方案" class="headerlink" title="三、模块化方案"></a>三、模块化方案</h2><h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><p>CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了<br>体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS</p><p>CommonJS规范的核心变量：exports、module.exports、require；</p><p>exports和module.exports可以负责对模块中的内容进行导出；</p><p>require函数负责导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</p><h4 id="1-exports"><a href="#1-exports" class="headerlink" title="1.exports"></a>1.exports</h4><p>exports是一个对象，在这个对象中添加很多个属性，添加的属性会导出</p><pre><code class="js">// foo.jslet age = 18;const obj = {id:757};function sayHello(name) {  console.log("Hello " + name);}// 挂载到对象可以使用别名exports.ageAlias = ageexports.obj = objexports.sayHello = sayHello// bar.jsconst foo =  require('./foo')foo.ageAlias = 99console.log(foo.ageAlias);console.log(foo.obj);foo.sayHello('loveZero')</code></pre><h5 id="思考：exports导出在内存如何体现"><a href="#思考：exports导出在内存如何体现" class="headerlink" title="思考：exports导出在内存如何体现"></a>思考：exports导出在内存如何体现</h5><ol><li>1s后在foo.js中修改age值，2s后在bar里打印，值为修改后的值</li></ol><pre><code class="js">// foo.jslet age = 18;setTimeout(() =&gt; {  exports.age = 23;}, 1000)exports.age = age// bar.jsconst foo = require('./foo')console.log('bar---age', foo.age); // 18setTimeout(() =&gt; {  console.log('bar---age', foo.age); // 23}, 2000)</code></pre><ol start="2"><li>1s后再bar里修改age的值，2s后再foo里打印age为bar修改后的值</li></ol><pre><code class="js">// foo.jslet age = 18;setTimeout(() =&gt; {  console.log('foo---age', exports.age); // 99}, 2000)exports.age = age// bar.jsconst foo = require('./foo')// 验证setTimeout(() =&gt; {  foo.age = 99}, 1000)</code></pre><ol start="3"><li>结论</li></ol><p>exports导出的对象和require接受的对象指向统一引用地址</p><p>相当于一个浅拷贝，本质是引用赋值</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629185027808-1629185027801.png"></p><h4 id="2-module-exports"><a href="#2-module-exports" class="headerlink" title="2.module.exports"></a>2.module.exports</h4><pre><code class="js">// foo.jslet age = 18;const obj = { id: 757 };function sayHello(name) {  console.log("Hello " + name);}module.exports = {  ageAlias: age,  obj,  sayHello}// bar.jsconst foo = require('./foo')console.log('bar---obj', foo.obj);console.log('bar---age', foo.ageAlias);foo.sayHello('loveZero')</code></pre><h5 id="思考：exports和module-exports区别"><a href="#思考：exports和module-exports区别" class="headerlink" title="思考：exports和module.exports区别"></a>思考：exports和module.exports区别</h5><p>先打印一下他们是否相等</p><pre><code class="js">console.log({} === {}); // falseconsole.log(exports === module.exports); // true</code></pre><p>两个对象<code>===</code>，说明他们指向统一引用地址，就是赋值关系</p><p>是exports赋值给module.exports还是module.exports赋值给exports呢？需要进一步验证</p><pre><code class="js">// foo.jslet age = 100;console.log('module.exports', module.exports); // {}console.log('exports', exports); // {}module.exports = { age }module.exports = { name: 'loveZero' };console.log('module.exports', module.exports);  // { name: 'loveZero' }console.log('exports', exports); // {}// bar.jsconst foo = require('./foo');console.log('foo', foo) // { name: 'loveZero' }</code></pre><p>通过上述代码可以看出，module.exports和exports初始值都是空对象，通过module.exports导出age后，改变module.exports的值，之后打印exports的值仍为空对象，bar中引入的值是module.exports的值</p><pre><code class="js">// foo.jslet age = 100;console.log('module.exports', module.exports); // {}console.log('exports', exports); // {}exports.age = 200;exports = { name: 'loveZero' };console.log('module.exports', module.exports);  // { age: 200 }console.log('exports', exports); // { name: 'loveZero' }// bar.jsconst foo = require('./foo');console.log('foo', foo) // { age: 200 }</code></pre><p>通过上述验证可以看到，module.exports和exports初始值都是空对象，通过exports将age导出后，修改exports的值，此时module.exports的值为<code>{ age: 200 }</code>，exports的值为<code>{ name: 'loveZero' }</code> ，bar中引用的值是module.exports的值</p><h6 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h6><ol><li>module.exports 初始值为一个空对象 {}</li><li>exports 是指向的 module.exports 的引用</li><li>require导出的内容是module.exports的指向的内存块内容，并不是exports的。</li></ol><h4 id="3-require"><a href="#3-require" class="headerlink" title="3.require"></a>3.require</h4><p>require是一个函数，可以帮助我们引入一个文件（模块）中导入的对象</p><pre><code class="js">require('X')</code></pre><h5 id="1-查找路径"><a href="#1-查找路径" class="headerlink" title="1. 查找路径"></a>1. 查找路径</h5><h6 id="1-X是一个核心模块"><a href="#1-X是一个核心模块" class="headerlink" title="1. X是一个核心模块"></a>1. X是一个核心模块</h6><p> 直接返回核心模块，并且停止查找</p><h6 id="2-X是一个以-或-或根目录开头的"><a href="#2-X是一个以-或-或根目录开头的" class="headerlink" title="2.X是一个以./或../或根目录开头的"></a>2.X是一个以./或../或根目录开头的</h6><p> 第一步：将X当做一个文件在对应的目录下查找；</p><ol><li><p>如果有后缀名，按照后缀名的格式查找对应的文件</p></li><li><p>如果没有后缀名，会按照如下顺序：</p><ol><li>直接查找文件X</li><li>查找X.js文件</li><li>查找X.json文件</li><li>查找X.node文件</li></ol></li></ol><p>第二步：没有找到对应的文件，将X作为一个目录</p><p> 查找目录下面的index文件</p><ol><li>查找X/index.js文件</li><li>查找X/index.json文件</li><li>查找X/index.node文件</li></ol><p>如果没有找到，那么报错：not found</p><h6 id="3-直接是一个X（没有路径），并且X不是一个核心模块"><a href="#3-直接是一个X（没有路径），并且X不是一个核心模块" class="headerlink" title="3.直接是一个X（没有路径），并且X不是一个核心模块"></a>3.直接是一个X（没有路径），并且X不是一个核心模块</h6><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629188758555-1629188758546.png"></p><p> 如果上面的路径中都没有找到，那么报错：not found</p><h5 id="2-模块的加载过程"><a href="#2-模块的加载过程" class="headerlink" title="2.模块的加载过程"></a>2.模块的加载过程</h5><h6 id="模块在被第一次引入时，模块中的js代码会被运行一次"><a href="#模块在被第一次引入时，模块中的js代码会被运行一次" class="headerlink" title="模块在被第一次引入时，模块中的js代码会被运行一次"></a>模块在被第一次引入时，模块中的js代码会被运行一次</h6><h6 id="模块被多次引入时，会缓存，最终只加载（运行）一次"><a href="#模块被多次引入时，会缓存，最终只加载（运行）一次" class="headerlink" title="模块被多次引入时，会缓存，最终只加载（运行）一次"></a>模块被多次引入时，会缓存，最终只加载（运行）一次</h6><p>当模块被引用后，module中的loaded属性会改为true，会缓存起来，该模块再次被引用时，将不再重新加载</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629190140490-1629190140472.png"></p><h6 id="如果有循环引入，使用深度优先算法"><a href="#如果有循环引入，使用深度优先算法" class="headerlink" title="如果有循环引入，使用深度优先算法"></a>如果有循环引入，使用深度优先算法</h6><pre><code class="js">// aaa.jsconsole.log('aaa');require('./ccc');// bbb.jsconsole.log('bbb');require('./ccc');require('./eee');// ccc.jsconsole.log('ccc');require('./ddd');// ddd.jsconsole.log('ddd');require('./eee');// eee.jsconsole.log('eee');// main.jsconsole.log("main")require('./aaa');require('./bbb');// main// aaa// ccc// ddd// eee// bbb</code></pre><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629189768881-1629189768875.png"></p><h4 id="4-特点"><a href="#4-特点" class="headerlink" title="4.特点"></a>4.特点</h4><ol><li>CommonJS模块加载js文件的过程是运行时加载的，并且是同步的<ol><li>一个文件没有加载结束之前，后面的代码都不会执行</li></ol></li><li>导出的是一个对象<ol><li>导出的和引入的指向都是同一个对象，所以一个变量修改了对象的属性，所有的地方都会被修改</li></ol></li></ol><pre><code class="js">// foo.jslet age = 18;exports.age = age// bar.jsif (true) {  const foo = require('./foo')  console.log(foo);  console.log('后面的代码');}</code></pre><h3 id="2-ES-Module"><a href="#2-ES-Module" class="headerlink" title="2.ES Module"></a>2.ES Module</h3><p>基本使用：</p><ol><li>普通script标签执行顺序与书写顺序有关，而加上<code>type="module"</code>后，script将为异步引入，不会阻塞后面的标签</li><li>export 导出模块</li><li>import 导入模块</li></ol><h4 id="1-export"><a href="#1-export" class="headerlink" title="1.export"></a>1.export</h4><p>第一种导出方式：在语句声明的前面直接加上export关键字</p><pre><code class="js">// index.html&lt;body&gt;  &lt;script src="./index.js" type="module"&gt;&lt;/script&gt;  &lt;script src="./normal.js"&gt;&lt;/script&gt;&lt;/body&gt;// index.jsimport { name, age, sayHello } from './modules/bar.js';console.log(name);console.log(age);sayHello('hah')// bar.jsexport const name = "loveZero";export const age = 18;export const sayHello = function (name) {  console.log("你好" + name);}// 控制台结果为我是普通的script标签loveZero18你好hah</code></pre><p>第二种导出方式：将所有需要导出的标识符，放到export后面的 {}中</p><pre><code class="js">const name = "loveZero";const age = 18;const sayHello = function (name) {  console.log("你好" + name);}export {  // 可以给导出的变量起别名，使用时也需要使用别名  name as nameAlias,  age,  sayHello}</code></pre><p><strong style="color:red;">注意</strong>:这里的 {}不是表示对象</p><h4 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h4><p>第一种导出方式：import {标识符列表} from ‘模块’</p><pre><code class="js">// 可以通过as 起别名import { nameAlias, age as ageAlias, sayHello } from './modules/bar.js';</code></pre><p>第二种导出方式：通过 * 将模块功能放到一个模块功能对象（a module object）上</p><pre><code class="js">import * as foo from './modules/bar.js';console.log(foo.age);console.log(foo.nameAlias);foo.sayHello('???')</code></pre><h4 id="3-export和import混用"><a href="#3-export和import混用" class="headerlink" title="3.export和import混用"></a>3.export和import混用</h4><p>这里相当于是引入了bar里的age，同时导出了age</p><pre><code class="js">// foo.jsexport { age } from './bar.js';</code></pre><p>使用场景：</p><p>在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中，这样方便指定统一的接口规范，也方便阅读</p><h4 id="4-default"><a href="#4-default" class="headerlink" title="4.default"></a>4.default</h4><p>默认导出:</p><ul><li><p>默认导出export时可以不需要指定名字；</p></li><li><p>在导入时不需要使用 {}，并且可以自己来指定名字</p></li></ul><pre><code class="js">// fun.jsexport default function () {  console.log("do something");}// index.jsimport fun from './modules/fun.js'fun()</code></pre><h4 id="5-import函数"><a href="#5-import函数" class="headerlink" title="5.import函数"></a>5.import函数</h4><p> 不可以在逻辑代码中使用import加载模块</p><pre><code class="js">if (true) {  import { age } from './modules/bar.js';  console.log(age);}</code></pre><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629268467258-1629268467253.png"></p><p>因为ES Module在被JS引擎解析时，就必须知道它的依赖关系</p><p>可以通过import函数进行动态加载</p><pre><code class="js">if (true) {  import('./modules/bar.js')    .then(res =&gt; {      console.log("在then中的打印");      console.log(res.age);    })    .catch(err =&gt; {      console.log(err);    })}</code></pre><h4 id="6-特点"><a href="#6-特点" class="headerlink" title="6.特点"></a>6.特点</h4><ol><li><p>ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p></li><li><p>ES Module是静态解析的，而不是动态或者运行时解析的</p></li><li><p>ES Module通过export导出的是变量本身的引用</p><ol><li>export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li><li>模块环境记录会和变量进行 绑定（binding），并且这个绑定是实时的</li><li>在导入的地方，可以实时的获取到绑定的最新值</li></ol><pre><code class="js">// foo.jslet age = 18;setTimeout(() =&gt; {  age = 999}, 1000)export {  age,}//index.jsimport { age } from './foo.js';setTimeout(() =&gt; {  console.log(age); // 999}, 2000)</code></pre><ol start="4"><li>在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li></ol><pre><code class="js">// foo.jslet age = 18;setTimeout(() =&gt; {  console.log(age); // 18}, 2000)export {  age,}// index.jsimport { age } from './foo.js';setTimeout(() =&gt; {  age = 999}, 1000)</code></pre><p>无法修改且会报错</p></li></ol><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629269598906-1629269598890.png"></p><p>内存里大概是这个样子</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629270422607-1629270422597.png"></p>]]></content>
-      
-      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
+</code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
-          <category> JavaScript </category>
-          
+        <category>学习</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 专题 </tag>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>浏览器事件环EventLoop</title>
-      <link href="/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/"/>
-      <url>/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p><p>  后端代码都是采用多进程</p><p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p><ol><li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p></li><li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p></li><li><p>事件触发线程 EventLoop</p></li><li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p></li></ol><h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol><li><p>宏任务</p><ul><li>&lt;执行脚本 script&gt;</li><li>setTimeout</li><li>setInterval</li><li>setImmediate</li><li>事件</li><li>ajax</li><li>MessageChannel (I/O)</li></ul></li><li><p>微任务</p><ul><li><p>promise</p></li><li><p>MutationObserer（监视DOM树的变化）</p></li><li><p>node中的process.nextTick</p></li></ul></li><li><p>渲染有关</p><ul><li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li><li>requestIDleCallback 空闲时间执行</li></ul></li><li><p>总结</p><ol><li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p></li><li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p></li><li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p></li><li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p></li><li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p></li><li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p><p>​</p></li></ol></li></ol><p>画图功底有限…</p><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p><h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'    console.log(1);    setTimeout(() =&gt; {      document.body.style.background = 'green'      console.log(2);    }, 0)    Promise.resolve().then(() =&gt; {      console.log(3);      document.body.style.background = 'yellow'    })</code></pre><p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p><h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;  &lt;script&gt;    btn.addEventListener('click', () =&gt; {      Promise.resolve().then(() =&gt; console.log('micro task1'))      console.log('click1');    })    btn.addEventListener('click', () =&gt; {      Promise.resolve().then(() =&gt; console.log('micro task2'))      console.log('click2');    })</code></pre><p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p><p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p><h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;  &lt;script&gt;    // 3    btn.addEventListener('click', () =&gt; {      Promise.resolve().then(() =&gt; console.log('micro task1'))      console.log('click1');    })    btn.addEventListener('click', () =&gt; {      Promise.resolve().then(() =&gt; console.log('micro task2'))      console.log('click2');    })    btn.click()</code></pre><p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p><p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p><h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {      console.log('Promise1')      setTimeout(() =&gt; {        console.log('setTimeout2')      }, 0);    })    setTimeout(() =&gt; {      console.log('setTimeout1');      Promise.resolve().then(() =&gt; {        console.log('Promise2')      })    }, 0);</code></pre><p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p><p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p><ol><li><p>第一轮先将栈里的任务分别放入</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p></li><li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p></li><li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p></li><li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p></li><li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p></li></ol><h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);    async function async() {      console.log(2);      await console.log(3);      console.log(4)    }    setTimeout(() =&gt; {      console.log(5);    }, 0);    const promise = new Promise((resolve, reject) =&gt; {      console.log(6);      resolve(7)    })    promise.then(res =&gt; {      console.log(res)    })    async();    console.log(8);</code></pre><p>上述代码执行结果是：16238745</p><p>原因是：</p><ol><li><p>解释async…await</p><ol><li><p>async 执行后返回的是一个promise</p></li><li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p><p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p></li></ol></li><li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p></li><li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p></li><li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p></li><li><p>此时async函数执行完毕。console.log(8)执行打印8</p></li><li><p>继续执行微任务7then，打印7</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p></li><li><p>继续执行微任务4then，打印4</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p></li><li><p>此时微任务队列清空，开始执行宏任务，打印5</p></li><li><p>此时宏任务，微任务全部清空，程序结束</p></li></ol><h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {      console.log(0);      return Promise.resolve(4);    }).then((res) =&gt; {      console.log(res)    })    Promise.resolve().then(() =&gt; {      console.log(1);    }).then(() =&gt; {      console.log(2);    }).then(() =&gt; {      console.log(3);    }).then(() =&gt; {      console.log(5);    })</code></pre><p>上述打印结果为0,1,2,3,4,5</p><p>原因是</p><ol><li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p></li><li><p>将then0和then1放入微任务队列</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p></li><li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p></li><li><p>执行then1打印，将then2压入栈中</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p></li><li><p>由于return一个promise的特性，then会延迟执行</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p></li><li><p>执行then2打印then2，将then3压入微任务队列</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p></li><li><p>执行then，将4传入then中，将then4压入队列</p></li><li><p>执行then3，打印3，将then5压入队列中</p><p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p></li><li><p>依次执行，打印4,5，程序结束</p></li></ol>]]></content>
-      
-      
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>包管理工具</title>
+    <url>/2021/08/19/xue-xi/bao-guan-li-gong-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
+<h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
+<p>当我们安装一个包时其实是从registry上面下载的包；</p>
+<h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
+<p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p>
+<h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p>
+<p>name默认值是当前文件夹的名称(不能有中文)</p>
+<pre><code class="js">{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+</code></pre>
+<h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul>
+<li><code>name</code> 设置了应用程序/软件包的名称。</li>
+<li><code>version</code> 表明了当前的版本。</li>
+<li><code>description</code> 是应用程序/软件包的简短描述。</li>
+<li><code>main</code> 设置了应用程序的入口点。</li>
+<li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li>
+<li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li>
+<li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li>
+<li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li>
+</ul>
+<p>其中必写属性是<code>name</code>和<code>version</code></p>
+<h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul>
+<li>名称不能超过214个字符</li>
+<li>名称不能以点或者下划线开头</li>
+<li>包的名称中不能包含大写字母</li>
+<li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li>
+<li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul>
+<li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li>
+</ul>
+</li>
+</ul>
+<p>查看包名是否被占用</p>
+<p>使用<code>npm view</code></p>
+<p>能查询到信息说明已被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p>
+<p>抛出404说明该包名未被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p>
+<h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+</blockquote>
+<ul>
+<li>版本号由主版本.此版本.补丁版本组成</li>
+<li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li>
+</ul>
+<h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p>
+<p>keywords用于给你的模块添加关键字。</p>
+<p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p>
+<pre><code class="json">{
+   "description": "说明信息",
+   "keywords": [
+      "node",
+      "配置",
+      "json"
+    ]
+}
+</code></pre>
+<h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+<h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p>
+<pre><code class="json">{
+  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",
+  "contributors": [
+    {
+      "name": "贡献者",
+      "email": "example@example.com",
+      "url": "http://xxx.com"
+    }
+  ]
+}
+</code></pre>
+<h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p>
+<h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p>
+<p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
+<p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p>
+<pre><code class="json">  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "test": "npm run unit",
+    "lint": "eslint --ext .js,.vue src test/unit",
+    "build": "node build/build.js"
+  },
+</code></pre>
+<h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p>
+<p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p>
+<pre><code class="json">  "engines": {
+    "node": "&gt;= 6.0.0",
+    "npm": "&gt;= 3.0.0"
+  },
+</code></pre>
+<h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p>
+<p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p>
+<p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p>
+<pre><code class="json">  "dependencies": {
+    "vue": "^2.5.2"
+  },
+</code></pre>
+<h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p>
+<p>npm的包通常需要遵从semver版本规范：</p>
+<ul>
+<li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<p>semver版本规范是X.Y.Z：</p>
+<ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<p>我们这里解释一下 ^和~的区别：</p>
+<ul>
+<li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li>
+</ul>
+<h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p>
+<p>比如yarn的全局安装：</p>
+<pre><code class="npm">npm install yarn -g
+</code></pre>
+<p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p>
+<h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p>
+<pre><code class="npm"># 安装开发和生产依赖
+npm install axios --save
+npm install axios -S
+npm install axios
+npm i axios
+
+# 开发者
+npm install axios --save-dev
+npm install axios -D
+npm i axios -D
+</code></pre>
+<h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{
+  "name": "npm",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "axios": {
+      "version": "0.20.0",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",
+      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",
+      "requires": {
+        "follow-redirects": "^1.10.0"
+      }
+    },
+    "follow-redirects": {
+      "version": "1.13.0",
+      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",
+      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="
+    }
+  }
+}
+</code></pre>
+<ul>
+<li><p>name：项目的名称；</p>
+</li>
+<li><p>version：项目的版本；</p>
+</li>
+<li><p>lockfileVersion：lock文件的版本；</p>
+</li>
+<li><p>requires：使用requires来跟着模块的依赖关系；</p>
+</li>
+<li><p>dependencies：项目的依赖</p>
+<ul>
+<li><ul>
+<li>version表示实际安装的axios的版本；</li>
+</ul>
+</li>
+<li>resolved用来记录下载的地址，registry仓库中的位置；</li>
+<li>requires记录当前模块的依赖；</li>
+<li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
+<li>当前项目依赖axios，但是axios依赖follow-redireacts；</li>
+<li>axios中的属性如下</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
+<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包：</p>
+<ul>
+<li>npm uninstall package</li>
+<li>npm uninstall package –save-dev</li>
+<li>npm uninstall package -D</li>
+</ul>
+<p>强制重新build</p>
+<ul>
+<li>npm rebuild</li>
+</ul>
+<p>清除缓存</p>
+<ul>
+<li>npm cache clean</li>
+</ul>
+<h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p>
+<ul>
+<li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li>
+<li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li>
+<li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li>
+<li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li>
+</ul>
+<p>这里给出一张常用命令的对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p>
+<h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p>
+<p>查看npm镜像：</p>
+<pre><code class="text">npm config get registry # npm config get registry
+</code></pre>
+<p>我们可以直接设置npm的镜像：</p>
+<pre><code class="text">npm config set registry https://registry.npm.taobao.org
+</code></pre>
+<p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p>
+<ul>
+<li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li>
+<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
+</ul>
+<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p>
+<pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm config get registry # https://r.npm.taobao.org/
+</code></pre>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
+        <category>学习</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 学习 </tag>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>手写Promise</title>
-      <link href="/2021/08/04/javascript/shou-xie-promise/"/>
-      <url>/2021/08/04/javascript/shou-xie-promise/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p><p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p><p>1.悬而未决：你 [不知道] 你是否会得到手机直到下礼拜（<strong style="color:#17a2b8;">等待态</strong>）。</p><p>2.解决：你老妈给你买了，因为发工资有钱了（<strong style="color:#17a2b8;">成功态</strong>）。</p><p>3.拒绝：你老妈拒绝给你买，因为钱不够（<strong style="color:#17a2b8;">失败态</strong>）。</p><p>总结：</p><ol><li>Promise 有三个状态 ：<ol><li>默认状态叫等待态 pending</li><li>resolve表示成功态 fulfilled</li><li>reject表示变成失败态 rejected</li></ol></li><li>成功有成功的原因，失败也有失败的原因</li><li>只有pending的状态的时候才能改变状态<ul><li>不能从成功变为失败</li><li>不能从失败变为成功</li></ul></li></ol><pre><code class="js">// 代码实现const money = 9999const bugPhone = new Promise((resolve, reject) =&gt; {  if (money &gt; 10000) {    resolve('有钱，买！')  } else {    reject('我先给我买手机了')  }})// then方法中提供两个参数 1. 成功回调 2.失败的回调bugPhone.then((value) =&gt; {  console.log(value, 'success')}, (reason) =&gt; {  console.log(reason, 'fail')})</code></pre><ol><li>当既调用成功，又调用失败：只会变为第一次调用的状态</li></ol><pre><code class="js">// 此时只会执行resolve，因为状态一旦确定无法改变const promise = new Promise((resolve, reject) =&gt; {  resolve('ok')  reject('error')})promise.then((value) =&gt; {  console.log(value, 'success')}, (reason) =&gt; {  console.log(reason, 'fail')})</code></pre><ol start="2"><li>失败状态的方法reject和throw new Error都可以变为失败态</li></ol><pre><code class="js">const promise2 = new Promise((resolve, reject) =&gt; {  // reject('error')  throw new Error('error')})promise2.then((value) =&gt; {  console.log(value, 'success')}, (reason) =&gt; {  console.log(reason, 'fail')})</code></pre><ol start="3"><li>在异步中，仍然可以正常使用</li></ol><pre><code class="js">let promise = new Promise((resolve, reject) =&gt; {  setTimeout(() =&gt; {    // throw new Error('error')    reject('error');    resolve('ok')    // return new Error('失败')  }, 1000);})promise.then((value) =&gt; {  console.log(value, 'success')}, (reason) =&gt; {  console.log(reason, 'fail')})</code></pre><ol start="4"><li>支持<code>.then</code> 链式调用<ul><li>当<code>.then</code> 中返回的是一个Promise，可以继续<code>.then</code> 调用这个返回的promise，以下称原来的promise为promise，返回的promise为promise2<ul><li>当promise2结果是成功：链式调用<code>.then</code>直接进入<code>resolve</code></li><li>当promise2结果为失败或抛出异常：链式调用<code>.then</code>直接进入<code>reject</code></li></ul></li><li>当<code>.then</code> 中返回的的是一个非Promise，链式调用<code>.then</code>时，直接进入<code>resolve</code></li></ul></li></ol><pre><code class="js">const promise3 = new Promise((resolve, reject) =&gt; {  resolve('ok')}).then(data =&gt; {  return new Promise((resolve, reject) =&gt; {    // 返回一个promise，并是成功态    resolve('ok')  })}).then((data) =&gt; {  console.log(data); // 进入成功}, err =&gt; {  console.log('err', err)})const promise4 = new Promise((resolve, reject) =&gt; {  resolve('ok')}).then(data =&gt; {  return new Promise((resolve, reject) =&gt; {    // 返回一个promise，并是失败态，或异常    // reject('err')    throw new Error('error')  })}).then((data) =&gt; {  console.log(data);}, err =&gt; {  console.log('err', err) // 进入失败})const promise5 = new Promise((resolve, reject) =&gt; {  resolve('ok')}).then(data =&gt; {  // 返回一个非promise  return 666}).then((data) =&gt; {  console.log(data); // 直接进入成功}, err =&gt; {  console.log('err', err)})</code></pre><ol start="5"><li>链式调用中不允许循环引用<ul><li>new一个Promise，<code>.then</code>时，将这个Promise返回，链式<code>.then</code>再次调用就会出现循环引用</li><li>原理是：返回的promise始终在等待态，再调用依然是等待态。通俗说就是自己等自己</li></ul></li></ol><pre><code class="js">let promise6 = new Promise((resolve, reject) =&gt; {  resolve('ok')}).then(data =&gt; {  return promise6;// prending resolve()/reject()})promise6.then((data) =&gt; {  console.log(data);}, err =&gt; {  console.log('err', err) // err [TypeError: Chaining cycle detected for promise #&lt;Promise&gt;]})</code></pre><ol start="6"><li>链式调用可选参数</li></ol><pre><code class="js">let promise7 = new Promise((resolve, reject) =&gt; {  reject('err')  // 当then里没有传任何值的时候，最后一个then用的依然是第一次传入的值}).then().then().then((data) =&gt; {  console.log(data);}, err =&gt; {  console.log('err', err)})</code></pre><h3 id="2-根据promiseaplus官网-的规则，手写自己的Promise"><a href="#2-根据promiseaplus官网-的规则，手写自己的Promise" class="headerlink" title="2.根据promiseaplus官网 的规则，手写自己的Promise"></a>2.根据<a href="https://promisesaplus.com/">promiseaplus官网</a> 的规则，手写自己的Promise</h3><h4 id="1-一个基本的promise，满足异步promise，但无法进行链式调用"><a href="#1-一个基本的promise，满足异步promise，但无法进行链式调用" class="headerlink" title="1.一个基本的promise，满足异步promise，但无法进行链式调用"></a>1.一个基本的promise，满足异步promise，但无法进行链式调用</h4><pre><code class="js">const PENDING = 'PENDING'; // 默认等待态const FULFILLED = 'FULFILLED'; // 成功态 const REJECTED = 'REJECTED'; // 失败态class Promise {  constructor(executor) {    // 默认状态改为PENDING    this.status = PENDING;    // 储存传入的成功值    this.value = undefined;    // 储存传入的失败    this.reason = undefined;    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来    this.onResolvedCallbacks = [];    this.onRejectedCallbacks = [];    // 成功方法    const resolve = (value) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.value = value        // 将状态改为成功        this.status = FULFILLED        // 执行储存的成功回调        this.onResolvedCallbacks.forEach(fn =&gt; fn())      }    }    // 失败方法    const reject = (reason) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.reason = reason        // 将状态改为失败        this.status = REJECTED        // 执行储存的失败回调        this.onRejectedCallbacks.forEach(fn =&gt; fn())      }    }    try {      // 默认new Promise中的函数会立即执行      executor(resolve, reject);    } catch (e) {      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑      reject(e)    }  }  // then方法  then(onFulfilled, onRejected) {    switch (this.status) {      case FULFILLED:        // 成功时        onFulfilled(this.value)        break;      case REJECTED:        // 失败时        onRejected(this.reason)        break;      default:        // 等待时        this.onResolvedCallbacks.push(() =&gt; {          // 将成功函数push到成功回调队列          onFulfilled(this.value)        })        this.onRejectedCallbacks.push(() =&gt; {          // 将成功函数push到失败回调队列          onRejected(this.reason);        })        break;    }  }}module.exports = Promise</code></pre><h4 id="2-支持链式调用"><a href="#2-支持链式调用" class="headerlink" title="2.支持链式调用"></a>2.支持链式调用</h4><pre><code class="js">const PENDING = 'PENDING'; // 默认等待态const FULFILLED = 'FULFILLED'; // 成功态 const REJECTED = 'REJECTED'; // 失败态// 处理promise逻辑的函数/** * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject * 2.x是一个非promise，统统调用resolve * 3.x是抛出异常，进入reject * 4.x和promise2不能一样，会出现循环引用 * 5.resolve和reject都只能调用一次 * @param {返回的promise} x  * @param {new的新} promise2  * @param {成功方法} resolve  * @param {失败方法} reject  * @returns  */function resolvePromise(x, promise2, resolve, reject) {  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常  if (x === promise2) {    return reject(new TypeError('循环引用'))  }  // 判断返回的x是否是一个promise(promsise需要有then方法)  // 可能是一个名为promise的对象，或者是一个自定义的promise函数  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {    // 记录状态是否改变    let called = false;    try {      // 获取返回的then方法      let then = x.then;      if (typeof then === 'function') {        // 因为返回的有可能还是一个promise        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug        then.call(x, (y) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里说明返回的promise是成功状态          resolvePromise(y, promise2, resolve, reject)        }, (r) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里是失败，直接走失败          reject(r);        })      } else {        // 进到这里可能是{then:1}，非promise值直接进成功        resolve(x);      }    } catch (error) {      // 如果状态改变了，就不往下走      if (called) return;      // 执行到这里说明状态没有被改变，就标记为已改变      called = true      //  让promise2 变成失败态      reject(error)    }  } else {    // 进这里，说明x是一个非promise，直接调用resolve    resolve(x);  }}class Promise {  constructor(executor) {    // 默认状态改为PENDING    this.status = PENDING;    // 储存传入的成功值    this.value = undefined;    // 储存传入的失败    this.reason = undefined;    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来    this.onResolvedCallbacks = [];    this.onRejectedCallbacks = [];    // 成功方法    const resolve = (value) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.value = value        // 将状态改为成功        this.status = FULFILLED        // 执行储存的成功回调        this.onResolvedCallbacks.forEach(fn =&gt; fn())      }    }    // 失败方法    const reject = (reason) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.reason = reason        // 将状态改为失败        this.status = REJECTED        // 执行储存的失败回调        this.onRejectedCallbacks.forEach(fn =&gt; fn())      }    }    try {      // 默认new Promise中的函数会立即执行      executor(resolve, reject);    } catch (e) {      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑      reject(e)    }  }  // then方法  then(onFulfilled, onRejected) {    // 这里是then()如果传空值，就使用上一个的值    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };    // 由于promise状态无法修改，所以不能使用同一个promise    // 实现链式调用不能return this    // 每次调用then方法 都必须返回一个全新的promise    let promise2 = new Promise((resolve, reject) =&gt; {      switch (this.status) {        // 成功时        case FULFILLED:          // 因为需要promise2做参数，所以需要异步调用          setTimeout(() =&gt; {            try {              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败              let x = onFulfilled(this.value)              // 处理函数              resolvePromise(x, promise2, resolve, reject)            } catch (e) {              // 如果出错，直接就走失败              reject(e)            }          }, 0)          break;        // 失败时        case REJECTED:          setTimeout(() =&gt; {            try {              let x = onRejected(this.reason);              resolvePromise(x, promise2, resolve, reject);            } catch (e) {              reject(e);            }          }, 0);          break;        default:          // 等待时          this.onResolvedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到成功回调队列                let x = onFulfilled(this.value);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          this.onRejectedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到失败回调队列                let x = onRejected(this.reason);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          break;      }    })    // 返回新的promise，供链式调用    return promise2;  }}module.exports = Promise</code></pre><h4 id="3-运行官方测试"><a href="#3-运行官方测试" class="headerlink" title="3.运行官方测试"></a>3.运行官方测试</h4><ol><li><p><code>npm install promises-aplus-tests -g</code> 安装测试工具</p></li><li><p>在promise.js中写</p></li><li><pre><code class="js">// 官方提供的测试静态方法Promise.deferred = function () {  let dfd = {};  dfd.promise = new Promise((resolve, reject) =&gt; {    dfd.resolve = resolve;    dfd.reject = reject;  })  return dfd}</code></pre></li><li><p><code>promises-aplus-tests promise.js</code> 根据promise的地址运行测试</p></li></ol><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628130801594-1628130801589.png"></p><h3 id="4-Promise语法糖"><a href="#4-Promise语法糖" class="headerlink" title="4.Promise语法糖"></a>4.Promise语法糖</h3><h4 id="原生Promise"><a href="#原生Promise" class="headerlink" title="原生Promise"></a>原生Promise</h4><ol><li>Promise.resolve和Promise.reject<ul><li>Promise.resolve会等待异步任务执行完毕再进入resolve</li><li>Promise.reject会直接进入catch</li></ul></li></ol><pre><code class="js">Promise.resolve('ok').then(data =&gt; {  console.log(data); // ok})// Promise.reject会直接进入catchPromise.reject('失败').catch(err =&gt; {  console.log('err', err); // 失败})// 异步时Promise.resolve(new Promise((resolve, reject) =&gt; {  setTimeout(() =&gt; {    resolve('hello', 'success');  }, 2000);})).then(data =&gt; {  console.log(data); // hello})// Promise.reject会直接进入catchPromise.reject(new Promise((resolve, reject) =&gt; {  setTimeout(() =&gt; {    resolve('hello');   }, 1000);})).catch(err =&gt; {  console.log('err', err); // err Promise { &lt;pending&gt; }})</code></pre><ol start="2"><li>Promise.all<ul><li>所有任务都成功，才会进入成功</li><li>只要有一个任务失败，就会进入失败</li><li>成功任务返回时，会按照书写顺序返回</li></ul></li></ol><pre><code class="js">Promise.all([fs.readFile('./promise-study/name.txt', 'utf8'), fs.readFile('./promise-study/age.txt', 'utf8'), 11]).then(data =&gt; {  console.log(data);}).catch(err =&gt; {  console.log(err)})</code></pre><ol start="3"><li>Promise.finally<ul><li>不管成功还是失败都会执行</li></ul></li></ol><pre><code class="js">// finally 不管成功还是失败都会执行Promise.reject('err').finally((f) =&gt; {  // 没有参数  console.log('无论成功失败都执行', f)  // return 一个普通值没有意义  return 'finally'}).then((data) =&gt; {  console.log('成功', data)}).catch(err =&gt; {  console.log('失败', err)});Promise.resolve('ok').finally((f) =&gt; {  console.log('无论成功失败都执行', f)}).then((data) =&gt; {  console.log('成功', data)}).catch(err =&gt; {  console.log('失败', err)});</code></pre><ul><li>当返回的是一个promise<ul><li>外层promise为reject时<ul><li>里层promise为reject，就会使用里层promise的原因走reject</li><li>里层的promsie为resolve，就会以外层的reject原因走reject</li></ul></li><li>外层promsie为resolve时<ul><li>里层的promise为resolve，就会以外层resolve的原因走resolve</li><li>里层的promise为reject，就会以里层reject的原因走reject</li></ul></li></ul></li></ul><pre><code class="js">Promise.reject('ok').finally(() =&gt; {  console.log('无论成功失败都执行')  return new Promise((resolve, reject) =&gt; {    setTimeout(() =&gt; {      reject('finally reject')    }, 1000);  });}).then((data) =&gt; {  console.log('成功', data)}).catch(err =&gt; {  console.log('失败', err)});</code></pre><h4 id="我的promise实现"><a href="#我的promise实现" class="headerlink" title="我的promise实现"></a>我的promise实现</h4><ol><li>Promise.resolve和Promise.reject</li></ol><pre><code class="diff">const PENDING = 'PENDING'; // 默认等待态const FULFILLED = 'FULFILLED'; // 成功态 const REJECTED = 'REJECTED'; // 失败态// 处理promise逻辑的函数/** * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject * 2.x是一个非promise，统统调用resolve * 3.x是抛出异常，进入reject * 4.x和promise2不能一样，会出现循环引用 * 5.resolve和reject都只能调用一次 * @param {返回的promise} x  * @param {new的新} promise2  * @param {成功方法} resolve  * @param {失败方法} reject  * @returns  */function resolvePromise(x, promise2, resolve, reject) {  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常  if (x === promise2) {    return reject(new TypeError('循环引用'))  }  // 判断返回的x是否是一个promise(promsise需要有then方法)  // 可能是一个名为promise的对象，或者是一个自定义的promise函数  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {    // 记录状态是否改变    let called = false;    try {      // 获取返回的then方法      let then = x.then;      if (typeof then === 'function') {        // 因为返回的有可能还是一个promise        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug        then.call(x, (y) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里说明返回的promise是成功状态          resolvePromise(y, promise2, resolve, reject)        }, (r) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里是失败，直接走失败          reject(r);        })      } else {        // 进到这里可能是{then:1}，非promise值直接进成功        resolve(x);      }    } catch (error) {      // 如果状态改变了，就不往下走      if (called) return;      // 执行到这里说明状态没有被改变，就标记为已改变      called = true      //  让promise2 变成失败态      reject(error)    }  } else {    // 进这里，说明x是一个非promise，直接调用resolve    resolve(x);  }}class Promise {  constructor(executor) {    // 默认状态改为PENDING    this.status = PENDING;    // 储存传入的成功值    this.value = undefined;    // 储存传入的失败    this.reason = undefined;    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来    this.onResolvedCallbacks = [];    this.onRejectedCallbacks = [];    // 成功方法+    const resolve = (value) =&gt; {+      // 看resolve中是否是一个promise+      if (value instanceof Promise) {+        // 如果是，就手动掉用then方法。递归知道他不是一个promise+        return value.then(resolve, reject);+      }      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.value = value        // 将状态改为成功        this.status = FULFILLED        // 执行储存的成功回调        this.onResolvedCallbacks.forEach(fn =&gt; fn())      }    }    // 失败方法    const reject = (reason) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.reason = reason        // 将状态改为失败        this.status = REJECTED        // 执行储存的失败回调        this.onRejectedCallbacks.forEach(fn =&gt; fn())      }    }    try {      // 默认new Promise中的函数会立即执行      executor(resolve, reject);    } catch (e) {      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑      reject(e)    }  }  // then方法  then(onFulfilled, onRejected) {    // 这里是then()如果传空值，就使用上一个的值    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };    // 由于promise状态无法修改，所以不能使用同一个promise    // 实现链式调用不能return this    // 每次调用then方法 都必须返回一个全新的promise    let promise2 = new Promise((resolve, reject) =&gt; {      switch (this.status) {        // 成功时        case FULFILLED:          // 因为需要promise2做参数，所以需要异步调用          setTimeout(() =&gt; {            try {              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败              let x = onFulfilled(this.value)              // 处理函数              resolvePromise(x, promise2, resolve, reject)            } catch (e) {              // 如果出错，直接就走失败              reject(e)            }          }, 0)          break;        // 失败时        case REJECTED:          setTimeout(() =&gt; {            try {              let x = onRejected(this.reason);              resolvePromise(x, promise2, resolve, reject);            } catch (e) {              reject(e);            }          }, 0);          break;        default:          // 等待时          this.onResolvedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到成功回调队列                let x = onFulfilled(this.value);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          this.onRejectedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到失败回调队列                let x = onRejected(this.reason);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          break;      }    })    // 返回新的promise，供链式调用    return promise2;  }+  catch(errFn) {+     return this.then(null, errFn);+  }+  // 静态方法resolve+  static resolve(value) {+    return new Promise((resolve, reject) =&gt; {+      resolve(value);+    })+  }+  // 静态方法reject+  static reject(err) {+    return new Promise((resolve, reject) =&gt; {+      reject(err);+    })+  }}// 官方提供的测试静态方法// npm install promises-aplus-tests -g;Promise.deferred = function () {  let dfd = {};  dfd.promise = new Promise((resolve, reject) =&gt; {    dfd.resolve = resolve;    dfd.reject = reject;  })  return dfd}module.exports = Promise</code></pre><ol start="2"><li>Promise.all</li></ol><pre><code class="diff">const PENDING = 'PENDING'; // 默认等待态const FULFILLED = 'FULFILLED'; // 成功态 const REJECTED = 'REJECTED'; // 失败态// 处理promise逻辑的函数/** * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject * 2.x是一个非promise，统统调用resolve * 3.x是抛出异常，进入reject * 4.x和promise2不能一样，会出现循环引用 * 5.resolve和reject都只能调用一次 * @param {返回的promise} x  * @param {new的新} promise2  * @param {成功方法} resolve  * @param {失败方法} reject  * @returns  */function resolvePromise(x, promise2, resolve, reject) {  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常  if (x === promise2) {    return reject(new TypeError('循环引用'))  }  // 判断返回的x是否是一个promise(promsise需要有then方法)  // 可能是一个名为promise的对象，或者是一个自定义的promise函数  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {    // 记录状态是否改变    let called = false;    try {      // 获取返回的then方法      let then = x.then;      if (typeof then === 'function') {        // 因为返回的有可能还是一个promise        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug        then.call(x, (y) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里说明返回的promise是成功状态          resolvePromise(y, promise2, resolve, reject)        }, (r) =&gt; {          // 如果状态改变了，就不往下走          if (called) return;          // 执行到这里说明状态没有被改变，就标记为已改变          called = true          // 这里是失败，直接走失败          reject(r);        })      } else {        // 进到这里可能是{then:1}，非promise值直接进成功        resolve(x);      }    } catch (error) {      // 如果状态改变了，就不往下走      if (called) return;      // 执行到这里说明状态没有被改变，就标记为已改变      called = true      //  让promise2 变成失败态      reject(error)    }  } else {    // 进这里，说明x是一个非promise，直接调用resolve    resolve(x);  }}class Promise {  constructor(executor) {    // 默认状态改为PENDING    this.status = PENDING;    // 储存传入的成功值    this.value = undefined;    // 储存传入的失败    this.reason = undefined;    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来    this.onResolvedCallbacks = [];    this.onRejectedCallbacks = [];    // 成功方法    const resolve = (value) =&gt; {      // 看resolve中是否是一个promise      if (value instanceof Promise) {        // 如果是，就手动掉用then方法。递归知道他不是一个promise        return value.then(resolve, reject);      }      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.value = value        // 将状态改为成功        this.status = FULFILLED        // 执行储存的成功回调        this.onResolvedCallbacks.forEach(fn =&gt; fn())      }    }    // 失败方法    const reject = (reason) =&gt; {      // 只有等待态才能改变状态      if (this.status === PENDING) {        // 将传入的值赋给value        this.reason = reason        // 将状态改为失败        this.status = REJECTED        // 执行储存的失败回调        this.onRejectedCallbacks.forEach(fn =&gt; fn())      }    }    try {      // 默认new Promise中的函数会立即执行      executor(resolve, reject);    } catch (e) {      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑      reject(e)    }  }  // then方法  then(onFulfilled, onRejected) {    // 这里是then()如果传空值，就使用上一个的值    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };    // 由于promise状态无法修改，所以不能使用同一个promise    // 实现链式调用不能return this    // 每次调用then方法 都必须返回一个全新的promise    let promise2 = new Promise((resolve, reject) =&gt; {      switch (this.status) {        // 成功时        case FULFILLED:          // 因为需要promise2做参数，所以需要异步调用          setTimeout(() =&gt; {            try {              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败              let x = onFulfilled(this.value)              // 处理函数              resolvePromise(x, promise2, resolve, reject)            } catch (e) {              // 如果出错，直接就走失败              reject(e)            }          }, 0)          break;        // 失败时        case REJECTED:          setTimeout(() =&gt; {            try {              let x = onRejected(this.reason);              resolvePromise(x, promise2, resolve, reject);            } catch (e) {              reject(e);            }          }, 0);          break;        default:          // 等待时          this.onResolvedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到成功回调队列                let x = onFulfilled(this.value);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          this.onRejectedCallbacks.push(() =&gt; {            setTimeout(() =&gt; {              try {                // 将成功函数push到失败回调队列                let x = onRejected(this.reason);                resolvePromise(x, promise2, resolve, reject);              } catch (e) {                reject(e);              }            }, 0);          })          break;      }    })    // 返回新的promise，供链式调用    return promise2;  }  catch(errFn) {    return this.then(null, errFn);  }  // 静态方法resolve  static resolve(value) {    return new Promise((resolve, reject) =&gt; {      resolve(value);    })  }  // 静态方法reject  static reject(err) {    return new Promise((resolve, reject) =&gt; {      reject(err);    })  }+  static all(promises) {+    return new Promise((resolve, reject) =&gt; {+      // 将数组中的promise依次执行 +      let result = [];+      let index = 0;+      // 处理函数+      function process(v, k) {+        // 将函数与索引映射+        result[k] = v;+        if (++index === promises.length) {+          resolve(result)+        }+      }+      for (let i = 0; i &lt; promises.length; i++) {+        let p = promises[i];+        // 判断p是否是promsie+        if (p &amp;&amp; typeof p.then === 'function') {+          p.then(data =&gt; {+            process(data, i)+          }, reject) // 只要有一个失败，就直接调reject+        } else {+          // 说明不是promise+          process(p, i)+        }+      }+    })  }}// 官方提供的测试静态方法// npm install promises-aplus-tests -g;Promise.deferred = function () {  let dfd = {};  dfd.promise = new Promise((resolve, reject) =&gt; {    dfd.resolve = resolve;    dfd.reject = reject;  })  return dfd}module.exports = Promise</code></pre><ol start="3"><li>finally方法,直接写在原型上</li></ol><pre><code class="js">Promise.prototype.finally = function (cb) {  return this.then((y) =&gt; {    // 使用Promise.resolve是因为需要有等待功能    // 成功就直接进then，但使用的原因是外层的原因    return Promise.resolve(cb()).then((d) =&gt; y);  }, (r) =&gt; {    //cb执行一旦报错 就直接跳过后续的then的逻辑，直接将错误向下传递    return Promise.resolve(cb()).then(() =&gt; { throw r })  })}</code></pre><p>完结啦~</p>]]></content>
-      
-      
+      <tags>
+        <tag>学习</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浏览器事件环EventLoop</title>
+    <url>/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+<p>  后端代码都是采用多进程</p>
+<p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
+<ol>
+<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
+</li>
+<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
+</li>
+<li><p>事件触发线程 EventLoop</p>
+</li>
+<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
+</li>
+</ol>
+<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
+<li><p>宏任务</p>
+<ul>
+<li>&lt;执行脚本 script&gt;</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+<li>事件</li>
+<li>ajax</li>
+<li>MessageChannel (I/O)</li>
+</ul>
+</li>
+<li><p>微任务</p>
+<ul>
+<li><p>promise</p>
+</li>
+<li><p>MutationObserer（监视DOM树的变化）</p>
+</li>
+<li><p>node中的process.nextTick</p>
+</li>
+</ul>
+</li>
+<li><p>渲染有关</p>
+<ul>
+<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
+<li>requestIDleCallback 空闲时间执行</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ol>
+<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
+</li>
+<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
+</li>
+<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
+</li>
+<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
+</li>
+<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
+</li>
+<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>画图功底有限…</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p>
+<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'
+    console.log(1);
+    setTimeout(() =&gt; {
+      document.body.style.background = 'green'
+      console.log(2);
+    }, 0)
+    Promise.resolve().then(() =&gt; {
+      console.log(3);
+      document.body.style.background = 'yellow'
+    })
+</code></pre>
+<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+</code></pre>
+<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
+<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
+<h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    // 3
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+    btn.click()
+</code></pre>
+<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
+<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
+<h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log('Promise1')
+      setTimeout(() =&gt; {
+        console.log('setTimeout2')
+      }, 0);
+    })
+    setTimeout(() =&gt; {
+      console.log('setTimeout1');
+      Promise.resolve().then(() =&gt; {
+        console.log('Promise2')
+      })
+    }, 0);
+</code></pre>
+<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
+<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
+<ol>
+<li><p>第一轮先将栈里的任务分别放入</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
+</li>
+<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
+</li>
+<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
+</li>
+</ol>
+<h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);
+    async function async() {
+      console.log(2);
+      await console.log(3);
+      console.log(4)
+    }
+    setTimeout(() =&gt; {
+      console.log(5);
+    }, 0);
+    const promise = new Promise((resolve, reject) =&gt; {
+      console.log(6);
+      resolve(7)
+    })
+    promise.then(res =&gt; {
+      console.log(res)
+    })
+    async();
+    console.log(8);
+</code></pre>
+<p>上述代码执行结果是：16238745</p>
+<p>原因是：</p>
+<ol>
+<li><p>解释async…await</p>
+<ol>
+<li><p>async 执行后返回的是一个promise</p>
+</li>
+<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
+<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
+</li>
+</ol>
+</li>
+<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
+</li>
+<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
+</li>
+<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
+</li>
+<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
+</li>
+<li><p>继续执行微任务7then，打印7</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
+</li>
+<li><p>继续执行微任务4then，打印4</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
+</li>
+<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
+</li>
+<li><p>此时宏任务，微任务全部清空，程序结束</p>
+</li>
+</ol>
+<h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log(0);
+      return Promise.resolve(4);
+    }).then((res) =&gt; {
+      console.log(res)
+    })
+    Promise.resolve().then(() =&gt; {
+      console.log(1);
+    }).then(() =&gt; {
+      console.log(2);
+    }).then(() =&gt; {
+      console.log(3);
+    }).then(() =&gt; {
+      console.log(5);
+    })
+</code></pre>
+<p>上述打印结果为0,1,2,3,4,5</p>
+<p>原因是</p>
+<ol>
+<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
+</li>
+<li><p>将then0和then1放入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
+</li>
+<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
+</li>
+<li><p>执行then1打印，将then2压入栈中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
+</li>
+<li><p>由于return一个promise的特性，then会延迟执行</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
+</li>
+<li><p>执行then2打印then2，将then3压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
+</li>
+<li><p>执行then，将4传入then中，将then4压入队列</p>
+</li>
+<li><p>执行then3，打印3，将then5压入队列中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
+</li>
+<li><p>依次执行，打印4,5，程序结束</p>
+</li>
+</ol>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
-          <category> JavaScript </category>
-          
+        <category>学习</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 专题 </tag>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>01-我的足迹</title>
-      <link href="/2021/08/03/lu-xing/01-wo-de-zu-ji/"/>
-      <url>/2021/08/03/lu-xing/01-wo-de-zu-ji/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg" alt="我的足迹"></p><h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>]]></content>
-      
-      
+      <tags>
+        <tag>学习</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>01-我的足迹</title>
+    <url>/2021/08/03/lu-xing/01-wo-de-zu-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg" alt="我的足迹"></p>
+<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
+]]></content>
       <categories>
-          
-          <category> 旅行 </category>
-          
+        <category>旅行</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 旅行 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>01-Js数据类型</title>
-      <link href="/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/"/>
-      <url>/2021/08/03/ji-chu-zhi-shi/01-js-shu-ju-lei-xing/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p><h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul><li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li><li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li></ul><p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p><h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul><li>typeof()返回的是一个字符串类型</li><li>typeof()检测的特殊值<ul><li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li><li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }console.log(typeof 10);//number//typeof 返回的是一个字符串类型console.log(typeof (typeof 10));//stringconsole.log(typeof 'hello');//stringconsole.log(typeof false);//booleanconsole.log(typeof undefined);//undefinedconsole.log(typeof null);//objectconsole.log(typeof foo);//functionconsole.log(typeof []);//objectconsole.log(typeof {});//object// typeof不仅可以检测单个值，加小括号可以检测表达式console.log(typeof (10 + '10'));//string</code></pre><h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li></ul></li></ul><p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p><pre><code class="javascript">    console.log(foo instanceof Function);//true    console.log(foo instanceof Object);//true</code></pre><pre><code class="javascript">    var a = '10'    let b = new String()    console.log('a' instanceof String);//false    console.log(b instanceof String);//true    console.log([] instanceof Array);//true    console.log({} instanceof Array);//false    console.log({} instanceof Object);//true</code></pre><h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p><ul><li><code>\"</code> 表示 <code>"</code></li><li><code>\'</code> 表示 <code>'</code></li><li><code>\\</code> 表示<code>\</code></li><li><code>\r</code> 表示回车</li><li><code>\n</code> 表示换行。n 的意思是 newline。</li><li><code>\t</code> 表示缩进。t 的意思是 tab。</li><li><code>\b</code> 表示空格。b 的意思是 blank。</li></ul><h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p><pre><code>  &lt;script&gt;    var str1 = '1；23';    var str2 = '小艾 同学';    var str3 = 'ab,cd';    // 注意：    // 中文、英文字母、数字都占一个字符    // 中英文标点符号都占一个字符    // 空格也占一个字符    console.log(str1.length);//4    console.log(str2.length);//5    console.log(str3.length);//5  &lt;/script&gt;</code></pre><h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p><pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;</code></pre><p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p><pre><code class="javascript">    console.log(10 + null);//10    console.log(10 + true);//11    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符    //将任何数据类型都转为字符串，在返回拼接后的新字符串    console.log('10' + null);//10null    console.log(true + '10');//true10        //复杂数据类型也会隐式转换为字符串哦    console.log('小艾同学' + {});//小艾同学[object Object]</code></pre><p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p><pre><code class="javascript">    // 字符串与变量拼接    let a = 100;    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中    //可以用引引加加口诀， '+a+'    console.log('小艾同学a分');//小艾同学a分    console.log('小艾同学' + a + '分');//小艾同学100分</code></pre><p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p><pre><code class="javascript">    console.log(`小${a}艾同${b}学`);</code></pre><h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';    for(let char of str){      console.log("字符："+char);    // 字符：1    // 字符：2    // 字符：3    // 字符：4    // 字符：5    // 字符：6    }</code></pre><h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p><pre><code class="javascript">    &lt;script&gt;        var num = 0x9;//前面加0x就是十六进制        var num1 = 07;//前面加0代表八进制        var num2 = 2e8;//e表示科学计数法次幂        console.log(num);//9        console.log(num1);//7        console.log(num2);//1.7976931348623157e+308        // Number最大范围        console.log(Number.MAX_VALUE);//1.7976931348623157e+308        // Number最小范围        console.log(Number.MIN_VALUE);//5e-324        // 无穷大Infinity        console.log(Number.MAX_VALUE * 2);//Infinity        // 无穷小-Infinity        console.log(-Number.MAX_VALUE * 2);//-Infinity    &lt;/script&gt;</code></pre><blockquote><p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p></blockquote><h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul><li>十进制转十进制</li></ul><p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p><ul><li>二进制转十进制</li></ul><p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p><ul><li>八进制转十进制(以0开头就是八进制)</li></ul><p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p><ul><li>十六进制转十进制(以0x开头就是十六进制)</li></ul><p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p><h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul><li>十进制转二进制</li></ul><p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p><ul><li>别的进制同理</li></ul><h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p><p>特点：NaN不等于任何东西，包括他自己</p><pre><code class="javascript">  &lt;script&gt;    // NaN不等于任何    console.log(NaN == NaN);//false    console.log(NaN =-= NaN);//false    // 返回NaN的情况    // 1.字符串计算    console.log('a' - 1);//NaN    // 2.类型转换时开头有无法转换成数字的值    // 不能转换的一定要在开头    console.log(parseFloat('1a'));//1    console.log(parseFloat('a1'));//NaN    console.log(parseFloat());//NaN    console.log(parseInt('x'));//NaN    console.log(Number('x'));//NaN  &lt;/script&gt;</code></pre><h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p><pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN    console.log(isNaN(NaN)); //true    // 只有0/0会返回true，其他任何数值都是false    console.log(isNaN(0 / 0)); //true    console.log(isNaN(0 / 1)); //false    console.log(isNaN(1 / 0)); //false    console.log(isNaN(10)); //false（ 10 是一个数值）    //能转为数字的别的类型也会返回false,无法转换的返回true    console.log(isNaN("10")); //false（可以被转换成数值 10）    console.log(isNaN("a10")); //true（可以被转换成数值 10）    console.log(isNaN("hello")); //true（不能转换成数值）    console.log(isNaN(true)); //false（可以被转换成数值 1）</code></pre><h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p><pre><code class="javascript">       var a = 0.1 + 0.2;    console.log(a);  //0.30000000000000004</code></pre><h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p><pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型    console.log('false');//false ---&gt; 字符串类型</code></pre><h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p><pre><code class="javascript">    console.log(typeof null); // object</code></pre><h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p><pre><code>    &lt;script&gt;      // 变量声明了未赋值，返回的即使undefined      var a;      console.log(a);//undefined            // 检测undefined类型      console.log(typeof undefined);//undefined    &lt;/script&gt;</code></pre><h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p><pre><code>    // null与undefined    console.log(null == undefined);//ture    console.log(null === undefined);//false    // 计算    console.log(1 + null);//1    console.log(1 + undefined);//NaN</code></pre><h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul><li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li><li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li></ul><blockquote><p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p></blockquote><h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul><li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li><li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li></ul><pre><code>  &lt;script&gt;    var a = 10;    var b = a;    b = 20;    var arr = ['小','艾','同学'];    var arr1 = arr;    arr1.push('666');    // 基本数据类型复制后，改变复制的变量，原值不受影响    console.log(a);//10    console.log(b );//20    // 引用类型复制后，改变复制的变量，原值也会跟着改变    console.log(arr);//['小','艾','同学','666']    console.log(arr1);//['小','艾','同学','666']  &lt;/script&gt;</code></pre><p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>]]></content>
-      
-      
+      <tags>
+        <tag>旅行</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手写Promise</title>
+    <url>/2021/08/04/javascript/shou-xie-promise/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
+<p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p>
+<p>1.悬而未决：你 [不知道] 你是否会得到手机直到下礼拜（<strong style="color:#17a2b8;">等待态</strong>）。</p>
+<p>2.解决：你老妈给你买了，因为发工资有钱了（<strong style="color:#17a2b8;">成功态</strong>）。</p>
+<p>3.拒绝：你老妈拒绝给你买，因为钱不够（<strong style="color:#17a2b8;">失败态</strong>）。</p>
+<p>总结：</p>
+<ol>
+<li>Promise 有三个状态 ：<ol>
+<li>默认状态叫等待态 pending</li>
+<li>resolve表示成功态 fulfilled</li>
+<li>reject表示变成失败态 rejected</li>
+</ol>
+</li>
+<li>成功有成功的原因，失败也有失败的原因</li>
+<li>只有pending的状态的时候才能改变状态<ul>
+<li>不能从成功变为失败</li>
+<li>不能从失败变为成功</li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">// 代码实现
+const money = 9999
+const bugPhone = new Promise((resolve, reject) =&gt; {
+  if (money &gt; 10000) {
+    resolve('有钱，买！')
+  } else {
+    reject('我先给我买手机了')
+  }
+})
+// then方法中提供两个参数 1. 成功回调 2.失败的回调
+bugPhone.then((value) =&gt; {
+  console.log(value, 'success')
+}, (reason) =&gt; {
+  console.log(reason, 'fail')
+})
+</code></pre>
+<ol>
+<li>当既调用成功，又调用失败：只会变为第一次调用的状态</li>
+</ol>
+<pre><code class="js">// 此时只会执行resolve，因为状态一旦确定无法改变
+const promise = new Promise((resolve, reject) =&gt; {
+  resolve('ok')
+  reject('error')
+})
+promise.then((value) =&gt; {
+  console.log(value, 'success')
+}, (reason) =&gt; {
+  console.log(reason, 'fail')
+})
+</code></pre>
+<ol start="2">
+<li>失败状态的方法reject和throw new Error都可以变为失败态</li>
+</ol>
+<pre><code class="js">const promise2 = new Promise((resolve, reject) =&gt; {
+  // reject('error')
+  throw new Error('error')
+})
+promise2.then((value) =&gt; {
+  console.log(value, 'success')
+}, (reason) =&gt; {
+  console.log(reason, 'fail')
+})
+</code></pre>
+<ol start="3">
+<li>在异步中，仍然可以正常使用</li>
+</ol>
+<pre><code class="js">let promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    // throw new Error('error')
+    reject('error');
+    resolve('ok')
+    // return new Error('失败')
+  }, 1000);
+})
+
+promise.then((value) =&gt; {
+  console.log(value, 'success')
+}, (reason) =&gt; {
+  console.log(reason, 'fail')
+})
+</code></pre>
+<ol start="4">
+<li>支持<code>.then</code> 链式调用<ul>
+<li>当<code>.then</code> 中返回的是一个Promise，可以继续<code>.then</code> 调用这个返回的promise，以下称原来的promise为promise，返回的promise为promise2<ul>
+<li>当promise2结果是成功：链式调用<code>.then</code>直接进入<code>resolve</code></li>
+<li>当promise2结果为失败或抛出异常：链式调用<code>.then</code>直接进入<code>reject</code></li>
+</ul>
+</li>
+<li>当<code>.then</code> 中返回的的是一个非Promise，链式调用<code>.then</code>时，直接进入<code>resolve</code></li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">const promise3 = new Promise((resolve, reject) =&gt; {
+  resolve('ok')
+}).then(data =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    // 返回一个promise，并是成功态
+    resolve('ok')
+  })
+}).then((data) =&gt; {
+  console.log(data); // 进入成功
+}, err =&gt; {
+  console.log('err', err)
+})
+
+const promise4 = new Promise((resolve, reject) =&gt; {
+  resolve('ok')
+}).then(data =&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    // 返回一个promise，并是失败态，或异常
+    // reject('err')
+    throw new Error('error')
+  })
+}).then((data) =&gt; {
+  console.log(data);
+}, err =&gt; {
+  console.log('err', err) // 进入失败
+})
+
+const promise5 = new Promise((resolve, reject) =&gt; {
+  resolve('ok')
+}).then(data =&gt; {
+  // 返回一个非promise
+  return 666
+}).then((data) =&gt; {
+  console.log(data); // 直接进入成功
+}, err =&gt; {
+  console.log('err', err)
+})
+</code></pre>
+<ol start="5">
+<li>链式调用中不允许循环引用<ul>
+<li>new一个Promise，<code>.then</code>时，将这个Promise返回，链式<code>.then</code>再次调用就会出现循环引用</li>
+<li>原理是：返回的promise始终在等待态，再调用依然是等待态。通俗说就是自己等自己</li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">let promise6 = new Promise((resolve, reject) =&gt; {
+  resolve('ok')
+}).then(data =&gt; {
+  return promise6;// prending resolve()/reject()
+})
+promise6.then((data) =&gt; {
+  console.log(data);
+}, err =&gt; {
+  console.log('err', err) // err [TypeError: Chaining cycle detected for promise #&lt;Promise&gt;]
+})
+</code></pre>
+<ol start="6">
+<li>链式调用可选参数</li>
+</ol>
+<pre><code class="js">let promise7 = new Promise((resolve, reject) =&gt; {
+  reject('err')
+  // 当then里没有传任何值的时候，最后一个then用的依然是第一次传入的值
+}).then().then().then((data) =&gt; {
+  console.log(data);
+}, err =&gt; {
+  console.log('err', err)
+})
+</code></pre>
+<h3 id="2-根据promiseaplus官网-的规则，手写自己的Promise"><a href="#2-根据promiseaplus官网-的规则，手写自己的Promise" class="headerlink" title="2.根据promiseaplus官网 的规则，手写自己的Promise"></a>2.根据<a href="https://promisesaplus.com/">promiseaplus官网</a> 的规则，手写自己的Promise</h3><h4 id="1-一个基本的promise，满足异步promise，但无法进行链式调用"><a href="#1-一个基本的promise，满足异步promise，但无法进行链式调用" class="headerlink" title="1.一个基本的promise，满足异步promise，但无法进行链式调用"></a>1.一个基本的promise，满足异步promise，但无法进行链式调用</h4><pre><code class="js">
+const PENDING = 'PENDING'; // 默认等待态
+const FULFILLED = 'FULFILLED'; // 成功态 
+const REJECTED = 'REJECTED'; // 失败态
+class Promise {
+  constructor(executor) {
+    // 默认状态改为PENDING
+    this.status = PENDING;
+    // 储存传入的成功值
+    this.value = undefined;
+    // 储存传入的失败
+    this.reason = undefined;
+    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来
+    this.onResolvedCallbacks = [];
+    this.onRejectedCallbacks = [];
+    // 成功方法
+    const resolve = (value) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.value = value
+        // 将状态改为成功
+        this.status = FULFILLED
+        // 执行储存的成功回调
+        this.onResolvedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    // 失败方法
+    const reject = (reason) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.reason = reason
+        // 将状态改为失败
+        this.status = REJECTED
+        // 执行储存的失败回调
+        this.onRejectedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    try {
+      // 默认new Promise中的函数会立即执行
+      executor(resolve, reject);
+    } catch (e) {
+      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑
+      reject(e)
+    }
+  }
+  // then方法
+  then(onFulfilled, onRejected) {
+    switch (this.status) {
+      case FULFILLED:
+        // 成功时
+        onFulfilled(this.value)
+        break;
+      case REJECTED:
+        // 失败时
+        onRejected(this.reason)
+        break;
+      default:
+        // 等待时
+        this.onResolvedCallbacks.push(() =&gt; {
+          // 将成功函数push到成功回调队列
+          onFulfilled(this.value)
+        })
+        this.onRejectedCallbacks.push(() =&gt; {
+          // 将成功函数push到失败回调队列
+          onRejected(this.reason);
+        })
+        break;
+    }
+  }
+}
+module.exports = Promise
+</code></pre>
+<h4 id="2-支持链式调用"><a href="#2-支持链式调用" class="headerlink" title="2.支持链式调用"></a>2.支持链式调用</h4><pre><code class="js">
+const PENDING = 'PENDING'; // 默认等待态
+const FULFILLED = 'FULFILLED'; // 成功态 
+const REJECTED = 'REJECTED'; // 失败态
+
+// 处理promise逻辑的函数
+/**
+ * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject
+ * 2.x是一个非promise，统统调用resolve
+ * 3.x是抛出异常，进入reject
+ * 4.x和promise2不能一样，会出现循环引用
+ * 5.resolve和reject都只能调用一次
+ * @param {返回的promise} x 
+ * @param {new的新} promise2 
+ * @param {成功方法} resolve 
+ * @param {失败方法} reject 
+ * @returns 
+ */
+function resolvePromise(x, promise2, resolve, reject) {
+
+  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常
+  if (x === promise2) {
+    return reject(new TypeError('循环引用'))
+  }
+  // 判断返回的x是否是一个promise(promsise需要有then方法)
+  // 可能是一个名为promise的对象，或者是一个自定义的promise函数
+  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {
+    // 记录状态是否改变
+    let called = false;
+    try {
+      // 获取返回的then方法
+      let then = x.then;
+      if (typeof then === 'function') {
+        // 因为返回的有可能还是一个promise
+        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值
+        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug
+        then.call(x, (y) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里说明返回的promise是成功状态
+          resolvePromise(y, promise2, resolve, reject)
+        }, (r) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里是失败，直接走失败
+          reject(r);
+        })
+      } else {
+        // 进到这里可能是{then:1}，非promise值直接进成功
+        resolve(x);
+      }
+    } catch (error) {
+      // 如果状态改变了，就不往下走
+      if (called) return;
+      // 执行到这里说明状态没有被改变，就标记为已改变
+      called = true
+      //  让promise2 变成失败态
+      reject(error)
+    }
+  } else {
+    // 进这里，说明x是一个非promise，直接调用resolve
+    resolve(x);
+  }
+}
+
+class Promise {
+  constructor(executor) {
+    // 默认状态改为PENDING
+    this.status = PENDING;
+    // 储存传入的成功值
+    this.value = undefined;
+    // 储存传入的失败
+    this.reason = undefined;
+    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来
+    this.onResolvedCallbacks = [];
+    this.onRejectedCallbacks = [];
+    // 成功方法
+    const resolve = (value) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.value = value
+        // 将状态改为成功
+        this.status = FULFILLED
+        // 执行储存的成功回调
+        this.onResolvedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    // 失败方法
+    const reject = (reason) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.reason = reason
+        // 将状态改为失败
+        this.status = REJECTED
+        // 执行储存的失败回调
+        this.onRejectedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    try {
+      // 默认new Promise中的函数会立即执行
+      executor(resolve, reject);
+    } catch (e) {
+      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑
+      reject(e)
+    }
+  }
+  // then方法
+  then(onFulfilled, onRejected) {
+    // 这里是then()如果传空值，就使用上一个的值
+    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;
+    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };
+    // 由于promise状态无法修改，所以不能使用同一个promise
+    // 实现链式调用不能return this
+    // 每次调用then方法 都必须返回一个全新的promise
+    let promise2 = new Promise((resolve, reject) =&gt; {
+      switch (this.status) {
+        // 成功时
+        case FULFILLED:
+          // 因为需要promise2做参数，所以需要异步调用
+          setTimeout(() =&gt; {
+            try {
+              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败
+              let x = onFulfilled(this.value)
+              // 处理函数
+              resolvePromise(x, promise2, resolve, reject)
+            } catch (e) {
+              // 如果出错，直接就走失败
+              reject(e)
+            }
+          }, 0)
+          break;
+        // 失败时
+        case REJECTED:
+          setTimeout(() =&gt; {
+            try {
+              let x = onRejected(this.reason);
+              resolvePromise(x, promise2, resolve, reject);
+            } catch (e) {
+              reject(e);
+            }
+          }, 0);
+          break;
+        default:
+          // 等待时
+          this.onResolvedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到成功回调队列
+                let x = onFulfilled(this.value);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          this.onRejectedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到失败回调队列
+                let x = onRejected(this.reason);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          break;
+      }
+    })
+    // 返回新的promise，供链式调用
+    return promise2;
+  }
+}
+
+module.exports = Promise
+</code></pre>
+<h4 id="3-运行官方测试"><a href="#3-运行官方测试" class="headerlink" title="3.运行官方测试"></a>3.运行官方测试</h4><ol>
+<li><p><code>npm install promises-aplus-tests -g</code> 安装测试工具</p>
+</li>
+<li><p>在promise.js中写</p>
+</li>
+<li><pre><code class="js">// 官方提供的测试静态方法
+Promise.deferred = function () {
+  let dfd = {};
+  dfd.promise = new Promise((resolve, reject) =&gt; {
+    dfd.resolve = resolve;
+    dfd.reject = reject;
+  })
+  return dfd
+}
+</code></pre>
+</li>
+<li><p><code>promises-aplus-tests promise.js</code> 根据promise的地址运行测试</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628130801594-1628130801589.png"></p>
+<h3 id="4-Promise语法糖"><a href="#4-Promise语法糖" class="headerlink" title="4.Promise语法糖"></a>4.Promise语法糖</h3><h4 id="原生Promise"><a href="#原生Promise" class="headerlink" title="原生Promise"></a>原生Promise</h4><ol>
+<li>Promise.resolve和Promise.reject<ul>
+<li>Promise.resolve会等待异步任务执行完毕再进入resolve</li>
+<li>Promise.reject会直接进入catch</li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">
+Promise.resolve('ok').then(data =&gt; {
+  console.log(data); // ok
+})
+// Promise.reject会直接进入catch
+Promise.reject('失败').catch(err =&gt; {
+  console.log('err', err); // 失败
+})
+
+// 异步时
+Promise.resolve(new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve('hello', 'success');
+  }, 2000);
+})).then(data =&gt; {
+  console.log(data); // hello
+})
+// Promise.reject会直接进入catch
+Promise.reject(new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
+    resolve('hello'); 
+  }, 1000);
+})).catch(err =&gt; {
+  console.log('err', err); // err Promise { &lt;pending&gt; }
+})
+</code></pre>
+<ol start="2">
+<li>Promise.all<ul>
+<li>所有任务都成功，才会进入成功</li>
+<li>只要有一个任务失败，就会进入失败</li>
+<li>成功任务返回时，会按照书写顺序返回</li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">Promise.all([fs.readFile('./promise-study/name.txt', 'utf8'), fs.readFile('./promise-study/age.txt', 'utf8'), 11]).then(data =&gt; {
+  console.log(data);
+}).catch(err =&gt; {
+  console.log(err)
+})
+</code></pre>
+<ol start="3">
+<li>Promise.finally<ul>
+<li>不管成功还是失败都会执行</li>
+</ul>
+</li>
+</ol>
+<pre><code class="js">// finally 不管成功还是失败都会执行
+Promise.reject('err').finally((f) =&gt; {
+  // 没有参数
+  console.log('无论成功失败都执行', f)
+  // return 一个普通值没有意义
+  return 'finally'
+}).then((data) =&gt; {
+  console.log('成功', data)
+}).catch(err =&gt; {
+  console.log('失败', err)
+});
+
+Promise.resolve('ok').finally((f) =&gt; {
+  console.log('无论成功失败都执行', f)
+}).then((data) =&gt; {
+  console.log('成功', data)
+}).catch(err =&gt; {
+  console.log('失败', err)
+});
+</code></pre>
+<ul>
+<li>当返回的是一个promise<ul>
+<li>外层promise为reject时<ul>
+<li>里层promise为reject，就会使用里层promise的原因走reject</li>
+<li>里层的promsie为resolve，就会以外层的reject原因走reject</li>
+</ul>
+</li>
+<li>外层promsie为resolve时<ul>
+<li>里层的promise为resolve，就会以外层resolve的原因走resolve</li>
+<li>里层的promise为reject，就会以里层reject的原因走reject</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="js">Promise.reject('ok').finally(() =&gt; {
+  console.log('无论成功失败都执行')
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      reject('finally reject')
+    }, 1000);
+  });
+}).then((data) =&gt; {
+  console.log('成功', data)
+}).catch(err =&gt; {
+  console.log('失败', err)
+});
+</code></pre>
+<h4 id="我的promise实现"><a href="#我的promise实现" class="headerlink" title="我的promise实现"></a>我的promise实现</h4><ol>
+<li>Promise.resolve和Promise.reject</li>
+</ol>
+<pre><code class="diff">
+const PENDING = 'PENDING'; // 默认等待态
+const FULFILLED = 'FULFILLED'; // 成功态 
+const REJECTED = 'REJECTED'; // 失败态
+
+// 处理promise逻辑的函数
+/**
+ * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject
+ * 2.x是一个非promise，统统调用resolve
+ * 3.x是抛出异常，进入reject
+ * 4.x和promise2不能一样，会出现循环引用
+ * 5.resolve和reject都只能调用一次
+ * @param {返回的promise} x 
+ * @param {new的新} promise2 
+ * @param {成功方法} resolve 
+ * @param {失败方法} reject 
+ * @returns 
+ */
+function resolvePromise(x, promise2, resolve, reject) {
+
+  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常
+  if (x === promise2) {
+    return reject(new TypeError('循环引用'))
+  }
+  // 判断返回的x是否是一个promise(promsise需要有then方法)
+  // 可能是一个名为promise的对象，或者是一个自定义的promise函数
+  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {
+    // 记录状态是否改变
+    let called = false;
+    try {
+      // 获取返回的then方法
+      let then = x.then;
+      if (typeof then === 'function') {
+        // 因为返回的有可能还是一个promise
+        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值
+        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug
+        then.call(x, (y) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里说明返回的promise是成功状态
+          resolvePromise(y, promise2, resolve, reject)
+        }, (r) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里是失败，直接走失败
+          reject(r);
+        })
+      } else {
+        // 进到这里可能是{then:1}，非promise值直接进成功
+        resolve(x);
+      }
+    } catch (error) {
+      // 如果状态改变了，就不往下走
+      if (called) return;
+      // 执行到这里说明状态没有被改变，就标记为已改变
+      called = true
+      //  让promise2 变成失败态
+      reject(error)
+    }
+  } else {
+    // 进这里，说明x是一个非promise，直接调用resolve
+    resolve(x);
+  }
+}
+
+class Promise {
+  constructor(executor) {
+    // 默认状态改为PENDING
+    this.status = PENDING;
+    // 储存传入的成功值
+    this.value = undefined;
+    // 储存传入的失败
+    this.reason = undefined;
+    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来
+    this.onResolvedCallbacks = [];
+    this.onRejectedCallbacks = [];
+    // 成功方法
++    const resolve = (value) =&gt; {
++      // 看resolve中是否是一个promise
++      if (value instanceof Promise) {
++        // 如果是，就手动掉用then方法。递归知道他不是一个promise
++        return value.then(resolve, reject);
++      }
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.value = value
+        // 将状态改为成功
+        this.status = FULFILLED
+        // 执行储存的成功回调
+        this.onResolvedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    // 失败方法
+    const reject = (reason) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.reason = reason
+        // 将状态改为失败
+        this.status = REJECTED
+        // 执行储存的失败回调
+        this.onRejectedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    try {
+      // 默认new Promise中的函数会立即执行
+      executor(resolve, reject);
+    } catch (e) {
+      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑
+      reject(e)
+    }
+  }
+  // then方法
+  then(onFulfilled, onRejected) {
+    // 这里是then()如果传空值，就使用上一个的值
+    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;
+    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };
+    // 由于promise状态无法修改，所以不能使用同一个promise
+    // 实现链式调用不能return this
+    // 每次调用then方法 都必须返回一个全新的promise
+    let promise2 = new Promise((resolve, reject) =&gt; {
+      switch (this.status) {
+        // 成功时
+        case FULFILLED:
+          // 因为需要promise2做参数，所以需要异步调用
+          setTimeout(() =&gt; {
+            try {
+              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败
+              let x = onFulfilled(this.value)
+              // 处理函数
+              resolvePromise(x, promise2, resolve, reject)
+            } catch (e) {
+              // 如果出错，直接就走失败
+              reject(e)
+            }
+          }, 0)
+          break;
+        // 失败时
+        case REJECTED:
+          setTimeout(() =&gt; {
+            try {
+              let x = onRejected(this.reason);
+              resolvePromise(x, promise2, resolve, reject);
+            } catch (e) {
+              reject(e);
+            }
+          }, 0);
+          break;
+        default:
+          // 等待时
+          this.onResolvedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到成功回调队列
+                let x = onFulfilled(this.value);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          this.onRejectedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到失败回调队列
+                let x = onRejected(this.reason);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          break;
+      }
+    })
+    // 返回新的promise，供链式调用
+    return promise2;
+  }
++  catch(errFn) {
++     return this.then(null, errFn);
++  }
++  // 静态方法resolve
++  static resolve(value) {
++    return new Promise((resolve, reject) =&gt; {
++      resolve(value);
++    })
++  }
++  // 静态方法reject
++  static reject(err) {
++    return new Promise((resolve, reject) =&gt; {
++      reject(err);
++    })
++  }
+}
+
+
+// 官方提供的测试静态方法
+// npm install promises-aplus-tests -g;
+Promise.deferred = function () {
+  let dfd = {};
+  dfd.promise = new Promise((resolve, reject) =&gt; {
+    dfd.resolve = resolve;
+    dfd.reject = reject;
+  })
+  return dfd
+}
+module.exports = Promise
+</code></pre>
+<ol start="2">
+<li>Promise.all</li>
+</ol>
+<pre><code class="diff">const PENDING = 'PENDING'; // 默认等待态
+const FULFILLED = 'FULFILLED'; // 成功态 
+const REJECTED = 'REJECTED'; // 失败态
+
+// 处理promise逻辑的函数
+/**
+ * 1.x是一个promise，会根据promise的成功或失败来调用 resolve还是reject
+ * 2.x是一个非promise，统统调用resolve
+ * 3.x是抛出异常，进入reject
+ * 4.x和promise2不能一样，会出现循环引用
+ * 5.resolve和reject都只能调用一次
+ * @param {返回的promise} x 
+ * @param {new的新} promise2 
+ * @param {成功方法} resolve 
+ * @param {失败方法} reject 
+ * @returns 
+ */
+function resolvePromise(x, promise2, resolve, reject) {
+
+  // 如果返回的x和上一个promise2是同一个promise，就产生循环引用抛出异常
+  if (x === promise2) {
+    return reject(new TypeError('循环引用'))
+  }
+  // 判断返回的x是否是一个promise(promsise需要有then方法)
+  // 可能是一个名为promise的对象，或者是一个自定义的promise函数
+  if ((typeof x === 'object' &amp;&amp; x !== null) || (typeof x == 'function')) {
+    // 记录状态是否改变
+    let called = false;
+    try {
+      // 获取返回的then方法
+      let then = x.then;
+      if (typeof then === 'function') {
+        // 因为返回的有可能还是一个promise
+        // 所以需要递归调用resolvePromise，处理返回的值，知道这个值是普通值
+        // 使用then.call(x)而不是x.then是因为x.then会在获取一次then方法，触发了get，出现不必要的bug
+        then.call(x, (y) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里说明返回的promise是成功状态
+          resolvePromise(y, promise2, resolve, reject)
+        }, (r) =&gt; {
+          // 如果状态改变了，就不往下走
+          if (called) return;
+          // 执行到这里说明状态没有被改变，就标记为已改变
+          called = true
+          // 这里是失败，直接走失败
+          reject(r);
+        })
+      } else {
+        // 进到这里可能是{then:1}，非promise值直接进成功
+        resolve(x);
+      }
+    } catch (error) {
+      // 如果状态改变了，就不往下走
+      if (called) return;
+      // 执行到这里说明状态没有被改变，就标记为已改变
+      called = true
+      //  让promise2 变成失败态
+      reject(error)
+    }
+  } else {
+    // 进这里，说明x是一个非promise，直接调用resolve
+    resolve(x);
+  }
+}
+
+class Promise {
+  constructor(executor) {
+    // 默认状态改为PENDING
+    this.status = PENDING;
+    // 储存传入的成功值
+    this.value = undefined;
+    // 储存传入的失败
+    this.reason = undefined;
+    // 用户调用resolve和reject,可以将对应的结果暴露在当前的promise实例上，存起来
+    this.onResolvedCallbacks = [];
+    this.onRejectedCallbacks = [];
+    // 成功方法
+    const resolve = (value) =&gt; {
+      // 看resolve中是否是一个promise
+      if (value instanceof Promise) {
+        // 如果是，就手动掉用then方法。递归知道他不是一个promise
+        return value.then(resolve, reject);
+      }
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.value = value
+        // 将状态改为成功
+        this.status = FULFILLED
+        // 执行储存的成功回调
+        this.onResolvedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    // 失败方法
+    const reject = (reason) =&gt; {
+      // 只有等待态才能改变状态
+      if (this.status === PENDING) {
+        // 将传入的值赋给value
+        this.reason = reason
+        // 将状态改为失败
+        this.status = REJECTED
+        // 执行储存的失败回调
+        this.onRejectedCallbacks.forEach(fn =&gt; fn())
+      }
+    }
+    try {
+      // 默认new Promise中的函数会立即执行
+      executor(resolve, reject);
+    } catch (e) {
+      // 如果执行时出错,将错误传递到reject中,执行到了失败的逻辑
+      reject(e)
+    }
+  }
+  // then方法
+  then(onFulfilled, onRejected) {
+    // 这里是then()如果传空值，就使用上一个的值
+    onFulfilled = typeof onFulfilled == 'function' ? onFulfilled : v =&gt; v;
+    onRejected = typeof onRejected == 'function' ? onRejected : e =&gt; { throw e };
+    // 由于promise状态无法修改，所以不能使用同一个promise
+    // 实现链式调用不能return this
+    // 每次调用then方法 都必须返回一个全新的promise
+    let promise2 = new Promise((resolve, reject) =&gt; {
+      switch (this.status) {
+        // 成功时
+        case FULFILLED:
+          // 因为需要promise2做参数，所以需要异步调用
+          setTimeout(() =&gt; {
+            try {
+              // x 就是上一个then成功或者失败的返回值，这个x决定proomise2 走成功还是走失败
+              let x = onFulfilled(this.value)
+              // 处理函数
+              resolvePromise(x, promise2, resolve, reject)
+            } catch (e) {
+              // 如果出错，直接就走失败
+              reject(e)
+            }
+          }, 0)
+          break;
+        // 失败时
+        case REJECTED:
+          setTimeout(() =&gt; {
+            try {
+              let x = onRejected(this.reason);
+              resolvePromise(x, promise2, resolve, reject);
+            } catch (e) {
+              reject(e);
+            }
+          }, 0);
+          break;
+        default:
+          // 等待时
+          this.onResolvedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到成功回调队列
+                let x = onFulfilled(this.value);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          this.onRejectedCallbacks.push(() =&gt; {
+            setTimeout(() =&gt; {
+              try {
+                // 将成功函数push到失败回调队列
+                let x = onRejected(this.reason);
+                resolvePromise(x, promise2, resolve, reject);
+              } catch (e) {
+                reject(e);
+              }
+            }, 0);
+          })
+          break;
+      }
+    })
+    // 返回新的promise，供链式调用
+    return promise2;
+  }
+  catch(errFn) {
+    return this.then(null, errFn);
+  }
+  // 静态方法resolve
+  static resolve(value) {
+    return new Promise((resolve, reject) =&gt; {
+      resolve(value);
+    })
+  }
+  // 静态方法reject
+  static reject(err) {
+    return new Promise((resolve, reject) =&gt; {
+      reject(err);
+    })
+  }
++  static all(promises) {
++    return new Promise((resolve, reject) =&gt; {
++      // 将数组中的promise依次执行 
++      let result = [];
++      let index = 0;
++      // 处理函数
++      function process(v, k) {
++        // 将函数与索引映射
++        result[k] = v;
++        if (++index === promises.length) {
++          resolve(result)
++        }
++      }
++      for (let i = 0; i &lt; promises.length; i++) {
++        let p = promises[i];
++        // 判断p是否是promsie
++        if (p &amp;&amp; typeof p.then === 'function') {
++          p.then(data =&gt; {
++            process(data, i)
++          }, reject) // 只要有一个失败，就直接调reject
++        } else {
++          // 说明不是promise
++          process(p, i)
++        }
++      }
++    })
+  }
+}
+
+
+// 官方提供的测试静态方法
+// npm install promises-aplus-tests -g;
+Promise.deferred = function () {
+  let dfd = {};
+  dfd.promise = new Promise((resolve, reject) =&gt; {
+    dfd.resolve = resolve;
+    dfd.reject = reject;
+  })
+  return dfd
+}
+module.exports = Promise
+</code></pre>
+<ol start="3">
+<li>finally方法,直接写在原型上</li>
+</ol>
+<pre><code class="js">Promise.prototype.finally = function (cb) {
+  return this.then((y) =&gt; {
+    // 使用Promise.resolve是因为需要有等待功能
+    // 成功就直接进then，但使用的原因是外层的原因
+    return Promise.resolve(cb()).then((d) =&gt; y);
+  }, (r) =&gt; {
+    //cb执行一旦报错 就直接跳过后续的then的逻辑，直接将错误向下传递
+    return Promise.resolve(cb()).then(() =&gt; { throw r })
+  })
+}
+</code></pre>
+<p>完结啦~</p>
+]]></content>
       <categories>
-          
-          <category> 学习 </category>
-          
+        <category>学习</category>
+        <category>JavaScript</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>专题</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
 </search>
