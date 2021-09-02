@@ -4,15 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JavaScript模块化, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="Node中的内置模块, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="JavaScript模块化一、什么是模块化模块化开发最终的目的是将程序划分成一个个小的模块
+    <meta name="description" content="Node中的内置模块一、path从路径中获取信息
+dirname：获取文件的父文件夹
+basename：获取文件名
+extname：获取文件扩展名
 
-这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；
-这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；
-也可以">
+const path = require(&#39;path&#39;);
+// 1.获取路径的信息
+co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JavaScript模块化 | 小艾同学的博客</title>
+    <title>Node中的内置模块 | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +307,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JavaScript模块化
+                        Node中的内置模块
                     </div>
                 </div>
             </div>
@@ -421,12 +424,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
-                            <span class="chip bg-color">专题</span>
+                        <a href="/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
+                            <span class="chip bg-color">学习</span>
                         </a>
                         
-                        <a href="/tags/JavaScript/" target="_blank">
-                            <span class="chip bg-color">JavaScript</span>
+                        <a href="/tags/Node/" target="_blank">
+                            <span class="chip bg-color">Node</span>
                         </a>
                         
                     </div>
@@ -441,8 +444,8 @@
                             学习
                         </a>
                         
-                        <a href="/categories/%E5%AD%A6%E4%B9%A0/JavaScript/" class="post-category" target="_blank">
-                            JavaScript
+                        <a href="/categories/%E5%AD%A6%E4%B9%A0/Node/" class="post-category" target="_blank">
+                            Node
                         </a>
                         
                     </div>
@@ -453,7 +456,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-16
+                    2021-08-18
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -467,14 +470,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
                 
@@ -490,403 +493,403 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
-<ul>
-<li>这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；</li>
-<li>这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；</li>
-<li>也可以通过某种方式，导入另外模块中的变量、函数、对象等；</li>
+                <h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
+<li>dirname：获取文件的父文件夹</li>
+<li>basename：获取文件名</li>
+<li>extname：获取文件扩展名</li>
 </ul>
-<p>按照这种结构划分开发程序的过程，就是模块化开发的过程</p>
-<h2 id="二、没有模块化带来的问题"><a href="#二、没有模块化带来的问题" class="headerlink" title="二、没有模块化带来的问题"></a>二、没有模块化带来的问题</h2><ol>
-<li>污染全局作用域</li>
-<li>开发人员必须主观解决模块和代码库的依赖关系</li>
-<li>文件只能按照script标签的书写顺序进行加载</li>
-<li>在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪</li>
-</ol>
-<p>开发项目时，aaa和bbb给变量命名的时候都命名为<code>flag</code>，在index引入时根据<code>flag</code>的值作相应逻辑，这时候会因为命名冲突产生报错，<code>flag</code>会因为引入文件的顺序而产生不确定性。</p>
-<pre><code class="js">// aaa.js
-let flag = true
-·
-// bbb.js
-let flag = fals
+<pre><code class="js">const path = require('path');
+// 1.获取路径的信息
+const filepath = '/User/loveZero/abc.txt';
+
+console.log(path.dirname(filepath)); // /User/loveZero
+console.log(path.basename(filepath)); // abc.txt
+console.log(path.extname(filepath)); // .txt
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629107910242-1629107910236.png"></p>
-<h2 id="三、模块化方案"><a href="#三、模块化方案" class="headerlink" title="三、模块化方案"></a>三、模块化方案</h2><h3 id="1-CommonJs"><a href="#1-CommonJs" class="headerlink" title="1.CommonJs"></a>1.CommonJs</h3><p>CommonJS是一个规范，最初提出来是在浏览器以外的地方使用，并且当时被命名为ServerJS，后来为了<br>体现它的广泛性，修改为CommonJS，平时我们也会简称为CJS</p>
-<p>CommonJS规范的核心变量：exports、module.exports、require；</p>
-<p>exports和module.exports可以负责对模块中的内容进行导出；</p>
-<p>require函数负责导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</p>
-<h4 id="1-exports"><a href="#1-exports" class="headerlink" title="1.exports"></a>1.exports</h4><p>exports是一个对象，在这个对象中添加很多个属性，添加的属性会导出</p>
-<pre><code class="js">// foo.js
-let age = 18;
-const obj = {id:757};
-function sayHello(name) {
-  console.log("Hello " + name);
-}
-// 挂载到对象可以使用别名
-exports.ageAlias = age
-exports.obj = obj
-exports.sayHello = sayHello
+<h3 id="路径拼接"><a href="#路径拼接" class="headerlink" title="路径拼接"></a>路径拼接</h3><h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>只是拼接各个path片段</p>
+<pre><code class="js">const basepath = '../User/loveZero';
+const filename = './abc.txt';
 
-
-// bar.js
-const foo =  require('./foo')
-foo.ageAlias = 99
-console.log(foo.ageAlias);
-console.log(foo.obj);
-foo.sayHello('loveZero')
+const filepath1 = path.join(basepath, filename);
+console.log(filepath1); // ..\User\loveZero\abc.txt
 </code></pre>
-<h5 id="思考：exports导出在内存如何体现"><a href="#思考：exports导出在内存如何体现" class="headerlink" title="思考：exports导出在内存如何体现"></a>思考：exports导出在内存如何体现</h5><ol>
-<li>1s后在foo.js中修改age值，2s后在bar里打印，值为修改后的值</li>
-</ol>
-<pre><code class="js">// foo.js
-let age = 18;
-
-setTimeout(() =&gt; {
-  exports.age = 23;
-}, 1000)
-
-exports.age = age
-
-// bar.js
-const foo = require('./foo')
-console.log('bar---age', foo.age); // 18
-setTimeout(() =&gt; {
-  console.log('bar---age', foo.age); // 23
-}, 2000)
-</code></pre>
-<ol start="2">
-<li>1s后再bar里修改age的值，2s后再foo里打印age为bar修改后的值</li>
-</ol>
-<pre><code class="js">// foo.js
-let age = 18;
-
-setTimeout(() =&gt; {
-  console.log('foo---age', exports.age); // 99
-}, 2000)
-
-exports.age = age
-
-// bar.js
-const foo = require('./foo')
-
-// 验证
-setTimeout(() =&gt; {
-  foo.age = 99
-}, 1000)
-</code></pre>
-<ol start="3">
-<li>结论</li>
-</ol>
-<p>exports导出的对象和require接受的对象指向统一引用地址</p>
-<p>相当于一个浅拷贝，本质是引用赋值</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629185027808-1629185027801.png"></p>
-<h4 id="2-module-exports"><a href="#2-module-exports" class="headerlink" title="2.module.exports"></a>2.module.exports</h4><pre><code class="js">// foo.js
-let age = 18;
-const obj = { id: 757 };
-function sayHello(name) {
-  console.log("Hello " + name);
-}
-
-module.exports = {
-  ageAlias: age,
-  obj,
-  sayHello
-}
-
-// bar.js
-const foo = require('./foo')
-console.log('bar---obj', foo.obj);
-console.log('bar---age', foo.ageAlias);
-foo.sayHello('loveZero')
-</code></pre>
-<h5 id="思考：exports和module-exports区别"><a href="#思考：exports和module-exports区别" class="headerlink" title="思考：exports和module.exports区别"></a>思考：exports和module.exports区别</h5><p>先打印一下他们是否相等</p>
-<pre><code class="js">console.log({} === {}); // false
-console.log(exports === module.exports); // true
-</code></pre>
-<p>两个对象<code>===</code>，说明他们指向统一引用地址，就是赋值关系</p>
-<p>是exports赋值给module.exports还是module.exports赋值给exports呢？需要进一步验证</p>
-<pre><code class="js">// foo.js
-let age = 100;
-
-console.log('module.exports', module.exports); // {}
-console.log('exports', exports); // {}
-
-module.exports = { age }
-
-module.exports = { name: 'loveZero' };
-
-console.log('module.exports', module.exports);  // { name: 'loveZero' }
-console.log('exports', exports); // {}
-
-// bar.js
-const foo = require('./foo');
-console.log('foo', foo) // { name: 'loveZero' }
-</code></pre>
-<p>通过上述代码可以看出，module.exports和exports初始值都是空对象，通过module.exports导出age后，改变module.exports的值，之后打印exports的值仍为空对象，bar中引入的值是module.exports的值</p>
-<pre><code class="js">// foo.js
-let age = 100;
-
-console.log('module.exports', module.exports); // {}
-console.log('exports', exports); // {}
-
-exports.age = 200;
-
-exports = { name: 'loveZero' };
-
-console.log('module.exports', module.exports);  // { age: 200 }
-console.log('exports', exports); // { name: 'loveZero' }
-
-
-// bar.js
-const foo = require('./foo');
-console.log('foo', foo) // { age: 200 }
-</code></pre>
-<p>通过上述验证可以看到，module.exports和exports初始值都是空对象，通过exports将age导出后，修改exports的值，此时module.exports的值为<code>{ age: 200 }</code>，exports的值为<code>{ name: 'loveZero' }</code> ，bar中引用的值是module.exports的值</p>
-<h6 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h6><ol>
-<li>module.exports 初始值为一个空对象 {}</li>
-<li>exports 是指向的 module.exports 的引用</li>
-<li>require导出的内容是module.exports的指向的内存块内容，并不是exports的。</li>
-</ol>
-<h4 id="3-require"><a href="#3-require" class="headerlink" title="3.require"></a>3.require</h4><p>require是一个函数，可以帮助我们引入一个文件（模块）中导入的对象</p>
-<pre><code class="js">require('X')
-</code></pre>
-<h5 id="1-查找路径"><a href="#1-查找路径" class="headerlink" title="1. 查找路径"></a>1. 查找路径</h5><h6 id="1-X是一个核心模块"><a href="#1-X是一个核心模块" class="headerlink" title="1. X是一个核心模块"></a>1. X是一个核心模块</h6><p> 直接返回核心模块，并且停止查找</p>
-<h6 id="2-X是一个以-或-或根目录开头的"><a href="#2-X是一个以-或-或根目录开头的" class="headerlink" title="2.X是一个以./或../或根目录开头的"></a>2.X是一个以./或../或根目录开头的</h6><p> 第一步：将X当做一个文件在对应的目录下查找；</p>
+<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h4><p>会判断拼接的路径字符串中,是否有以/或./或../开头的路径</p>
+<p>有的话就返回一个以相对于当前的工作目录（working directory）的绝对路径。</p>
 <ol>
-<li><p>如果有后缀名，按照后缀名的格式查找对应的文件</p>
-</li>
-<li><p>如果没有后缀名，会按照如下顺序：</p>
+<li>参数从后向前，若字符以 / 开头，不会拼接到前面的路径；</li>
+<li>若以 ../ 开头，拼接前面的路径，但是不含前面一节的最后一层路径；</li>
+<li>若以 ./ 开头 或者没有符号 则拼接前面路径</li>
+</ol>
+<pre><code class="js">const basepath = '../User/loveZero';
+const filename = './abc.txt';
+const filepath2 = path.resolve(basepath, filename);
+console.log(filepath2); // c:\Users\loveZero\Desktop\my\User\loveZero\abc.txt
+</code></pre>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<li>join是把各个path片段连接在一起， resolve把‘／’当成根目录</li>
+<li>resolve在传入的第一参数为非根路径时，会返回一个带当前目录路径的绝对路径。</li>
+</ol>
+<pre><code class="js">console.log(path.resolve()) // c:\Users\loveZero\Desktop\my\study-demo
+console.log(path.resolve('')) // c:\Users\loveZero\Desktop\my\study-demo
+console.log(path.resolve(__dirname)) // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
+console.log(path.resolve('/img/books', '/net'))   // c:\net
+console.log(path.resolve('img/books', '/net'))    // c:\net
+console.log(path.resolve('img/books', './net'))   // c:\Users\loveZero\Desktop\my\study-demo\img\books\net
+console.log(path.resolve('/img/books', './net'))   // c:\img\books\net
+console.log(path.resolve('/img/books', 'net'))     // c:\img\books\net
+console.log(path.resolve('/img/books', '../net'))         // c:\img\net
+console.log(path.resolve('src', '/img/books', '../net'))   // c:\img\net
+console.log(path.resolve('src', './img/books', '../net'))   // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
+console.log(path.resolve('src', 'img/books', '../net'))     // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
+</code></pre>
+<pre><code class="js">console.log(path.join())           // .
+console.log(path.join(''))         // .
+console.log(path.join(__dirname))  // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
+console.log(path.join('/img/books', '/net'))   // \img\books\net
+console.log(path.join('img/books', '/net'))    // img\books\net
+console.log(path.join('img/books', './net'))   // img\books\net
+console.log(path.join('/img/books', './net'))   // \img\books\net
+console.log(path.join('/img/books', 'net'))     // \img\books\net
+console.log(path.join('/img/books', '../net'))         // \img\net
+console.log(path.join('src', '/img/books', '../net'))   // src\img\net
+console.log(path.join('src', './img/books', '../net'))   // src\img\net
+console.log(path.join('src', 'img/books', '../net'))     // src\img\net
+</code></pre>
+<h2 id="二、fs"><a href="#二、fs" class="headerlink" title="二、fs"></a>二、fs</h2><p>fs是File System的缩写，表示文件系统</p>
+<h3 id="1-获取文件状态"><a href="#1-获取文件状态" class="headerlink" title="1.获取文件状态"></a>1.获取文件状态</h3><h4 id="同步获取"><a href="#同步获取" class="headerlink" title="同步获取"></a>同步获取</h4><pre><code class="js">const fs = require('fs');
+const info = fs.statSync('./abc.txt');
+console.log(info);
+console.log("后续需要执行的代码");
+/**
+ Stats {
+  dev: 3728757869,
+  mode: 33206,
+  nlink: 1,
+  uid: 0,
+  gid: 0,
+  rdev: 0,
+  blksize: 4096,
+  ino: 8725724278139394,
+  size: 3,
+  blocks: 0,
+  atimeMs: 1629275163060.15,
+  mtimeMs: 1629275163060.15,
+  ctimeMs: 1629275163060.15,
+  birthtimeMs: 1629275160923.6409,
+  atime: 2021-08-18T08:26:03.060Z,
+  mtime: 2021-08-18T08:26:03.060Z,
+  ctime: 2021-08-18T08:26:03.060Z,
+  birthtime: 2021-08-18T08:26:00.924Z
+ }
+  后续需要执行的代码
+ */
+</code></pre>
+<h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><pre><code class="js">fs.stat('./abc.txt', (err, info) =&gt; {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(info);
+  // 判断是否是文件
+  console.log(info.isFile());
+  // 判断是否是文件夹
+  console.log(info.isDirectory());
+});
+console.log("后续需要执行的代码");
+/*
+后续需要执行的代码
+Stats {
+  dev: 3728757869,
+  mode: 33206,
+  nlink: 1,
+  uid: 0,
+  gid: 0,
+  rdev: 0,
+  blksize: 4096,
+  ino: 8725724278139394,
+  size: 3,
+  blocks: 0,
+  atimeMs: 1629275163060.15,
+  mtimeMs: 1629275163060.15,
+  ctimeMs: 1629275163060.15,
+  birthtimeMs: 1629275160923.6409,
+  atime: 2021-08-18T08:26:03.060Z,
+  mtime: 2021-08-18T08:26:03.060Z,
+  ctime: 2021-08-18T08:26:03.060Z,
+  birthtime: 2021-08-18T08:26:00.924Z
+}
+true
+false
+*/
+</code></pre>
+<h4 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h4><pre><code class="js">fs.promises.stat('./abc.txt').then(info =&gt; {
+  console.log(info);
+}).catch(err =&gt; {
+  console.log(err);
+});
+console.log("后续需要执行的代码");
+</code></pre>
+<h3 id="2-文件描述符"><a href="#2-文件描述符" class="headerlink" title="2.文件描述符"></a>2.文件描述符</h3><p><strong>文件描述符</strong>（file descriptor）在形式上是一个非负整数。实际上，它是一个索引值，每一个文件描述符会与一个打开文件相对应。</p>
+<p>每个打开的文件都分配了一个称为文件描述符的简单的数字标识符。</p>
+<p>在系统层，所有文件系统操作都使用这些文件描述符来标识和跟踪每个特定的文件</p>
+<pre><code class="js">const fs = require('fs');
+
+fs.open("./abc.txt", (err, fd) =&gt; {
+  if (err) {
+    console.log('err', err);
+    return;
+  }
+
+  console.log(fd);
+  //  fd就是文件描述符，一旦获得了文件描述符，就可以通过任何方式执行所需的所有操作
+  // 通过描述符去获取文件的信息
+  fs.fstat(fd, (err, info) =&gt; {
+    console.log(info);
+  })
+})
+</code></pre>
+<h3 id="3-文件读写"><a href="#3-文件读写" class="headerlink" title="3.文件读写"></a>3.文件读写</h3><h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629278489244-1629278489240.png"></p>
+<pre><code class="js">const fs = require('fs');
+
+fs.readFile("./abc.txt", 'utf-8', (err, data) =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.log(data)
+});
+</code></pre>
 <ol>
-<li>直接查找文件X</li>
-<li>查找X.js文件</li>
-<li>查找X.json文件</li>
-<li>查找X.node文件</li>
+<li>如果不指定encoding格式，默认将以<buffer>格式返回</buffer></li>
+<li>如果options是字符串格式，默认是encoding值</li>
 </ol>
-</li>
-</ol>
-<p>第二步：没有找到对应的文件，将X作为一个目录</p>
-<p> 查找目录下面的index文件</p>
-<ol>
-<li>查找X/index.js文件</li>
-<li>查找X/index.json文件</li>
-<li>查找X/index.node文件</li>
-</ol>
-<p>如果没有找到，那么报错：not found</p>
-<h6 id="3-直接是一个X（没有路径），并且X不是一个核心模块"><a href="#3-直接是一个X（没有路径），并且X不是一个核心模块" class="headerlink" title="3.直接是一个X（没有路径），并且X不是一个核心模块"></a>3.直接是一个X（没有路径），并且X不是一个核心模块</h6><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629188758555-1629188758546.png"></p>
-<p> 如果上面的路径中都没有找到，那么报错：not found</p>
-<h5 id="2-模块的加载过程"><a href="#2-模块的加载过程" class="headerlink" title="2.模块的加载过程"></a>2.模块的加载过程</h5><h6 id="模块在被第一次引入时，模块中的js代码会被运行一次"><a href="#模块在被第一次引入时，模块中的js代码会被运行一次" class="headerlink" title="模块在被第一次引入时，模块中的js代码会被运行一次"></a>模块在被第一次引入时，模块中的js代码会被运行一次</h6><h6 id="模块被多次引入时，会缓存，最终只加载（运行）一次"><a href="#模块被多次引入时，会缓存，最终只加载（运行）一次" class="headerlink" title="模块被多次引入时，会缓存，最终只加载（运行）一次"></a>模块被多次引入时，会缓存，最终只加载（运行）一次</h6><p>当模块被引用后，module中的loaded属性会改为true，会缓存起来，该模块再次被引用时，将不再重新加载</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629190140490-1629190140472.png"></p>
-<h6 id="如果有循环引入，使用深度优先算法"><a href="#如果有循环引入，使用深度优先算法" class="headerlink" title="如果有循环引入，使用深度优先算法"></a>如果有循环引入，使用深度优先算法</h6><pre><code class="js">// aaa.js
-console.log('aaa');
-require('./ccc');
+<h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><pre><code class="js">const fs = require('fs')
 
-// bbb.js
-console.log('bbb');
+const content = '一些内容'
 
-require('./ccc');
-require('./eee');
-
-// ccc.js
-console.log('ccc');
-
-require('./ddd');
-
-// ddd.js
-console.log('ddd');
-
-require('./eee');
-
-// eee.js
-console.log('eee');
-
-// main.js
-console.log("main")
-
-require('./aaa');
-require('./bbb');
-
-// main
-// aaa
-// ccc
-// ddd
-// eee
-// bbb
+fs.writeFile('./abc.txt', content, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629189768881-1629189768875.png"></p>
-<h4 id="4-特点"><a href="#4-特点" class="headerlink" title="4.特点"></a>4.特点</h4><ol>
-<li>CommonJS模块加载js文件的过程是运行时加载的，并且是同步的<ol>
-<li>一个文件没有加载结束之前，后面的代码都不会执行</li>
-</ol>
-</li>
-<li>导出的是一个对象<ol>
-<li>导出的和引入的指向都是同一个对象，所以一个变量修改了对象的属性，所有的地方都会被修改</li>
-</ol>
-</li>
-</ol>
-<pre><code class="js">// foo.js
-let age = 18;
-exports.age = age
-
-// bar.js
-if (true) {
-  const foo = require('./foo')
-  console.log(foo);
-  console.log('后面的代码');
-}
+<p>将内容追加到文件末尾</p>
+<pre><code class="js">fs.appendFile('./abc.txt', content, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
 </code></pre>
-<h3 id="2-ES-Module"><a href="#2-ES-Module" class="headerlink" title="2.ES Module"></a>2.ES Module</h3><p>基本使用：</p>
-<ol>
-<li>普通script标签执行顺序与书写顺序有关，而加上<code>type="module"</code>后，script将为异步引入，不会阻塞后面的标签</li>
-<li>export 导出模块</li>
-<li>import 导入模块</li>
-</ol>
-<h4 id="1-export"><a href="#1-export" class="headerlink" title="1.export"></a>1.export</h4><p>第一种导出方式：在语句声明的前面直接加上export关键字</p>
-<pre><code class="js">// index.html
-&lt;body&gt;
-  &lt;script src="./index.js" type="module"&gt;&lt;/script&gt;
-  &lt;script src="./normal.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-
-// index.js
-import { name, age, sayHello } from './modules/bar.js';
-
-console.log(name);
-console.log(age);
-sayHello('hah')
-
-// bar.js
-export const name = "loveZero";
-export const age = 18;
-export const sayHello = function (name) {
-  console.log("你好" + name);
-}
-
-// 控制台结果为
-我是普通的script标签
-loveZero
-18
-你好hah
-</code></pre>
-<p>第二种导出方式：将所有需要导出的标识符，放到export后面的 {}中</p>
-<pre><code class="js">const name = "loveZero";
-const age = 18;
-const sayHello = function (name) {
-  console.log("你好" + name);
-}
-export {
-  // 可以给导出的变量起别名，使用时也需要使用别名
-  name as nameAlias,
-  age,
-  sayHello
-}
-</code></pre>
-<p><strong style="color:red;">注意</strong>:这里的 {}不是表示对象</p>
-<h4 id="2-import"><a href="#2-import" class="headerlink" title="2.import"></a>2.import</h4><p>第一种导出方式：import {标识符列表} from ‘模块’</p>
-<pre><code class="js">// 可以通过as 起别名
-import { nameAlias, age as ageAlias, sayHello } from './modules/bar.js';
-</code></pre>
-<p>第二种导出方式：通过 * 将模块功能放到一个模块功能对象（a module object）上</p>
-<pre><code class="js">import * as foo from './modules/bar.js';
-console.log(foo.age);
-console.log(foo.nameAlias);
-foo.sayHello('???')
-</code></pre>
-<h4 id="3-export和import混用"><a href="#3-export和import混用" class="headerlink" title="3.export和import混用"></a>3.export和import混用</h4><p>这里相当于是引入了bar里的age，同时导出了age</p>
-<pre><code class="js">// foo.js
-export { age } from './bar.js';
-</code></pre>
-<p>使用场景：</p>
-<p>在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中，这样方便指定统一的接口规范，也方便阅读</p>
-<h4 id="4-default"><a href="#4-default" class="headerlink" title="4.default"></a>4.default</h4><p>默认导出:</p>
-<ul>
-<li><p>默认导出export时可以不需要指定名字；</p>
-</li>
-<li><p>在导入时不需要使用 {}，并且可以自己来指定名字</p>
-</li>
+<h4 id="flag选项"><a href="#flag选项" class="headerlink" title="flag选项"></a>flag选项</h4><ul>
+<li>w打开文件写入，默认值；</li>
+<li>w+打开文件进行读写，如果不存在则创建文件；</li>
+<li>r+打开文件进行读写，如果不存在那么抛出异常；</li>
+<li>r打开文件读取，读取时的默认值；</li>
+<li>a打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；</li>
+<li>a+打开文件以进行读写，将流放在文件末尾。如果不存在则创建文件</li>
 </ul>
-<pre><code class="js">// fun.js
-export default function () {
-  console.log("do something");
+<pre><code class="js">fs.writeFile('./abc.txt', content, { flag: 'a+' }, err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.error('文件写入成功')
+})
+</code></pre>
+<h3 id="4-文件夹操作"><a href="#4-文件夹操作" class="headerlink" title="4.文件夹操作"></a>4.文件夹操作</h3><h4 id="1-判断文件夹是否存在"><a href="#1-判断文件夹是否存在" class="headerlink" title="1.判断文件夹是否存在"></a>1.判断文件夹是否存在</h4><p>方式一</p>
+<pre><code class="js">fs.existsSync('./loveZero')
+</code></pre>
+<p>方式二</p>
+<pre><code class="js">const dirname = './loveZero';
+// 检查文件是否存在于当前目录中。
+fs.access(dirname, fs.constants.F_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不存在' : '存在'}`);
+});
+
+// 检查文件是否可读。
+fs.access(dirname, fs.constants.R_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不可读' : '可读'}`);
+});
+
+// 检查文件是否可写。
+fs.access(dirname, fs.constants.W_OK, (err) =&gt; {
+  console.log(`${dirname} ${err ? '不可写' : '可写'}`);
+});
+
+// 检查文件是否存在于当前目录中、以及是否可写。
+fs.access(dirname, fs.constants.F_OK | fs.constants.W_OK, (err) =&gt; {
+  if (err) {
+    console.error(
+      `${dirname} ${err.code === 'ENOENT' ? '不存在' : '只可读'}`);
+  } else {
+    console.log(`${dirname} 存在，且可写`);
+  }
+});
+</code></pre>
+<h4 id="2-创建文件夹"><a href="#2-创建文件夹" class="headerlink" title="2.创建文件夹"></a>2.创建文件夹</h4><p>使用 <code>fs.mkdir()</code> 或 <code>fs.mkdirSync()</code> 可以创建新的文件夹。</p>
+<pre><code class="js">if (!fs.existsSync(dirname)) {
+  fs.mkdir(dirname, err =&gt; {
+    console.log(err);
+  });
+}
+</code></pre>
+<h4 id="3-读取目录内容"><a href="#3-读取目录内容" class="headerlink" title="3.读取目录内容"></a>3.读取目录内容</h4><pre><code class="js">const folderPath = '../fs'
+fs.readdir(folderPath, (err, files) =&gt; {
+  console.log(files);
+});
+/*
+[
+  '01-获取文件状态.js',
+  '02-文件描述符.js',
+  '03-文件读取.js',
+  '04-文件写入.js',
+  '05-文件夹操作.js',
+  'abc.txt',
+  'loveZero'
+]*/
+</code></pre>
+<p>递归遍历文件夹里的所有文件</p>
+<pre><code class="js">const fs = require('fs');
+const path = require('path');
+const dirname = './loveZero';
+
+function getFiles(dirname) {
+  fs.readdir(dirname, { withFileTypes: true }, (err, files) =&gt; {
+    for (let file of files) {
+      if (file.isDirectory()) {
+        const filepath = path.resolve(dirname, file.name);
+        getFiles(filepath);
+      } else {
+        console.log(file.name);
+      }
+    }
+  });
 }
 
-// index.js
-import fun from './modules/fun.js'
-fun()
+getFiles(dirname);
+/*
+aaa.txt
+第二层aaa.txt
+第三层aaa.txt
+*/
 </code></pre>
-<h4 id="5-import函数"><a href="#5-import函数" class="headerlink" title="5.import函数"></a>5.import函数</h4><p> 不可以在逻辑代码中使用import加载模块</p>
-<pre><code class="js">if (true) {
-  import { age } from './modules/bar.js';
-  console.log(age);
+<h4 id="4-文件夹重命名"><a href="#4-文件夹重命名" class="headerlink" title="4.文件夹重命名"></a>4.文件夹重命名</h4><pre><code class="js">fs.rename('./oldName', './newName', err =&gt; {
+  if (err) {
+    console.error(err)
+    return
+  }
+})
+</code></pre>
+<h4 id="5-文件夹删除"><a href="#5-文件夹删除" class="headerlink" title="5.文件夹删除"></a>5.文件夹删除</h4><p>安装<code>npm install fs-extra</code></p>
+<pre><code class="js">const fs = require('fs-extra')
+
+const folder = './newName'
+
+fs.remove(folder, err =&gt; {
+  console.error(err)
+})
+</code></pre>
+<p>递归删除非空文件夹</p>
+<pre><code class="js">function removeDir(dir) {
+  let files = fs.readdirSync(dir)
+  for (var i = 0; i &lt; files.length; i++) {
+    let newPath = path.join(dir, files[i]);
+    let stat = fs.statSync(newPath)
+    if (stat.isDirectory()) {
+      //如果是文件夹就递归下去
+      removeDir(newPath);
+    } else {
+      //删除文件
+      fs.unlinkSync(newPath);
+    }
+  }
+  fs.rmdirSync(dir)//如果文件夹是空的，就将自己删除掉
 }
+removeDir(folder);
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629268467258-1629268467253.png"></p>
-<p>因为ES Module在被JS引擎解析时，就必须知道它的依赖关系</p>
-<p>可以通过import函数进行动态加载</p>
-<pre><code class="js">
-if (true) {
-  import('./modules/bar.js')
-    .then(res =&gt; {
-      console.log("在then中的打印");
-      console.log(res.age);
-    })
-    .catch(err =&gt; {
-      console.log(err);
-    })
-}
-</code></pre>
-<h4 id="6-特点"><a href="#6-特点" class="headerlink" title="6.特点"></a>6.特点</h4><ol>
-<li><p>ES Module加载js文件的过程是编译（解析）时加载的，并且是异步的</p>
-</li>
-<li><p>ES Module是静态解析的，而不是动态或者运行时解析的</p>
-</li>
-<li><p>ES Module通过export导出的是变量本身的引用</p>
-<ol>
-<li>export在导出一个变量时，js引擎会解析这个语法，并且创建模块环境记录（module environment  record）</li>
-<li>模块环境记录会和变量进行 绑定（binding），并且这个绑定是实时的</li>
-<li>在导入的地方，可以实时的获取到绑定的最新值</li>
-</ol>
-<pre><code class="js">// foo.js
-let age = 18;
+<h2 id="三、events"><a href="#三、events" class="headerlink" title="三、events"></a>三、events</h2><h3 id="1-监听和触发事件"><a href="#1-监听和触发事件" class="headerlink" title="1.监听和触发事件"></a>1.监听和触发事件</h3><p><code>emitter.on</code>和<code>emitter.addListener</code>监听事件</p>
+<p><code>emitter.emit</code>触发事件</p>
+<p>addListener是on的别名，没什么区别</p>
+<pre><code class="js">const EventEmitter = require("events");
+
+// 创建发射器
+const emitter = new EventEmitter();
+
+// 监听某一个事件
+// addListener是on的alias简写
+emitter.on('click', (args) =&gt; {
+  console.log("click事件on监听", args);
+})
+
+emitter.addListener('click', (args) =&gt; {
+  console.log("click事件addListener监听", args);
+})
 
 setTimeout(() =&gt; {
-  age = 999
-}, 1000)
-export {
-  age,
-}
-//index.js
-import { age } from './foo.js';
-
-setTimeout(() =&gt; {
-  console.log(age); // 999
-}, 2000)
+  emitter.emit("click", "loveZero");
+}, 1000);
 </code></pre>
-<ol start="4">
-<li>在导入的地方不可以修改变量，因为它只是被绑定到了这个变量上（其实是一个常量）</li>
-</ol>
-<pre><code class="js">// foo.js
-let age = 18;
+<h3 id="2-移除监听"><a href="#2-移除监听" class="headerlink" title="2.移除监听"></a>2.移除监听</h3><p><code>emitter.off</code>跟上对应的函数可以移除监听，<code>on</code>和<code>addListener</code>一样</p>
+<pre><code class="js">const EventEmitter = require("events");
 
-setTimeout(() =&gt; {
-  console.log(age); // 18
-}, 2000)
-export {
-  age,
+// 创建发射器
+const emitter = new EventEmitter();
+
+function onClick(args) {
+  console.log("click事件on监听", args);
 }
+emitter.on('click', onClick)
 
-// index.js
-import { age } from './foo.js';
+function addListenerClick(args) {
+  console.log("click事件addListener监听", args);
+
+}
+emitter.addListener('click', addListenerClick)
 
 setTimeout(() =&gt; {
-  age = 999
-}, 1000)
+  emitter.emit("click", "loveZero");
+  // emitter.off("click", onClick);
+  // emitter.off("click", addListenerClick);
+  emitter.emit("click", "loveZero");
+}, 1000);
 </code></pre>
-<p>无法修改且会报错</p>
-</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629269598906-1629269598890.png"></p>
-<p>内存里大概是这个样子</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629270422607-1629270422597.png"></p>
+<pre><code class="js">  // 移除所有对某一事件的监听
+  emitter.removeAllListeners('click')
+/*
+click事件on监听 loveZero
+click事件addListener监听 loveZero
+*/
+</code></pre>
+<h3 id="3-获取事件信息"><a href="#3-获取事件信息" class="headerlink" title="3.获取事件信息"></a>3.获取事件信息</h3><pre><code class="js">const EventEmitter = require("events");
+
+// 创建发射器
+const emitter = new EventEmitter();
+
+function onClick(args) {
+  console.log("click事件on监听", args);
+}
+emitter.on('click', onClick)
+
+function addListenerClick(args) {
+  console.log("click事件addListener监听", args);
+}
+emitter.addListener('click', addListenerClick)
+
+emitter.on('input', (args) =&gt; {
+  console.log(args);
+})
+
+// 获取监听事件名
+console.log(emitter.eventNames()); // [ 'click', 'input' ]
+// 获取click事件监听的次数
+console.log(emitter.listenerCount("click")); // 2
+// 获取click事件监听函数
+console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: addListenerClick] ]
+</code></pre>
 
             </div>
             <hr />
@@ -1045,9 +1048,9 @@ setTimeout(() =&gt; {
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《JavaScript模块化》
+                    《Node中的内置模块》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/16/javascript/javascript-mo-kuai-hua/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -1091,31 +1094,27 @@ setTimeout(() =&gt; {
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/18/node/node-zhong-de-nei-zhi-mo-kuai/">
+                <a href="/2021/08/19/bao-guan-li-gong-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Node中的内置模块">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="包管理工具">
                         
-                        <span class="card-title">Node中的内置模块</span>
+                        <span class="card-title">包管理工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Node中的内置模块一、path从路径中获取信息
-dirname：获取文件的父文件夹
-basename：获取文件名
-extname：获取文件扩展名
-
-const path = require('path');
-// 1.获取路径的信息
-co
+                            包管理工具一、NpmNode Package Manager，就是Node包管理器
+1. npm管理的包存放在哪里发布包其实是发布到registry上面的；
+当我们安装一个包时其实是从registry上面下载的包；
+2. 项目配置文件 pa
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-18
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-19
                         </span>
                         <span class="publish-author">
                             
@@ -1123,10 +1122,6 @@ co
                             
                             <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category" target="_blank">
                                     学习
-                                </a>
-                            
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/Node/" class="post-category" target="_blank">
-                                    Node
                                 </a>
                             
                             
@@ -1155,26 +1150,28 @@ co
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/06/xue-xi/liu-lan-qi-shi-jian-huan-eventloop/">
+                <a href="/2021/08/16/javascript-mo-kuai-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="浏览器事件环EventLoop">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="JavaScript模块化">
                         
-                        <span class="card-title">浏览器事件环EventLoop</span>
+                        <span class="card-title">JavaScript模块化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            浏览器事件环EventLoop1.进程和“线程”  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）
-  后端代码都是采用多进程
-  线程 ： 常见的线程有哪些 (JS是单线程
+                            JavaScript模块化一、什么是模块化模块化开发最终的目的是将程序划分成一个个小的模块
+
+这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；
+这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；
+也可以
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-16
                             </span>
                         <span class="publish-author">
                             
@@ -1184,6 +1181,10 @@ co
                                     学习
                                 </a>
                             
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1191,12 +1192,12 @@ co
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%AD%A6%E4%B9%A0/" target="_blank">
-                        <span class="chip bg-color">学习</span>
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" target="_blank">
-                        <span class="chip bg-color">浏览器</span>
+                    <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
+                        <span class="chip bg-color">专题</span>
                     </a>
                     
                 </div>
