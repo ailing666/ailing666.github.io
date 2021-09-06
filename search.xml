@@ -1,79 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2021/09/06/00-mysq-ji-ben-cao-zuo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
-<ul>
-<li>管理着多个数据库；</li>
-<li>每个数据库中可以有多张表；</li>
-<li>每个表中可以有多条数据；</li>
-</ul>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
-<p>同意协议并安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
-<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
-<p>不要忘记点击确认</p>
-<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
-<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
-<p>输入密码，即可连接数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
-<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
-<blockquote>
-<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
-</blockquote>
-<p>会有四个默认数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
-<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
-<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
-<p>显示null表示没有使用任何数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
-<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
-<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
-<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
-<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
-<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
-<blockquote>
-<p>值需要符合字段格式</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
-<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
-<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
-<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
-<p>刷新一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
-<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>01-Js数据类型</title>
     <url>/2021/08/03/01-js-shu-ju-lei-xing/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
@@ -324,6 +251,86 @@ console.log(typeof (10 + '10'));//string
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL安装配置</title>
+    <url>/2021/09/06/00-mysql-ji-ben-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
+<ul>
+<li>管理着多个数据库；</li>
+<li>每个数据库中可以有多张表；</li>
+<li>每个表中可以有多条数据；</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
+<p>同意协议并安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
+<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
+<p>不要忘记点击确认</p>
+<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
+<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
+<p>输入密码，即可连接数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
+<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
+<blockquote>
+<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
+</blockquote>
+<p>会有四个默认数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
+<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
+<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
+<p>显示null表示没有使用任何数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
+<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
+<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
+<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
+<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
+<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
+<blockquote>
+<p>值需要符合字段格式</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
+<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
+<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
+<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
+<p>刷新一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
+<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
