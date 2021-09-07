@@ -1,88 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MySQL安装配置</title>
-    <url>/2021/09/06/00-mysql-ji-ben-cao-zuo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
-<ul>
-<li>管理着多个数据库；</li>
-<li>每个数据库中可以有多张表；</li>
-<li>每个表中可以有多条数据；</li>
-</ul>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
-<p>同意协议并安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
-<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
-<p>不要忘记点击确认</p>
-<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
-<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
-<p>输入密码，即可连接数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
-<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
-<blockquote>
-<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
-</blockquote>
-<p>会有四个默认数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
-<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
-<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
-<p>显示null表示没有使用任何数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
-<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
-<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
-<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
-<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
-<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
-<blockquote>
-<p>值需要符合字段格式</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
-<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
-<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
-<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
-<p>刷新一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
-<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>01-Js数据类型</title>
-    <url>/2021/08/03/01-js-shu-ju-lei-xing/</url>
+    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
 <h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
 <li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
@@ -327,385 +247,250 @@ console.log(typeof (10 + '10'));//string
 <p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
-    <title>Buffer</title>
-    <url>/2021/08/19/buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
-<table>
-<thead>
-<tr>
-<th>128</th>
-<th>64</th>
-<th>32</th>
-<th>16</th>
-<th>8</th>
-<th>4</th>
-<th>2</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
-<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
-console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
-</code></pre>
-<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
-<pre><code class="js">
-const buffer2 = Buffer.from('你好', 'utf16le');
-console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
-// buffer转字符串
-console.log(buffer2.toString('utf16le')); // 你好
-</code></pre>
-<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p>
-<p>查看-&gt;复制-&gt;克隆地址</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p>
-<p>建分支，推到远端</p>
-<p>点进去，发布容器</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p>
-<p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p>
-<p>点击私有化</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p>
-<p>登录</p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p>
-<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Node</tag>
-        <tag>Buffer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQL语句</title>
-    <url>/2021/09/07/02-ji-ben-sql-yu-ju/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><h3 id="1-1-数字类型"><a href="#1-1-数字类型" class="headerlink" title="1.1 数字类型"></a>1.1 数字类型</h3><ul>
-<li>整数数字类型：INTEGER，INT，SMALLINT，TINYINT，MEDIUMINT，BIGINT；</li>
-<li>浮点数字类型：FLOAT，DOUBLE（FLOAT是4个字节，DOUBLE是8个字节）；</li>
-<li>精确数字类型：DECIMAL，NUMERIC（DECIMAL是NUMERIC的实现形式）</li>
-</ul>
-<h3 id="1-2-日期类型"><a href="#1-2-日期类型" class="headerlink" title="1.2 日期类型"></a>1.2 日期类型</h3><p> YEAR以YYYY格式显示值</p>
-<ul>
-<li>范围 1901到2155，和 0000。</li>
-</ul>
-<p>DATE类型用于具有日期部分但没有时间部分的值：</p>
-<ul>
-<li>DATE以格式YYYY-MM-DD显示值 ；</li>
-<li>支持的范围是 ‘1000-01-01’ 到 ‘9999-12-31’；</li>
-</ul>
-<p> DATETIME类型用于包含日期和时间部分的值：</p>
-<ul>
-<li>DATETIME以格式’YYYY-MM-DD hh:mm:ss’显示值；</li>
-<li>支持的范围是1000-01-01 00:00:00到9999-12-31 23:59:59</li>
-</ul>
-<p>TIMESTAMP数据类型被用于同时包含日期和时间部分的值：</p>
-<ul>
-<li>TIMESTAMP以格式’YYYY-MM-DD hh:mm:ss’显示值；</li>
-<li>但是它的范围是UTC的时间范围：’1970-01-01 00:00:01’到’2038-01-19 03:14:07’;</li>
-</ul>
-<p>DATETIME或TIMESTAMP 值可以包括在高达微秒（6位）精度的后小数秒一部分</p>
-<ul>
-<li>DATETIME表示的范围可以是’1000-01-01 00:00:00.000000’到’9999-12-31 23:59:59.999999’;</li>
-</ul>
-<h3 id="1-3-字符串类型"><a href="#1-3-字符串类型" class="headerlink" title="1.3 字符串类型"></a>1.3 字符串类型</h3><p> CHAR类型在创建表时为固定长度，长度可以是0到255之间的任何值；</p>
-<ul>
-<li>在被查询时，会删除后面的空格；</li>
-</ul>
-<p>VARCHAR类型的值是可变长度的字符串，长度可以指定为0到65535之间的值；</p>
-<ul>
-<li>在被查询时，不会删除后面的空格；</li>
-</ul>
-<p> BINARY和VARBINARY 类型用于存储二进制字符串，存储的是字节字符串；</p>
-<ul>
-<li><a href="https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html">https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html</a></li>
-</ul>
-<p>BLOB用于存储大的二进制类型；</p>
-<p>TEXT用于存储大的字符串类型；</p>
-<h2 id="2-DDL（Data-Definition-Language）"><a href="#2-DDL（Data-Definition-Language）" class="headerlink" title="2. DDL（Data Definition Language）"></a>2. DDL（Data Definition Language）</h2><p>数据定义语言；可以通过DDL语句对数据库或者表进行：创建、删除、修改等操作</p>
-<h3 id="2-1-数据库操作"><a href="#2-1-数据库操作" class="headerlink" title="2.1 数据库操作"></a>2.1 数据库操作</h3><h4 id="2-1-1-查看当前数据库"><a href="#2-1-1-查看当前数据库" class="headerlink" title="2.1.1 查看当前数据库"></a>2.1.1 查看当前数据库</h4><pre><code class="sql">-- 查看所有的数据库
-SHOW DATABASES;
-
--- 选择某一个数据库
-USE lovezero;
-
--- 查看当前正在使用的数据库
-SELECT DATABASE();
-</code></pre>
-<h4 id="2-1-2-创建数据库"><a href="#2-1-2-创建数据库" class="headerlink" title="2.1.2 创建数据库"></a>2.1.2 创建数据库</h4><pre><code class="sql">-- 创建一个新的数据库
--- CREATE DATABASE hello;
-
--- 当这个数据库不存在时创建一个新的数据库
-CREATE DATABASE IF NOT EXISTS hello;
-
--- 当这个数据库不存在时创建一个指定编码和排序方式的数据库
--- CREATE DATABASE IF NOT EXISTS hello DEFAULT CHARACTER SET utf8mb4
---     COLLATE utf8mb4_0900_ai_ci;
-</code></pre>
-<h4 id="2-1-3-删除数据库"><a href="#2-1-3-删除数据库" class="headerlink" title="2.1.3 删除数据库"></a>2.1.3 删除数据库</h4><pre><code class="sql">-- 如果这个数据库存在，就删除这个数据库
-DROP DATABASE IF EXISTS test;
-</code></pre>
-<h4 id="2-1-4-修改数据库"><a href="#2-1-4-修改数据库" class="headerlink" title="2.1.4 修改数据库"></a>2.1.4 修改数据库</h4><pre><code class="sql">-- 修改数据库的编码和排序方式
-ALTER DATABASE hello CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
-</code></pre>
-<h3 id="2-2-数据表操作"><a href="#2-2-数据表操作" class="headerlink" title="2.2 数据表操作"></a>2.2 数据表操作</h3><h4 id="2-2-1-查看所有表"><a href="#2-2-1-查看所有表" class="headerlink" title="2.2.1 查看所有表"></a>2.2.1 查看所有表</h4><pre><code class="mysql"># 查看所有的表
-SHOW TABLES;
-</code></pre>
-<h4 id="2-2-2-新建表"><a href="#2-2-2-新建表" class="headerlink" title="2.2.2 新建表"></a>2.2.2 新建表</h4><pre><code class="sql">CREATE TABLE IF NOT EXISTS `students` (
- `name` VARCHAR(4),
- `age` int
-);
-</code></pre>
-<h4 id="2-2-3-删除表"><a href="#2-2-3-删除表" class="headerlink" title="2.2.3 删除表"></a>2.2.3 删除表</h4><pre><code class="sql">DROP TABLE IF EXISTS users;
-</code></pre>
-<h4 id="2-2-4-查看表的结构"><a href="#2-2-4-查看表的结构" class="headerlink" title="2.2.4 查看表的结构"></a>2.2.4 查看表的结构</h4><pre><code class="sql">DESC `students`;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629962990638-1629962990635.png" alt="2.2.4"></p>
-<h4 id="2-2-5-表约束"><a href="#2-2-5-表约束" class="headerlink" title="2.2.5 表约束"></a>2.2.5 表约束</h4><p>不能为空：NOT NULL</p>
-<ul>
-<li>某些字段要求用户必须插入值，不可以为空，这个时候可以使用 NOT NULL 来约束；</li>
-</ul>
-<p>默认值：DEFAULT</p>
-<ul>
-<li>某些字段希望在没有设置值时给予一个默认值，这个时候可以使用 DEFAULT来完成；</li>
-</ul>
-<p>自动递增：AUTO_INCREMENT</p>
-<ul>
-<li>某些字段希望不设置值时可以进行递增，比如用户的id，这个时候可以使用AUTO_INCREMENT来完成；</li>
-</ul>
-<p>外键约束</p>
-<pre><code class="sql">CREATE TABLE IF NOT EXISTS `users` (
- -- 设置为主键，自动递增
- `id` INT PRIMARY KEY AUTO_INCREMENT,
- -- VARCHAR类型，长度为10，不为空
- `name` VARCHAR(10) NOT NULL,
- -- INT类型，默认值为0
- `age` INT DEFAULT 0,
- -- VARCHAR类型，长度为20，唯一值
- `phone` VARCHAR(20) UNIQUE,
- -- TIMESTAMP类型
- `createTime` 
-);
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629965978672-1629965978671.png" alt="2.2.5"></p>
-<h4 id="2-2-6-修改表"><a href="#2-2-6-修改表" class="headerlink" title="2.2.6 修改表"></a>2.2.6 修改表</h4><pre><code class="sql">-- 修改表名
-ALTER TABLE `users` RENAME TO `user`;
-
--- 添加一个新列
-ALTER TABLE `user` ADD `updateTime` TIMESTAMP;
-
--- 修改字段名
-ALTER TABLE `user` CHANGE `phone` `telPhone` VARCHAR(20) UNIQUE;
-
--- 删除字段
-ALTER TABLE `user` DROP `age`;
-
--- 根据一个表的结构创建另一张表
-CREATE TABLE `user2` LIKE `user`;
-
--- 根据一个表的内容创建另一张表
-CREATE TABLE `user3` (SELECT * FROM `user`);
-
--- 修改createTime默认值为创建时间
-ALTER TABLE `user` MODIFY `createTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-
--- 修改updateTime默认时间为创建时间，并在更新时自动更新时间
-ALTER TABLE `user` MODIFY `updateTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629966650306-1629966650305.png" alt="2.2.6.1"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629966798878-1629966798877.png" alt="2.2.6.2"></p>
-<h2 id="3-DML（Data-Manipulation-Language）"><a href="#3-DML（Data-Manipulation-Language）" class="headerlink" title="3. DML（Data Manipulation Language）"></a>3. DML（Data Manipulation Language）</h2><p>数据操作语言；可以通过DML语句对表进行：添加、删除、修改等操作；</p>
-<h3 id="3-1-插入"><a href="#3-1-插入" class="headerlink" title="3.1 插入"></a>3.1 插入</h3><pre><code class="sql">INSERT INTO `user` VALUES (666, '易烊千玺', '66666666','2021-08-26', '2021-08-26');
-
-
--- 对应指定字段，key与val要一一对应
-INSERT INTO `user` (name, telPhone, createTime)
-      VALUES ('我', '88888888', '2021-08-27');
-
-
-INSERT INTO `user` (name, telPhone)
-      VALUES ('她', '11111111');
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629972381286-1629972381282.png" alt="3.1.1"></p>
-<h3 id="3-2-删除"><a href="#3-2-删除" class="headerlink" title="3.2 删除"></a>3.2 删除</h3><pre><code class="sql">-- 删除所有数据
-DELETE FROM `user`;
-
--- 删除符合条件的数据
-DELETE FROM `user` WHERE id = 666;
-</code></pre>
-<h3 id="3-3-更新"><a href="#3-3-更新" class="headerlink" title="3.3 更新"></a>3.3 更新</h3><pre><code class="sql">-- 更新所有的数据
-UPDATE `user` SET `name` = '咯喽', `createTime` = '1999-09-09';
-
--- 更新符合条件的数据
-UPDATE `user` SET name = '哈哈', `createTime` = '2020-02-02' WHERE id = 670;
-</code></pre>
-<h2 id="4-DQL（Data-Query-Language）"><a href="#4-DQL（Data-Query-Language）" class="headerlink" title="4. DQL（Data Query Language）"></a>4. DQL（Data Query Language）</h2><p>数据查询语言；可以通过DQL从数据库中查询记录</p>
-<h3 id="4-1-查询"><a href="#4-1-查询" class="headerlink" title="4.1 查询"></a>4.1 查询</h3><h4 id="4-1-1-基本查询"><a href="#4-1-1-基本查询" class="headerlink" title="4.1.1 基本查询"></a>4.1.1 基本查询</h4><pre><code class="sql">-- 查询所有字段
-SELECT * FROM `products`;
-
--- 查询指定字段
-SELECT title,price FROM `products`;
-</code></pre>
-<pre><code class="sql">-- 给查询结果起别名
-SELECT title as phoneTitle,price as currentPrice FROM `products`;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629974608778-1629974608769.png" alt="4.1.1"></p>
-<h4 id="4-1-2-WHERE条件查询"><a href="#4-1-2-WHERE条件查询" class="headerlink" title="4.1.2 WHERE条件查询"></a>4.1.2 WHERE条件查询</h4><ol>
-<li><p>比较运算符</p>
-<pre><code class="sql">SELECT * FROM `products` WHERE price &lt; 1000;
-SELECT * FROM `products` WHERE price &gt;= 1000;
-SELECT * FROM `products` WHERE brand = '华为';
-SELECT title,price FROM `products` WHERE price != 1000;
-</code></pre>
-</li>
-<li><p>逻辑运算符</p>
-<pre><code class="sql">-- 逻辑与：三种写法
-SELECT * FROM `products` WHERE price &gt; 1000 AND price &lt; 2000;
-SELECT * FROM `products` WHERE price &gt; 1000 &amp;&amp; price &lt; 2000;
--- BETWEEN AND 包含等于
-SELECT * FROM `products` WHERE price BETWEEN 1099 AND 2000;
-
--- 逻辑或
-SELECT * FROM `products` WHERE price &gt; 5000 || brand = '华为';
-SELECT * FROM
-</code></pre>
-</li>
-<li><p>null</p>
-<pre><code class="sql">
-UPDATE `products` SET url = NULL WHERE id &gt;= 85 and id &lt;= 88;
--- 查询某一个值为NULL
-SELECT * FROM `products` WHERE url IS NULL;
--- 查询值不为NULL
-SELECT * FROM `products` WHERE url IS NOT NULL;
-</code></pre>
-</li>
-<li><p>IN</p>
-<pre><code class="sql">-- IN表示取多个值中的其中一个
-SELECT * FROM `products` WHERE brand IN ('华为','小米','苹果');
--- 效果等同与
-SELECT * FROM `products` WHERE brand = '华为' || brand = '小米' || brand = '苹果';
-</code></pre>
-</li>
-</ol>
-<h4 id="4-1-3-模糊查询"><a href="#4-1-3-模糊查询" class="headerlink" title="4.1.3 模糊查询"></a>4.1.3 模糊查询</h4><ul>
-<li><code>%</code>表示匹配任意个任意字符</li>
-<li><code>_</code>表示匹配一个任意字符</li>
-</ul>
-<pre><code class="sql">-- 查询包含8GB的
-SELECT * FROM `products` WHERE title LIKE '%8GB%';
-
--- 查询以v开头的
-SELECT * FROM `products` WHERE title LIKE 'v%';
-
--- 查询带M必须是第单三个字符
-SELECT * FROM `products` WHERE title LIKE '__M%';
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630642113009-1630642113005.png" alt="4.3模糊查询"></p>
-<h4 id="4-1-4-对查询结果进行排序"><a href="#4-1-4-对查询结果进行排序" class="headerlink" title="4.1.4 对查询结果进行排序"></a>4.1.4 对查询结果进行排序</h4><p>当我们查询到结果的时候，可以使用<code>DRDER BY</code>将结果按照某种方式进行排序<br>ORDER BY有两个常用的值：</p>
-<ul>
-<li>ASC:升序排列；</li>
-<li>DESC:降序排列</li>
-</ul>
-<pre><code class="sql">-- 按价格升序，当价格相同时按评分降序
-SELECT * FROM `products` WHERE brand IN ('华为','小米','苹果') ORDER BY price ASC,score DESC;
-</code></pre>
-<h4 id="4-1-5-分页查询"><a href="#4-1-5-分页查询" class="headerlink" title="4.1.5 分页查询"></a>4.1.5 分页查询</h4><p>当数据库中的数据非常多时，一次性查询到所有的结果进行显示是不太现实的</p>
-<ul>
-<li><p>在真实开发中，用户会传入 offset、 limiti或者page等字段；</p>
-</li>
-<li><p>它们的目的是让我们可以在数据库中进行分页查询；</p>
-</li>
-<li><p>它的用法有[ LIMIT (offset, row_count row_ count OFFSET offset</p>
-</li>
-</ul>
-<pre><code class="sql">-- 分页查询
--- 查询20条，从0开始 1 - 20 
-SELECT * FROM `products` LIMIT 20 OFFSET 0;
--- 查询20条，从20开始 21 - 40 
-SELECT * FROM `products` LIMIT 20 OFFSET 20;
--- 查询10条，从40开始
-SELECT * FROM `products` LIMIT 40,10;
-</code></pre>
-<h3 id="4-2-聚合函数"><a href="#4-2-聚合函数" class="headerlink" title="4.2 聚合函数"></a>4.2 聚合函数</h3><p>将表里的所有数据视为一组数据，进行操作</p>
-<h4 id="4-2-1-基本使用"><a href="#4-2-1-基本使用" class="headerlink" title="4.2.1 基本使用"></a>4.2.1 基本使用</h4><p><code>SELECT</code>后面不能跟任何字段</p>
+    <title>浏览器事件环EventLoop</title>
+    <url>/2021/08/06/eventloop-liu-lan-qi-shi-jian-huan-eventloop/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
+<p>  后端代码都是采用多进程</p>
+<p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
 <ol>
-<li><p>求和</p>
-<pre><code class="sql">-- 求和
-SELECT SUM(price) FROM `products`;
--- 对结果起别名
-SELECT SUM(price) totalPrice FROM `products`;
--- 求华为手机的总和
-SELECT SUM(price) FROM `products` WHERE brand = '华为';
-</code></pre>
+<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
 </li>
-<li><p>求平均值</p>
-<pre><code class="sql">-- 求平均价格
-SELECT AVG(price) FROM `products`;
-</code></pre>
+<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
 </li>
-<li><p>求最大值和最小值</p>
-<pre><code class="sql">-- 求最高和最低
-SELECT MAX(price) FROM `products`;
-
-SELECT MIN(price) FROM `products`;
-</code></pre>
+<li><p>事件触发线程 EventLoop</p>
 </li>
-<li><p>求总数</p>
-<pre><code class="sql">-- 求表里总个数
-SELECT COUNT(*) FROM `products`;
--- 求表里url的总个数
-SELECT COUNT(url) FROM `products`;
--- 去掉重复的price
-SELECT COUNT(DISTINCT price)  FROM `products`;
-</code></pre>
+<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
 </li>
 </ol>
-<h4 id="4-2-2-GROUP-BY"><a href="#4-2-2-GROUP-BY" class="headerlink" title="4.2.2 GROUP BY"></a>4.2.2 GROUP BY</h4><p>GROUP BY通常和聚合函数一起使用：</p>
+<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
+<li><p>宏任务</p>
 <ul>
-<li>表示我们先对数据进行分组，再对每一组数据，进行聚合函数的计算</li>
+<li>&lt;执行脚本 script&gt;</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate</li>
+<li>事件</li>
+<li>ajax</li>
+<li>MessageChannel (I/O)</li>
 </ul>
-<p><code>SELECT</code>后可以跟上分组字段</p>
-<pre><code class="sql">-- 根据品牌将手机分组，并计算出每组数据的平均值，总数，平均分
-SELECT brand, AVG(price), COUNT(*),AVG(score) FROM `products` GROUP BY brand;
+</li>
+<li><p>微任务</p>
+<ul>
+<li><p>promise</p>
+</li>
+<li><p>MutationObserer（监视DOM树的变化）</p>
+</li>
+<li><p>node中的process.nextTick</p>
+</li>
+</ul>
+</li>
+<li><p>渲染有关</p>
+<ul>
+<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
+<li>requestIDleCallback 空闲时间执行</li>
+</ul>
+</li>
+<li><p>总结</p>
+<ol>
+<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
+</li>
+<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
+</li>
+<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
+</li>
+<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
+</li>
+<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
+</li>
+<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>画图功底有限…</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p>
+<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'
+    console.log(1);
+    setTimeout(() =&gt; {
+      document.body.style.background = 'green'
+      console.log(2);
+    }, 0)
+    Promise.resolve().then(() =&gt; {
+      console.log(3);
+      document.body.style.background = 'yellow'
+    })
 </code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630646512654-1630646512645.png" alt="4.2.2"></p>
-<h5 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h5><pre><code class="sql">-- HAVING
--- 分组后，不支持where查询，可以用having筛选
--- 根据品牌将手机分组，并计算出每组数据的平均值，总数，平均分，并筛选出平均价格大于2000的手机
-SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` GROUP BY brand HAVING avgPrice &gt;2000;
--- 如果要使用where，需要在分组前
--- 筛选出评分大于7.5分的手机，根据品牌进行分组，并计算出每组数据的平均值，总数，平均分
-SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` WHERE score &gt;7.5 GROUP BY brand;
+<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
 </code></pre>
-<h2 id="5-DCL（Data-Control-Language）"><a href="#5-DCL（Data-Control-Language）" class="headerlink" title="5. DCL（Data Control Language）"></a>5. DCL（Data Control Language）</h2><p>数据控制语言；对数据库、表格的权限进行相关访问控制操作；</p>
+<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
+<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
+<h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
+  &lt;script&gt;
+    // 3
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task1'))
+      console.log('click1');
+    })
+    btn.addEventListener('click', () =&gt; {
+      Promise.resolve().then(() =&gt; console.log('micro task2'))
+      console.log('click2');
+    })
+    btn.click()
+</code></pre>
+<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
+<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
+<h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log('Promise1')
+      setTimeout(() =&gt; {
+        console.log('setTimeout2')
+      }, 0);
+    })
+    setTimeout(() =&gt; {
+      console.log('setTimeout1');
+      Promise.resolve().then(() =&gt; {
+        console.log('Promise2')
+      })
+    }, 0);
+</code></pre>
+<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
+<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
+<ol>
+<li><p>第一轮先将栈里的任务分别放入</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
+</li>
+<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
+</li>
+<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
+</li>
+<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
+</li>
+</ol>
+<h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);
+    async function async() {
+      console.log(2);
+      await console.log(3);
+      console.log(4)
+    }
+    setTimeout(() =&gt; {
+      console.log(5);
+    }, 0);
+    const promise = new Promise((resolve, reject) =&gt; {
+      console.log(6);
+      resolve(7)
+    })
+    promise.then(res =&gt; {
+      console.log(res)
+    })
+    async();
+    console.log(8);
+</code></pre>
+<p>上述代码执行结果是：16238745</p>
+<p>原因是：</p>
+<ol>
+<li><p>解释async…await</p>
+<ol>
+<li><p>async 执行后返回的是一个promise</p>
+</li>
+<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
+<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
+</li>
+</ol>
+</li>
+<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
+</li>
+<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
+</li>
+<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
+</li>
+<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
+</li>
+<li><p>继续执行微任务7then，打印7</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
+</li>
+<li><p>继续执行微任务4then，打印4</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
+</li>
+<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
+</li>
+<li><p>此时宏任务，微任务全部清空，程序结束</p>
+</li>
+</ol>
+<h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
+      console.log(0);
+      return Promise.resolve(4);
+    }).then((res) =&gt; {
+      console.log(res)
+    })
+    Promise.resolve().then(() =&gt; {
+      console.log(1);
+    }).then(() =&gt; {
+      console.log(2);
+    }).then(() =&gt; {
+      console.log(3);
+    }).then(() =&gt; {
+      console.log(5);
+    })
+</code></pre>
+<p>上述打印结果为0,1,2,3,4,5</p>
+<p>原因是</p>
+<ol>
+<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
+</li>
+<li><p>将then0和then1放入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
+</li>
+<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
+</li>
+<li><p>执行then1打印，将then2压入栈中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
+</li>
+<li><p>由于return一个promise的特性，then会延迟执行</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
+</li>
+<li><p>执行then2打印then2，将then3压入微任务队列</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
+</li>
+<li><p>执行then，将4传入then中，将then4压入队列</p>
+</li>
+<li><p>执行then3，打印3，将then5压入队列中</p>
+<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
+</li>
+<li><p>依次执行，打印4,5，程序结束</p>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>MySQL</category>
-        <category>学习</category>
+        <category>EventLoop</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>EventLoop</tag>
+        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -1110,7 +895,6 @@ setTimeout(() =&gt; {
 <p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629270422607-1629270422597.png"></p>
 ]]></content>
       <categories>
-        <category>学习</category>
         <category>JavaScript</category>
       </categories>
       <tags>
@@ -1119,21 +903,699 @@ setTimeout(() =&gt; {
       </tags>
   </entry>
   <entry>
-    <title>01-我的足迹</title>
-    <url>/2021/08/03/01-wo-de-zu-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="我的足迹"><a href="#我的足迹" class="headerlink" title="我的足迹"></a>我的足迹</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1627962230903-1627962230899-009ab009c185d053eb57474d868fce4.jpg" alt="我的足迹"></p>
-<h2 id="旅行经历"><a href="#旅行经历" class="headerlink" title="旅行经历"></a>旅行经历</h2><p>2021/4/26 - 2021/5/5 去了云南</p>
+    <title>SQL语句</title>
+    <url>/2021/09/07/mysql-ji-ben-sql-yu-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><h3 id="1-1-数字类型"><a href="#1-1-数字类型" class="headerlink" title="1.1 数字类型"></a>1.1 数字类型</h3><ul>
+<li>整数数字类型：INTEGER，INT，SMALLINT，TINYINT，MEDIUMINT，BIGINT；</li>
+<li>浮点数字类型：FLOAT，DOUBLE（FLOAT是4个字节，DOUBLE是8个字节）；</li>
+<li>精确数字类型：DECIMAL，NUMERIC（DECIMAL是NUMERIC的实现形式）</li>
+</ul>
+<h3 id="1-2-日期类型"><a href="#1-2-日期类型" class="headerlink" title="1.2 日期类型"></a>1.2 日期类型</h3><p> YEAR以YYYY格式显示值</p>
+<ul>
+<li>范围 1901到2155，和 0000。</li>
+</ul>
+<p>DATE类型用于具有日期部分但没有时间部分的值：</p>
+<ul>
+<li>DATE以格式YYYY-MM-DD显示值 ；</li>
+<li>支持的范围是 ‘1000-01-01’ 到 ‘9999-12-31’；</li>
+</ul>
+<p> DATETIME类型用于包含日期和时间部分的值：</p>
+<ul>
+<li>DATETIME以格式’YYYY-MM-DD hh:mm:ss’显示值；</li>
+<li>支持的范围是1000-01-01 00:00:00到9999-12-31 23:59:59</li>
+</ul>
+<p>TIMESTAMP数据类型被用于同时包含日期和时间部分的值：</p>
+<ul>
+<li>TIMESTAMP以格式’YYYY-MM-DD hh:mm:ss’显示值；</li>
+<li>但是它的范围是UTC的时间范围：’1970-01-01 00:00:01’到’2038-01-19 03:14:07’;</li>
+</ul>
+<p>DATETIME或TIMESTAMP 值可以包括在高达微秒（6位）精度的后小数秒一部分</p>
+<ul>
+<li>DATETIME表示的范围可以是’1000-01-01 00:00:00.000000’到’9999-12-31 23:59:59.999999’;</li>
+</ul>
+<h3 id="1-3-字符串类型"><a href="#1-3-字符串类型" class="headerlink" title="1.3 字符串类型"></a>1.3 字符串类型</h3><p> CHAR类型在创建表时为固定长度，长度可以是0到255之间的任何值；</p>
+<ul>
+<li>在被查询时，会删除后面的空格；</li>
+</ul>
+<p>VARCHAR类型的值是可变长度的字符串，长度可以指定为0到65535之间的值；</p>
+<ul>
+<li>在被查询时，不会删除后面的空格；</li>
+</ul>
+<p> BINARY和VARBINARY 类型用于存储二进制字符串，存储的是字节字符串；</p>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html">https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html</a></li>
+</ul>
+<p>BLOB用于存储大的二进制类型；</p>
+<p>TEXT用于存储大的字符串类型；</p>
+<h2 id="2-DDL（Data-Definition-Language）"><a href="#2-DDL（Data-Definition-Language）" class="headerlink" title="2. DDL（Data Definition Language）"></a>2. DDL（Data Definition Language）</h2><p>数据定义语言；可以通过DDL语句对数据库或者表进行：创建、删除、修改等操作</p>
+<h3 id="2-1-数据库操作"><a href="#2-1-数据库操作" class="headerlink" title="2.1 数据库操作"></a>2.1 数据库操作</h3><h4 id="2-1-1-查看当前数据库"><a href="#2-1-1-查看当前数据库" class="headerlink" title="2.1.1 查看当前数据库"></a>2.1.1 查看当前数据库</h4><pre><code class="sql">-- 查看所有的数据库
+SHOW DATABASES;
+
+-- 选择某一个数据库
+USE lovezero;
+
+-- 查看当前正在使用的数据库
+SELECT DATABASE();
+</code></pre>
+<h4 id="2-1-2-创建数据库"><a href="#2-1-2-创建数据库" class="headerlink" title="2.1.2 创建数据库"></a>2.1.2 创建数据库</h4><pre><code class="sql">-- 创建一个新的数据库
+-- CREATE DATABASE hello;
+
+-- 当这个数据库不存在时创建一个新的数据库
+CREATE DATABASE IF NOT EXISTS hello;
+
+-- 当这个数据库不存在时创建一个指定编码和排序方式的数据库
+-- CREATE DATABASE IF NOT EXISTS hello DEFAULT CHARACTER SET utf8mb4
+--     COLLATE utf8mb4_0900_ai_ci;
+</code></pre>
+<h4 id="2-1-3-删除数据库"><a href="#2-1-3-删除数据库" class="headerlink" title="2.1.3 删除数据库"></a>2.1.3 删除数据库</h4><pre><code class="sql">-- 如果这个数据库存在，就删除这个数据库
+DROP DATABASE IF EXISTS test;
+</code></pre>
+<h4 id="2-1-4-修改数据库"><a href="#2-1-4-修改数据库" class="headerlink" title="2.1.4 修改数据库"></a>2.1.4 修改数据库</h4><pre><code class="sql">-- 修改数据库的编码和排序方式
+ALTER DATABASE hello CHARACTER SET = utf8 COLLATE = utf8_unicode_ci;
+</code></pre>
+<h3 id="2-2-数据表操作"><a href="#2-2-数据表操作" class="headerlink" title="2.2 数据表操作"></a>2.2 数据表操作</h3><h4 id="2-2-1-查看所有表"><a href="#2-2-1-查看所有表" class="headerlink" title="2.2.1 查看所有表"></a>2.2.1 查看所有表</h4><pre><code class="mysql"># 查看所有的表
+SHOW TABLES;
+</code></pre>
+<h4 id="2-2-2-新建表"><a href="#2-2-2-新建表" class="headerlink" title="2.2.2 新建表"></a>2.2.2 新建表</h4><pre><code class="sql">CREATE TABLE IF NOT EXISTS `students` (
+ `name` VARCHAR(4),
+ `age` int
+);
+</code></pre>
+<h4 id="2-2-3-删除表"><a href="#2-2-3-删除表" class="headerlink" title="2.2.3 删除表"></a>2.2.3 删除表</h4><pre><code class="sql">DROP TABLE IF EXISTS users;
+</code></pre>
+<h4 id="2-2-4-查看表的结构"><a href="#2-2-4-查看表的结构" class="headerlink" title="2.2.4 查看表的结构"></a>2.2.4 查看表的结构</h4><pre><code class="sql">DESC `students`;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629962990638-1629962990635.png" alt="2.2.4"></p>
+<h4 id="2-2-5-表约束"><a href="#2-2-5-表约束" class="headerlink" title="2.2.5 表约束"></a>2.2.5 表约束</h4><p>不能为空：NOT NULL</p>
+<ul>
+<li>某些字段要求用户必须插入值，不可以为空，这个时候可以使用 NOT NULL 来约束；</li>
+</ul>
+<p>默认值：DEFAULT</p>
+<ul>
+<li>某些字段希望在没有设置值时给予一个默认值，这个时候可以使用 DEFAULT来完成；</li>
+</ul>
+<p>自动递增：AUTO_INCREMENT</p>
+<ul>
+<li>某些字段希望不设置值时可以进行递增，比如用户的id，这个时候可以使用AUTO_INCREMENT来完成；</li>
+</ul>
+<p>外键约束</p>
+<pre><code class="sql">CREATE TABLE IF NOT EXISTS `users` (
+ -- 设置为主键，自动递增
+ `id` INT PRIMARY KEY AUTO_INCREMENT,
+ -- VARCHAR类型，长度为10，不为空
+ `name` VARCHAR(10) NOT NULL,
+ -- INT类型，默认值为0
+ `age` INT DEFAULT 0,
+ -- VARCHAR类型，长度为20，唯一值
+ `phone` VARCHAR(20) UNIQUE,
+ -- TIMESTAMP类型
+ `createTime` 
+);
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629965978672-1629965978671.png" alt="2.2.5"></p>
+<h4 id="2-2-6-修改表"><a href="#2-2-6-修改表" class="headerlink" title="2.2.6 修改表"></a>2.2.6 修改表</h4><pre><code class="sql">-- 修改表名
+ALTER TABLE `users` RENAME TO `user`;
+
+-- 添加一个新列
+ALTER TABLE `user` ADD `updateTime` TIMESTAMP;
+
+-- 修改字段名
+ALTER TABLE `user` CHANGE `phone` `telPhone` VARCHAR(20) UNIQUE;
+
+-- 删除字段
+ALTER TABLE `user` DROP `age`;
+
+-- 根据一个表的结构创建另一张表
+CREATE TABLE `user2` LIKE `user`;
+
+-- 根据一个表的内容创建另一张表
+CREATE TABLE `user3` (SELECT * FROM `user`);
+
+-- 修改createTime默认值为创建时间
+ALTER TABLE `user` MODIFY `createTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+-- 修改updateTime默认时间为创建时间，并在更新时自动更新时间
+ALTER TABLE `user` MODIFY `updateTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629966650306-1629966650305.png" alt="2.2.6.1"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629966798878-1629966798877.png" alt="2.2.6.2"></p>
+<h2 id="3-DML（Data-Manipulation-Language）"><a href="#3-DML（Data-Manipulation-Language）" class="headerlink" title="3. DML（Data Manipulation Language）"></a>3. DML（Data Manipulation Language）</h2><p>数据操作语言；可以通过DML语句对表进行：添加、删除、修改等操作；</p>
+<h3 id="3-1-插入"><a href="#3-1-插入" class="headerlink" title="3.1 插入"></a>3.1 插入</h3><pre><code class="sql">INSERT INTO `user` VALUES (666, '易烊千玺', '66666666','2021-08-26', '2021-08-26');
+
+
+-- 对应指定字段，key与val要一一对应
+INSERT INTO `user` (name, telPhone, createTime)
+      VALUES ('我', '88888888', '2021-08-27');
+
+
+INSERT INTO `user` (name, telPhone)
+      VALUES ('她', '11111111');
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629972381286-1629972381282.png" alt="3.1.1"></p>
+<h3 id="3-2-删除"><a href="#3-2-删除" class="headerlink" title="3.2 删除"></a>3.2 删除</h3><pre><code class="sql">-- 删除所有数据
+DELETE FROM `user`;
+
+-- 删除符合条件的数据
+DELETE FROM `user` WHERE id = 666;
+</code></pre>
+<h3 id="3-3-更新"><a href="#3-3-更新" class="headerlink" title="3.3 更新"></a>3.3 更新</h3><pre><code class="sql">-- 更新所有的数据
+UPDATE `user` SET `name` = '咯喽', `createTime` = '1999-09-09';
+
+-- 更新符合条件的数据
+UPDATE `user` SET name = '哈哈', `createTime` = '2020-02-02' WHERE id = 670;
+</code></pre>
+<h2 id="4-DQL（Data-Query-Language）"><a href="#4-DQL（Data-Query-Language）" class="headerlink" title="4. DQL（Data Query Language）"></a>4. DQL（Data Query Language）</h2><p>数据查询语言；可以通过DQL从数据库中查询记录</p>
+<h3 id="4-1-查询"><a href="#4-1-查询" class="headerlink" title="4.1 查询"></a>4.1 查询</h3><h4 id="4-1-1-基本查询"><a href="#4-1-1-基本查询" class="headerlink" title="4.1.1 基本查询"></a>4.1.1 基本查询</h4><pre><code class="sql">-- 查询所有字段
+SELECT * FROM `products`;
+
+-- 查询指定字段
+SELECT title,price FROM `products`;
+</code></pre>
+<pre><code class="sql">-- 给查询结果起别名
+SELECT title as phoneTitle,price as currentPrice FROM `products`;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629974608778-1629974608769.png" alt="4.1.1"></p>
+<h4 id="4-1-2-WHERE条件查询"><a href="#4-1-2-WHERE条件查询" class="headerlink" title="4.1.2 WHERE条件查询"></a>4.1.2 WHERE条件查询</h4><ol>
+<li><p>比较运算符</p>
+<pre><code class="sql">SELECT * FROM `products` WHERE price &lt; 1000;
+SELECT * FROM `products` WHERE price &gt;= 1000;
+SELECT * FROM `products` WHERE brand = '华为';
+SELECT title,price FROM `products` WHERE price != 1000;
+</code></pre>
+</li>
+<li><p>逻辑运算符</p>
+<pre><code class="sql">-- 逻辑与：三种写法
+SELECT * FROM `products` WHERE price &gt; 1000 AND price &lt; 2000;
+SELECT * FROM `products` WHERE price &gt; 1000 &amp;&amp; price &lt; 2000;
+-- BETWEEN AND 包含等于
+SELECT * FROM `products` WHERE price BETWEEN 1099 AND 2000;
+
+-- 逻辑或
+SELECT * FROM `products` WHERE price &gt; 5000 || brand = '华为';
+SELECT * FROM
+</code></pre>
+</li>
+<li><p>null</p>
+<pre><code class="sql">
+UPDATE `products` SET url = NULL WHERE id &gt;= 85 and id &lt;= 88;
+-- 查询某一个值为NULL
+SELECT * FROM `products` WHERE url IS NULL;
+-- 查询值不为NULL
+SELECT * FROM `products` WHERE url IS NOT NULL;
+</code></pre>
+</li>
+<li><p>IN</p>
+<pre><code class="sql">-- IN表示取多个值中的其中一个
+SELECT * FROM `products` WHERE brand IN ('华为','小米','苹果');
+-- 效果等同与
+SELECT * FROM `products` WHERE brand = '华为' || brand = '小米' || brand = '苹果';
+</code></pre>
+</li>
+</ol>
+<h4 id="4-1-3-模糊查询"><a href="#4-1-3-模糊查询" class="headerlink" title="4.1.3 模糊查询"></a>4.1.3 模糊查询</h4><ul>
+<li><code>%</code>表示匹配任意个任意字符</li>
+<li><code>_</code>表示匹配一个任意字符</li>
+</ul>
+<pre><code class="sql">-- 查询包含8GB的
+SELECT * FROM `products` WHERE title LIKE '%8GB%';
+
+-- 查询以v开头的
+SELECT * FROM `products` WHERE title LIKE 'v%';
+
+-- 查询带M必须是第单三个字符
+SELECT * FROM `products` WHERE title LIKE '__M%';
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630642113009-1630642113005.png" alt="4.3模糊查询"></p>
+<h4 id="4-1-4-对查询结果进行排序"><a href="#4-1-4-对查询结果进行排序" class="headerlink" title="4.1.4 对查询结果进行排序"></a>4.1.4 对查询结果进行排序</h4><p>当我们查询到结果的时候，可以使用<code>DRDER BY</code>将结果按照某种方式进行排序<br>ORDER BY有两个常用的值：</p>
+<ul>
+<li>ASC:升序排列；</li>
+<li>DESC:降序排列</li>
+</ul>
+<pre><code class="sql">-- 按价格升序，当价格相同时按评分降序
+SELECT * FROM `products` WHERE brand IN ('华为','小米','苹果') ORDER BY price ASC,score DESC;
+</code></pre>
+<h4 id="4-1-5-分页查询"><a href="#4-1-5-分页查询" class="headerlink" title="4.1.5 分页查询"></a>4.1.5 分页查询</h4><p>当数据库中的数据非常多时，一次性查询到所有的结果进行显示是不太现实的</p>
+<ul>
+<li><p>在真实开发中，用户会传入 offset、 limiti或者page等字段；</p>
+</li>
+<li><p>它们的目的是让我们可以在数据库中进行分页查询；</p>
+</li>
+<li><p>它的用法有[ LIMIT (offset, row_count row_ count OFFSET offset</p>
+</li>
+</ul>
+<pre><code class="sql">-- 分页查询
+-- 查询20条，从0开始 1 - 20 
+SELECT * FROM `products` LIMIT 20 OFFSET 0;
+-- 查询20条，从20开始 21 - 40 
+SELECT * FROM `products` LIMIT 20 OFFSET 20;
+-- 查询10条，从40开始
+SELECT * FROM `products` LIMIT 40,10;
+</code></pre>
+<h3 id="4-2-聚合函数"><a href="#4-2-聚合函数" class="headerlink" title="4.2 聚合函数"></a>4.2 聚合函数</h3><p>将表里的所有数据视为一组数据，进行操作</p>
+<h4 id="4-2-1-基本使用"><a href="#4-2-1-基本使用" class="headerlink" title="4.2.1 基本使用"></a>4.2.1 基本使用</h4><p><code>SELECT</code>后面不能跟任何字段</p>
+<ol>
+<li><p>求和</p>
+<pre><code class="sql">-- 求和
+SELECT SUM(price) FROM `products`;
+-- 对结果起别名
+SELECT SUM(price) totalPrice FROM `products`;
+-- 求华为手机的总和
+SELECT SUM(price) FROM `products` WHERE brand = '华为';
+</code></pre>
+</li>
+<li><p>求平均值</p>
+<pre><code class="sql">-- 求平均价格
+SELECT AVG(price) FROM `products`;
+</code></pre>
+</li>
+<li><p>求最大值和最小值</p>
+<pre><code class="sql">-- 求最高和最低
+SELECT MAX(price) FROM `products`;
+
+SELECT MIN(price) FROM `products`;
+</code></pre>
+</li>
+<li><p>求总数</p>
+<pre><code class="sql">-- 求表里总个数
+SELECT COUNT(*) FROM `products`;
+-- 求表里url的总个数
+SELECT COUNT(url) FROM `products`;
+-- 去掉重复的price
+SELECT COUNT(DISTINCT price)  FROM `products`;
+</code></pre>
+</li>
+</ol>
+<h4 id="4-2-2-GROUP-BY"><a href="#4-2-2-GROUP-BY" class="headerlink" title="4.2.2 GROUP BY"></a>4.2.2 GROUP BY</h4><p>GROUP BY通常和聚合函数一起使用：</p>
+<ul>
+<li>表示我们先对数据进行分组，再对每一组数据，进行聚合函数的计算</li>
+</ul>
+<p><code>SELECT</code>后可以跟上分组字段</p>
+<pre><code class="sql">-- 根据品牌将手机分组，并计算出每组数据的平均值，总数，平均分
+SELECT brand, AVG(price), COUNT(*),AVG(score) FROM `products` GROUP BY brand;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630646512654-1630646512645.png" alt="4.2.2"></p>
+<h5 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h5><pre><code class="sql">-- HAVING
+-- 分组后，不支持where查询，可以用having筛选
+-- 根据品牌将手机分组，并计算出每组数据的平均值，总数，平均分，并筛选出平均价格大于2000的手机
+SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` GROUP BY brand HAVING avgPrice &gt;2000;
+-- 如果要使用where，需要在分组前
+-- 筛选出评分大于7.5分的手机，根据品牌进行分组，并计算出每组数据的平均值，总数，平均分
+SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` WHERE score &gt;7.5 GROUP BY brand;
+</code></pre>
+<h2 id="5-DCL（Data-Control-Language）"><a href="#5-DCL（Data-Control-Language）" class="headerlink" title="5. DCL（Data Control Language）"></a>5. DCL（Data Control Language）</h2><p>数据控制语言；对数据库、表格的权限进行相关访问控制操作；</p>
 ]]></content>
       <categories>
-        <category>旅行</category>
+        <category>MySQL</category>
       </categories>
       <tags>
-        <tag>旅行</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL安装配置</title>
+    <url>/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
+<ul>
+<li>管理着多个数据库；</li>
+<li>每个数据库中可以有多张表；</li>
+<li>每个表中可以有多条数据；</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
+<p>同意协议并安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
+<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
+<p>不要忘记点击确认</p>
+<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
+<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
+<p>输入密码，即可连接数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
+<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
+<blockquote>
+<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
+</blockquote>
+<p>会有四个默认数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
+<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
+<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
+<p>显示null表示没有使用任何数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
+<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
+<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
+<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
+<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
+<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
+<blockquote>
+<p>值需要符合字段格式</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
+<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
+<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
+<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
+<p>刷新一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
+<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>包管理工具</title>
+    <url>/2021/08/19/npm-bao-guan-li-gong-ju/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
+<h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
+<p>当我们安装一个包时其实是从registry上面下载的包；</p>
+<h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
+<p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p>
+<h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p>
+<p>name默认值是当前文件夹的名称(不能有中文)</p>
+<pre><code class="js">{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+</code></pre>
+<h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul>
+<li><code>name</code> 设置了应用程序/软件包的名称。</li>
+<li><code>version</code> 表明了当前的版本。</li>
+<li><code>description</code> 是应用程序/软件包的简短描述。</li>
+<li><code>main</code> 设置了应用程序的入口点。</li>
+<li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li>
+<li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li>
+<li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li>
+<li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li>
+<li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li>
+</ul>
+<p>其中必写属性是<code>name</code>和<code>version</code></p>
+<h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul>
+<li>名称不能超过214个字符</li>
+<li>名称不能以点或者下划线开头</li>
+<li>包的名称中不能包含大写字母</li>
+<li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li>
+<li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul>
+<li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li>
+</ul>
+</li>
+</ul>
+<p>查看包名是否被占用</p>
+<p>使用<code>npm view</code></p>
+<p>能查询到信息说明已被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p>
+<p>抛出404说明该包名未被使用</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p>
+<h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+</blockquote>
+<ul>
+<li>版本号由主版本.此版本.补丁版本组成</li>
+<li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li>
+</ul>
+<h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p>
+<p>keywords用于给你的模块添加关键字。</p>
+<p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p>
+<pre><code class="json">{
+   "description": "说明信息",
+   "keywords": [
+      "node",
+      "配置",
+      "json"
+    ]
+}
+</code></pre>
+<h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p>
+<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
+<h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p>
+<pre><code class="json">{
+  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",
+  "contributors": [
+    {
+      "name": "贡献者",
+      "email": "example@example.com",
+      "url": "http://xxx.com"
+    }
+  ]
+}
+</code></pre>
+<h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p>
+<h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p>
+<p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
+<p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p>
+<pre><code class="json">  "scripts": {
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "start": "npm run dev",
+    "unit": "jest --config test/unit/jest.conf.js --coverage",
+    "test": "npm run unit",
+    "lint": "eslint --ext .js,.vue src test/unit",
+    "build": "node build/build.js"
+  },
+</code></pre>
+<h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p>
+<p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p>
+<pre><code class="json">  "engines": {
+    "node": "&gt;= 6.0.0",
+    "npm": "&gt;= 3.0.0"
+  },
+</code></pre>
+<h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p>
+<p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p>
+<p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p>
+<pre><code class="json">  "dependencies": {
+    "vue": "^2.5.2"
+  },
+</code></pre>
+<h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p>
+<p>npm的包通常需要遵从semver版本规范：</p>
+<ul>
+<li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
+<li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
+</ul>
+<p>semver版本规范是X.Y.Z：</p>
+<ul>
+<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
+<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
+<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
+</ul>
+<p>我们这里解释一下 ^和~的区别：</p>
+<ul>
+<li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li>
+<li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li>
+</ul>
+<h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p>
+<p>比如yarn的全局安装：</p>
+<pre><code class="npm">npm install yarn -g
+</code></pre>
+<p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p>
+<h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p>
+<pre><code class="npm"># 安装开发和生产依赖
+npm install axios --save
+npm install axios -S
+npm install axios
+npm i axios
+
+# 开发者
+npm install axios --save-dev
+npm install axios -D
+npm i axios -D
+</code></pre>
+<h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{
+  "name": "npm",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "axios": {
+      "version": "0.20.0",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",
+      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",
+      "requires": {
+        "follow-redirects": "^1.10.0"
+      }
+    },
+    "follow-redirects": {
+      "version": "1.13.0",
+      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",
+      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="
+    }
+  }
+}
+</code></pre>
+<ul>
+<li><p>name：项目的名称；</p>
+</li>
+<li><p>version：项目的版本；</p>
+</li>
+<li><p>lockfileVersion：lock文件的版本；</p>
+</li>
+<li><p>requires：使用requires来跟着模块的依赖关系；</p>
+</li>
+<li><p>dependencies：项目的依赖</p>
+<ul>
+<li><ul>
+<li>version表示实际安装的axios的版本；</li>
+</ul>
+</li>
+<li>resolved用来记录下载的地址，registry仓库中的位置；</li>
+<li>requires记录当前模块的依赖；</li>
+<li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
+<li>当前项目依赖axios，但是axios依赖follow-redireacts；</li>
+<li>axios中的属性如下</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
+<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包：</p>
+<ul>
+<li>npm uninstall package</li>
+<li>npm uninstall package –save-dev</li>
+<li>npm uninstall package -D</li>
+</ul>
+<p>强制重新build</p>
+<ul>
+<li>npm rebuild</li>
+</ul>
+<p>清除缓存</p>
+<ul>
+<li>npm cache clean</li>
+</ul>
+<h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p>
+<ul>
+<li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li>
+<li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li>
+<li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li>
+<li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li>
+</ul>
+<p>这里给出一张常用命令的对比</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p>
+<h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p>
+<p>查看npm镜像：</p>
+<pre><code class="text">npm config get registry # npm config get registry
+</code></pre>
+<p>我们可以直接设置npm的镜像：</p>
+<pre><code class="text">npm config set registry https://registry.npm.taobao.org
+</code></pre>
+<p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p>
+<ul>
+<li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li>
+<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
+</ul>
+<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p>
+<pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm config get registry # https://r.npm.taobao.org/
+</code></pre>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Buffer</title>
+    <url>/2021/08/19/node-buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+<table>
+<thead>
+<tr>
+<th>128</th>
+<th>64</th>
+<th>32</th>
+<th>16</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
+<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
+console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
+</code></pre>
+<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
+<pre><code class="js">
+const buffer2 = Buffer.from('你好', 'utf16le');
+console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
+// buffer转字符串
+console.log(buffer2.toString('utf16le')); // 你好
+</code></pre>
+<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4><p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190239734.png" alt="image-20210826190239734"></p>
+<p>查看-&gt;复制-&gt;克隆地址</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190431355.png" alt="image-20210826190431355"></p>
+<p>建分支，推到远端</p>
+<p>点进去，发布容器</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826190755002.png" alt="image-20210826190755002"></p>
+<p>管理员安装<code>tnpm i @tencent/xdc-cli -g</code></p>
+<p>点击私有化</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191121221.png" alt="image-20210826191121221"></p>
+<p>登录</p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826192109811.png" alt="image-20210826192109811"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191908719.png" alt="image-20210826191908719"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191931086.png" alt="image-20210826191931086"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191822532.png" alt="image-20210826191822532"></p>
+<p><img src="C:\Users\v_llingai\AppData\Roaming\Typora\typora-user-images\image-20210826191827353.png" alt="image-20210826191827353"></p>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Buffer</tag>
       </tags>
   </entry>
   <entry>
     <title>Node中的内置模块</title>
-    <url>/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/</url>
+    <url>/2021/08/18/node-node-zhong-de-nei-zhi-mo-kuai/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
 <li>dirname：获取文件的父文件夹</li>
 <li>basename：获取文件名</li>
@@ -1533,498 +1995,15 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 </code></pre>
 ]]></content>
       <categories>
-        <category>学习</category>
         <category>Node</category>
       </categories>
       <tags>
-        <tag>学习</tag>
         <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>包管理工具</title>
-    <url>/2021/08/19/bao-guan-li-gong-ju/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>
-<h3 id="1-npm管理的包存放在哪里"><a href="#1-npm管理的包存放在哪里" class="headerlink" title="1. npm管理的包存放在哪里"></a>1. npm管理的包存放在哪里</h3><p>发布包其实是发布到registry上面的；</p>
-<p>当我们安装一个包时其实是从registry上面下载的包；</p>
-<h3 id="2-项目配置文件-package-json"><a href="#2-项目配置文件-package-json" class="headerlink" title="2. 项目配置文件 package.json"></a>2. 项目配置文件 package.json</h3><p>所有用npm下载的包或者要上传至npm的模块都会有一个package.json文件，这个文件总是存在于模块(或者包)的根目录下。</p>
-<p>package.json是对下载的包或模块的描述信息，如果你要上传包到npm服务器也要有对应的模块说明。说明包括项目名称、版本、作者等等。package.json必须是一个严格的json格式，也就是说每一个字段都要使用双引号，不论是key值还是value值。</p>
-<h4 id="2-1-创建-package-json"><a href="#2-1-创建-package-json" class="headerlink" title="2.1 创建 package.json"></a>2.1 创建 package.json</h4><p>执行命令<code>npm init -y</code>会默认创建一个package.json文件</p>
-<p>name默认值是当前文件夹的名称(不能有中文)</p>
-<pre><code class="js">{
-  "name": "npm",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
-</code></pre>
-<h4 id="2-2-属性说明"><a href="#2-2-属性说明" class="headerlink" title="2.2 属性说明"></a>2.2 属性说明</h4><ul>
-<li><code>name</code> 设置了应用程序/软件包的名称。</li>
-<li><code>version</code> 表明了当前的版本。</li>
-<li><code>description</code> 是应用程序/软件包的简短描述。</li>
-<li><code>main</code> 设置了应用程序的入口点。</li>
-<li><code>private</code> 如果设置为 <code>true</code>，则可以防止应用程序/软件包被意外地发布到 <code>npm</code>。</li>
-<li><code>scripts</code> 定义了一组可以运行的 node 脚本。</li>
-<li><code>dependencies</code> 设置了作为依赖安装的 <code>npm</code> 软件包的列表。</li>
-<li><code>devDependencies</code> 设置了作为开发依赖安装的 <code>npm</code> 软件包的列表。</li>
-<li><code>engines</code> 设置了此软件包/应用程序在哪个版本的 Node.js 上运行。</li>
-<li><code>browserslist</code> 用于告知要支持哪些浏览器（及其版本）。</li>
-</ul>
-<p>其中必写属性是<code>name</code>和<code>version</code></p>
-<h5 id="2-2-1-name"><a href="#2-2-1-name" class="headerlink" title="2.2.1 name"></a>2.2.1 name</h5><ul>
-<li>名称不能超过214个字符</li>
-<li>名称不能以点或者下划线开头</li>
-<li>包的名称中不能包含大写字母</li>
-<li>此名称将会成为URL的一部分，因此不能包含非URL的字符</li>
-<li>若包名称中存在一些符号，将符号去除后不得与现有包名重复<ul>
-<li>由于react-native已经存在，react.native、reactnative都不可以再创建。</li>
-</ul>
-</li>
-</ul>
-<p>查看包名是否被占用</p>
-<p>使用<code>npm view</code></p>
-<p>能查询到信息说明已被使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362311235-1629362311218.png"></p>
-<p>抛出404说明该包名未被使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629362347676-1629362347675.png"></p>
-<h5 id="2-2-2-version"><a href="#2-2-2-version" class="headerlink" title="2.2.2 version"></a>2.2.2 version</h5><blockquote>
-<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
-</blockquote>
-<ul>
-<li>版本号由主版本.此版本.补丁版本组成</li>
-<li>版本必须要由<a href="https://link.segmentfault.com/?url=https://docs.npmjs.com/misc/semver.html">node-semver</a>解析，它与npm捆绑在一起作为依赖项。</li>
-</ul>
-<h5 id="2-2-3-description和keywords"><a href="#2-2-3-description和keywords" class="headerlink" title="2.2.3 description和keywords"></a>2.2.3 description和keywords</h5><p>description用于添加模块的的描述信息，方便别人了解你的模块。</p>
-<p>keywords用于给你的模块添加关键字。</p>
-<p>当使用 npm search 检索模块时，会到description 和 keywords 中进行匹配。写好 description 和 keywords 有利于你的模块获得更多更精准的曝光</p>
-<pre><code class="json">{
-   "description": "说明信息",
-   "keywords": [
-      "node",
-      "配置",
-      "json"
-    ]
-}
-</code></pre>
-<h5 id="2-2-4-main"><a href="#2-2-4-main" class="headerlink" title="2.2.4 main"></a>2.2.4 main</h5><p>字段指定了程序的主入口文件</p>
-<p>使用遵循CommonJS规范的require(‘moduleName’)就会加载main字段指定的目录下的文件。这个字段的默认值是模块根目录下面的index.js，</p>
-<h5 id="2-2-5-author-和-contributors"><a href="#2-2-5-author-和-contributors" class="headerlink" title="2.2.5 author 和 contributors"></a>2.2.5 author 和 contributors</h5><p>author 指包的主要作者，一个 author 对应一个人。 contributors 指贡献者信息，一个 contributors 对应多个贡献者，值为数组</p>
-<pre><code class="json">{
-  "author": "作者 &lt;example@example.com&gt; (http://xxx.com)",
-  "contributors": [
-    {
-      "name": "贡献者",
-      "email": "example@example.com",
-      "url": "http://xxx.com"
-    }
-  ]
-}
-</code></pre>
-<h5 id="2-2-6-homepage-和-repository"><a href="#2-2-6-homepage-和-repository" class="headerlink" title="2.2.6 homepage 和 repository"></a>2.2.6 homepage 和 repository</h5><p>homepage 用于指定该模块的主页，repository 用于指定模块的代码仓库。</p>
-<h5 id="2-2-7-scripts"><a href="#2-2-7-scripts" class="headerlink" title="2.2.7 scripts"></a>2.2.7 scripts</h5><p>指定了运行脚本命令的npm命令行缩写，，以键值对的形式存在</p>
-<p>比如start指定了运行<code>npm run start</code>时，所要执行的命令。</p>
-<p>对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行；</p>
-<pre><code class="json">  "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "unit": "jest --config test/unit/jest.conf.js --coverage",
-    "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
-  },
-</code></pre>
-<h5 id="2-2-8-engines"><a href="#2-2-8-engines" class="headerlink" title="2.2.8 engines"></a>2.2.8 engines</h5><p>用于指定Node和NPM的版本号；也可以指定所在的操作系统 “os” : [ “darwin”, “linux” ]</p>
-<p>在安装的过程中，会先检查对应的引擎版本，如果不符合就会报错；</p>
-<pre><code class="json">  "engines": {
-    "node": "&gt;= 6.0.0",
-    "npm": "&gt;= 3.0.0"
-  },
-</code></pre>
-<h5 id="2-2-9-dependencies和devDependencies"><a href="#2-2-9-dependencies和devDependencies" class="headerlink" title="2.2.9 dependencies和devDependencies"></a>2.2.9 dependencies和devDependencies</h5><p>dependencies是指定无论开发环境还是生成环境都需要依赖的包；通常是我们项目实际开发用到的一些库模块；</p>
-<p>devDependencies是指一些包在生成环境是不需要的，比如webpack、babel等；</p>
-<p>这个时候我们会通过 npm install webpack –save-dev，将它安装到devDependencies属性中；</p>
-<pre><code class="json">  "dependencies": {
-    "vue": "^2.5.2"
-  },
-</code></pre>
-<h4 id="2-3-版本问题"><a href="#2-3-版本问题" class="headerlink" title="2.3 版本问题"></a>2.3 版本问题</h4><p>我们会发现安装的依赖版本出现：<code>^2.0.3</code>或<code>~2.0.3</code>，这是什么意思呢？</p>
-<p>npm的包通常需要遵从semver版本规范：</p>
-<ul>
-<li>semver：<a href="https://link.zhihu.com/?target=https://semver.org/lang/zh-CN/">https://semver.org/lang/zh-CN/</a></li>
-<li>npm semver：<a href="https://link.zhihu.com/?target=https://docs.npmjs.com/misc/semver">https://docs.npmjs.com/misc/semver</a></li>
-</ul>
-<p>semver版本规范是X.Y.Z：</p>
-<ul>
-<li>X主版本号（major）：当你做了不兼容的 API 修改（可能不兼容之前的版本）；</li>
-<li>Y次版本号（minor）：当你做了向下兼容的功能性新增（新功能增加，但是兼容之前的版本）；</li>
-<li>Z修订号（patch）：当你做了向下兼容的问题修正（没有新功能，修复了之前版本的bug）；</li>
-</ul>
-<p>我们这里解释一下 ^和~的区别：</p>
-<ul>
-<li><code>^x.y.z</code>：表示x是保持不变的，y和z永远安装最新的版本；</li>
-<li><code>~x.y.z</code>：表示x和y保持不变的，z永远安装最新的版本；</li>
-</ul>
-<h3 id="3-npm工具解析"><a href="#3-npm工具解析" class="headerlink" title="3.npm工具解析"></a>3.npm工具解析</h3><h4 id="3-1-全局安装"><a href="#3-1-全局安装" class="headerlink" title="3.1 全局安装"></a>3.1 全局安装</h4><p>全局安装是直接将某个包安装到全局：</p>
-<p>比如yarn的全局安装：</p>
-<pre><code class="npm">npm install yarn -g
-</code></pre>
-<p>通常使用npm全局安装的包都是一些工具包：yarn、webpack等</p>
-<h4 id="3-2-局部安装"><a href="#3-2-局部安装" class="headerlink" title="3.2 局部安装"></a>3.2 局部安装</h4><p>局部安装会在当前目录下生产一个 <code>node_modules</code> 文件夹</p>
-<pre><code class="npm"># 安装开发和生产依赖
-npm install axios --save
-npm install axios -S
-npm install axios
-npm i axios
-
-# 开发者
-npm install axios --save-dev
-npm install axios -D
-npm i axios -D
-</code></pre>
-<h3 id="4-npm-install原理"><a href="#4-npm-install原理" class="headerlink" title="4. npm install原理"></a>4. npm install原理</h3><h4 id="4-1-package-lock-json文件"><a href="#4-1-package-lock-json文件" class="headerlink" title="4.1 package-lock.json文件"></a>4.1 package-lock.json文件</h4><pre><code class="json">{
-  "name": "npm",
-  "version": "1.0.0",
-  "lockfileVersion": 1,
-  "requires": true,
-  "dependencies": {
-    "axios": {
-      "version": "0.20.0",
-      "resolved": "https://registry.npmjs.org/axios/-/axios-0.20.0.tgz",
-      "integrity": "sha512-ANA4rr2BDcmmAQLOKft2fufrtuvlqR+cXNNinUmvfeSNCOF98PZL+7M/v1zIdGo7OLjEA9J2gXJL+j4zGsl0bA==",
-      "requires": {
-        "follow-redirects": "^1.10.0"
-      }
-    },
-    "follow-redirects": {
-      "version": "1.13.0",
-      "resolved": "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.13.0.tgz",
-      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA=="
-    }
-  }
-}
-</code></pre>
-<ul>
-<li><p>name：项目的名称；</p>
-</li>
-<li><p>version：项目的版本；</p>
-</li>
-<li><p>lockfileVersion：lock文件的版本；</p>
-</li>
-<li><p>requires：使用requires来跟着模块的依赖关系；</p>
-</li>
-<li><p>dependencies：项目的依赖</p>
-<ul>
-<li><ul>
-<li>version表示实际安装的axios的版本；</li>
-</ul>
-</li>
-<li>resolved用来记录下载的地址，registry仓库中的位置；</li>
-<li>requires记录当前模块的依赖；</li>
-<li>integrity用来从缓存中获取索引，再通过索引去获取压缩包文件；</li>
-<li>当前项目依赖axios，但是axios依赖follow-redireacts；</li>
-<li>axios中的属性如下</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-原理图"><a href="#4-2-原理图" class="headerlink" title="4.2 原理图"></a>4.2 原理图</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365279284-1629365279279.png"></p>
-<h3 id="5-npm其他命令"><a href="#5-npm其他命令" class="headerlink" title="5. npm其他命令"></a>5. npm其他命令</h3><p>卸载某个依赖包：</p>
-<ul>
-<li>npm uninstall package</li>
-<li>npm uninstall package –save-dev</li>
-<li>npm uninstall package -D</li>
-</ul>
-<p>强制重新build</p>
-<ul>
-<li>npm rebuild</li>
-</ul>
-<p>清除缓存</p>
-<ul>
-<li>npm cache clean</li>
-</ul>
-<h2 id="二、Yarn工具"><a href="#二、Yarn工具" class="headerlink" title="二、Yarn工具"></a>二、Yarn工具</h2><p>另一个node包管理工具yarn：</p>
-<ul>
-<li>yarn是由Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS 包管理工具；</li>
-<li>yarn 是为了弥补 npm 的一些缺陷而出现的；</li>
-<li>早期的npm存在很多的缺陷，比如安装依赖速度很慢、版本依赖混乱等等一系列的问题；</li>
-<li>虽然从npm5版本开始，进行了很多的升级和改进，但是依然很多人喜欢使用yarn；</li>
-</ul>
-<p>这里给出一张常用命令的对比</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629365546307-1629365546304.png"></p>
-<h2 id="三、cnpm"><a href="#三、cnpm" class="headerlink" title="三、cnpm"></a>三、cnpm</h2><p>由于一些特殊的原因，某些情况下我们没办法很好的从 <code>https://registry.npmjs.org</code>下载下来一些需要的包。</p>
-<p>查看npm镜像：</p>
-<pre><code class="text">npm config get registry # npm config get registry
-</code></pre>
-<p>我们可以直接设置npm的镜像：</p>
-<pre><code class="text">npm config set registry https://registry.npm.taobao.org
-</code></pre>
-<p>但是对于大多数人来说（比如我），并不希望将npm镜像修改了：</p>
-<ul>
-<li>第一，不太希望随意修改npm原本从官方下来包的渠道；</li>
-<li>第二，担心某天淘宝的镜像挂了或者不维护了，又要改来改去；</li>
-</ul>
-<p>这个时候，我们可以使用cnpm，并且将cnpm设置为淘宝的镜像：</p>
-<pre><code class="text">npm install -g cnpm --registry=https://registry.npm.taobao.org
-cnpm config get registry # https://r.npm.taobao.org/
-</code></pre>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浏览器事件环EventLoop</title>
-    <url>/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="浏览器事件环EventLoop"><a href="#浏览器事件环EventLoop" class="headerlink" title="浏览器事件环EventLoop"></a>浏览器事件环EventLoop</h1><h2 id="1-进程和“线程”"><a href="#1-进程和“线程”" class="headerlink" title="1.进程和“线程”"></a>1.进程和“线程”</h2><p>  进程：计算机分配任务的 和调度的任务最小单位， 浏览器是一个多进程模型， 每个页卡都是一个独立的进程 （更稳定）</p>
-<p>  后端代码都是采用多进程</p>
-<p>  线程 ： 常见的线程有哪些 (JS是单线程的？主线程是单线程的)</p>
-<ol>
-<li><p>GUI渲染 页面渲染，绘图、绘制 3d动画</p>
-</li>
-<li><p>js渲染引擎： 执行js代码 当js执行时 渲染线程会挂起 -》 渲染时不能执行js</p>
-</li>
-<li><p>事件触发线程 EventLoop</p>
-</li>
-<li><p>webApi 也会创建线程 事件、定时器、ajax请求都会创造一个线程</p>
-</li>
-</ol>
-<h2 id="2-宏任务和微任务"><a href="#2-宏任务和微任务" class="headerlink" title="2.宏任务和微任务"></a>2.宏任务和微任务</h2><ol>
-<li><p>宏任务</p>
-<ul>
-<li>&lt;执行脚本 script&gt;</li>
-<li>setTimeout</li>
-<li>setInterval</li>
-<li>setImmediate</li>
-<li>事件</li>
-<li>ajax</li>
-<li>MessageChannel (I/O)</li>
-</ul>
-</li>
-<li><p>微任务</p>
-<ul>
-<li><p>promise</p>
-</li>
-<li><p>MutationObserer（监视DOM树的变化）</p>
-</li>
-<li><p>node中的process.nextTick</p>
-</li>
-</ul>
-</li>
-<li><p>渲染有关</p>
-<ul>
-<li>requestAnimationFrame (（大约）16.6ms 会渲染一次页面，也有可能不渲染) 渲染之前执行的</li>
-<li>requestIDleCallback 空闲时间执行</li>
-</ul>
-</li>
-<li><p>总结</p>
-<ol>
-<li><p>先执行script脚本，将宏任务和微任务进行分类，如果调用的是浏览器api ，浏览器会开一个线程，等时间到了，会自动的放入到宏任务队列中,微任务是直接放到微任务队列中的</p>
-</li>
-<li><p>js执行完毕后，会清空所有的微任务，如果微任务在产生微任务，会放到当前微任务队列的尾部</p>
-</li>
-<li><p>微任务对列清空后，如果页面需要渲染，则会执行渲染流程</p>
-</li>
-<li><p>事件触发线程EventLoop会不停的扫描宏任务队列，如果宏任务队列中有对应的回调，会取出来执行一个，继续执行上述过程</p>
-</li>
-<li><p>宏任务每次调用一个，微任务是请空所有微任务队列</p>
-</li>
-<li><p>每次执行宏任务 都会创造一个新的队列，宏任务队列只有一个</p>
-<p>​</p>
-</li>
-</ol>
-</li>
-</ol>
-<p>画图功底有限…</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1628232140260-1628232140253.png" alt="宏任务和微任务"></p>
-<h2 id="3-代码实操"><a href="#3-代码实操" class="headerlink" title="3.代码实操"></a>3.代码实操</h2><h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><pre><code class="js">    document.body.style.background = 'red'
-    console.log(1);
-    setTimeout(() =&gt; {
-      document.body.style.background = 'green'
-      console.log(2);
-    }, 0)
-    Promise.resolve().then(() =&gt; {
-      console.log(3);
-      document.body.style.background = 'yellow'
-    })
-</code></pre>
-<p>上述代码的执行结果是：1,3,2，黄变绿闪烁。原因是：微任务执行完才走渲染，red虽然是同步任务，添加到渲染线程里面了，但是微任务执行完yellow后，覆盖了，所以不会出现红色，但是宏任务green执行后，又将颜色改为了绿色，这段时间差就会出现闪烁。</p>
-<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
-  &lt;script&gt;
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task1'))
-      console.log('click1');
-    })
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task2'))
-      console.log('click2');
-    })
-</code></pre>
-<p>上述代码，点击按钮后，会依次打印：click1，micro task1，click2，micro task2</p>
-<p>原因是js脚本运行后，会将两个点击事件放入浏览器api中，当点击了按钮，就将两个事件按先后顺序压入宏任务队列，然后执行click1，先执行同步任务console.log，在创建微任务队列执行promise，微任务执行完后，没有要渲染的页面，。就拿出第二个宏任务click2，执行同步任务，再创建微任务队列，执行promise。</p>
-<h3 id="案例3"><a href="#案例3" class="headerlink" title="案例3"></a>案例3</h3><pre><code class="js">  &lt;button id="btn"&gt;按钮&lt;/button&gt;
-  &lt;script&gt;
-    // 3
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task1'))
-      console.log('click1');
-    })
-    btn.addEventListener('click', () =&gt; {
-      Promise.resolve().then(() =&gt; console.log('micro task2'))
-      console.log('click2');
-    })
-    btn.click()
-</code></pre>
-<p>上述代码，打印顺序是：click1,click2,micro task1,micro task1</p>
-<p>原因是：手动调用click事件，就不会产生宏任务，所以先执行同步任务console.log，在一次执行promise</p>
-<h3 id="案例4"><a href="#案例4" class="headerlink" title="案例4"></a>案例4</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
-      console.log('Promise1')
-      setTimeout(() =&gt; {
-        console.log('setTimeout2')
-      }, 0);
-    })
-    setTimeout(() =&gt; {
-      console.log('setTimeout1');
-      Promise.resolve().then(() =&gt; {
-        console.log('Promise2')
-      })
-    }, 0);
-</code></pre>
-<p>上述代码答应顺序依次是：Promise1，setTimeout1，Promise2，setTimeout2</p>
-<p>手动模拟一下运行时候的场景(省略了浏览器api过程)</p>
-<ol>
-<li><p>第一轮先将栈里的任务分别放入</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏任务队列[setTimeout1]，微任务队列[Promise1]</p>
-</li>
-<li><p>清空微任务，此时执行promise1打印Promise1，将产生的宏任务压入宏任务队列，页面无需渲染</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong>： 宏[setTimeout1,setTimeout2]，微[]</p>
-</li>
-<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout1执行，打印setTimeout1，创建微任务队列，将promise2压入队列，此时宏任务setTimeout1执行完毕</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[promise2]</p>
-</li>
-<li><p>宏任务执行完毕需要清空微任务队列，拿出promise2执行，打印promise2，页面无需渲染</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout2]，微[]</p>
-</li>
-<li><p>EventLoop监测到微任务队列为空，就从宏任务队列中拿到setTimeout2执行，打印setTimeout2，此时宏任务微任务队列都是空，本轮渲染结束</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[]，微[]</p>
-</li>
-</ol>
-<h3 id="案例5"><a href="#案例5" class="headerlink" title="案例5"></a>案例5</h3><pre><code class="js">    console.log(1);
-    async function async() {
-      console.log(2);
-      await console.log(3);
-      console.log(4)
-    }
-    setTimeout(() =&gt; {
-      console.log(5);
-    }, 0);
-    const promise = new Promise((resolve, reject) =&gt; {
-      console.log(6);
-      resolve(7)
-    })
-    promise.then(res =&gt; {
-      console.log(res)
-    })
-    async();
-    console.log(8);
-</code></pre>
-<p>上述代码执行结果是：16238745</p>
-<p>原因是：</p>
-<ol>
-<li><p>解释async…await</p>
-<ol>
-<li><p>async 执行后返回的是一个promise</p>
-</li>
-<li><p>await console.log(3); =&gt; return Promise.resolve(console.log(3)).then(()=&gt;console.log(4))</p>
-<p>相当于让await后面的代码立即执行，将await下面的代码用then的形式添加到微任务队列</p>
-</li>
-</ol>
-</li>
-<li><p>首先肯定打印1，继续往下走async函数声明了未调用先不用管，setTime进入宏任务队列，promise进入微任务队列，then不用管，async函数调用，将返回函数作为promise2压入微任务队列，console暂时执行不到</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise1，promise2]</p>
-</li>
-<li><p>先执行promise1，打印6，resolve将7传入then中，把7then压入微任务队列，promise1执行完毕</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[promise2,7then]</p>
-</li>
-<li><p>执行promise2，打印2，打印3，将4then压入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[7then,4then]</p>
-</li>
-<li><p>此时async函数执行完毕。console.log(8)执行打印8</p>
-</li>
-<li><p>继续执行微任务7then，打印7</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[4then]</p>
-</li>
-<li><p>继续执行微任务4then，打印4</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：宏[setTimeout]，微[]</p>
-</li>
-<li><p>此时微任务队列清空，开始执行宏任务，打印5</p>
-</li>
-<li><p>此时宏任务，微任务全部清空，程序结束</p>
-</li>
-</ol>
-<h3 id="案例6"><a href="#案例6" class="headerlink" title="案例6"></a>案例6</h3><pre><code class="js">    Promise.resolve().then(() =&gt; {
-      console.log(0);
-      return Promise.resolve(4);
-    }).then((res) =&gt; {
-      console.log(res)
-    })
-    Promise.resolve().then(() =&gt; {
-      console.log(1);
-    }).then(() =&gt; {
-      console.log(2);
-    }).then(() =&gt; {
-      console.log(3);
-    }).then(() =&gt; {
-      console.log(5);
-    })
-</code></pre>
-<p>上述打印结果为0,1,2,3,4,5</p>
-<p>原因是</p>
-<ol>
-<li><p>解释return一个promise，不会立刻处理，而是会将这个promise放入异步代码中</p>
-</li>
-<li><p>将then0和then1放入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then0，then1]</p>
-</li>
-<li><p>执行then0,打印02，返回一个Promise.resolve，会执行自己的then方法</p>
-</li>
-<li><p>执行then1打印，将then2压入栈中</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then2]</p>
-</li>
-<li><p>由于return一个promise的特性，then会延迟执行</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then2，then]</p>
-</li>
-<li><p>执行then2打印then2，将then3压入微任务队列</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then，then3]</p>
-</li>
-<li><p>执行then，将4传入then中，将then4压入队列</p>
-</li>
-<li><p>执行then3，打印3，将then5压入队列中</p>
-<p><strong style="color:#17a2b8;">此时任务栈情况是</strong> ：微[then4，then5]</p>
-</li>
-<li><p>依次执行，打印4,5，程序结束</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
     <title>手写Promise</title>
-    <url>/2021/08/04/shou-xie-promise/</url>
+    <url>/2021/08/04/javascript-shou-xie-promise/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="手写Promise"><a href="#手写Promise" class="headerlink" title="手写Promise"></a>手写Promise</h1><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><p>举个简单例子：</p>
 <p>你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承诺。一个承诺有3个状态。分别是:</p>
 <p>1.悬而未决：你 [不知道] 你是否会得到手机直到下礼拜（<strong style="color:#17a2b8;">等待态</strong>）。</p>
@@ -3037,12 +3016,12 @@ module.exports = Promise
 <p>完结啦~</p>
 ]]></content>
       <categories>
-        <category>学习</category>
         <category>JavaScript</category>
       </categories>
       <tags>
         <tag>JavaScript</tag>
         <tag>专题</tag>
+        <tag>Promise</tag>
       </tags>
   </entry>
 </search>

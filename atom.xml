@@ -6,7 +6,7 @@
   <link href="https://github.com/ailing666/atom.xml" rel="self"/>
   
   <link href="https://github.com/ailing666/"/>
-  <updated>2021-09-07T08:20:17.077Z</updated>
+  <updated>2021-09-07T09:15:12.290Z</updated>
   <id>https://github.com/ailing666/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>SQL语句</title>
-    <link href="https://github.com/ailing666/2021/09/07/02-ji-ben-sql-yu-ju/"/>
-    <id>https://github.com/ailing666/2021/09/07/02-ji-ben-sql-yu-ju/</id>
+    <link href="https://github.com/ailing666/2021/09/07/mysql-ji-ben-sql-yu-ju/"/>
+    <id>https://github.com/ailing666/2021/09/07/mysql-ji-ben-sql-yu-ju/</id>
     <published>2021-09-07T08:19:23.233Z</published>
-    <updated>2021-09-07T08:20:17.077Z</updated>
+    <updated>2021-09-07T09:15:12.290Z</updated>
     
     
       
@@ -35,8 +35,6 @@
     
     
     <category term="MySQL" scheme="https://github.com/ailing666/categories/MySQL/"/>
-    
-    <category term="学习" scheme="https://github.com/ailing666/categories/MySQL/%E5%AD%A6%E4%B9%A0/"/>
     
     
     <category term="MySQL" scheme="https://github.com/ailing666/tags/MySQL/"/>
@@ -45,10 +43,10 @@
   
   <entry>
     <title>MySQL安装配置</title>
-    <link href="https://github.com/ailing666/2021/09/06/00-mysql-ji-ben-cao-zuo/"/>
-    <id>https://github.com/ailing666/2021/09/06/00-mysql-ji-ben-cao-zuo/</id>
+    <link href="https://github.com/ailing666/2021/09/06/mysql-mysql-ji-ben-cao-zuo/"/>
+    <id>https://github.com/ailing666/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</id>
     <published>2021-09-06T12:20:45.032Z</published>
-    <updated>2021-09-06T12:24:28.610Z</updated>
+    <updated>2021-09-07T09:14:59.716Z</updated>
     
     
       
@@ -63,8 +61,6 @@
     
     <category term="MySQL" scheme="https://github.com/ailing666/categories/MySQL/"/>
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/MySQL/%E5%AD%A6%E4%B9%A0/"/>
-    
     
     <category term="MySQL" scheme="https://github.com/ailing666/tags/MySQL/"/>
     
@@ -72,10 +68,10 @@
   
   <entry>
     <title>Buffer</title>
-    <link href="https://github.com/ailing666/2021/08/19/buffer/"/>
-    <id>https://github.com/ailing666/2021/08/19/buffer/</id>
+    <link href="https://github.com/ailing666/2021/08/19/node-buffer/"/>
+    <id>https://github.com/ailing666/2021/08/19/node-buffer/</id>
     <published>2021-08-19T10:31:29.676Z</published>
-    <updated>2021-09-02T07:54:59.363Z</updated>
+    <updated>2021-09-07T09:14:41.341Z</updated>
     
     
       
@@ -88,12 +84,8 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="Node" scheme="https://github.com/ailing666/categories/Node/"/>
     
-    <category term="Node" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/Node/"/>
-    
-    
-    <category term="学习" scheme="https://github.com/ailing666/tags/%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Node" scheme="https://github.com/ailing666/tags/Node/"/>
     
@@ -103,10 +95,10 @@
   
   <entry>
     <title>包管理工具</title>
-    <link href="https://github.com/ailing666/2021/08/19/bao-guan-li-gong-ju/"/>
-    <id>https://github.com/ailing666/2021/08/19/bao-guan-li-gong-ju/</id>
+    <link href="https://github.com/ailing666/2021/08/19/npm-bao-guan-li-gong-ju/"/>
+    <id>https://github.com/ailing666/2021/08/19/npm-bao-guan-li-gong-ju/</id>
     <published>2021-08-19T08:16:17.207Z</published>
-    <updated>2021-09-02T07:54:51.273Z</updated>
+    <updated>2021-09-07T09:11:54.092Z</updated>
     
     
       
@@ -119,10 +111,10 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="Node" scheme="https://github.com/ailing666/categories/Node/"/>
     
     
-    <category term="学习" scheme="https://github.com/ailing666/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="npm" scheme="https://github.com/ailing666/tags/npm/"/>
     
     <category term="Node" scheme="https://github.com/ailing666/tags/Node/"/>
     
@@ -130,10 +122,10 @@
   
   <entry>
     <title>Node中的内置模块</title>
-    <link href="https://github.com/ailing666/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/"/>
-    <id>https://github.com/ailing666/2021/08/18/node-zhong-de-nei-zhi-mo-kuai/</id>
+    <link href="https://github.com/ailing666/2021/08/18/node-node-zhong-de-nei-zhi-mo-kuai/"/>
+    <id>https://github.com/ailing666/2021/08/18/node-node-zhong-de-nei-zhi-mo-kuai/</id>
     <published>2021-08-18T07:28:09.640Z</published>
-    <updated>2021-09-02T08:10:58.478Z</updated>
+    <updated>2021-09-07T09:14:54.955Z</updated>
     
     
       
@@ -146,12 +138,8 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="Node" scheme="https://github.com/ailing666/categories/Node/"/>
     
-    <category term="Node" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/Node/"/>
-    
-    
-    <category term="学习" scheme="https://github.com/ailing666/tags/%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Node" scheme="https://github.com/ailing666/tags/Node/"/>
     
@@ -162,7 +150,7 @@
     <link href="https://github.com/ailing666/2021/08/16/javascript-mo-kuai-hua/"/>
     <id>https://github.com/ailing666/2021/08/16/javascript-mo-kuai-hua/</id>
     <published>2021-08-16T09:46:42.594Z</published>
-    <updated>2021-09-02T07:54:56.512Z</updated>
+    <updated>2021-09-07T09:14:48.379Z</updated>
     
     
       
@@ -175,9 +163,7 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="JavaScript" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/JavaScript/"/>
+    <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
     
     
     <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
@@ -188,10 +174,10 @@
   
   <entry>
     <title>浏览器事件环EventLoop</title>
-    <link href="https://github.com/ailing666/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/"/>
-    <id>https://github.com/ailing666/2021/08/06/liu-lan-qi-shi-jian-huan-eventloop/</id>
+    <link href="https://github.com/ailing666/2021/08/06/eventloop-liu-lan-qi-shi-jian-huan-eventloop/"/>
+    <id>https://github.com/ailing666/2021/08/06/eventloop-liu-lan-qi-shi-jian-huan-eventloop/</id>
     <published>2021-08-06T03:01:56.014Z</published>
-    <updated>2021-09-02T07:54:52.639Z</updated>
+    <updated>2021-09-07T09:12:08.796Z</updated>
     
     
       
@@ -204,10 +190,10 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="EventLoop" scheme="https://github.com/ailing666/categories/EventLoop/"/>
     
     
-    <category term="学习" scheme="https://github.com/ailing666/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="EventLoop" scheme="https://github.com/ailing666/tags/EventLoop/"/>
     
     <category term="浏览器" scheme="https://github.com/ailing666/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
@@ -215,10 +201,10 @@
   
   <entry>
     <title>手写Promise</title>
-    <link href="https://github.com/ailing666/2021/08/04/shou-xie-promise/"/>
-    <id>https://github.com/ailing666/2021/08/04/shou-xie-promise/</id>
+    <link href="https://github.com/ailing666/2021/08/04/javascript-shou-xie-promise/"/>
+    <id>https://github.com/ailing666/2021/08/04/javascript-shou-xie-promise/</id>
     <published>2021-08-04T03:14:21.767Z</published>
-    <updated>2021-09-02T07:54:54.920Z</updated>
+    <updated>2021-09-07T09:14:25.141Z</updated>
     
     
       
@@ -231,48 +217,23 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="JavaScript" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/JavaScript/"/>
+    <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
     
     
     <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
     
     <category term="专题" scheme="https://github.com/ailing666/tags/%E4%B8%93%E9%A2%98/"/>
     
-  </entry>
-  
-  <entry>
-    <title>01-我的足迹</title>
-    <link href="https://github.com/ailing666/2021/08/03/01-wo-de-zu-ji/"/>
-    <id>https://github.com/ailing666/2021/08/03/01-wo-de-zu-ji/</id>
-    <published>2021-08-03T03:42:16.246Z</published>
-    <updated>2021-09-02T07:54:48.384Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="旅行" scheme="https://github.com/ailing666/categories/%E6%97%85%E8%A1%8C/"/>
-    
-    
-    <category term="旅行" scheme="https://github.com/ailing666/tags/%E6%97%85%E8%A1%8C/"/>
+    <category term="Promise" scheme="https://github.com/ailing666/tags/Promise/"/>
     
   </entry>
   
   <entry>
     <title>01-Js数据类型</title>
-    <link href="https://github.com/ailing666/2021/08/03/01-js-shu-ju-lei-xing/"/>
-    <id>https://github.com/ailing666/2021/08/03/01-js-shu-ju-lei-xing/</id>
+    <link href="https://github.com/ailing666/2021/08/03/javascript-js-shu-ju-lei-xing/"/>
+    <id>https://github.com/ailing666/2021/08/03/javascript-js-shu-ju-lei-xing/</id>
     <published>2021-08-03T02:57:18.118Z</published>
-    <updated>2021-09-02T07:54:43.467Z</updated>
+    <updated>2021-09-07T09:15:07.663Z</updated>
     
     
       
@@ -285,7 +246,7 @@
     
     
     
-    <category term="学习" scheme="https://github.com/ailing666/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
     
     
     <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
