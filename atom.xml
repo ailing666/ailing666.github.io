@@ -6,7 +6,7 @@
   <link href="https://github.com/ailing666/atom.xml" rel="self"/>
   
   <link href="https://github.com/ailing666/"/>
-  <updated>2021-09-07T09:15:12.290Z</updated>
+  <updated>2021-09-08T10:36:06.890Z</updated>
   <id>https://github.com/ailing666/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>函数式编程</title>
+    <link href="https://github.com/ailing666/2021/09/08/javascript-han-shu-shi-bian-cheng/"/>
+    <id>https://github.com/ailing666/2021/09/08/javascript-han-shu-shi-bian-cheng/</id>
+    <published>2021-09-08T10:35:10.017Z</published>
+    <updated>2021-09-08T10:36:06.890Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
+    
+    
+    <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL语句</title>
@@ -166,9 +191,9 @@
     <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
     
     
-    <category term="专题" scheme="https://github.com/ailing666/tags/%E4%B8%93%E9%A2%98/"/>
-    
     <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
+    
+    <category term="专题" scheme="https://github.com/ailing666/tags/%E4%B8%93%E9%A2%98/"/>
     
   </entry>
   
@@ -220,9 +245,9 @@
     <category term="JavaScript" scheme="https://github.com/ailing666/categories/JavaScript/"/>
     
     
-    <category term="专题" scheme="https://github.com/ailing666/tags/%E4%B8%93%E9%A2%98/"/>
-    
     <category term="JavaScript" scheme="https://github.com/ailing666/tags/JavaScript/"/>
+    
+    <category term="专题" scheme="https://github.com/ailing666/tags/%E4%B8%93%E9%A2%98/"/>
     
     <category term="Promise" scheme="https://github.com/ailing666/tags/Promise/"/>
     
