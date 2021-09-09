@@ -241,6 +241,259 @@
       </tags>
   </entry>
   <entry>
+    <title>01-Js数据类型</title>
+    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+</ul>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
+</code></pre>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+</ul>
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
+</code></pre>
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
+</code></pre>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
+
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
+</code></pre>
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
+</code></pre>
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
+
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
+</code></pre>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
+</code></pre>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
+    }
+</code></pre>
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
+
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
+</code></pre>
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+</code></pre>
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
+</code></pre>
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
+</code></pre>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
+</code></pre>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
+      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
+</code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>函数式编程</title>
     <url>/2021/09/08/javascript-han-shu-shi-bian-cheng/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="1-函数式编程优势"><a href="#1-函数式编程优势" class="headerlink" title="1.函数式编程优势"></a>1.函数式编程优势</h2><ul>
@@ -821,338 +1074,6 @@ request('data')
       </tags>
   </entry>
   <entry>
-    <title>01-Js数据类型</title>
-    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
-<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
-<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
-<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
-</ul>
-<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
-<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
-<li>typeof()返回的是一个字符串类型</li>
-<li>typeof()检测的特殊值<ul>
-<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
-<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
-console.log(typeof 10);//number
-//typeof 返回的是一个字符串类型
-console.log(typeof (typeof 10));//string
-console.log(typeof 'hello');//string
-console.log(typeof false);//boolean
-console.log(typeof undefined);//undefined
-console.log(typeof null);//object
-console.log(typeof foo);//function
-console.log(typeof []);//object
-console.log(typeof {});//object
-// typeof不仅可以检测单个值，加小括号可以检测表达式
-console.log(typeof (10 + '10'));//string
-</code></pre>
-<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
-</ul>
-</li>
-</ul>
-<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
-<pre><code class="javascript">    console.log(foo instanceof Function);//true
-    console.log(foo instanceof Object);//true
-</code></pre>
-<pre><code class="javascript">    var a = '10'
-    let b = new String()
-    console.log('a' instanceof String);//false
-    console.log(b instanceof String);//true
-    console.log([] instanceof Array);//true
-    console.log({} instanceof Array);//false
-    console.log({} instanceof Object);//true
-</code></pre>
-<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
-<ul>
-<li><code>\"</code> 表示 <code>"</code></li>
-<li><code>\'</code> 表示 <code>'</code></li>
-<li><code>\\</code> 表示<code>\</code></li>
-<li><code>\r</code> 表示回车</li>
-<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
-<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
-<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
-</ul>
-<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
-<pre><code>  &lt;script&gt;
-    var str1 = '1；23';
-    var str2 = '小艾 同学';
-    var str3 = 'ab,cd';
-
-    // 注意：
-    // 中文、英文字母、数字都占一个字符
-    // 中英文标点符号都占一个字符
-    // 空格也占一个字符
-    console.log(str1.length);//4
-    console.log(str2.length);//5
-    console.log(str3.length);//5
-  &lt;/script&gt;
-</code></pre>
-<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
-<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
-</code></pre>
-<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
-<pre><code class="javascript">    console.log(10 + null);//10
-    console.log(10 + true);//11
-
-    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
-    //将任何数据类型都转为字符串，在返回拼接后的新字符串
-    console.log('10' + null);//10null
-    console.log(true + '10');//true10
-        //复杂数据类型也会隐式转换为字符串哦
-    console.log('小艾同学' + {});//小艾同学[object Object]
-</code></pre>
-<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
-<pre><code class="javascript">    // 字符串与变量拼接
-    let a = 100;
-    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
-    //可以用引引加加口诀， '+a+'
-    console.log('小艾同学a分');//小艾同学a分
-    console.log('小艾同学' + a + '分');//小艾同学100分
-</code></pre>
-<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
-<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
-</code></pre>
-<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
-    for(let char of str){
-      console.log("字符："+char);
-    // 字符：1
-    // 字符：2
-    // 字符：3
-    // 字符：4
-    // 字符：5
-    // 字符：6
-    }
-</code></pre>
-<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
-<pre><code class="javascript">    &lt;script&gt;
-        var num = 0x9;//前面加0x就是十六进制
-        var num1 = 07;//前面加0代表八进制
-        var num2 = 2e8;//e表示科学计数法次幂
-
-        console.log(num);//9
-        console.log(num1);//7
-        console.log(num2);//1.7976931348623157e+308
-        // Number最大范围
-        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-        // Number最小范围
-        console.log(Number.MIN_VALUE);//5e-324
-        // 无穷大Infinity
-        console.log(Number.MAX_VALUE * 2);//Infinity
-        // 无穷小-Infinity
-        console.log(-Number.MAX_VALUE * 2);//-Infinity
-    &lt;/script&gt;
-</code></pre>
-<blockquote>
-<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
-</blockquote>
-<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
-<li>十进制转十进制</li>
-</ul>
-<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
-<ul>
-<li>二进制转十进制</li>
-</ul>
-<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
-<ul>
-<li>八进制转十进制(以0开头就是八进制)</li>
-</ul>
-<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
-<ul>
-<li>十六进制转十进制(以0x开头就是十六进制)</li>
-</ul>
-<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
-<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
-<li>十进制转二进制</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
-<ul>
-<li>别的进制同理</li>
-</ul>
-<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
-<p>特点：NaN不等于任何东西，包括他自己</p>
-<pre><code class="javascript">  &lt;script&gt;
-    // NaN不等于任何
-    console.log(NaN == NaN);//false
-    console.log(NaN =-= NaN);//false
-    // 返回NaN的情况
-    // 1.字符串计算
-    console.log('a' - 1);//NaN
-
-    // 2.类型转换时开头有无法转换成数字的值
-    // 不能转换的一定要在开头
-    console.log(parseFloat('1a'));//1
-    console.log(parseFloat('a1'));//NaN
-    console.log(parseFloat());//NaN
-    console.log(parseInt('x'));//NaN
-    console.log(Number('x'));//NaN
-  &lt;/script&gt;
-</code></pre>
-<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
-<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
-    console.log(isNaN(NaN)); //true
-
-    // 只有0/0会返回true，其他任何数值都是false
-    console.log(isNaN(0 / 0)); //true
-    console.log(isNaN(0 / 1)); //false
-    console.log(isNaN(1 / 0)); //false
-    console.log(isNaN(10)); //false（ 10 是一个数值）
-
-    //能转为数字的别的类型也会返回false,无法转换的返回true
-    console.log(isNaN("10")); //false（可以被转换成数值 10）
-    console.log(isNaN("a10")); //true（可以被转换成数值 10）
-    console.log(isNaN("hello")); //true（不能转换成数值）
-    console.log(isNaN(true)); //false（可以被转换成数值 1）
-</code></pre>
-<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
-<pre><code class="javascript">       var a = 0.1 + 0.2;
-    console.log(a);  //0.30000000000000004
-</code></pre>
-<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
-<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
-    console.log('false');//false ---&gt; 字符串类型
-</code></pre>
-<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
-<pre><code class="javascript">    console.log(typeof null); // object
-</code></pre>
-<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<pre><code>    &lt;script&gt;
-      // 变量声明了未赋值，返回的即使undefined
-      var a;
-      console.log(a);//undefined
-      
-      // 检测undefined类型
-      console.log(typeof undefined);//undefined
-    &lt;/script&gt;
-</code></pre>
-<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<pre><code>    // null与undefined
-    console.log(null == undefined);//ture
-    console.log(null === undefined);//false
-
-    // 计算
-    console.log(1 + null);//1
-    console.log(1 + undefined);//NaN
-</code></pre>
-<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
-<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
-<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
-</ul>
-<blockquote>
-<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
-</blockquote>
-<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
-<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
-<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
-</ul>
-<pre><code>  &lt;script&gt;
-    var a = 10;
-    var b = a;
-    b = 20;
-
-    var arr = ['小','艾','同学'];
-    var arr1 = arr;
-    arr1.push('666');
-
-
-    // 基本数据类型复制后，改变复制的变量，原值不受影响
-    console.log(a);//10
-    console.log(b );//20
-
-    // 引用类型复制后，改变复制的变量，原值也会跟着改变
-    console.log(arr);//['小','艾','同学','666']
-    console.log(arr1);//['小','艾','同学','666']
-  &lt;/script&gt;
-</code></pre>
-<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL安装配置</title>
-    <url>/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
-<ul>
-<li>管理着多个数据库；</li>
-<li>每个数据库中可以有多张表；</li>
-<li>每个表中可以有多条数据；</li>
-</ul>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
-<p>同意协议并安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
-<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
-<p>不要忘记点击确认</p>
-<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
-<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
-<p>输入密码，即可连接数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
-<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
-<blockquote>
-<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
-</blockquote>
-<p>会有四个默认数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
-<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
-<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
-<p>显示null表示没有使用任何数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
-<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
-<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
-<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
-<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
-<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
-<blockquote>
-<p>值需要符合字段格式</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
-<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
-<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
-<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
-<p>刷新一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
-<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript模块化</title>
     <url>/2021/08/16/javascript-mo-kuai-hua/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><h2 id="一、什么是模块化"><a href="#一、什么是模块化" class="headerlink" title="一、什么是模块化"></a>一、什么是模块化</h2><p>模块化开发最终的目的是将程序划分成一个个小的模块</p>
@@ -1559,6 +1480,85 @@ setTimeout(() =&gt; {
       <tags>
         <tag>JavaScript</tag>
         <tag>专题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL安装配置</title>
+    <url>/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
+<ul>
+<li>管理着多个数据库；</li>
+<li>每个数据库中可以有多张表；</li>
+<li>每个表中可以有多条数据；</li>
+</ul>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
+<p>同意协议并安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
+<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
+<p>不要忘记点击确认</p>
+<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
+<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
+<p>输入密码，即可连接数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
+<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
+<blockquote>
+<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
+</blockquote>
+<p>会有四个默认数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
+<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
+<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
+<p>显示null表示没有使用任何数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
+<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
+<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
+<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
+<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
+<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
+<blockquote>
+<p>值需要符合字段格式</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
+<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
+<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
+<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
+<p>刷新一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
+<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -2564,6 +2564,22 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </categories>
       <tags>
         <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP环境搭建</title>
+    <url>/2021/09/09/php-huan-jing-an-zhuang/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="PHP环境"><a href="#PHP环境" class="headerlink" title="PHP环境"></a>PHP环境</h1><h2 id="1-安装-phpStudy-Pro"><a href="#1-安装-phpStudy-Pro" class="headerlink" title="1.安装 phpStudy-Pro"></a>1.安装 phpStudy-Pro</h2><h2 id="2-开启-apache-服务"><a href="#2-开启-apache-服务" class="headerlink" title="2.开启 apache 服务"></a>2.开启 apache 服务</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818261421-1629818261416.png"></p>
+<h2 id="3-新建网页"><a href="#3-新建网页" class="headerlink" title="3.新建网页"></a>3.新建网页</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818298407-1629818298398.png"></p>
+<h2 id="4-修改-host"><a href="#4-修改-host" class="headerlink" title="4.修改 host"></a>4.修改 host</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818345032-1629818345028.png"></p>
+<h2 id="5-在域名的根目录下新建-index-php-文件"><a href="#5-在域名的根目录下新建-index-php-文件" class="headerlink" title="5.在域名的根目录下新建 index.php 文件"></a>5.在域名的根目录下新建 index.php 文件</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818366252-1629818366250.png"></p>
+<h2 id="6-用本机浏览器访问域名"><a href="#6-用本机浏览器访问域名" class="headerlink" title="6.用本机浏览器访问域名"></a>6.用本机浏览器访问域名</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818374225-1629818374220.png"></p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
       </tags>
   </entry>
   <entry>
