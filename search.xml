@@ -1870,6 +1870,110 @@ SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` WHERE sco
       </tags>
   </entry>
   <entry>
+    <title>SQL多表操作</title>
+    <url>/2021/09/10/mysql-duo-biao-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h1><h2 id="1-创建多表"><a href="#1-创建多表" class="headerlink" title="1. 创建多表"></a>1. 创建多表</h2><p>创建外键<br>将两张表联系起来，我们可以将 product中的 brand_id关联到 brand中的id</p>
+<ul>
+<li>如果是创建表添加外键约束，我们需要在创建表的最后添加如下语句</li>
+</ul>
+<pre><code class="sql">
+FOREIGN KEY(brand_id)REFERENCES brand(id)
+</code></pre>
+<ul>
+<li>如果是表已经创建好，额外添加外键</li>
+</ul>
+<pre><code class="sql">
+ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
+</code></pre>
+<pre><code class="sql">-- 1.创建brand的表
+CREATE TABLE IF NOT EXISTS `brand`(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(20) NOT NULL,
+ website VARCHAR(100),
+ phoneRank INT
+);
+
+-- 2.插入数据
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('华为', 'www.huawei.com', 2);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('苹果', 'www.apple.com', 10);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('小米', 'www.mi.com', 5);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('oppo', 'www.oppo.com', 12);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('京东', 'www.jd.com', 8);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('Google', 'www.google.com', 9);
+
+
+-- 3.给brand_id设置引用brand中的id的外键约束
+-- 添加一个brand_id字段
+ALTER TABLE `products` ADD `brand_id` INT;
+
+-- 修改brand_id为外键
+ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
+
+-- 设置brand_id的值
+UPDATE `products` SET `brand_id` = 1 WHERE `brand` = '华为';
+UPDATE `products` SET `brand_id` = 2 WHERE `brand` = '苹果';
+UPDATE `products` SET `brand_id` = 3 WHERE `brand` = '小米';
+UPDATE `products` SET `brand_id` = 4 WHERE `brand` = 'oppo';
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630652813942-1630652813935.png" alt="6.1"></p>
+<h3 id="1-1-修改外键"><a href="#1-1-修改外键" class="headerlink" title="1.1 修改外键"></a>1.1 修改外键</h3><p>直接修改外键会报错<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665094842-1630665094837.png" alt="6.1.2"></p>
+<p>修改 on delete或者 on update的值；<br>我们可以给更新或者删除时设置几个值</p>
+<ul>
+<li><p>RESTRICT（默认属性）：当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话会报错,不允许更新或删除</p>
+</li>
+<li><p>NO ACTION:和 RESTRICT是一致的，是在SQL标准中定义的</p>
+</li>
+<li><p>CASCADE:当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话</p>
+<ul>
+<li><p>更新：那么会更新对应的记录；</p>
+</li>
+<li><p>删除：那么关联的记录会被一起删除掉</p>
+</li>
+</ul>
+</li>
+<li><p>SET NULL:当更新或删除某个记录时，会检查该记录是否有关联的外键记录，有的话，将对应的值设置为NULL</p>
+</li>
+</ul>
+<pre><code class="sql">-- 1.获取到目前的外键的名称
+SHOW CREATE TABLE `products`;
+-- 得到结果
+-- CREATE TABLE `products` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `brand` varchar(20) DEFAULT NULL,
+--   `title` varchar(100) NOT NULL,
+--   `price` double NOT NULL,
+--   `score` decimal(2,1) DEFAULT NULL,
+--   `voteCnt` int DEFAULT NULL,
+--   `url` varchar(100) DEFAULT NULL,
+--   `pid` int DEFAULT NULL,
+--   `brand_id` int DEFAULT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `brand_id` (`brand_id`),
+--   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`) // 外键名称products_ibfk_1
+-- ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+-- 
+
+-- 2.根据名称将外键删除掉
+ALTER TABLE `products` DROP FOREIGN KEY products_ibfk_1;
+
+-- 3.重新添加外键约束：修改时联动，删除时默认
+ALTER TABLE `products` ADD FOREIGN KEY (brand_id) REFERENCES brand(id)
+                         ON UPDATE CASCADE 
+                         ON DELETE RESTRICT;
+
+-- 4.修改外键
+UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665397698-1630665397693.png" alt="修改前后对比"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665457227-1630665457223.png" alt="修改成功"></p>
+<h2 id="2-多表查询"><a href="#2-多表查询" class="headerlink" title="2. 多表查询"></a>2. 多表查询</h2><h3 id="6-3-多表查询"><a href="#6-3-多表查询" class="headerlink" title="6.3 多表查询"></a>6.3 多表查询</h3>]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>包管理工具</title>
     <url>/2021/08/19/npm-bao-guan-li-gong-ju/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><h2 id="一、Npm"><a href="#一、Npm" class="headerlink" title="一、Npm"></a>一、Npm</h2><p>Node Package Manager，就是Node包管理器</p>

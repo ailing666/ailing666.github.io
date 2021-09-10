@@ -6,7 +6,7 @@
   <link href="https://github.com/ailing666/atom.xml" rel="self"/>
   
   <link href="https://github.com/ailing666/"/>
-  <updated>2021-09-09T10:39:06.919Z</updated>
+  <updated>2021-09-10T12:30:49.089Z</updated>
   <id>https://github.com/ailing666/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL多表操作</title>
+    <link href="https://github.com/ailing666/2021/09/10/mysql-duo-biao-cao-zuo/"/>
+    <id>https://github.com/ailing666/2021/09/10/mysql-duo-biao-cao-zuo/</id>
+    <published>2021-09-10T12:29:09.153Z</published>
+    <updated>2021-09-10T12:30:49.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="https://github.com/ailing666/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://github.com/ailing666/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP环境搭建</title>
