@@ -6,7 +6,7 @@
   <link href="https://github.com/ailing666/atom.xml" rel="self"/>
   
   <link href="https://github.com/ailing666/"/>
-  <updated>2021-09-10T12:30:49.089Z</updated>
+  <updated>2021-09-17T12:31:35.071Z</updated>
   <id>https://github.com/ailing666/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitBash折腾</title>
+    <link href="https://github.com/ailing666/2021/09/17/git-gitbash-mei-hua/"/>
+    <id>https://github.com/ailing666/2021/09/17/git-gitbash-mei-hua/</id>
+    <published>2021-09-17T12:29:26.339Z</published>
+    <updated>2021-09-17T12:31:35.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Git" scheme="https://github.com/ailing666/categories/Git/"/>
+    
+    
+    <category term="Git" scheme="https://github.com/ailing666/tags/Git/"/>
+    
+    <category term="工具" scheme="https://github.com/ailing666/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL多表操作</title>

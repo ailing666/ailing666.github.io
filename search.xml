@@ -241,256 +241,188 @@
       </tags>
   </entry>
   <entry>
-    <title>01-Js数据类型</title>
-    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
-<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
-<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
-<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
-</ul>
-<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
-<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
-<li>typeof()返回的是一个字符串类型</li>
-<li>typeof()检测的特殊值<ul>
-<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
-<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
-console.log(typeof 10);//number
-//typeof 返回的是一个字符串类型
-console.log(typeof (typeof 10));//string
-console.log(typeof 'hello');//string
-console.log(typeof false);//boolean
-console.log(typeof undefined);//undefined
-console.log(typeof null);//object
-console.log(typeof foo);//function
-console.log(typeof []);//object
-console.log(typeof {});//object
-// typeof不仅可以检测单个值，加小括号可以检测表达式
-console.log(typeof (10 + '10'));//string
-</code></pre>
-<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
-</ul>
-</li>
-</ul>
-<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
-<pre><code class="javascript">    console.log(foo instanceof Function);//true
-    console.log(foo instanceof Object);//true
-</code></pre>
-<pre><code class="javascript">    var a = '10'
-    let b = new String()
-    console.log('a' instanceof String);//false
-    console.log(b instanceof String);//true
-    console.log([] instanceof Array);//true
-    console.log({} instanceof Array);//false
-    console.log({} instanceof Object);//true
-</code></pre>
-<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
-<ul>
-<li><code>\"</code> 表示 <code>"</code></li>
-<li><code>\'</code> 表示 <code>'</code></li>
-<li><code>\\</code> 表示<code>\</code></li>
-<li><code>\r</code> 表示回车</li>
-<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
-<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
-<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
-</ul>
-<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
-<pre><code>  &lt;script&gt;
-    var str1 = '1；23';
-    var str2 = '小艾 同学';
-    var str3 = 'ab,cd';
+    <title>GitBash折腾</title>
+    <url>/2021/09/17/git-gitbash-mei-hua/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="GitBash折腾"><a href="#GitBash折腾" class="headerlink" title="GitBash折腾"></a>GitBash折腾</h1><h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1626950602136-1626950602129.png#height=267&amp;id=lW9vM&amp;originHeight=267&amp;originWidth=788&amp;originalType=binary&amp;ratio=1&amp;status=done&amp;style=none&amp;width=788"></p>
+<h2 id="1-设置快捷键，总是管理员启动"><a href="#1-设置快捷键，总是管理员启动" class="headerlink" title="1.设置快捷键，总是管理员启动"></a>1.设置快捷键，总是管理员启动</h2><p>1.搜索<code>git bash</code>，打开文件位置<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1626950687292-1626950687287.png#height=632&amp;id=zYzLg&amp;originHeight=632&amp;originWidth=783&amp;originalType=binary&amp;ratio=1&amp;status=done&amp;style=none&amp;width=783"></p>
+<h2 id="2-点击属性-gt-点击快捷键-gt-点击高级-gt-重启"><a href="#2-点击属性-gt-点击快捷键-gt-点击高级-gt-重启" class="headerlink" title="2.点击属性 -> 点击快捷键 -> 点击高级 -> 重启"></a>2.点击<code>属性</code> -&gt; 点击<code>快捷键</code> -&gt; 点击<code>高级</code> -&gt; 重启</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1626950832663-1626950832638.png#height=642&amp;id=NzpqV&amp;originHeight=642&amp;originWidth=980&amp;originalType=binary&amp;ratio=1&amp;status=done&amp;style=none&amp;width=980"></p>
+<h2 id="3-搜索服务-gt-打开"><a href="#3-搜索服务-gt-打开" class="headerlink" title="3.搜索服务 -> 打开"></a>3.搜索<code>服务</code> -&gt; 打开</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1626950892027-1626950892026.png#height=638&amp;id=TVFAs&amp;originHeight=638&amp;originWidth=776&amp;originalType=binary&amp;ratio=1&amp;status=done&amp;style=none&amp;width=776"></p>
+<h2 id="4-找到SysMain-gt-右键属性-gt-选中禁用-gt-重启"><a href="#4-找到SysMain-gt-右键属性-gt-选中禁用-gt-重启" class="headerlink" title="4.找到SysMain -> 右键属性 -> 选中禁用 -> 重启"></a>4.找到<code>SysMain</code> -&gt; 右键<code>属性</code> -&gt; 选中<code>禁用</code> -&gt; 重启</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1626950953421-1626950953420.png#height=648&amp;id=jFDGc&amp;originHeight=648&amp;originWidth=606&amp;originalType=binary&amp;ratio=1&amp;status=done&amp;style=none&amp;width=606"></p>
+<h2 id="5-git-bash执行code-etc-profile-d-git-prompt-sh"><a href="#5-git-bash执行code-etc-profile-d-git-prompt-sh" class="headerlink" title="5.git bash执行code /etc/profile.d/git-prompt.sh"></a>5.<code>git bash</code>执行<code>code /etc/profile.d/git-prompt.sh</code></h2><p>此时vscode会打开<code>git-prompt.sh</code>文件<br>将下列代码粘贴上去</p>
+<pre><code class="javascript">if test -f /etc/profile.d/git-sdk.sh
+then
+ TITLEPREFIX=SDK-${MSYSTEM#MINGW}
+else
+ TITLEPREFIX=$MSYSTEM
+fi
 
-    // 注意：
-    // 中文、英文字母、数字都占一个字符
-    // 中英文标点符号都占一个字符
-    // 空格也占一个字符
-    console.log(str1.length);//4
-    console.log(str2.length);//5
-    console.log(str3.length);//5
-  &lt;/script&gt;
-</code></pre>
-<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
-<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
-</code></pre>
-<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
-<pre><code class="javascript">    console.log(10 + null);//10
-    console.log(10 + true);//11
+if test -f ~/.config/git/git-prompt.sh
+then
+ . ~/.config/git/git-prompt.sh
+else
+ PS1='\[\033]0;Bash\007\]'      # 窗口标题
+ PS1="$PS1"'\n'                 # 换行
+ PS1="$PS1"'\[\033[36;1m\]'     # 指下一行的颜色蓝色
+  # PS1="$PS1"'\u@\h '       # 我直接写成字符串了，用户名可以自己定义
+  PS1="$PS1"'loveZero '          # 用户名
+ PS1="$PS1"'\[\033[35;1m\]'     # 指下一行的颜色紫色
+ PS1="$PS1"'➜  '               # unicode 字符，右箭头
+ PS1="$PS1"'\[\033[33;1m\]'     # 指下一行的颜色黄色
+ PS1="$PS1"'\W'                 # 当前目录
+ PS1="$PS1"'\[\033[32;1m\]'     # 指下一行的颜色绿色
+ PS1="$PS1"' [`date "+%Y-%m-%d %H:%M:%S"`]'  # 时间
+ if test -z "$WINELOADERNOEXEC"
+ then
+  GIT_EXEC_PATH="$(git --exec-path 2&gt;/dev/null)"
+  COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
+  COMPLETION_PATH="${COMPLETION_PATH%/lib/git-core}"
+  COMPLETION_PATH="$COMPLETION_PATH/share/git/completion"
+  if test -f "$COMPLETION_PATH/git-prompt.sh"
+  then
+   . "$COMPLETION_PATH/git-completion.bash"
+   . "$COMPLETION_PATH/git-prompt.sh"
+   PS1="$PS1"'\[\033[31m\]'   # 指下一行的颜色红色
+   PS1="$PS1"'`__git_ps1`'    # 分支
+  fi
+ fi
+ PS1="$PS1"'\[\033[35m\]'     # 指下一行的颜色紫色
+ PS1="$PS1"'\n'               # new line
+ PS1="$PS1"'❥ '
+fi
 
-    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
-    //将任何数据类型都转为字符串，在返回拼接后的新字符串
-    console.log('10' + null);//10null
-    console.log(true + '10');//true10
-        //复杂数据类型也会隐式转换为字符串哦
-    console.log('小艾同学' + {});//小艾同学[object Object]
-</code></pre>
-<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
-<pre><code class="javascript">    // 字符串与变量拼接
-    let a = 100;
-    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
-    //可以用引引加加口诀， '+a+'
-    console.log('小艾同学a分');//小艾同学a分
-    console.log('小艾同学' + a + '分');//小艾同学100分
-</code></pre>
-<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
-<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
-</code></pre>
-<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
-    for(let char of str){
-      console.log("字符："+char);
-    // 字符：1
-    // 字符：2
-    // 字符：3
-    // 字符：4
-    // 字符：5
-    // 字符：6
-    }
-</code></pre>
-<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
-<pre><code class="javascript">    &lt;script&gt;
-        var num = 0x9;//前面加0x就是十六进制
-        var num1 = 07;//前面加0代表八进制
-        var num2 = 2e8;//e表示科学计数法次幂
+MSYS2_PS1="$PS1"               # for detection by MSYS2 SDK's bash.basrc
+ 
+# Evaluate all user-specific Bash completion scripts (if any)
+if test -z "$WINELOADERNOEXEC"
+then
+ for c in "$HOME"/bash_completion.d/*.bash
+ do
+  # Handle absence of any scripts (or the folder) gracefully
+  test ! -f "$c" ||
+  . "$c"
+ done
+fi
 
-        console.log(num);//9
-        console.log(num1);//7
-        console.log(num2);//1.7976931348623157e+308
-        // Number最大范围
-        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-        // Number最小范围
-        console.log(Number.MIN_VALUE);//5e-324
-        // 无穷大Infinity
-        console.log(Number.MAX_VALUE * 2);//Infinity
-        // 无穷小-Infinity
-        console.log(-Number.MAX_VALUE * 2);//-Infinity
-    &lt;/script&gt;
 </code></pre>
-<blockquote>
-<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
-</blockquote>
-<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
-<li>十进制转十进制</li>
-</ul>
-<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
-<ul>
-<li>二进制转十进制</li>
-</ul>
-<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
-<ul>
-<li>八进制转十进制(以0开头就是八进制)</li>
-</ul>
-<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
-<ul>
-<li>十六进制转十进制(以0x开头就是十六进制)</li>
-</ul>
-<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
-<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
-<li>十进制转二进制</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
-<ul>
-<li>别的进制同理</li>
-</ul>
-<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
-<p>特点：NaN不等于任何东西，包括他自己</p>
-<pre><code class="javascript">  &lt;script&gt;
-    // NaN不等于任何
-    console.log(NaN == NaN);//false
-    console.log(NaN =-= NaN);//false
-    // 返回NaN的情况
-    // 1.字符串计算
-    console.log('a' - 1);//NaN
+<h2 id="6-修改主题"><a href="#6-修改主题" class="headerlink" title="6.修改主题"></a>6.修改主题</h2><p>运行<code>$ code ~/.minttyrc</code>,粘贴代码</p>
+<pre><code class="javascript">Font=DejaVu Sans Mono for Powerline
+FontHeight=14
+Transparency=low
+FontSmoothing=default
+Locale=C
+Charset=UTF-8
+Columns=88
+Rows=26
+OpaqueWhenFocused=no
+Scrollbar=none
+Language=zh_CN
 
-    // 2.类型转换时开头有无法转换成数字的值
-    // 不能转换的一定要在开头
-    console.log(parseFloat('1a'));//1
-    console.log(parseFloat('a1'));//NaN
-    console.log(parseFloat());//NaN
-    console.log(parseInt('x'));//NaN
-    console.log(Number('x'));//NaN
-  &lt;/script&gt;
-</code></pre>
-<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
-<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
-    console.log(isNaN(NaN)); //true
+ForegroundColour=131,148,150
+BackgroundColour=0,43,54
+CursorColour=220,130,71
 
-    // 只有0/0会返回true，其他任何数值都是false
-    console.log(isNaN(0 / 0)); //true
-    console.log(isNaN(0 / 1)); //false
-    console.log(isNaN(1 / 0)); //false
-    console.log(isNaN(10)); //false（ 10 是一个数值）
+BoldBlack=128,128,128
+Red=255,64,40
+BoldRed=255,128,64
+Green=64,200,64
+BoldGreen=64,255,64
+Yellow=190,190,0
+BoldYellow=255,255,64
+Blue=0,128,255
+BoldBlue=128,160,255
+Magenta=211,54,130
+BoldMagenta=255,128,255
+Cyan=64,190,190
+BoldCyan=128,255,255
+White=200,200,200
+BoldWhite=255,255,255
 
-    //能转为数字的别的类型也会返回false,无法转换的返回true
-    console.log(isNaN("10")); //false（可以被转换成数值 10）
-    console.log(isNaN("a10")); //true（可以被转换成数值 10）
-    console.log(isNaN("hello")); //true（不能转换成数值）
-    console.log(isNaN(true)); //false（可以被转换成数值 1）
+BellTaskbar=no
+Term=xterm
+FontWeight=400
+FontIsBold=no
 </code></pre>
-<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
-<pre><code class="javascript">       var a = 0.1 + 0.2;
-    console.log(a);  //0.30000000000000004
-</code></pre>
-<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
-<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
-    console.log('false');//false ---&gt; 字符串类型
-</code></pre>
-<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
-<pre><code class="javascript">    console.log(typeof null); // object
-</code></pre>
-<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<pre><code>    &lt;script&gt;
-      // 变量声明了未赋值，返回的即使undefined
-      var a;
-      console.log(a);//undefined
-      
-      // 检测undefined类型
-      console.log(typeof undefined);//undefined
-    &lt;/script&gt;
-</code></pre>
-<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<pre><code>    // null与undefined
-    console.log(null == undefined);//ture
-    console.log(null === undefined);//false
+<h3 id="6-2扩展"><a href="#6-2扩展" class="headerlink" title="6.2扩展"></a>6.2扩展</h3><p>这里主题已经修改好了<br>可以给终端添加扩展功能，更高效</p>
+<h4 id="1-使用-alias-强化-Git-Bash"><a href="#1-使用-alias-强化-Git-Bash" class="headerlink" title="1.使用 alias 强化 Git Bash"></a>1.使用 alias 强化 Git Bash</h4><p>执行<code>$ code ~/.bash_profile</code><br>粘贴代码:<br>前面是快捷键，后面是对应的操作（例：git status 快捷键为 gs）</p>
+<pre><code class="javascript">alias bashalias='code ~/.bash_profile'
+alias bashcolor='code ~/.minttyrc'
+alias bashconfig='code /etc/profile.d/git-prompt.sh'
+alias gitconfig='code ~/.gitconfig'
 
-    // 计算
-    console.log(1 + null);//1
-    console.log(1 + undefined);//NaN
-</code></pre>
-<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
-<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
-<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
-</ul>
-<blockquote>
-<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
-</blockquote>
-<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
-<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
-<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
-</ul>
-<pre><code>  &lt;script&gt;
-    var a = 10;
-    var b = a;
-    b = 20;
+alias .='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias e='exit'
+alias cls='clear'
 
-    var arr = ['小','艾','同学'];
-    var arr1 = arr;
-    arr1.push('666');
+alias i='git init' # 初始化git
+# 仓库
+alias pull='git pull' # 拉取最新代码
+alias origin='git pull origin' # 从远程分支拉取最新代码
+alias a='git add .' # 添加所有改动到暂存
+alias c='git commit -m' # 将暂存区提交更新
+alias ac='git commit -a -m' # 将暂存区提交更新
+alias push='git push' # 推送到远程仓库
+alias pf="git push -f" # 强制推送
+alias feat='featFun() { git commit -m "feat: $1"; }; featFun' # commit feat
+alias fix='fixFun() { git commit -m "fix: $1"; }; fixFun' # commit fix 
+alias refactor='refactorFun() { git commit -m "refactor: $1"; }; refactorFun' # commit refactor
+alias style='styleFun() { git commit -m "style: $1"; }; styleFun' # commit style
+alias g='auto() { git add .; git commit -m "$1"; git push; }; auto' # 自动push
+alias cp='cpFun() { git commit -m "$1"; git push; }; cpFun' # 自动commit push
+
+# 查看
+alias s='git status' # 查看状态
+alias d='git diff' # 对比改动
+alias gs='git stash' # 暂时将未提交的变化移除
+alias gsp='git stash pop' # 取出暂存
+
+# 分支
+alias gc="git checkout" # 切换分支
+alias gcb="git checkout -b" # 创建并切换到新分支
+alias bd="git branch -d" # 删除分支
+alias merge="git merge" # 合并分支 
+alias ma="git merge --abort" # 合并分支 
 
 
-    // 基本数据类型复制后，改变复制的变量，原值不受影响
-    console.log(a);//10
-    console.log(b );//20
+# 撤销
+alias soft="git reset --soft HEAD^" # 撤销commit
+alias reset='backHard() { git reset --hard $1; git push -f;}; backHard' # 回退任意版本
+alias back='git reset --hard HEAD^ &amp;&amp; git push -f' # 回退上个
 
-    // 引用类型复制后，改变复制的变量，原值也会跟着改变
-    console.log(arr);//['小','艾','同学','666']
-    console.log(arr1);//['小','艾','同学','666']
-  &lt;/script&gt;
+# 修改
+alias xiu="git commit --amend" # 修改commit信息
+alias log="git log --pretty=format:'%h - %an, %ar : %s'" # 查看版本
+
+alias host='code /c/Windows/System32/drivers/etc/hosts'
+
 </code></pre>
-<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
+<h2 id="7-vscode中使用终端"><a href="#7-vscode中使用终端" class="headerlink" title="7.vscode中使用终端"></a>7.vscode中使用终端</h2><pre><code class="javascript">{
+  "terminal.integrated.shell.windows": "git-bash绝对路径",
+  "terminal.integrated.shellArgs.windows": ["--login", "-i"],
+}
+</code></pre>
+<h2 id="8-配置shh"><a href="#8-配置shh" class="headerlink" title="8.配置shh"></a>8.配置shh</h2><p>1.删除.shh下的所有文件<br><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627105522641-7f4044d2-c32e-42d8-ac4b-2c32995c7371.png#height=594&amp;id=u6lnW&amp;originHeight=594&amp;originWidth=688&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=688"><br>2.git命令</p>
+<pre><code class="javascript">git config --global username 'loveZero'
+git config --global user.email '1120877019@qq.com'
+git config --list
+ssh-keygen -t rsa -C "1120877019@qq.com"
+一路按回车
+</code></pre>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627106419073-df9e6589-173e-4cf2-9a45-8408c846e5c6.png#height=773&amp;id=ynhBM&amp;originHeight=773&amp;originWidth=772&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=772"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627106459086-ac033fbb-6e82-4b06-828f-097015beb3c3.png#height=532&amp;id=TpTsO&amp;originHeight=532&amp;originWidth=784&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=784"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627106479167-9dd972a9-f4ee-471a-a14d-c8b7443147b1.png#height=193&amp;id=EzIdP&amp;originHeight=193&amp;originWidth=766&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=766"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627106517411-5d58f873-849f-4720-9fb3-4ed7e56ddd86.png#height=693&amp;id=aFGpv&amp;originHeight=693&amp;originWidth=1292&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=1292"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/1307005/1627106559569-5b1dddb6-25bc-410b-9ab3-bb7bd379966a.png#height=559&amp;id=WAsFW&amp;originHeight=559&amp;originWidth=1018&amp;originalType=binary&amp;ratio=1&amp;size=0&amp;status=done&amp;style=none&amp;width=1018"></p>
+<h2 id="本地仓库如何同时推送到gitee和github"><a href="#本地仓库如何同时推送到gitee和github" class="headerlink" title="本地仓库如何同时推送到gitee和github"></a>本地仓库如何同时推送到gitee和github</h2><pre><code class="javascript">git remote add origin github链接
+git remote set-url --add origin gitee链接
+</code></pre>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>Git</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>Git</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1483,77 +1415,355 @@ setTimeout(() =&gt; {
       </tags>
   </entry>
   <entry>
-    <title>MySQL安装配置</title>
-    <url>/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
-<ul>
-<li>管理着多个数据库；</li>
-<li>每个数据库中可以有多张表；</li>
-<li>每个表中可以有多条数据；</li>
+    <title>01-Js数据类型</title>
+    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
 </ul>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
-<p>同意协议并安装</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
-<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
-<p>不要忘记点击确认</p>
-<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
-<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
-<p>输入密码，即可连接数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
-<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
+</code></pre>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+</ul>
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
+</code></pre>
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
+</code></pre>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
+
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
+</code></pre>
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
+</code></pre>
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
+
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
+</code></pre>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
+</code></pre>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
+    }
+</code></pre>
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
+</code></pre>
 <blockquote>
-<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
 </blockquote>
-<p>会有四个默认数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
-<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
-<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
-<p>显示null表示没有使用任何数据库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
-<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
-<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
-<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
-<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
-<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
+
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
+</code></pre>
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+</code></pre>
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
+</code></pre>
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
+</code></pre>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
+</code></pre>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
+      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
+</code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
 <blockquote>
-<p>值需要符合字段格式</p>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
-<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
-<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
-<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
-<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
-<p>刷新一下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
-<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
 ]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQL多表操作</title>
+    <url>/2021/09/10/mysql-duo-biao-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h1><h2 id="1-创建多表"><a href="#1-创建多表" class="headerlink" title="1. 创建多表"></a>1. 创建多表</h2><p>创建外键<br>将两张表联系起来，我们可以将 product中的 brand_id关联到 brand中的id</p>
+<ul>
+<li>如果是创建表添加外键约束，我们需要在创建表的最后添加如下语句</li>
+</ul>
+<pre><code class="sql">
+FOREIGN KEY(brand_id)REFERENCES brand(id)
+</code></pre>
+<ul>
+<li>如果是表已经创建好，额外添加外键</li>
+</ul>
+<pre><code class="sql">
+ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
+</code></pre>
+<pre><code class="sql">-- 1.创建brand的表
+CREATE TABLE IF NOT EXISTS `brand`(
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ name VARCHAR(20) NOT NULL,
+ website VARCHAR(100),
+ phoneRank INT
+);
+
+-- 2.插入数据
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('华为', 'www.huawei.com', 2);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('苹果', 'www.apple.com', 10);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('小米', 'www.mi.com', 5);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('oppo', 'www.oppo.com', 12);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('京东', 'www.jd.com', 8);
+INSERT INTO `brand` (name, website, phoneRank) VALUES ('Google', 'www.google.com', 9);
+
+
+-- 3.给brand_id设置引用brand中的id的外键约束
+-- 添加一个brand_id字段
+ALTER TABLE `products` ADD `brand_id` INT;
+
+-- 修改brand_id为外键
+ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
+
+-- 设置brand_id的值
+UPDATE `products` SET `brand_id` = 1 WHERE `brand` = '华为';
+UPDATE `products` SET `brand_id` = 2 WHERE `brand` = '苹果';
+UPDATE `products` SET `brand_id` = 3 WHERE `brand` = '小米';
+UPDATE `products` SET `brand_id` = 4 WHERE `brand` = 'oppo';
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630652813942-1630652813935.png" alt="6.1"></p>
+<h3 id="1-1-修改外键"><a href="#1-1-修改外键" class="headerlink" title="1.1 修改外键"></a>1.1 修改外键</h3><p>直接修改外键会报错<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665094842-1630665094837.png" alt="6.1.2"></p>
+<p>修改 on delete或者 on update的值；<br>我们可以给更新或者删除时设置几个值</p>
+<ul>
+<li><p>RESTRICT（默认属性）：当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话会报错,不允许更新或删除</p>
+</li>
+<li><p>NO ACTION:和 RESTRICT是一致的，是在SQL标准中定义的</p>
+</li>
+<li><p>CASCADE:当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话</p>
+<ul>
+<li><p>更新：那么会更新对应的记录；</p>
+</li>
+<li><p>删除：那么关联的记录会被一起删除掉</p>
+</li>
+</ul>
+</li>
+<li><p>SET NULL:当更新或删除某个记录时，会检查该记录是否有关联的外键记录，有的话，将对应的值设置为NULL</p>
+</li>
+</ul>
+<pre><code class="sql">-- 1.获取到目前的外键的名称
+SHOW CREATE TABLE `products`;
+-- 得到结果
+-- CREATE TABLE `products` (
+--   `id` int NOT NULL AUTO_INCREMENT,
+--   `brand` varchar(20) DEFAULT NULL,
+--   `title` varchar(100) NOT NULL,
+--   `price` double NOT NULL,
+--   `score` decimal(2,1) DEFAULT NULL,
+--   `voteCnt` int DEFAULT NULL,
+--   `url` varchar(100) DEFAULT NULL,
+--   `pid` int DEFAULT NULL,
+--   `brand_id` int DEFAULT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `brand_id` (`brand_id`),
+--   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`) // 外键名称products_ibfk_1
+-- ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+-- 
+
+-- 2.根据名称将外键删除掉
+ALTER TABLE `products` DROP FOREIGN KEY products_ibfk_1;
+
+-- 3.重新添加外键约束：修改时联动，删除时默认
+ALTER TABLE `products` ADD FOREIGN KEY (brand_id) REFERENCES brand(id)
+                         ON UPDATE CASCADE 
+                         ON DELETE RESTRICT;
+
+-- 4.修改外键
+UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665397698-1630665397693.png" alt="修改前后对比"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665457227-1630665457223.png" alt="修改成功"></p>
+<h2 id="2-多表查询"><a href="#2-多表查询" class="headerlink" title="2. 多表查询"></a>2. 多表查询</h2><h3 id="6-3-多表查询"><a href="#6-3-多表查询" class="headerlink" title="6.3 多表查询"></a>6.3 多表查询</h3>]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -1870,102 +2080,77 @@ SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` WHERE sco
       </tags>
   </entry>
   <entry>
-    <title>SQL多表操作</title>
-    <url>/2021/09/10/mysql-duo-biao-cao-zuo/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h1><h2 id="1-创建多表"><a href="#1-创建多表" class="headerlink" title="1. 创建多表"></a>1. 创建多表</h2><p>创建外键<br>将两张表联系起来，我们可以将 product中的 brand_id关联到 brand中的id</p>
+    <title>MySQL安装配置</title>
+    <url>/2021/09/06/mysql-mysql-ji-ben-cao-zuo/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>MySQL是一个关系型数据库，其实本质上就是一款软件、一个程序</p>
 <ul>
-<li>如果是创建表添加外键约束，我们需要在创建表的最后添加如下语句</li>
+<li>管理着多个数据库；</li>
+<li>每个数据库中可以有多张表；</li>
+<li>每个表中可以有多条数据；</li>
 </ul>
-<pre><code class="sql">
-FOREIGN KEY(brand_id)REFERENCES brand(id)
-</code></pre>
-<ul>
-<li>如果是表已经创建好，额外添加外键</li>
-</ul>
-<pre><code class="sql">
-ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
-</code></pre>
-<pre><code class="sql">-- 1.创建brand的表
-CREATE TABLE IF NOT EXISTS `brand`(
- id INT PRIMARY KEY AUTO_INCREMENT,
- name VARCHAR(20) NOT NULL,
- website VARCHAR(100),
- phoneRank INT
-);
-
--- 2.插入数据
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('华为', 'www.huawei.com', 2);
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('苹果', 'www.apple.com', 10);
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('小米', 'www.mi.com', 5);
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('oppo', 'www.oppo.com', 12);
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('京东', 'www.jd.com', 8);
-INSERT INTO `brand` (name, website, phoneRank) VALUES ('Google', 'www.google.com', 9);
-
-
--- 3.给brand_id设置引用brand中的id的外键约束
--- 添加一个brand_id字段
-ALTER TABLE `products` ADD `brand_id` INT;
-
--- 修改brand_id为外键
-ALTER TABLE `products` ADD FOREIGN KEY(brand_id) REFERENCES brand(id);
-
--- 设置brand_id的值
-UPDATE `products` SET `brand_id` = 1 WHERE `brand` = '华为';
-UPDATE `products` SET `brand_id` = 2 WHERE `brand` = '苹果';
-UPDATE `products` SET `brand_id` = 3 WHERE `brand` = '小米';
-UPDATE `products` SET `brand_id` = 4 WHERE `brand` = 'oppo';
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630652813942-1630652813935.png" alt="6.1"></p>
-<h3 id="1-1-修改外键"><a href="#1-1-修改外键" class="headerlink" title="1.1 修改外键"></a>1.1 修改外键</h3><p>直接修改外键会报错<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665094842-1630665094837.png" alt="6.1.2"></p>
-<p>修改 on delete或者 on update的值；<br>我们可以给更新或者删除时设置几个值</p>
-<ul>
-<li><p>RESTRICT（默认属性）：当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话会报错,不允许更新或删除</p>
-</li>
-<li><p>NO ACTION:和 RESTRICT是一致的，是在SQL标准中定义的</p>
-</li>
-<li><p>CASCADE:当更新或删除某个记录时，会检査该记录是否有关联的外键记录，有的话</p>
-<ul>
-<li><p>更新：那么会更新对应的记录；</p>
-</li>
-<li><p>删除：那么关联的记录会被一起删除掉</p>
-</li>
-</ul>
-</li>
-<li><p>SET NULL:当更新或删除某个记录时，会检查该记录是否有关联的外键记录，有的话，将对应的值设置为NULL</p>
-</li>
-</ul>
-<pre><code class="sql">-- 1.获取到目前的外键的名称
-SHOW CREATE TABLE `products`;
--- 得到结果
--- CREATE TABLE `products` (
---   `id` int NOT NULL AUTO_INCREMENT,
---   `brand` varchar(20) DEFAULT NULL,
---   `title` varchar(100) NOT NULL,
---   `price` double NOT NULL,
---   `score` decimal(2,1) DEFAULT NULL,
---   `voteCnt` int DEFAULT NULL,
---   `url` varchar(100) DEFAULT NULL,
---   `pid` int DEFAULT NULL,
---   `brand_id` int DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   KEY `brand_id` (`brand_id`),
---   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`) // 外键名称products_ibfk_1
--- ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
--- 
-
--- 2.根据名称将外键删除掉
-ALTER TABLE `products` DROP FOREIGN KEY products_ibfk_1;
-
--- 3.重新添加外键约束：修改时联动，删除时默认
-ALTER TABLE `products` ADD FOREIGN KEY (brand_id) REFERENCES brand(id)
-                         ON UPDATE CASCADE 
-                         ON DELETE RESTRICT;
-
--- 4.修改外键
-UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665397698-1630665397693.png" alt="修改前后对比"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1630665457227-1630665457223.png" alt="修改成功"></p>
-<h2 id="2-多表查询"><a href="#2-多表查询" class="headerlink" title="2. 多表查询"></a>2. 多表查询</h2><h3 id="6-3-多表查询"><a href="#6-3-多表查询" class="headerlink" title="6.3 多表查询"></a>6.3 多表查询</h3>]]></content>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878806403-1629878806392.png" alt="1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878881074-1629878881066.png" alt="2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878911671-1629878911666.png" alt="3"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629878952427-1629878952425.png" alt="4"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879322252-1629879322251.png" alt="5"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879350068-1629879350066.png" alt="6"></p>
+<p>同意协议并安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879422827-1629879422825.png" alt="7"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879471690-1629879471688.png" alt="8"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879489797-1629879489795.png" alt="9"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879534425-1629879534424.png" alt="10"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879548909-1629879548908.png" alt="11"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879591332-1629879591330.png" alt="12"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879699239-1629879699237.png" alt="13"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879873195-1629879873194.png" alt="14"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879902070-1629879902069.png" alt="15"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879925378-1629879925377.png" alt="16"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879973029-1629879973027.png" alt="17"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629879992913-1629879992912.png" alt="18"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880007203-1629880007202.png" alt="19"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880029302-1629880029301.png" alt="20"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880103114-1629880103113.png" alt="21"></p>
+<h2 id="三、连接"><a href="#三、连接" class="headerlink" title="三、连接"></a>三、连接</h2><h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1.连接"></a>1.连接</h3><h4 id="1-1配置环境变量"><a href="#1-1配置环境变量" class="headerlink" title="1.1配置环境变量"></a>1.1配置环境变量</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880719980-1629880719974.png" alt="1.1"></p>
+<p>不要忘记点击确认</p>
+<h4 id="1-2-查看版本"><a href="#1-2-查看版本" class="headerlink" title="1.2 查看版本"></a>1.2 查看版本</h4><p>运行<code>mysql --version</code>即可成功查看版本</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629880847739-1629880847738.png" alt="1.2"></p>
+<h4 id="1-3-连接数据库"><a href="#1-3-连接数据库" class="headerlink" title="1.3 连接数据库"></a>1.3 连接数据库</h4><p>运行<code>mysql -uroot -p</code></p>
+<p>输入密码，即可连接数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881387763-1629881387762.png" alt="1.3"></p>
+<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h3><h4 id="2-1-查看现有的数据库"><a href="#2-1-查看现有的数据库" class="headerlink" title="2.1 查看现有的数据库"></a>2.1 查看现有的数据库</h4><p>运行<code>SHOW DATABASES;</code></p>
+<blockquote>
+<p>注意：<br>1.字母要大写<br>2.结尾需要加分号</p>
+</blockquote>
+<p>会有四个默认数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881608806-1629881608806.png" alt="2.1"></p>
+<h4 id="2-2-创建数据库"><a href="#2-2-创建数据库" class="headerlink" title="2.2 创建数据库"></a>2.2 创建数据库</h4><p>运行<code>CREATE DATABASE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629881956169-1629881956169.png" alt="2.2"></p>
+<h4 id="2-3-查看当前正在使用的数据库"><a href="#2-3-查看当前正在使用的数据库" class="headerlink" title="2.3 查看当前正在使用的数据库"></a>2.3 查看当前正在使用的数据库</h4><p>运行<code>SELECT DATABASE();</code></p>
+<p>显示null表示没有使用任何数据库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882017494-1629882017493.png" alt="2.3"></p>
+<h4 id="2-4-使用数据库"><a href="#2-4-使用数据库" class="headerlink" title="2.4 使用数据库"></a>2.4 使用数据库</h4><p>运行<code>USE 库名;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882100297-1629882100297.png" alt="2.4"></p>
+<h3 id="3-表操作"><a href="#3-表操作" class="headerlink" title="3. 表操作"></a>3. 表操作</h3><h4 id="3-1-创建表"><a href="#3-1-创建表" class="headerlink" title="3.1 创建表"></a>3.1 创建表</h4><p>运行<code>CREATE TABLE 表明(字段名 字段类型);</code></p>
+<h4 id="3-2-查看表"><a href="#3-2-查看表" class="headerlink" title="3.2 查看表"></a>3.2 查看表</h4><p>运行<code>SHOW TABLES;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629882512209-1629882512208.png" alt="3.2"></p>
+<h4 id="3-3-查看表中的数据"><a href="#3-3-查看表中的数据" class="headerlink" title="3.3 查看表中的数据"></a>3.3 查看表中的数据</h4><p>运行<code>SELECT * FROM 表名</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629946658928-1629946658925.png" alt="3.3"></p>
+<h4 id="3-4-向表中插入数据"><a href="#3-4-向表中插入数据" class="headerlink" title="3.4 向表中插入数据"></a>3.4 向表中插入数据</h4><p>运行<code>INSERT INTO 表名 (字段1,字段2) VALUES (字段1值,字段2值);</code></p>
+<blockquote>
+<p>值需要符合字段格式</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629947026842-1629947026842.png" alt="3.4"></p>
+<h2 id="四、Navicat使用"><a href="#四、Navicat使用" class="headerlink" title="四、Navicat使用"></a>四、Navicat使用</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>傻瓜式安装</p>
+<h4 id="1-1-连接"><a href="#1-1-连接" class="headerlink" title="1.1 连接"></a>1.1 连接</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949265131-1629949265129.png" alt="1.1.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949300861-1629949300860.png" alt="1.1.2"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949348144-1629949348143.png" alt="1.1.3"></p>
+<h3 id="2-操作"><a href="#2-操作" class="headerlink" title="2.操作"></a>2.操作</h3><h4 id="2-1-在哪写sql"><a href="#2-1-在哪写sql" class="headerlink" title="2.1 在哪写sql"></a>2.1 在哪写sql</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950688924-1629950688923.png" alt="2.1"></p>
+<h4 id="2-2-数据库操作"><a href="#2-2-数据库操作" class="headerlink" title="2.2 数据库操作"></a>2.2 数据库操作</h4><h5 id="2-2-1-新建数据库"><a href="#2-2-1-新建数据库" class="headerlink" title="2.2.1 新建数据库"></a>2.2.1 新建数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949715690-1629949715689.png" alt="2.2.1"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949800682-1629949800680.png" alt="2.2.2"></p>
+<p>刷新一下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629949855721-1629949855720.png" alt="2.2.3"></p>
+<h5 id="2-2-2-查看数据库"><a href="#2-2-2-查看数据库" class="headerlink" title="2.2.2 查看数据库"></a>2.2.2 查看数据库</h5><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629950603758-1629950603757.png" alt="2.2.2"></p>
+]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -2211,55 +2396,6 @@ cnpm config get registry # https://r.npm.taobao.org/
       <tags>
         <tag>npm</tag>
         <tag>Node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Buffer</title>
-    <url>/2021/08/19/node-buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
-<table>
-<thead>
-<tr>
-<th>128</th>
-<th>64</th>
-<th>32</th>
-<th>16</th>
-<th>8</th>
-<th>4</th>
-<th>2</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
-<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
-console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
-</code></pre>
-<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
-<pre><code class="js">
-const buffer2 = Buffer.from('你好', 'utf16le');
-console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
-// buffer转字符串
-console.log(buffer2.toString('utf16le')); // 你好
-</code></pre>
-<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4>]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Buffer</tag>
       </tags>
   </entry>
   <entry>
@@ -2668,6 +2804,55 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </categories>
       <tags>
         <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Buffer</title>
+    <url>/2021/08/19/node-buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+<table>
+<thead>
+<tr>
+<th>128</th>
+<th>64</th>
+<th>32</th>
+<th>16</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
+<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
+console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
+</code></pre>
+<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
+<pre><code class="js">
+const buffer2 = Buffer.from('你好', 'utf16le');
+console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
+// buffer转字符串
+console.log(buffer2.toString('utf16le')); // 你好
+</code></pre>
+<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Buffer</tag>
       </tags>
   </entry>
   <entry>
