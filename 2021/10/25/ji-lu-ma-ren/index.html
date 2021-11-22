@@ -4,18 +4,18 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Node中的内置模块, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="骂人, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="Node中的内置模块一、path从路径中获取信息
-dirname：获取文件的父文件夹
-basename：获取文件名
-extname：获取文件扩展名
-
-const path = require(&#39;path&#39;);
-// 1.获取路径的信息
-co">
+    <meta name="description" content="长亭外，古道边，芳草天
+你不去当厨子可惜了，甩锅甩得那么厉害。
+把我气死，你当孤儿？
+您一个阴间的东西，就别指望着能理解咱们阳间的话
+我今天想骂人 所以不骂你
+有空一起上厕所 我看你嘴很会喷shi
+以前你叫斧码，现在你叫斤石
+僵尸兴奋的打开">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +23,7 @@ co">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Node中的内置模块 | 小艾同学的博客</title>
+    <title>骂人 | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -307,13 +307,13 @@ co">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Node中的内置模块
+                        骂人
                     </div>
                 </div>
             </div>
@@ -424,8 +424,8 @@ co">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Node/" target="_blank">
-                            <span class="chip bg-color">Node</span>
+                        <a href="/tags/%E8%AE%B0%E5%BD%95/" target="_blank">
+                            <span class="chip bg-color">记录</span>
                         </a>
                         
                     </div>
@@ -436,8 +436,8 @@ co">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Node/" class="post-category" target="_blank">
-                            Node
+                        <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category" target="_blank">
+                            记录
                         </a>
                         
                     </div>
@@ -448,7 +448,7 @@ co">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-18
+                    2021-10-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -462,14 +462,14 @@ co">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    123
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    1 分
                 </div>
                 
                 
@@ -485,403 +485,14 @@ co">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Node中的内置模块"><a href="#Node中的内置模块" class="headerlink" title="Node中的内置模块"></a>Node中的内置模块</h1><h2 id="一、path"><a href="#一、path" class="headerlink" title="一、path"></a>一、path</h2><h3 id="从路径中获取信息"><a href="#从路径中获取信息" class="headerlink" title="从路径中获取信息"></a>从路径中获取信息</h3><ul>
-<li>dirname：获取文件的父文件夹</li>
-<li>basename：获取文件名</li>
-<li>extname：获取文件扩展名</li>
-</ul>
-<pre><code class="js">const path = require('path');
-// 1.获取路径的信息
-const filepath = '/User/loveZero/abc.txt';
-
-console.log(path.dirname(filepath)); // /User/loveZero
-console.log(path.basename(filepath)); // abc.txt
-console.log(path.extname(filepath)); // .txt
-</code></pre>
-<h3 id="路径拼接"><a href="#路径拼接" class="headerlink" title="路径拼接"></a>路径拼接</h3><h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><p>只是拼接各个path片段</p>
-<pre><code class="js">const basepath = '../User/loveZero';
-const filename = './abc.txt';
-
-const filepath1 = path.join(basepath, filename);
-console.log(filepath1); // ..\User\loveZero\abc.txt
-</code></pre>
-<h4 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h4><p>会判断拼接的路径字符串中,是否有以/或./或../开头的路径</p>
-<p>有的话就返回一个以相对于当前的工作目录（working directory）的绝对路径。</p>
-<ol>
-<li>参数从后向前，若字符以 / 开头，不会拼接到前面的路径；</li>
-<li>若以 ../ 开头，拼接前面的路径，但是不含前面一节的最后一层路径；</li>
-<li>若以 ./ 开头 或者没有符号 则拼接前面路径</li>
-</ol>
-<pre><code class="js">const basepath = '../User/loveZero';
-const filename = './abc.txt';
-const filepath2 = path.resolve(basepath, filename);
-console.log(filepath2); // c:\Users\loveZero\Desktop\my\User\loveZero\abc.txt
-</code></pre>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
-<li>join是把各个path片段连接在一起， resolve把‘／’当成根目录</li>
-<li>resolve在传入的第一参数为非根路径时，会返回一个带当前目录路径的绝对路径。</li>
-</ol>
-<pre><code class="js">console.log(path.resolve()) // c:\Users\loveZero\Desktop\my\study-demo
-console.log(path.resolve('')) // c:\Users\loveZero\Desktop\my\study-demo
-console.log(path.resolve(__dirname)) // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
-console.log(path.resolve('/img/books', '/net'))   // c:\net
-console.log(path.resolve('img/books', '/net'))    // c:\net
-console.log(path.resolve('img/books', './net'))   // c:\Users\loveZero\Desktop\my\study-demo\img\books\net
-console.log(path.resolve('/img/books', './net'))   // c:\img\books\net
-console.log(path.resolve('/img/books', 'net'))     // c:\img\books\net
-console.log(path.resolve('/img/books', '../net'))         // c:\img\net
-console.log(path.resolve('src', '/img/books', '../net'))   // c:\img\net
-console.log(path.resolve('src', './img/books', '../net'))   // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
-console.log(path.resolve('src', 'img/books', '../net'))     // c:\Users\loveZero\Desktop\my\study-demo\src\img\net
-</code></pre>
-<pre><code class="js">console.log(path.join())           // .
-console.log(path.join(''))         // .
-console.log(path.join(__dirname))  // c:\Users\loveZero\Desktop\my\study-demo\基础\02-内置模块\path
-console.log(path.join('/img/books', '/net'))   // \img\books\net
-console.log(path.join('img/books', '/net'))    // img\books\net
-console.log(path.join('img/books', './net'))   // img\books\net
-console.log(path.join('/img/books', './net'))   // \img\books\net
-console.log(path.join('/img/books', 'net'))     // \img\books\net
-console.log(path.join('/img/books', '../net'))         // \img\net
-console.log(path.join('src', '/img/books', '../net'))   // src\img\net
-console.log(path.join('src', './img/books', '../net'))   // src\img\net
-console.log(path.join('src', 'img/books', '../net'))     // src\img\net
-</code></pre>
-<h2 id="二、fs"><a href="#二、fs" class="headerlink" title="二、fs"></a>二、fs</h2><p>fs是File System的缩写，表示文件系统</p>
-<h3 id="1-获取文件状态"><a href="#1-获取文件状态" class="headerlink" title="1.获取文件状态"></a>1.获取文件状态</h3><h4 id="同步获取"><a href="#同步获取" class="headerlink" title="同步获取"></a>同步获取</h4><pre><code class="js">const fs = require('fs');
-const info = fs.statSync('./abc.txt');
-console.log(info);
-console.log("后续需要执行的代码");
-/**
- Stats {
-  dev: 3728757869,
-  mode: 33206,
-  nlink: 1,
-  uid: 0,
-  gid: 0,
-  rdev: 0,
-  blksize: 4096,
-  ino: 8725724278139394,
-  size: 3,
-  blocks: 0,
-  atimeMs: 1629275163060.15,
-  mtimeMs: 1629275163060.15,
-  ctimeMs: 1629275163060.15,
-  birthtimeMs: 1629275160923.6409,
-  atime: 2021-08-18T08:26:03.060Z,
-  mtime: 2021-08-18T08:26:03.060Z,
-  ctime: 2021-08-18T08:26:03.060Z,
-  birthtime: 2021-08-18T08:26:00.924Z
- }
-  后续需要执行的代码
- */
-</code></pre>
-<h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><pre><code class="js">fs.stat('./abc.txt', (err, info) =&gt; {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log(info);
-  // 判断是否是文件
-  console.log(info.isFile());
-  // 判断是否是文件夹
-  console.log(info.isDirectory());
-});
-console.log("后续需要执行的代码");
-/*
-后续需要执行的代码
-Stats {
-  dev: 3728757869,
-  mode: 33206,
-  nlink: 1,
-  uid: 0,
-  gid: 0,
-  rdev: 0,
-  blksize: 4096,
-  ino: 8725724278139394,
-  size: 3,
-  blocks: 0,
-  atimeMs: 1629275163060.15,
-  mtimeMs: 1629275163060.15,
-  ctimeMs: 1629275163060.15,
-  birthtimeMs: 1629275160923.6409,
-  atime: 2021-08-18T08:26:03.060Z,
-  mtime: 2021-08-18T08:26:03.060Z,
-  ctime: 2021-08-18T08:26:03.060Z,
-  birthtime: 2021-08-18T08:26:00.924Z
-}
-true
-false
-*/
-</code></pre>
-<h4 id="promise方式"><a href="#promise方式" class="headerlink" title="promise方式"></a>promise方式</h4><pre><code class="js">fs.promises.stat('./abc.txt').then(info =&gt; {
-  console.log(info);
-}).catch(err =&gt; {
-  console.log(err);
-});
-console.log("后续需要执行的代码");
-</code></pre>
-<h3 id="2-文件描述符"><a href="#2-文件描述符" class="headerlink" title="2.文件描述符"></a>2.文件描述符</h3><p><strong>文件描述符</strong>（file descriptor）在形式上是一个非负整数。实际上，它是一个索引值，每一个文件描述符会与一个打开文件相对应。</p>
-<p>每个打开的文件都分配了一个称为文件描述符的简单的数字标识符。</p>
-<p>在系统层，所有文件系统操作都使用这些文件描述符来标识和跟踪每个特定的文件</p>
-<pre><code class="js">const fs = require('fs');
-
-fs.open("./abc.txt", (err, fd) =&gt; {
-  if (err) {
-    console.log('err', err);
-    return;
-  }
-
-  console.log(fd);
-  //  fd就是文件描述符，一旦获得了文件描述符，就可以通过任何方式执行所需的所有操作
-  // 通过描述符去获取文件的信息
-  fs.fstat(fd, (err, info) =&gt; {
-    console.log(info);
-  })
-})
-</code></pre>
-<h3 id="3-文件读写"><a href="#3-文件读写" class="headerlink" title="3.文件读写"></a>3.文件读写</h3><h4 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h4><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629278489244-1629278489240.png"></p>
-<pre><code class="js">const fs = require('fs');
-
-fs.readFile("./abc.txt", 'utf-8', (err, data) =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.log(data)
-});
-</code></pre>
-<ol>
-<li>如果不指定encoding格式，默认将以<buffer>格式返回</buffer></li>
-<li>如果options是字符串格式，默认是encoding值</li>
-</ol>
-<h4 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h4><pre><code class="js">const fs = require('fs')
-
-const content = '一些内容'
-
-fs.writeFile('./abc.txt', content, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
-</code></pre>
-<p>将内容追加到文件末尾</p>
-<pre><code class="js">fs.appendFile('./abc.txt', content, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
-</code></pre>
-<h4 id="flag选项"><a href="#flag选项" class="headerlink" title="flag选项"></a>flag选项</h4><ul>
-<li>w打开文件写入，默认值；</li>
-<li>w+打开文件进行读写，如果不存在则创建文件；</li>
-<li>r+打开文件进行读写，如果不存在那么抛出异常；</li>
-<li>r打开文件读取，读取时的默认值；</li>
-<li>a打开要写入的文件，将流放在文件末尾。如果不存在则创建文件；</li>
-<li>a+打开文件以进行读写，将流放在文件末尾。如果不存在则创建文件</li>
-</ul>
-<pre><code class="js">fs.writeFile('./abc.txt', content, { flag: 'a+' }, err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-  console.error('文件写入成功')
-})
-</code></pre>
-<h3 id="4-文件夹操作"><a href="#4-文件夹操作" class="headerlink" title="4.文件夹操作"></a>4.文件夹操作</h3><h4 id="1-判断文件夹是否存在"><a href="#1-判断文件夹是否存在" class="headerlink" title="1.判断文件夹是否存在"></a>1.判断文件夹是否存在</h4><p>方式一</p>
-<pre><code class="js">fs.existsSync('./loveZero')
-</code></pre>
-<p>方式二</p>
-<pre><code class="js">const dirname = './loveZero';
-// 检查文件是否存在于当前目录中。
-fs.access(dirname, fs.constants.F_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不存在' : '存在'}`);
-});
-
-// 检查文件是否可读。
-fs.access(dirname, fs.constants.R_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不可读' : '可读'}`);
-});
-
-// 检查文件是否可写。
-fs.access(dirname, fs.constants.W_OK, (err) =&gt; {
-  console.log(`${dirname} ${err ? '不可写' : '可写'}`);
-});
-
-// 检查文件是否存在于当前目录中、以及是否可写。
-fs.access(dirname, fs.constants.F_OK | fs.constants.W_OK, (err) =&gt; {
-  if (err) {
-    console.error(
-      `${dirname} ${err.code === 'ENOENT' ? '不存在' : '只可读'}`);
-  } else {
-    console.log(`${dirname} 存在，且可写`);
-  }
-});
-</code></pre>
-<h4 id="2-创建文件夹"><a href="#2-创建文件夹" class="headerlink" title="2.创建文件夹"></a>2.创建文件夹</h4><p>使用 <code>fs.mkdir()</code> 或 <code>fs.mkdirSync()</code> 可以创建新的文件夹。</p>
-<pre><code class="js">if (!fs.existsSync(dirname)) {
-  fs.mkdir(dirname, err =&gt; {
-    console.log(err);
-  });
-}
-</code></pre>
-<h4 id="3-读取目录内容"><a href="#3-读取目录内容" class="headerlink" title="3.读取目录内容"></a>3.读取目录内容</h4><pre><code class="js">const folderPath = '../fs'
-fs.readdir(folderPath, (err, files) =&gt; {
-  console.log(files);
-});
-/*
-[
-  '01-获取文件状态.js',
-  '02-文件描述符.js',
-  '03-文件读取.js',
-  '04-文件写入.js',
-  '05-文件夹操作.js',
-  'abc.txt',
-  'loveZero'
-]*/
-</code></pre>
-<p>递归遍历文件夹里的所有文件</p>
-<pre><code class="js">const fs = require('fs');
-const path = require('path');
-const dirname = './loveZero';
-
-function getFiles(dirname) {
-  fs.readdir(dirname, { withFileTypes: true }, (err, files) =&gt; {
-    for (let file of files) {
-      if (file.isDirectory()) {
-        const filepath = path.resolve(dirname, file.name);
-        getFiles(filepath);
-      } else {
-        console.log(file.name);
-      }
-    }
-  });
-}
-
-getFiles(dirname);
-/*
-aaa.txt
-第二层aaa.txt
-第三层aaa.txt
-*/
-</code></pre>
-<h4 id="4-文件夹重命名"><a href="#4-文件夹重命名" class="headerlink" title="4.文件夹重命名"></a>4.文件夹重命名</h4><pre><code class="js">fs.rename('./oldName', './newName', err =&gt; {
-  if (err) {
-    console.error(err)
-    return
-  }
-})
-</code></pre>
-<h4 id="5-文件夹删除"><a href="#5-文件夹删除" class="headerlink" title="5.文件夹删除"></a>5.文件夹删除</h4><p>安装<code>npm install fs-extra</code></p>
-<pre><code class="js">const fs = require('fs-extra')
-
-const folder = './newName'
-
-fs.remove(folder, err =&gt; {
-  console.error(err)
-})
-</code></pre>
-<p>递归删除非空文件夹</p>
-<pre><code class="js">function removeDir(dir) {
-  let files = fs.readdirSync(dir)
-  for (var i = 0; i &lt; files.length; i++) {
-    let newPath = path.join(dir, files[i]);
-    let stat = fs.statSync(newPath)
-    if (stat.isDirectory()) {
-      //如果是文件夹就递归下去
-      removeDir(newPath);
-    } else {
-      //删除文件
-      fs.unlinkSync(newPath);
-    }
-  }
-  fs.rmdirSync(dir)//如果文件夹是空的，就将自己删除掉
-}
-removeDir(folder);
-</code></pre>
-<h2 id="三、events"><a href="#三、events" class="headerlink" title="三、events"></a>三、events</h2><h3 id="1-监听和触发事件"><a href="#1-监听和触发事件" class="headerlink" title="1.监听和触发事件"></a>1.监听和触发事件</h3><p><code>emitter.on</code>和<code>emitter.addListener</code>监听事件</p>
-<p><code>emitter.emit</code>触发事件</p>
-<p>addListener是on的别名，没什么区别</p>
-<pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-// 监听某一个事件
-// addListener是on的alias简写
-emitter.on('click', (args) =&gt; {
-  console.log("click事件on监听", args);
-})
-
-emitter.addListener('click', (args) =&gt; {
-  console.log("click事件addListener监听", args);
-})
-
-setTimeout(() =&gt; {
-  emitter.emit("click", "loveZero");
-}, 1000);
-</code></pre>
-<h3 id="2-移除监听"><a href="#2-移除监听" class="headerlink" title="2.移除监听"></a>2.移除监听</h3><p><code>emitter.off</code>跟上对应的函数可以移除监听，<code>on</code>和<code>addListener</code>一样</p>
-<pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-function onClick(args) {
-  console.log("click事件on监听", args);
-}
-emitter.on('click', onClick)
-
-function addListenerClick(args) {
-  console.log("click事件addListener监听", args);
-
-}
-emitter.addListener('click', addListenerClick)
-
-setTimeout(() =&gt; {
-  emitter.emit("click", "loveZero");
-  // emitter.off("click", onClick);
-  // emitter.off("click", addListenerClick);
-  emitter.emit("click", "loveZero");
-}, 1000);
-</code></pre>
-<pre><code class="js">  // 移除所有对某一事件的监听
-  emitter.removeAllListeners('click')
-/*
-click事件on监听 loveZero
-click事件addListener监听 loveZero
-*/
-</code></pre>
-<h3 id="3-获取事件信息"><a href="#3-获取事件信息" class="headerlink" title="3.获取事件信息"></a>3.获取事件信息</h3><pre><code class="js">const EventEmitter = require("events");
-
-// 创建发射器
-const emitter = new EventEmitter();
-
-function onClick(args) {
-  console.log("click事件on监听", args);
-}
-emitter.on('click', onClick)
-
-function addListenerClick(args) {
-  console.log("click事件addListener监听", args);
-}
-emitter.addListener('click', addListenerClick)
-
-emitter.on('input', (args) =&gt; {
-  console.log(args);
-})
-
-// 获取监听事件名
-console.log(emitter.eventNames()); // [ 'click', 'input' ]
-// 获取click事件监听的次数
-console.log(emitter.listenerCount("click")); // 2
-// 获取click事件监听函数
-console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: addListenerClick] ]
-</code></pre>
+                <p>长亭外，古道边，芳草天</p>
+<p>你不去当厨子可惜了，甩锅甩得那么厉害。</p>
+<p>把我气死，你当孤儿？</p>
+<p>您一个阴间的东西，就别指望着能理解咱们阳间的话</p>
+<p>我今天想骂人 所以不骂你</p>
+<p>有空一起上厕所 我看你嘴很会喷shi</p>
+<p>以前你叫斧码，现在你叫斤石</p>
+<p>僵尸兴奋的打开了你的头盖骨，失望的走开了，旁边的屎壳郎眼前一亮</p>
 
             </div>
             <hr />
@@ -1040,9 +651,9 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Node中的内置模块》
+                    《骂人》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/18/node-node-zhong-de-nei-zhi-mo-kuai/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/10/25/ji-lu-ma-ren/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -1086,34 +697,55 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/19/npm-bao-guan-li-gong-ju/">
+                <a href="/2021/10/25/ji-lu-ke-mu-si/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="包管理工具">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="科目四">
                         
-                        <span class="card-title">包管理工具</span>
+                        <span class="card-title">科目四</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            包管理工具一、NpmNode Package Manager，就是Node包管理器
-1. npm管理的包存放在哪里发布包其实是发布到registry上面的；
-当我们安装一个包时其实是从registry上面下载的包；
-2. 项目配置文件 pa
+                            选择题
+关于灯光的题
+
+看到交替选交替，没有交替选近光灯
+
+
+关键字
+
+减速停车
+
+近心端
+
+心脏跳动100-120
+
+
+
+躲不掉了就紧急制动
+
+
+判断题
+远近在一起就是正确，分开就是错误
+
+有’易’基本上都是正确的
+
+出现上风处就是正确的
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-10-25
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Node/" class="post-category" target="_blank">
-                                    Node
+                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category" target="_blank">
+                                    记录
                                 </a>
                             
                             
@@ -1123,12 +755,8 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Node/" target="_blank">
-                        <span class="chip bg-color">Node</span>
-                    </a>
-                    
-                    <a href="/tags/npm/" target="_blank">
-                        <span class="chip bg-color">npm</span>
+                    <a href="/tags/%E8%AE%B0%E5%BD%95/" target="_blank">
+                        <span class="chip bg-color">记录</span>
                     </a>
                     
                 </div>
@@ -1142,35 +770,35 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/16/javascript-mo-kuai-hua/">
+                <a href="/2021/09/17/git-gitbash-mei-hua/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="JavaScript模块化">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="GitBash折腾">
                         
-                        <span class="card-title">JavaScript模块化</span>
+                        <span class="card-title">GitBash折腾</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript模块化一、什么是模块化模块化开发最终的目的是将程序划分成一个个小的模块
-
-这个模块中编写属于自己的逻辑代码，有自己的作用域，不会影响到其他的结构；
-这个模块可以将自己希望暴露的变量、函数、对象等导出给其结构使用；
-也可以
+                            GitBash折腾成果展示
+1.设置快捷键，总是管理员启动1.搜索git bash，打开文件位置
+2.点击属性 -&gt; 点击快捷键 -&gt; 点击高级 -&gt; 重启
+3.搜索服务 -&gt; 打开
+4.找到SysMain -&gt
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/Git/" class="post-category" target="_blank">
+                                    Git
                                 </a>
                             
                             
@@ -1180,12 +808,12 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/Git/" target="_blank">
+                        <span class="chip bg-color">Git</span>
                     </a>
                     
-                    <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
-                        <span class="chip bg-color">专题</span>
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/" target="_blank">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
                 </div>

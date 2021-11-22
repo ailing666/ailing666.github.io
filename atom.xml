@@ -6,7 +6,7 @@
   <link href="https://github.com/ailing666/atom.xml" rel="self"/>
   
   <link href="https://github.com/ailing666/"/>
-  <updated>2021-09-17T12:31:35.071Z</updated>
+  <updated>2021-11-22T08:36:14.800Z</updated>
   <id>https://github.com/ailing666/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>养鹦鹉</title>
+    <link href="https://github.com/ailing666/2021/11/02/ji-lu-yang-ying-wu/"/>
+    <id>https://github.com/ailing666/2021/11/02/ji-lu-yang-ying-wu/</id>
+    <published>2021-11-02T08:30:17.088Z</published>
+    <updated>2021-11-22T08:36:14.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科目四</title>
+    <link href="https://github.com/ailing666/2021/10/25/ji-lu-ke-mu-si/"/>
+    <id>https://github.com/ailing666/2021/10/25/ji-lu-ke-mu-si/</id>
+    <published>2021-10-25T08:25:04.711Z</published>
+    <updated>2021-11-22T08:36:11.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>骂人</title>
+    <link href="https://github.com/ailing666/2021/10/25/ji-lu-ma-ren/"/>
+    <id>https://github.com/ailing666/2021/10/25/ji-lu-ma-ren/</id>
+    <published>2021-10-25T08:21:13.686Z</published>
+    <updated>2021-11-22T08:36:12.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="记录" scheme="https://github.com/ailing666/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>GitBash折腾</title>
@@ -216,9 +291,9 @@
     <category term="Node" scheme="https://github.com/ailing666/categories/Node/"/>
     
     
-    <category term="npm" scheme="https://github.com/ailing666/tags/npm/"/>
-    
     <category term="Node" scheme="https://github.com/ailing666/tags/Node/"/>
+    
+    <category term="npm" scheme="https://github.com/ailing666/tags/npm/"/>
     
   </entry>
   
