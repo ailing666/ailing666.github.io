@@ -426,6 +426,259 @@ git remote set-url --add origin gitee链接
       </tags>
   </entry>
   <entry>
+    <title>01-Js数据类型</title>
+    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
+<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
+<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
+<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+</ul>
+<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
+<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
+<li>typeof()返回的是一个字符串类型</li>
+<li>typeof()检测的特殊值<ul>
+<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
+<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
+console.log(typeof 10);//number
+//typeof 返回的是一个字符串类型
+console.log(typeof (typeof 10));//string
+console.log(typeof 'hello');//string
+console.log(typeof false);//boolean
+console.log(typeof undefined);//undefined
+console.log(typeof null);//object
+console.log(typeof foo);//function
+console.log(typeof []);//object
+console.log(typeof {});//object
+// typeof不仅可以检测单个值，加小括号可以检测表达式
+console.log(typeof (10 + '10'));//string
+</code></pre>
+<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+</ul>
+</li>
+</ul>
+<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
+<pre><code class="javascript">    console.log(foo instanceof Function);//true
+    console.log(foo instanceof Object);//true
+</code></pre>
+<pre><code class="javascript">    var a = '10'
+    let b = new String()
+    console.log('a' instanceof String);//false
+    console.log(b instanceof String);//true
+    console.log([] instanceof Array);//true
+    console.log({} instanceof Array);//false
+    console.log({} instanceof Object);//true
+</code></pre>
+<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<ul>
+<li><code>\"</code> 表示 <code>"</code></li>
+<li><code>\'</code> 表示 <code>'</code></li>
+<li><code>\\</code> 表示<code>\</code></li>
+<li><code>\r</code> 表示回车</li>
+<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
+<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
+<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+</ul>
+<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
+<pre><code>  &lt;script&gt;
+    var str1 = '1；23';
+    var str2 = '小艾 同学';
+    var str3 = 'ab,cd';
+
+    // 注意：
+    // 中文、英文字母、数字都占一个字符
+    // 中英文标点符号都占一个字符
+    // 空格也占一个字符
+    console.log(str1.length);//4
+    console.log(str2.length);//5
+    console.log(str3.length);//5
+  &lt;/script&gt;
+</code></pre>
+<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
+<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
+</code></pre>
+<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
+<pre><code class="javascript">    console.log(10 + null);//10
+    console.log(10 + true);//11
+
+    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
+    //将任何数据类型都转为字符串，在返回拼接后的新字符串
+    console.log('10' + null);//10null
+    console.log(true + '10');//true10
+        //复杂数据类型也会隐式转换为字符串哦
+    console.log('小艾同学' + {});//小艾同学[object Object]
+</code></pre>
+<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
+<pre><code class="javascript">    // 字符串与变量拼接
+    let a = 100;
+    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
+    //可以用引引加加口诀， '+a+'
+    console.log('小艾同学a分');//小艾同学a分
+    console.log('小艾同学' + a + '分');//小艾同学100分
+</code></pre>
+<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
+<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
+</code></pre>
+<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
+    for(let char of str){
+      console.log("字符："+char);
+    // 字符：1
+    // 字符：2
+    // 字符：3
+    // 字符：4
+    // 字符：5
+    // 字符：6
+    }
+</code></pre>
+<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
+<pre><code class="javascript">    &lt;script&gt;
+        var num = 0x9;//前面加0x就是十六进制
+        var num1 = 07;//前面加0代表八进制
+        var num2 = 2e8;//e表示科学计数法次幂
+
+        console.log(num);//9
+        console.log(num1);//7
+        console.log(num2);//1.7976931348623157e+308
+        // Number最大范围
+        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
+        // Number最小范围
+        console.log(Number.MIN_VALUE);//5e-324
+        // 无穷大Infinity
+        console.log(Number.MAX_VALUE * 2);//Infinity
+        // 无穷小-Infinity
+        console.log(-Number.MAX_VALUE * 2);//-Infinity
+    &lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
+</blockquote>
+<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
+<li>十进制转十进制</li>
+</ul>
+<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<ul>
+<li>二进制转十进制</li>
+</ul>
+<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<ul>
+<li>八进制转十进制(以0开头就是八进制)</li>
+</ul>
+<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<ul>
+<li>十六进制转十进制(以0x开头就是十六进制)</li>
+</ul>
+<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
+<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
+<li>十进制转二进制</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<ul>
+<li>别的进制同理</li>
+</ul>
+<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
+<p>特点：NaN不等于任何东西，包括他自己</p>
+<pre><code class="javascript">  &lt;script&gt;
+    // NaN不等于任何
+    console.log(NaN == NaN);//false
+    console.log(NaN =-= NaN);//false
+    // 返回NaN的情况
+    // 1.字符串计算
+    console.log('a' - 1);//NaN
+
+    // 2.类型转换时开头有无法转换成数字的值
+    // 不能转换的一定要在开头
+    console.log(parseFloat('1a'));//1
+    console.log(parseFloat('a1'));//NaN
+    console.log(parseFloat());//NaN
+    console.log(parseInt('x'));//NaN
+    console.log(Number('x'));//NaN
+  &lt;/script&gt;
+</code></pre>
+<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
+<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
+    console.log(isNaN(NaN)); //true
+
+    // 只有0/0会返回true，其他任何数值都是false
+    console.log(isNaN(0 / 0)); //true
+    console.log(isNaN(0 / 1)); //false
+    console.log(isNaN(1 / 0)); //false
+    console.log(isNaN(10)); //false（ 10 是一个数值）
+
+    //能转为数字的别的类型也会返回false,无法转换的返回true
+    console.log(isNaN("10")); //false（可以被转换成数值 10）
+    console.log(isNaN("a10")); //true（可以被转换成数值 10）
+    console.log(isNaN("hello")); //true（不能转换成数值）
+    console.log(isNaN(true)); //false（可以被转换成数值 1）
+</code></pre>
+<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
+<pre><code class="javascript">       var a = 0.1 + 0.2;
+    console.log(a);  //0.30000000000000004
+</code></pre>
+<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
+<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
+    console.log('false');//false ---&gt; 字符串类型
+</code></pre>
+<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
+<pre><code class="javascript">    console.log(typeof null); // object
+</code></pre>
+<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
+<pre><code>    &lt;script&gt;
+      // 变量声明了未赋值，返回的即使undefined
+      var a;
+      console.log(a);//undefined
+      
+      // 检测undefined类型
+      console.log(typeof undefined);//undefined
+    &lt;/script&gt;
+</code></pre>
+<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
+<pre><code>    // null与undefined
+    console.log(null == undefined);//ture
+    console.log(null === undefined);//false
+
+    // 计算
+    console.log(1 + null);//1
+    console.log(1 + undefined);//NaN
+</code></pre>
+<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
+<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
+<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+</ul>
+<blockquote>
+<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
+</blockquote>
+<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
+<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
+<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+</ul>
+<pre><code>  &lt;script&gt;
+    var a = 10;
+    var b = a;
+    b = 20;
+
+    var arr = ['小','艾','同学'];
+    var arr1 = arr;
+    arr1.push('666');
+
+
+    // 基本数据类型复制后，改变复制的变量，原值不受影响
+    console.log(a);//10
+    console.log(b );//20
+
+    // 引用类型复制后，改变复制的变量，原值也会跟着改变
+    console.log(arr);//['小','艾','同学','666']
+    console.log(arr1);//['小','艾','同学','666']
+  &lt;/script&gt;
+</code></pre>
+<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>函数式编程</title>
     <url>/2021/09/08/javascript-han-shu-shi-bian-cheng/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="1-函数式编程优势"><a href="#1-函数式编程优势" class="headerlink" title="1.函数式编程优势"></a>1.函数式编程优势</h2><ul>
@@ -997,259 +1250,6 @@ request('data')
   .map(x =&gt; x.name)
   .execute(data =&gt; console.log(data))
 </code></pre>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>01-Js数据类型</title>
-    <url>/2021/08/03/javascript-js-shu-ju-lei-xing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
-<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
-<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
-<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
-</ul>
-<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
-<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
-<li>typeof()返回的是一个字符串类型</li>
-<li>typeof()检测的特殊值<ul>
-<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
-<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
-console.log(typeof 10);//number
-//typeof 返回的是一个字符串类型
-console.log(typeof (typeof 10));//string
-console.log(typeof 'hello');//string
-console.log(typeof false);//boolean
-console.log(typeof undefined);//undefined
-console.log(typeof null);//object
-console.log(typeof foo);//function
-console.log(typeof []);//object
-console.log(typeof {});//object
-// typeof不仅可以检测单个值，加小括号可以检测表达式
-console.log(typeof (10 + '10'));//string
-</code></pre>
-<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
-</ul>
-</li>
-</ul>
-<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
-<pre><code class="javascript">    console.log(foo instanceof Function);//true
-    console.log(foo instanceof Object);//true
-</code></pre>
-<pre><code class="javascript">    var a = '10'
-    let b = new String()
-    console.log('a' instanceof String);//false
-    console.log(b instanceof String);//true
-    console.log([] instanceof Array);//true
-    console.log({} instanceof Array);//false
-    console.log({} instanceof Object);//true
-</code></pre>
-<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
-<ul>
-<li><code>\"</code> 表示 <code>"</code></li>
-<li><code>\'</code> 表示 <code>'</code></li>
-<li><code>\\</code> 表示<code>\</code></li>
-<li><code>\r</code> 表示回车</li>
-<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
-<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
-<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
-</ul>
-<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
-<pre><code>  &lt;script&gt;
-    var str1 = '1；23';
-    var str2 = '小艾 同学';
-    var str3 = 'ab,cd';
-
-    // 注意：
-    // 中文、英文字母、数字都占一个字符
-    // 中英文标点符号都占一个字符
-    // 空格也占一个字符
-    console.log(str1.length);//4
-    console.log(str2.length);//5
-    console.log(str3.length);//5
-  &lt;/script&gt;
-</code></pre>
-<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
-<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
-</code></pre>
-<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
-<pre><code class="javascript">    console.log(10 + null);//10
-    console.log(10 + true);//11
-
-    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
-    //将任何数据类型都转为字符串，在返回拼接后的新字符串
-    console.log('10' + null);//10null
-    console.log(true + '10');//true10
-        //复杂数据类型也会隐式转换为字符串哦
-    console.log('小艾同学' + {});//小艾同学[object Object]
-</code></pre>
-<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
-<pre><code class="javascript">    // 字符串与变量拼接
-    let a = 100;
-    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
-    //可以用引引加加口诀， '+a+'
-    console.log('小艾同学a分');//小艾同学a分
-    console.log('小艾同学' + a + '分');//小艾同学100分
-</code></pre>
-<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
-<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
-</code></pre>
-<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
-    for(let char of str){
-      console.log("字符："+char);
-    // 字符：1
-    // 字符：2
-    // 字符：3
-    // 字符：4
-    // 字符：5
-    // 字符：6
-    }
-</code></pre>
-<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
-<pre><code class="javascript">    &lt;script&gt;
-        var num = 0x9;//前面加0x就是十六进制
-        var num1 = 07;//前面加0代表八进制
-        var num2 = 2e8;//e表示科学计数法次幂
-
-        console.log(num);//9
-        console.log(num1);//7
-        console.log(num2);//1.7976931348623157e+308
-        // Number最大范围
-        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-        // Number最小范围
-        console.log(Number.MIN_VALUE);//5e-324
-        // 无穷大Infinity
-        console.log(Number.MAX_VALUE * 2);//Infinity
-        // 无穷小-Infinity
-        console.log(-Number.MAX_VALUE * 2);//-Infinity
-    &lt;/script&gt;
-</code></pre>
-<blockquote>
-<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
-</blockquote>
-<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
-<li>十进制转十进制</li>
-</ul>
-<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
-<ul>
-<li>二进制转十进制</li>
-</ul>
-<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
-<ul>
-<li>八进制转十进制(以0开头就是八进制)</li>
-</ul>
-<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
-<ul>
-<li>十六进制转十进制(以0x开头就是十六进制)</li>
-</ul>
-<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
-<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
-<li>十进制转二进制</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
-<ul>
-<li>别的进制同理</li>
-</ul>
-<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
-<p>特点：NaN不等于任何东西，包括他自己</p>
-<pre><code class="javascript">  &lt;script&gt;
-    // NaN不等于任何
-    console.log(NaN == NaN);//false
-    console.log(NaN =-= NaN);//false
-    // 返回NaN的情况
-    // 1.字符串计算
-    console.log('a' - 1);//NaN
-
-    // 2.类型转换时开头有无法转换成数字的值
-    // 不能转换的一定要在开头
-    console.log(parseFloat('1a'));//1
-    console.log(parseFloat('a1'));//NaN
-    console.log(parseFloat());//NaN
-    console.log(parseInt('x'));//NaN
-    console.log(Number('x'));//NaN
-  &lt;/script&gt;
-</code></pre>
-<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
-<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
-    console.log(isNaN(NaN)); //true
-
-    // 只有0/0会返回true，其他任何数值都是false
-    console.log(isNaN(0 / 0)); //true
-    console.log(isNaN(0 / 1)); //false
-    console.log(isNaN(1 / 0)); //false
-    console.log(isNaN(10)); //false（ 10 是一个数值）
-
-    //能转为数字的别的类型也会返回false,无法转换的返回true
-    console.log(isNaN("10")); //false（可以被转换成数值 10）
-    console.log(isNaN("a10")); //true（可以被转换成数值 10）
-    console.log(isNaN("hello")); //true（不能转换成数值）
-    console.log(isNaN(true)); //false（可以被转换成数值 1）
-</code></pre>
-<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
-<pre><code class="javascript">       var a = 0.1 + 0.2;
-    console.log(a);  //0.30000000000000004
-</code></pre>
-<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
-<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
-    console.log('false');//false ---&gt; 字符串类型
-</code></pre>
-<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
-<pre><code class="javascript">    console.log(typeof null); // object
-</code></pre>
-<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<pre><code>    &lt;script&gt;
-      // 变量声明了未赋值，返回的即使undefined
-      var a;
-      console.log(a);//undefined
-      
-      // 检测undefined类型
-      console.log(typeof undefined);//undefined
-    &lt;/script&gt;
-</code></pre>
-<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<pre><code>    // null与undefined
-    console.log(null == undefined);//ture
-    console.log(null === undefined);//false
-
-    // 计算
-    console.log(1 + null);//1
-    console.log(1 + undefined);//NaN
-</code></pre>
-<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
-<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
-<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
-</ul>
-<blockquote>
-<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
-</blockquote>
-<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
-<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
-<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
-</ul>
-<pre><code>  &lt;script&gt;
-    var a = 10;
-    var b = a;
-    b = 20;
-
-    var arr = ['小','艾','同学'];
-    var arr1 = arr;
-    arr1.push('666');
-
-
-    // 基本数据类型复制后，改变复制的变量，原值不受影响
-    console.log(a);//10
-    console.log(b );//20
-
-    // 引用类型复制后，改变复制的变量，原值也会跟着改变
-    console.log(arr);//['小','艾','同学','666']
-    console.log(arr1);//['小','艾','同学','666']
-  &lt;/script&gt;
-</code></pre>
-<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -3089,55 +3089,6 @@ SELECT brand, AVG(price) avgPrice, COUNT(*),AVG(score) FROM `products` WHERE sco
       </tags>
   </entry>
   <entry>
-    <title>Buffer</title>
-    <url>/2021/08/19/node-buffer/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
-<table>
-<thead>
-<tr>
-<th>128</th>
-<th>64</th>
-<th>32</th>
-<th>16</th>
-<th>8</th>
-<th>4</th>
-<th>2</th>
-<th>1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
-<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
-<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
-console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
-</code></pre>
-<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
-<pre><code class="js">
-const buffer2 = Buffer.from('你好', 'utf16le');
-console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
-// buffer转字符串
-console.log(buffer2.toString('utf16le')); // 你好
-</code></pre>
-<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4>]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Node</tag>
-        <tag>Buffer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SQL多表操作</title>
     <url>/2021/09/10/mysql-duo-biao-cao-zuo/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="多表"><a href="#多表" class="headerlink" title="多表"></a>多表</h1><h2 id="1-创建多表"><a href="#1-创建多表" class="headerlink" title="1. 创建多表"></a>1. 创建多表</h2><p>创建外键<br>将两张表联系起来，我们可以将 product中的 brand_id关联到 brand中的id</p>
@@ -3239,6 +3190,55 @@ UPDATE `brand` SET `id` = 100 WHERE `id` = 1;
       </categories>
       <tags>
         <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Buffer</title>
+    <url>/2021/08/19/node-buffer/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h1><h2 id="一、知识补充"><a href="#一、知识补充" class="headerlink" title="一、知识补充"></a>一、知识补充</h2><h3 id="1-数据的二进制"><a href="#1-数据的二进制" class="headerlink" title="1.数据的二进制"></a>1.数据的二进制</h3><p>计算机中所有的内容：文字、数字、图片、音频、视频最终都会使用二进制来表示</p>
+<table>
+<thead>
+<tr>
+<th>128</th>
+<th>64</th>
+<th>32</th>
+<th>16</th>
+<th>8</th>
+<th>4</th>
+<th>2</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="2-Buffer-缓冲区"><a href="#2-Buffer-缓冲区" class="headerlink" title="2.Buffer(缓冲区)"></a>2.Buffer(缓冲区)</h2><p><code>JavaScript</code> 语言自身只有字符串数据类型，没有二进制数据类型，但在处理像 <code>TCP</code> 流或文件流时，必须使用到二进制数据，因此在 <code>Node.js</code> 中，定义了一个 <code>Buffer</code> 类，该类用来创建一个专门存放二进制数据的缓存区</p>
+<p>Buffer 用于读取或操作二进制数据流，做为 Node.js API 的一部分使用时无需 require，用于操作网络协议、数据库、图片和文件 I/O 等一些需要大量二进制数据的场景。Buffer 在创建时大小已经被确定且是无法调整的，</p>
+<h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><h4 id="1-1-将字符串转为buffer"><a href="#1-1-将字符串转为buffer" class="headerlink" title="1.1 将字符串转为buffer"></a>1.1 将字符串转为buffer</h4><pre><code class="js">const buffer = Buffer.from('Hello');
+console.log(buffer); // &lt;Buffer 48 65 6c 6c 6f&gt;
+</code></pre>
+<h4 id="1-2将中文转为buffer"><a href="#1-2将中文转为buffer" class="headerlink" title="1.2将中文转为buffer"></a>1.2将中文转为buffer</h4><p>用什么格式转为buffer，就用什么格式解码</p>
+<pre><code class="js">
+const buffer2 = Buffer.from('你好', 'utf16le');
+console.log(buffer2); // &lt;Buffer 60 4f 7d 59&gt;
+// buffer转字符串
+console.log(buffer2.toString('utf16le')); // 你好
+</code></pre>
+<h4 id="1-3创建buffer"><a href="#1-3创建buffer" class="headerlink" title="1.3创建buffer"></a>1.3创建buffer</h4>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+        <tag>Buffer</tag>
       </tags>
   </entry>
   <entry>
@@ -3479,6 +3479,172 @@ cnpm config get registry # https://r.npm.taobao.org/
       <tags>
         <tag>Node</tag>
         <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Express模块</title>
+    <url>/2021/11/25/node-express/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><p> 方式一：安装express-generator</p>
+<pre><code class="js">  安装脚手架
+  npm install -g express-generator
+  创建项目
+  express express-demo
+  安装依赖
+  npm install
+  启动项目
+  node bin/www
+</code></pre>
+<p>访问<code>localhost:3000</code>出现hello Express说明启动成功<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16377409450341637740945022.png" alt="express"><br>方式二：从零搭建自己的express应用结构</p>
+<pre><code class="js">  npm init -y
+  npm i express
+</code></pre>
+<h2 id="二、中间件"><a href="#二、中间件" class="headerlink" title="二、中间件"></a>二、中间件</h2><p><strong>中间件必须调用<code>next()</code>才会匹配下一个中间件，最后一个中间件用<code>res.end()</code>结束</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16378104654941637810465475.png" alt="中间件"></p>
+<h3 id="1-普通中间件"><a href="#1-普通中间件" class="headerlink" title="1.普通中间件"></a>1.普通中间件</h3><p>可以匹配任何请求，任何路径</p>
+<pre><code class="js">app.use((req, res, next) =&gt; {
+  res.end('结束')
+})
+
+app.use('/home', (req, res, next) =&gt; {
+  next()
+})
+</code></pre>
+<h3 id="2-get-post中间件"><a href="#2-get-post中间件" class="headerlink" title="2.get/post中间件"></a>2.get/post中间件</h3><pre><code class="js">// get监听默认路径
+app.get('/', (req, res, next) =&gt; {
+  res.end('get请求')
+})
+
+// post监听默认路径
+app.post('/', (req, res, next) =&gt; {
+  res.end('post请求')
+})
+
+app.post('/login', (req, res, next) =&gt; {
+  res.end('post请求login')
+})
+</code></pre>
+<h3 id="3-连续调用中间件"><a href="#3-连续调用中间件" class="headerlink" title="3.连续调用中间件"></a>3.连续调用中间件</h3><pre><code class="js">app.get("/home", (req, res, next) =&gt; {
+  console.log("home path and method middleware 02");
+  next();
+}, (req, res, next) =&gt; {
+  console.log("home path and method middleware 03");
+  next();
+}, (req, res, next) =&gt; {
+  console.log("home path and method middleware 04");
+  res.end("home page");
+});
+</code></pre>
+<h3 id="4-express解析json数据"><a href="#4-express解析json数据" class="headerlink" title="4.express解析json数据"></a>4.express解析json数据</h3><pre><code class="js">const express = require('express');
+
+const app = express();
+
+// 使用express提供的body解析
+app.use(express.json());
+
+app.post('/login', (req, res, next) =&gt; {
+  console.log(req.body);
+  res.end("请求成功");
+});
+
+</code></pre>
+<h3 id="5-express解析application-x-www-form-urlencoded数据"><a href="#5-express解析application-x-www-form-urlencoded数据" class="headerlink" title="5.express解析application/x-www-form-urlencoded数据"></a>5.express解析application/x-www-form-urlencoded数据</h3><pre><code class="js">const express = require('express');
+
+const app = express();
+// extended
+// true: 使用qs解析urlencoded
+// false: 使用querystring解析urlencoded
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/login', (req, res, next) =&gt; {
+  console.log(req.body);
+  res.end("请求成功");
+});
+</code></pre>
+<h3 id="6-express解析form-data数据"><a href="#6-express解析form-data数据" class="headerlink" title="6.express解析form-data数据"></a>6.express解析form-data数据</h3><p><code>npm i multer</code>安装<code>multer</code></p>
+<pre><code class="js">const express = require('express');
+const multer = require('multer');
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const upload = multer();
+
+app.use(upload.any());
+
+app.post('/login', (req, res, next) =&gt; {
+  console.log(req.body);
+  res.end("用户登录成功~")
+});
+</code></pre>
+<h3 id="7-express上传文件"><a href="#7-express上传文件" class="headerlink" title="7.express上传文件"></a>7.express上传文件</h3><pre><code class="js">const path = require('path');
+
+const express = require('express');
+const multer = require('multer');
+
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const storage = multer.diskStorage({
+  // 指定文件存放路径,必须是已存在的文件夹
+  destination: (req, file, cb) =&gt; {
+    cb(null, './uploads/');
+  },
+  // 自定义文件名
+  filename: (req, file, cb) =&gt; {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+})
+
+const upload = multer({
+  storage
+});
+
+// upload.any()不要作为全局的中间件
+app.post('/login', upload.any(), (req, res, next) =&gt; {
+  console.log(req.body);
+  res.end("用户登录成功~")
+});
+
+// upload.array:多文件上传,文件存储在req.files
+// upload.single：单文件,we年存储在req.flie
+// 参数是接口传进来的key
+app.post('/upload', upload.single('file'), (req, res, next) =&gt; {
+  console.log(req.file);
+  res.end("文件上传成功~");
+});
+</code></pre>
+<h3 id="8-express保存日志信息"><a href="#8-express保存日志信息" class="headerlink" title="8.express保存日志信息"></a>8.express保存日志信息</h3><p><code>npm i morgan</code>安装<code>morgan</code></p>
+<pre><code class="js">const fs = require('fs');
+
+const express = require('express');
+const morgan = require('morgan');
+
+const app = express();
+
+const writerStream = fs.createWriteStream('./logs/access.log', {
+  flags: "a+"
+})
+
+app.use(morgan("combined", { stream: writerStream }));
+
+app.get('/home', (req, res, next) =&gt; {
+  res.end("Hello World");
+})
+
+app.listen(8000, () =&gt; {
+  console.log("express初体验服务器启动成功~");
+});
+</code></pre>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
       </tags>
   </entry>
   <entry>
@@ -3890,6 +4056,222 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </tags>
   </entry>
   <entry>
+    <title>http模块</title>
+    <url>/2021/11/25/node-http-mo-kuai/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h1><h2 id="一、http初体验"><a href="#一、http初体验" class="headerlink" title="一、http初体验"></a>一、http初体验</h2><pre><code class="js">// 引入http模块
+const http = require('http')
+
+// 创建http请求
+const server = http.createServer((req, res) =&gt; {
+  res.end('hello http')
+})
+
+// 监听http请求
+server.listen(8888, 'localhost', () =&gt; {
+  console.log('启动成功');
+})
+</code></pre>
+<p>此时每次修改http请求，都需要重新运行代码，比较麻烦。可以借用工具<code>nodemon</code>实现自动监听</p>
+<ol>
+<li>安装<code>npm install -g nodemon</code></li>
+<li>终端使用<code>nodemon</code>启动服务器<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16375729062861637572906278.png" alt="nodemon"></li>
+</ol>
+<h2 id="二、参数解析"><a href="#二、参数解析" class="headerlink" title="二、参数解析"></a>二、参数解析</h2><h3 id="1-创建服务器"><a href="#1-创建服务器" class="headerlink" title="1.创建服务器"></a>1.创建服务器</h3><ol>
+<li><code>http.createServer</code>创建</li>
+</ol>
+<pre><code class="js">const server1 = http.createServer((req, res) =&gt; {
+  res.end('server1')
+})
+
+server1.listen(8000, 'localhost', () =&gt; {
+  console.log('server1启动成功');
+})
+</code></pre>
+<ol start="2">
+<li><code>new http.Server</code>创建</li>
+</ol>
+<pre><code class="js">const server2 = new http.Server((req, res) =&gt; {
+  res.end('server2')
+})
+server2.listen(8001, 'localhost', () =&gt; {
+  console.log('server2启动成功');
+})
+</code></pre>
+<h3 id="2-listen参数"><a href="#2-listen参数" class="headerlink" title="2.listen参数"></a>2.listen参数</h3><ol>
+<li>端口port:可以不传，系统会默认分配端口，通常会写入到环境变量中；</li>
+<li>主机host通常可以传入 localhost、ip地址127.0.0.1、或者ip地址0.0.0.0,默认是0.0.0.0<ol>
+<li>localhost:本质上是一个域名，通常情况下会被解析成127.0.0.1;</li>
+<li>127.0.0.1:回环地址,表达的意思其实是主机自己发出去的包，直接被自己接收<ul>
+<li>在网络层直接就被获取到了，是不会经常数据链路层和物理层的</li>
+<li>监听127.0.0.1时，在同一个网段下的主机中，通过ip地址是不能访问的；</li>
+</ul>
+</li>
+<li>0.0.0.0<ul>
+<li>监听IPV4上所有的地址，再根据端口找到不同的应用程序</li>
+<li>监听0.0.0.0时，在同一个网段下的主机中，通过ip地址是可以访问的</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>回调函数：服务器启动成功时的回调函数</li>
+</ol>
+<h3 id="3-request对象"><a href="#3-request对象" class="headerlink" title="3.request对象"></a>3.request对象</h3><p>request对象中封装了客户端给我们服务器传递过来的所有信息</p>
+<pre><code class="js">const server = http.createServer((req, res) =&gt; {
+  console.log('req.url', req.url);
+  console.log('req.method', req.method);
+  console.log('req.headers', req.headers);
+  res.end('server')
+})
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16376533698081637653369780.png" alt="request对象"><br>![request对象post](<a href="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/163765359097616376535909">https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/163765359097616376535909</a><br>  // 直接打印  /login?name=loveZero&amp;password=666<br>  console.log(‘req.url’, req.url);<br>      // 直接打印  /login?name=loveZero&amp;password=666<br>      console.log(‘req.url’, req.url);</p>
+<pre><code>
+2. url.parse和qs.parse
+
+通过url.parse可以得到pathname和query
+解析方便，但是现在已废弃
+
+```js
+  const url = require('url')
+  const qs = require('querystring')
+  const server = http.createServer((req, res) =&gt; {
+ console.log('url.parse', url.parse(req.url));
+ const { query } = url.parse(req.url);
+ if (url.parse(req.url).pathname === '/login') {
+   const { username, password } = qs.parse(query);
+   console.log(username, password);
+ }
+  })
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16376551274871637655127477.png" alt="url.parse"></p>
+<ol start="3">
+<li>通过URL实例</li>
+</ol>
+<pre><code class="js">// 通过URL实例能得到pathname和searchParams
+const baseURL = req.protocol + '://' + req.headers.host + '/';
+const reqUrl = new URL(req.url, baseURL);
+console.log('reqUrl', reqUrl);
+const { pathname, searchParams } = reqUrl
+if (pathname === '/login') {
+  console.log(searchParams.get('name'), searchParams.get('password'));
+  res.end("请求结果~");
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16376552102891637655210281.png" alt="URL实例"></p>
+<h4 id="3-2-request-method"><a href="#3-2-request-method" class="headerlink" title="3.2 request.method"></a>3.2 request.method</h4><p>通过<code>method</code>判断是否是POST请求，可以拿到请求中的<code>body</code></p>
+<pre><code class="js">// 引入http模块
+const http = require('http')
+
+// 创建http请求
+const server = http.createServer((req, res) =&gt; {
+  // 通过URL实例能得到pathname和searchParams
+  const baseURL = req.protocol + '://' + req.headers.host + '/';
+  const reqUrl = new URL(req.url, baseURL);
+  if (reqUrl.pathname === '/login') {
+    if (req.method === 'POST') {
+      req.setEncoding('utf-8');
+      req.on('data', (data) =&gt; {
+        console.log('%cdata: ', 'color: #58e2ba;', data);
+        const { name, password } = JSON.parse(data);
+        console.log(name, password);
+      });
+      res.end("请求结果~");
+    }
+  }
+})
+
+server.listen(8000, 'localhost', () =&gt; {
+  console.log('server启动成功');
+})
+</code></pre>
+<h4 id="3-3-request-headers"><a href="#3-3-request-headers" class="headerlink" title="3.3 request.headers"></a>3.3 request.headers</h4><ul>
+<li><p>content-type是这次请求携带的数据的类型</p>
+<ul>
+<li>application/json表示是一个json类型；</li>
+<li>text/plain表示是文本类型；</li>
+<li>application/xml表示是xml类型；</li>
+<li>multipart/form-data表示是上传文件</li>
+</ul>
+</li>
+<li><p>content-length：文件的大小和长度</p>
+</li>
+<li><p>keep-alive：</p>
+<ul>
+<li>http是基于TCP协议的，但是通常在进行一次请求和响应结束后会立刻中断；</li>
+<li>在http1.0中，如果想要继续保持连接：<ul>
+<li>浏览器需要在请求头中添加 connection: keep-alive；</li>
+<li>服务器需要在响应头中添加 connection:keey-alive；</li>
+<li>当客户端再次放请求时，就会使用同一个连接，直接一方中断连接；</li>
+</ul>
+</li>
+<li>在http1.1中，所有连接默认是 connection: keep-alive的；<ul>
+<li>不同的Web服务器会有不同的保持 keep-alive的时间；</li>
+<li>Node中默认是5s中；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>accept-encoding：告知服务器，客户端支持的文件压缩格式，比如js文件可以使用gzip编码，对应 .gz文件；</p>
+</li>
+<li><p>accept：告知服务器，客户端可接受文件的格式类型；</p>
+</li>
+<li><p>user-agent：客户端相关的信息；<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16377347724631637734772452.png" alt="headers"><br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16377347724631637734772452.png" alt="headers"></p>
+</li>
+</ul>
+<h3 id="4-response对象"><a href="#4-response对象" class="headerlink" title="4.response对象"></a>4.response对象</h3><h4 id="4-1-响应结果"><a href="#4-1-响应结果" class="headerlink" title="4.1 响应结果"></a>4.1 响应结果</h4><ul>
+<li>Write方法：这种方式是直接写出数据，但是并没有关闭流；</li>
+<li>end方法：这种方式是写出最后的数据，并且写出后会关闭流；</li>
+</ul>
+<pre><code class="js">  res.write("响应结果一");
+  res.end("Hello World");
+</code></pre>
+<h4 id="4-2-响应状态码"><a href="#4-2-响应状态码" class="headerlink" title="4.2 响应状态码"></a>4.2 响应状态码</h4><p>方式一: 直接给属性赋值</p>
+<pre><code class="js">  res.statusCode = 400;
+</code></pre>
+<p>方式二: 和Head一起设置</p>
+<pre><code class="js">  res.writeHead(503)
+</code></pre>
+<h4 id="4-3-响应头文件"><a href="#4-3-响应头文件" class="headerlink" title="4.3 响应头文件"></a>4.3 响应头文件</h4><p>方式一:setHeader<br>一次写入一个头部信息</p>
+<pre><code class="js"> res.setHeader("Content-Type", "text/plain;charset=utf8");
+</code></pre>
+<p>方式二：writeHead<br>同时写入header和status</p>
+<pre><code class="js">  res.writeHead(200, {
+      "Content-Type": "text/html;charset=utf8"
+    });
+</code></pre>
+<h2 id="3-发送请求"><a href="#3-发送请求" class="headerlink" title="3.发送请求"></a>3.发送请求</h2><h3 id="1-GET请求"><a href="#1-GET请求" class="headerlink" title="1.GET请求"></a>1.GET请求</h3><pre><code class="js">http.get('http://localhost:8000', res =&gt; {
+  res.on('data', (data) =&gt; {
+    console.log(data.toString());
+  });
+  res.on('end', () =&gt; {
+    console.log("获取到了所有的结果");
+  })
+})
+</code></pre>
+<h3 id="2-POST请求"><a href="#2-POST请求" class="headerlink" title="2.POST请求"></a>2.POST请求</h3><pre><code class="js">const req = http.request({
+  method: 'POST',
+  hostname: 'localhost',
+  port: 8000
+}, (res) =&gt; {
+  res.on('data', (data) =&gt; {
+    console.log(data.toString());
+  });
+
+  res.on('end', () =&gt; {
+    console.log("获取到了所有的结果");
+  })
+});
+
+req.end();
+</code></pre>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP环境搭建</title>
     <url>/2021/09/09/php-huan-jing-an-zhuang/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="PHP环境"><a href="#PHP环境" class="headerlink" title="PHP环境"></a>PHP环境</h1><h2 id="1-安装-phpStudy-Pro"><a href="#1-安装-phpStudy-Pro" class="headerlink" title="1.安装 phpStudy-Pro"></a>1.安装 phpStudy-Pro</h2><h2 id="2-开启-apache-服务"><a href="#2-开启-apache-服务" class="headerlink" title="2.开启 apache 服务"></a>2.开启 apache 服务</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/1629818261421-1629818261416.png"></p>
@@ -3903,25 +4285,6 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </categories>
       <tags>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>骂人</title>
-    <url>/2021/10/25/ji-lu-ma-ren/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>长亭外，古道边，芳草天</p>
-<p>你不去当厨子可惜了，甩锅甩得那么厉害。</p>
-<p>把我气死，你当孤儿？</p>
-<p>您一个阴间的东西，就别指望着能理解咱们阳间的话</p>
-<p>我今天想骂人 所以不骂你</p>
-<p>有空一起上厕所 我看你嘴很会喷shi</p>
-<p>以前你叫斧码，现在你叫斤石</p>
-<p>僵尸兴奋的打开了你的头盖骨，失望的走开了，旁边的屎壳郎眼前一亮</p>
-]]></content>
-      <categories>
-        <category>记录</category>
-      </categories>
-      <tags>
-        <tag>记录</tag>
       </tags>
   </entry>
   <entry>
@@ -4037,6 +4400,345 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
       </tags>
   </entry>
   <entry>
+    <title>React基础</title>
+    <url>/2021/11/25/react/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h2 id="一、HelloReact"><a href="#一、HelloReact" class="headerlink" title="一、HelloReact"></a>一、HelloReact</h2><h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h3><p>需要依赖3个包</p>
+<ul>
+<li>react：包含react所必须的核心代码</li>
+<li>react-dom：react渲染在不同平台所需要的核心代码<ul>
+<li>web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏览器中</li>
+<li>native端：react-dom会讲jsx最终渲染成原生的控件（比如Android中的Button，iOS中的UIButton）</li>
+</ul>
+</li>
+<li>babel：将jsx转换成React代码的工具<ul>
+<li>使用ES6来编写源码，之后通过Babel工具，将ES6转成大多数浏览器都支持的ES5的语法</li>
+</ul>
+</li>
+</ul>
+<p><strong>方式一：CDN引入</strong></p>
+<pre><code class="js">  &lt;!-- 添加React的依赖 --&gt;
+  &lt;script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>方式二：下载后本地依赖</strong></p>
+<p><strong>方式三：使用npm管理</strong></p>
+<h3 id="2-hello-react"><a href="#2-hello-react" class="headerlink" title="2.hello-react"></a>2.hello-react</h3><p><strong>原生实现</strong></p>
+<pre><code class="html">  &lt;h2 id="text"&gt;&lt;/h2&gt;
+  &lt;button id="btn"&gt;改变文本&lt;/button&gt;
+
+  &lt;script&gt;
+    // 命令式编程：每做一个操作都是给计算机一个命令
+    // 1.定义数据
+    let message = 'Hello World'
+
+    // 2.将数据显示h2元素中
+    const textEl = document.getElementById("text")
+    text.innerText = message
+
+    // 3.点击按钮，改变页面数据
+    const btnEl = document.getElementById("btn")
+    btnEl.addEventListener('click', () =&gt; {
+      message = 'Hello React'
+      textEl.innerText = message
+    })
+
+  &lt;/script&gt;
+</code></pre>
+<p><strong>React实现</strong></p>
+<ol>
+<li>编写React的script代码中，必须添加 type=”text/babel”，作用是可以让babel解析jsx语法</li>
+<li>ReactDOM.render函数<ul>
+<li>第一个参数是要渲染的内容，这个内容可以是HTML元素，也可以是React的组件</li>
+<li>第二个参数是将渲染的内容，挂载到哪一个HTML元素上</li>
+</ul>
+</li>
+</ol>
+<pre><code class="html">  &lt;div id="box"&gt;box&lt;/div&gt;
+  &lt;!-- 添加React的依赖 --&gt;
+  &lt;script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin&gt;&lt;/script&gt;
+  &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
+  &lt;!-- babel --&gt;
+  &lt;script type="text/babel"&gt;
+    let msg = "Hello World";
+
+    function btnClick() {
+      msg = "Hello React";
+      console.log(msg);
+      render();
+    }
+    function render() {
+      ReactDOM.render(
+        &lt;div&gt;
+          &lt;h2&gt;{msg}&lt;/h2&gt;
+          &lt;button onClick={btnClick}&gt;改变文本&lt;/button&gt;
+        &lt;/div&gt;,
+        document.getElementById("box")
+      );
+    }
+
+    render();
+  &lt;/script&gt;
+</code></pre>
+<p><strong>组件化HelloReact</strong></p>
+<ol>
+<li>定义一个类继承自React.Component</li>
+<li>类中有一个render函数，返回jsx内容</li>
+<li>数据依赖<ol>
+<li>参与界面更新的数据（参与数据流）：当数据变量时，需要更新组件渲染的内容<ol>
+<li>定义在state对象中</li>
+<li>当数据变化时需要调用<code>this.setState</code>来变更数据</li>
+</ol>
+</li>
+<li>不参与界面更新的数据：当数据变量时，不需要更新将组建渲染的内容</li>
+</ol>
+</li>
+<li>事件绑定<ol>
+<li>click触发时，this是undefined。因为React渲染的不是真实DOM,其中button实际上市react的Element对象，所以触发时this时undefined</li>
+<li>解决：可以通过<code>bind</code>改变this指向</li>
+</ol>
+</li>
+</ol>
+<pre><code class="html">  &lt;script type="text/babel"&gt;
+  // 封装组件
+  class App extends React.Component {
+    constructor() {
+      super()
+      this.state = {
+        message: "HelloWorld"
+      }
+    }
+
+    render() {
+      return (
+        &lt;div&gt;
+          &lt;h2&gt;{this.state.message}&lt;/h2&gt;
+          &lt;button onClick={this.btnClick.bind(this)}&gt;改变文本&lt;/button&gt;
+        &lt;/div&gt;
+      )
+    }
+
+    btnClick() {
+      // setState改变后，才会重新渲染
+      this.setState({
+        message: "HelloReact"
+      })
+    }
+  }
+
+  // 渲染组件
+  ReactDOM.render(&lt;App /&gt;, document.getElementById("app"))
+&lt;/script&gt;
+</code></pre>
+<h2 id="二、JSX语法"><a href="#二、JSX语法" class="headerlink" title="二、JSX语法"></a>二、JSX语法</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><p><code>{/*注释*/}</code></p>
+<pre><code class="jsx">      render() {
+        return (
+          &lt;div&gt;
+            {/*注释*/}
+          &lt;/div&gt;
+        )
+      }
+</code></pre>
+<h3 id="2-嵌入数据"><a href="#2-嵌入数据" class="headerlink" title="2.嵌入数据"></a>2.嵌入数据</h3><pre><code class="js">    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          // 1.可以正常显示
+          name: 'loveZero',// String
+          age: 18,//Number
+          list: [1, 2, 'asdf', 'abc'],//Array
+          // 2.不显示
+          test1: null,
+          test2: undefined,
+          bool: true,
+          // 3.对象不能作为jsx的子类
+          obj: {
+            id: '007'
+          }
+        }
+      }
+
+      render() {
+        return (
+          &lt;div&gt;
+            {/*可以正常显示*/}
+            &lt;h2&gt;{this.state.name}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.age}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.list}&lt;/h2&gt;
+            {/*不显示*/}
+            &lt;h2&gt;{this.state.test1}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.test2}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.bool}&lt;/h2&gt;
+            {/*可以通过转为字符串让其渲染*/}
+            &lt;h2&gt;{this.state.test1 + ''}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.test2 + ''}&lt;/h2&gt;
+            &lt;h2&gt;{this.state.bool.toString()}&lt;/h2&gt;
+            {/*对象不能作为jsx的子类*/}
+            {/*&lt;h2&gt;{this.state.obj}&lt;/h2&gt;*/}
+          &lt;/div&gt;
+        )
+      }
+    }
+</code></pre>
+<h3 id="3-嵌入表达式"><a href="#3-嵌入表达式" class="headerlink" title="3.嵌入表达式"></a>3.嵌入表达式</h3><pre><code class="js">  {/*1.运算符表达式*/}
+  &lt;h2&gt;{name + " " + age}&lt;/h2&gt;
+  &lt;h2&gt;{20 * 50}&lt;/h2&gt;
+
+  {/*2.三元表达式*/}
+  &lt;h2&gt;{bool ? "真~" : "假~"}&lt;/h2&gt;
+
+  {/*3.进行函数调用*/}
+  &lt;h2&gt;{this.addNum()}&lt;/h2&gt;
+</code></pre>
+<h3 id="4-绑定属性"><a href="#4-绑定属性" class="headerlink" title="4.绑定属性"></a>4.绑定属性</h3><pre><code class="jsx">  &lt;img src={imgUrl} /&gt;
+  &lt;a href={linkUrl}&gt;百度&lt;/a&gt;
+  &lt;label htmlFor=""&gt;&lt;/label&gt;
+</code></pre>
+<h3 id="5-绑定class"><a href="#5-绑定class" class="headerlink" title="5.绑定class"></a>5.绑定class</h3><pre><code class="jsx">  &lt;div className="box"&gt;box1&lt;/div&gt;
+  {/*动态绑定class*/}
+  &lt;div className={"box " + (active &amp;&amp; "active")}&gt;box2&lt;/div&gt;
+</code></pre>
+<h3 id="6-绑定style"><a href="#6-绑定style" class="headerlink" title="6.绑定style"></a>6.绑定style</h3><pre><code class="jsx">  &lt;div style={{ color: 'red', fontWeight: 700 }}&gt;绑定style&lt;/div&gt;
+</code></pre>
+<h3 id="7-绑定事件"><a href="#7-绑定事件" class="headerlink" title="7.绑定事件"></a>7.绑定事件</h3><p>通过箭头函数来解决<code>this</code>指向</p>
+<pre><code class="jsx">    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          list: ["大话西游", "海王", "流浪地球", "盗梦空间"]
+        }
+      }
+
+      render() {
+        const { list } = this.state
+        return (
+          &lt;div&gt;
+            &lt;ul&gt;
+              {
+                list.map((item, index) =&gt; {
+                  return (
+                    &lt;li className="li"
+                      style={{ color: 'red' }}
+                      onClick={e =&gt; { this.liClick(item, index, e) }}&gt;
+                      {item}
+                    &lt;/li&gt;
+                  )
+                })
+              }
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        )
+      }
+      liClick(item, index, e) {
+        console.log(this);
+        console.log(item);
+        console.log(index);
+        console.log(e);
+      }
+    }
+</code></pre>
+<h3 id="8-条件渲染"><a href="#8-条件渲染" class="headerlink" title="8.条件渲染"></a>8.条件渲染</h3><p>方式一：通过<code>if</code>控制</p>
+<pre><code class="jsx">    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          login: true
+        }
+      }
+
+      render() {
+        let message = null
+        let btnText = null
+        if (this.state.login) {
+          message = '您已登录'
+          btnText = '退出'
+        } else {
+          message = '请先登录'
+          btnText = '登录'
+        }
+        return (
+          &lt;div&gt;
+            &lt;h2&gt;{message}&lt;/h2&gt;
+            &lt;button onClick={e =&gt; this.btnClick()}&gt;{btnText}&lt;/button&gt;
+            &lt;hr /&gt;
+            &lt;div&gt;{this.state.login &amp;&amp; '欢迎'}&lt;/div&gt;
+          &lt;/div &gt;
+        )
+      }
+      btnClick() {
+        this.setState({
+          login: !this.state.login
+        })
+      }
+    }
+</code></pre>
+<p>方式二：通过控制<code>display</code>,类似<code>v-show</code></p>
+<pre><code class="jsx">    class App extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.state = {
+          isLogin: true
+        }
+      }
+
+      render() {
+        const { isLogin } = this.state;
+        const titleDisplayValue = isLogin ? "block" : "none";
+        return (
+          &lt;div&gt;
+            &lt;button onClick={e =&gt; this.loginClick()}&gt;{isLogin ? "退出" : "登录"}&lt;/button&gt;
+            &lt;h2 style={{ display: titleDisplayValue }}&gt;你好&lt;/h2&gt;
+          &lt;/div&gt;
+        )
+      }
+
+      loginClick() {
+        this.setState({
+          isLogin: !this.state.isLogin
+        })
+      }
+    }
+</code></pre>
+<h3 id="9-列表渲染"><a href="#9-列表渲染" class="headerlink" title="9.列表渲染"></a>9.列表渲染</h3><p>通过es6函数渲染</p>
+<pre><code class="jsx">      render() {
+        return (
+          &lt;div&gt;
+            {/*1.全部渲染*/}
+            &lt;h2&gt;全部渲染&lt;/h2&gt;
+            &lt;ul&gt;
+              {
+                this.state.list.map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
+              }
+            &lt;/ul&gt;
+            {/*2.渲染大于50的*/}
+            &lt;h2&gt;渲染大于50&lt;/h2&gt;
+            &lt;ul&gt;
+              {
+                this.state.list.filter(item =&gt; item &gt; 50).map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
+              }
+            &lt;/ul&gt;
+            {/*3.渲染前4条*/}
+            &lt;h2&gt;渲染前4条&lt;/h2&gt;
+            &lt;ul&gt;
+              {
+                this.state.list.slice(0, 4).map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
+              }
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        )
+      }
+</code></pre>
+]]></content>
+      <categories>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>科目四</title>
     <url>/2021/10/25/ji-lu-ke-mu-si/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="选择题"><a href="#选择题" class="headerlink" title="选择题"></a>选择题</h2><ul>
@@ -4076,6 +4778,25 @@ console.log(emitter.listeners("click")); // [ [Function: onClick], [Function: ad
 <li><p>黄昏开启示廓灯</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>记录</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>骂人</title>
+    <url>/2021/10/25/ji-lu-ma-ren/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>长亭外，古道边，芳草天</p>
+<p>你不去当厨子可惜了，甩锅甩得那么厉害。</p>
+<p>把我气死，你当孤儿？</p>
+<p>您一个阴间的东西，就别指望着能理解咱们阳间的话</p>
+<p>我今天想骂人 所以不骂你</p>
+<p>有空一起上厕所 我看你嘴很会喷shi</p>
+<p>以前你叫斧码，现在你叫斤石</p>
+<p>僵尸兴奋的打开了你的头盖骨，失望的走开了，旁边的屎壳郎眼前一亮</p>
 ]]></content>
       <categories>
         <category>记录</category>
