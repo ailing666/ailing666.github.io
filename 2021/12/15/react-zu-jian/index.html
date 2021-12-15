@@ -4,13 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="01-Js数据类型, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="React组件, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="一、为什么要区分不同的数据类型在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。
-二、JS中一共有七种数据类型
-基本数据类型（值类型）：String 字符串、Nu">
+    <meta name="description" content="React 组件化开发一、创建项目1.安装脚手架npm i -g create-react-app
+2.创建项目create-react-app 项目名称
+3.目录结构
+二、组件1.组件的定义方式1.1 类组件特点：
+
+需要注意 this ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>01-Js数据类型 | 小艾同学的博客</title>
+    <title>React组件 | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -302,13 +305,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        01-Js数据类型
+                        React组件
                     </div>
                 </div>
             </div>
@@ -419,8 +422,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/JavaScript/" target="_blank">
-                            <span class="chip bg-color">JavaScript</span>
+                        <a href="/tags/React/" target="_blank">
+                            <span class="chip bg-color">React</span>
                         </a>
                         
                     </div>
@@ -431,8 +434,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                            JavaScript
+                        <a href="/categories/React/" class="post-category" target="_blank">
+                            React
                         </a>
                         
                     </div>
@@ -443,7 +446,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-03
+                    2021-12-15
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -457,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
                 
@@ -480,248 +483,537 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、为什么要区分不同的数据类型"><a href="#一、为什么要区分不同的数据类型" class="headerlink" title="一、为什么要区分不同的数据类型"></a>一、为什么要区分不同的数据类型</h1><p>在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。</p>
-<h1 id="二、JS中一共有七种数据类型"><a href="#二、JS中一共有七种数据类型" class="headerlink" title="二、JS中一共有七种数据类型"></a>二、JS中一共有七种数据类型</h1><ul>
-<li><strong>基本数据类型（值类型）</strong>：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义、Symbol(ES6新增)。</li>
-<li><strong>引用数据类型（引用类型）</strong>：Object 对象。</li>
+                <h1 id="React-组件化开发"><a href="#React-组件化开发" class="headerlink" title="React 组件化开发"></a>React 组件化开发</h1><h1 id="一、创建项目"><a href="#一、创建项目" class="headerlink" title="一、创建项目"></a>一、创建项目</h1><h2 id="1-安装脚手架"><a href="#1-安装脚手架" class="headerlink" title="1.安装脚手架"></a>1.安装脚手架</h2><p><code>npm i -g create-react-app</code></p>
+<h2 id="2-创建项目"><a href="#2-创建项目" class="headerlink" title="2.创建项目"></a>2.创建项目</h2><p><code>create-react-app 项目名称</code></p>
+<h2 id="3-目录结构"><a href="#3-目录结构" class="headerlink" title="3.目录结构"></a>3.目录结构</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16390558348691639055834863.png" alt="目录结构"></p>
+<h1 id="二、组件"><a href="#二、组件" class="headerlink" title="二、组件"></a>二、组件</h1><h2 id="1-组件的定义方式"><a href="#1-组件的定义方式" class="headerlink" title="1.组件的定义方式"></a>1.组件的定义方式</h2><h3 id="1-1-类组件"><a href="#1-1-类组件" class="headerlink" title="1.1 类组件"></a>1.1 类组件</h3><p>特点：</p>
+<ul>
+<li>需要注意 this 指向</li>
+<li>组件的名称是大写字符开头</li>
+<li>需要继承自 React.Component</li>
+<li>必须实现 render 函数</li>
 </ul>
-<p>注意：内置对象 Function、Array、Date、RegExp、Error等都是属于 Object 类型。也就是说，除了那六种基本数据类型之外，其他的，都称之为 Object类型。</p>
-<h3 id="1-查看数据类型的方式typeof"><a href="#1-查看数据类型的方式typeof" class="headerlink" title="1.查看数据类型的方式typeof()"></a>1.查看数据类型的方式typeof()</h3><ul>
-<li>typeof()返回的是一个字符串类型</li>
-<li>typeof()检测的特殊值<ul>
-<li>基本数据类型null返回的是object —&gt;&nbsp; js历史遗留的bug</li>
-<li>复杂数据类型function返回的是functiong —&gt; 函数是js中的一等公民。有双重身份，即是obj又是function<pre><code class="javascript">function foo() { }
-console.log(typeof 10);//number
-//typeof 返回的是一个字符串类型
-console.log(typeof (typeof 10));//string
-console.log(typeof 'hello');//string
-console.log(typeof false);//boolean
-console.log(typeof undefined);//undefined
-console.log(typeof null);//object
-console.log(typeof foo);//function
-console.log(typeof []);//object
-console.log(typeof {});//object
-// typeof不仅可以检测单个值，加小括号可以检测表达式
-console.log(typeof (10 + '10'));//string
+<pre><code class="js">export default class App extends Component {
+  // constructor可选，通常用来初始化数据
+  constructor () {
+    super()
+    // 储存组件内部的数据
+    this.state = {
+      message: 'Hello'
+    }
+  }
+  // 必须
+  render () {
+    return &lt;h2&gt;{this.state.message}&lt;/h2&gt;
+  }
+}
 </code></pre>
-<h3 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof()"></a>2.instanceof()</h3></li>
+<h3 id="1-2-函数组件"><a href="#1-2-函数组件" class="headerlink" title="1.2 函数组件"></a>1.2 函数组件</h3><p>特点：</p>
+<ul>
+<li>没有 this</li>
+<li>没有内部状态（state）</li>
+<li>会被更新并挂载，但没有生命周期函数</li>
+</ul>
+<pre><code class="js">export default function App () {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Hello&lt;/h2&gt;
+    &lt;/div&gt;
+  )
+}
+</code></pre>
+<h3 id="1-3-组件-render-返回值"><a href="#1-3-组件-render-返回值" class="headerlink" title="1.3 组件 render 返回值"></a>1.3 组件 render 返回值</h3><ul>
+<li>React 元素：通过 JSX 创建</li>
+<li>数组或 fragments：使得 render 方法可以返回多个元素。</li>
+</ul>
+<pre><code class="js">render () {
+    return [&lt;h2&gt;Hello&lt;/h2&gt;, &lt;h2&gt;Hello&lt;/h2&gt;]
+  }
+</code></pre>
+<ul>
+<li>Portals：可以渲染子节点到不同的 DOM 子树中。</li>
+<li>字符串或数值类型：它们在 DOM 中会被渲染为文本节点</li>
+<li>布尔类型或 null：什么都不渲染。</li>
+</ul>
+<h2 id="2-组件的生命周期"><a href="#2-组件的生命周期" class="headerlink" title="2.组件的生命周期"></a>2.组件的生命周期</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16393111158731639311115869.png" alt="组件的生命周期"></p>
+<h3 id="2-1-挂载时"><a href="#2-1-挂载时" class="headerlink" title="2.1 挂载时"></a>2.1 挂载时</h3><p>执行顺序：constructor-&gt;render-&gt;componentDidMount 方法</p>
+<pre><code class="js">import React, { Component } from 'react'
+
+export default class Cycle extends Component {
+  constructor () {
+    console.log('constructor')
+    super()
+  }
+  render () {
+    console.log('render')
+    return &lt;div&gt;Cycle&lt;/div&gt;
+  }
+
+  componentDidMount () {
+    console.log('componentDidMount方法')
+  }
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16393112077011639311207700.png" alt="挂载时"></p>
+<p><strong>constructor</strong></p>
+<ul>
+<li>如果不初始化 state 或不进行方法绑定，则不需要 constructor</li>
+<li>作用<ul>
+<li>初始化内部的 state</li>
+<li>为事件绑定实例 this</li>
 </ul>
 </li>
 </ul>
-<p><strong>运算符</strong>用于检测构造函数的&nbsp;<code>prototype</code>&nbsp;属性是否出现在某个实例对象的原型链<br>函数既是function又是object…</p>
-<pre><code class="javascript">    console.log(foo instanceof Function);//true
-    console.log(foo instanceof Object);//true
-</code></pre>
-<pre><code class="javascript">    var a = '10'
-    let b = new String()
-    console.log('a' instanceof String);//false
-    console.log(b instanceof String);//true
-    console.log([] instanceof Array);//true
-    console.log({} instanceof Array);//false
-    console.log({} instanceof Object);//true
-</code></pre>
-<h1 id="三、String类型"><a href="#三、String类型" class="headerlink" title="三、String类型"></a>三、String类型</h1><h2 id="1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"><a href="#1-用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。" class="headerlink" title="1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。"></a>1.用引号包裹的就是String类型。————简单理解：String说：穿了我的衣服就是我的人了。</h2><h2 id="2-String中的转义字符"><a href="#2-String中的转义字符" class="headerlink" title="2.String中的转义字符"></a>2.String中的转义字符</h2><p>和css中的特殊字符类似</p>
+<p><strong>componentDidMount 方法</strong></p>
 <ul>
-<li><code>\"</code> 表示 <code>"</code></li>
-<li><code>\'</code> 表示 <code>'</code></li>
-<li><code>\\</code> 表示<code>\</code></li>
-<li><code>\r</code> 表示回车</li>
-<li><code>\n</code> 表示换行。n 的意思是 newline。</li>
-<li><code>\t</code> 表示缩进。t 的意思是 tab。</li>
-<li><code>\b</code> 表示空格。b 的意思是 blank。</li>
+<li>会在组件挂载后（插入 DOM 树中）立即调用，依赖于 DOM 的操作可以在这里进行</li>
+<li>发送网络请求最好的地方</li>
+<li>可以在此处添加一些订阅（会在 componentWillUnmount 取消订阅）</li>
 </ul>
-<h2 id="3-获取字符串的长度"><a href="#3-获取字符串的长度" class="headerlink" title="3.获取字符串的长度"></a>3.获取字符串的长度</h2><p>String.length</p>
-<pre><code>  &lt;script&gt;
-    var str1 = '1；23';
-    var str2 = '小艾 同学';
-    var str3 = 'ab,cd';
+<h3 id="2-2-更新时"><a href="#2-2-更新时" class="headerlink" title="2.2 更新时"></a>2.2 更新时</h3><p>执行顺序：render-&gt;componentDidUpdate 方法</p>
+<pre><code class="js">import React, { Component } from 'react'
 
-    // 注意：
-    // 中文、英文字母、数字都占一个字符
-    // 中英文标点符号都占一个字符
-    // 空格也占一个字符
-    console.log(str1.length);//4
-    console.log(str2.length);//5
-    console.log(str3.length);//5
-  &lt;/script&gt;
-</code></pre>
-<h2 id="4-字符串拼接"><a href="#4-字符串拼接" class="headerlink" title="4.字符串拼接"></a>4.字符串拼接</h2><p>当<code>+</code>号的连接的是一个字符串，就会变成连接符。</p>
-<pre><code class="javascript">字符串 + 任意数据类型 = 拼接之后的新字符串;
-</code></pre>
-<p>字符串和任何数据类型拼接，都会将拼接内容隐式转为字符串，并输出一个字符串。</p>
-<pre><code class="javascript">    console.log(10 + null);//10
-    console.log(10 + true);//11
+export default class Cycle extends Component {
+  constructor () {
+    super()
 
-    //当加号的左侧或右侧为一个字符串类型时，就会作为连接符
-    //将任何数据类型都转为字符串，在返回拼接后的新字符串
-    console.log('10' + null);//10null
-    console.log(true + '10');//true10
-        //复杂数据类型也会隐式转换为字符串哦
-    console.log('小艾同学' + {});//小艾同学[object Object]
-</code></pre>
-<p>变量与字符串拼接为了不让转为字符串，通常采用引引加加</p>
-<pre><code class="javascript">    // 字符串与变量拼接
-    let a = 100;
-    // 要想在字符串中插入一个变量，就不能让该变量暴露在引号中
-    //可以用引引加加口诀， '+a+'
-    console.log('小艾同学a分');//小艾同学a分
-    console.log('小艾同学' + a + '分');//小艾同学100分
-</code></pre>
-<p>凡是存在隐式转换的地方，都不应该广泛使用，所以字符串拼接是，尽量不用加号隐式转换，推荐使用<code>${}</code></p>
-<pre><code class="javascript">    console.log(`小${a}艾同${b}学`);
-</code></pre>
-<h2 id="5-ES6字符串遍历"><a href="#5-ES6字符串遍历" class="headerlink" title="5.ES6字符串遍历"></a>5.ES6字符串遍历</h2><pre><code class="javascript">    var str= '123456';
-    for(let char of str){
-      console.log("字符："+char);
-    // 字符：1
-    // 字符：2
-    // 字符：3
-    // 字符：4
-    // 字符：5
-    // 字符：6
+    this.state = {
+      counter: 0
     }
-</code></pre>
-<h1 id="四、Number类型"><a href="#四、Number类型" class="headerlink" title="四、Number类型"></a>四、Number类型</h1><h2 id="1-所有的数字都是Number类型"><a href="#1-所有的数字都是Number类型" class="headerlink" title="1.所有的数字都是Number类型"></a>1.所有的数字都是Number类型</h2><p>Js中不存在int,folat类型，正负数，整数，小数都是Number类型</p>
-<pre><code class="javascript">    &lt;script&gt;
-        var num = 0x9;//前面加0x就是十六进制
-        var num1 = 07;//前面加0代表八进制
-        var num2 = 2e8;//e表示科学计数法次幂
+  }
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;当前计数: {this.state.counter}&lt;/h2&gt;
+        &lt;button onClick={e =&gt; this.increment()}&gt;+1&lt;/button&gt;
+        &lt;hr /&gt;
+      &lt;/div&gt;
+    )
+  }
+  increment () {
+    this.setState({ counter: this.state.counter + 1 })
+  }
 
-        console.log(num);//9
-        console.log(num1);//7
-        console.log(num2);//1.7976931348623157e+308
-        // Number最大范围
-        console.log(Number.MAX_VALUE);//1.7976931348623157e+308
-        // Number最小范围
-        console.log(Number.MIN_VALUE);//5e-324
-        // 无穷大Infinity
-        console.log(Number.MAX_VALUE * 2);//Infinity
-        // 无穷小-Infinity
-        console.log(-Number.MAX_VALUE * 2);//-Infinity
-    &lt;/script&gt;
+  componentDidUpdate (prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate方法')
+  }
+}
 </code></pre>
-<blockquote>
-<p>补充进制转换（以100为例）<br>几进制就是逢几进一→十进制逢十进一</p>
-</blockquote>
-<h4 id="各进制转十进制，就是-几进制的位数-1次幂…"><a href="#各进制转十进制，就是-几进制的位数-1次幂…" class="headerlink" title="各进制转十进制，就是*几进制的位数-1次幂…"></a>各进制转十进制，就是*几进制的位数-1次幂…</h4><ul>
-<li>十进制转十进制</li>
-</ul>
-<p>100 = 1_10^2 + 0_10^1 + 0*10^0 = 100</p>
+<p><strong>componentDidUpdate</strong></p>
 <ul>
-<li>二进制转十进制</li>
+<li>会在更新后会被立即调用，首次渲染不会执行此方法</li>
+<li>当组件更新后，可以在此处对 DOM 进行操作</li>
+<li>如果对更新前后的 props 进行了比较，也可以选择在此处进行网络请求</li>
 </ul>
-<p>100 = 1_2^2 + 0_2^1 + 0*2^0 = 4</p>
+<h3 id="2-2-卸载时"><a href="#2-2-卸载时" class="headerlink" title="2.2 卸载时"></a>2.2 卸载时</h3><pre><code class="js">import React, { Component } from 'react'
+class Son extends Component {
+  render () {
+    return &lt;h2&gt;我是Son组件&lt;/h2&gt;
+  }
+
+  componentWillUnmount () {
+    console.log('调用了Son的componentWillUnmount方法')
+  }
+}
+
+export default class Cycle extends Component {
+  constructor () {
+    super()
+
+    this.state = {
+      isShow: true
+    }
+  }
+  render () {
+    console.log('render')
+    return (
+      &lt;div&gt;
+        Cycle
+        &lt;button onClick={e =&gt; this.changeCpnShow()}&gt;切换&lt;/button&gt;
+        {this.state.isShow &amp;&amp; &lt;Son&gt;&lt;/Son&gt;}
+      &lt;/div&gt;
+    )
+  }
+
+  changeCpnShow () {
+    this.setState({ isShow: !this.state.isShow })
+  }
+
+  componentDidUpdate (prevProps, prevState, snapshot) {
+    console.log('componentDidUpdate方法')
+  }
+}
+</code></pre>
+<p><strong>componentWillUnmount 方法</strong></p>
 <ul>
-<li>八进制转十进制(以0开头就是八进制)</li>
+<li>会在组件卸载及销毁之前直接调用</li>
+<li>在此方法中执行必要的清理操作：清除 timer，取消网络请求或清除在 componentDidMount() 中创建的订阅等</li>
 </ul>
-<p>0100= 1_8^2 + 0_8^1 + 0*8^0 = 64</p>
+<h2 id="3-组件通讯"><a href="#3-组件通讯" class="headerlink" title="3.组件通讯"></a>3.组件通讯</h2><h3 id="3-1-父子通讯"><a href="#3-1-父子通讯" class="headerlink" title="3.1 父子通讯"></a>3.1 父子通讯</h3><p>父组件通过 属性=值 的形式来传递给子组件数据，子组件通过 props 参数获取父组件传递过来的数据</p>
+<pre><code class="js">import React, { Component } from 'react'
+
+// 类组件
+class ChildCpn extends Component {
+  componentDidMount () {
+    console.log(this.props, 'componentDidMount')
+  }
+
+  render () {
+    // 通过this.props拿到父组件传来的数据
+    const { name, age, height } = this.props
+    return &lt;h2&gt;子组件展示数据: {name + ' ' + age + ' ' + height}&lt;/h2&gt;
+  }
+}
+
+// 函数组件
+function ChildFun (props) {
+  const { name, age, height } = props
+  return &lt;h2&gt;子组件展示数据: {name + ' ' + age + ' ' + height}&lt;/h2&gt;
+}
+
+// 父组件
+export default class Son extends Component {
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn name='loveZero' age='18' height='1.58' /&gt;
+        &lt;ChildCpn name='千玺' age='20' height='1.78' /&gt;
+        &lt;ChildFun name='loveZero' age='18' height='1.58' /&gt;
+        &lt;ChildFun name='千玺' age='20' height='1.78' /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+<h4 id="propTypes"><a href="#propTypes" class="headerlink" title="propTypes"></a>propTypes</h4><p>用于属性验证和默认值<br><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html">官网</a></p>
+<pre><code class="js">import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+// 类组件
+class ChildCpn extends Component {
+  render () {
+    // 通过this.props拿到父组件传来的数据
+    const { name, age, height } = this.props
+    return &lt;h2&gt;子组件展示数据: {name + ' ' + age + ' ' + height}&lt;/h2&gt;
+  }
+}
+// 属性验证
+ChildCpn.propTypes = {
+  // 字符串类型，必填
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number,
+  height: PropTypes.string
+}
+
+// 默认值
+ChildCpn.defaultProps = {
+  name: 'loveZero',
+  age: 18,
+  height: '1.58'
+}
+
+// 父组件
+export default class Son extends Component {
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;ChildCpn name='loveZero' age={18} height='1.58' /&gt;
+        &lt;ChildCpn name='千玺' age={20} height='1.78' /&gt;
+        &lt;ChildCpn /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+<p>类组件的属性验证和默认值写法二</p>
+<pre><code class="js">class ChildCpn extends Component {
+  // es6中的class fields写法
+  static propTypes = {
+    // 字符串类型，必填
+    name: PropTypes.string.isRequired,
+    age: PropTypes.number,
+    height: PropTypes.string
+  }
+
+  static defaultProps = {
+    name: 'loveZero',
+    age: 18,
+    height: '1.58'
+  }
+  render () {
+    // 通过this.props拿到父组件传来的数据
+    const { name, age, height } = this.props
+    return &lt;h2&gt;子组件展示数据: {name + ' ' + age + ' ' + height}&lt;/h2&gt;
+  }
+}
+</code></pre>
+<h4 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h4><pre><code class="js">class CounterButton extends Component {
+  render () {
+    const { onClick } = this.props
+    return &lt;button onClick={onClick}&gt;+1&lt;/button&gt;
+  }
+}
+
+// 父组件
+export default class Son extends Component {
+  constructor () {
+    super()
+    this.state = {
+      num: 0
+    }
+  }
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;button
+          onClick={e =&gt; {
+            this.numClick()
+          }}
+        &gt;
+          +
+        &lt;/button&gt;
+        &lt;h2&gt;{this.state.num}&lt;/h2&gt;
+        &lt;CounterButton
+          onClick={e =&gt; {
+            this.numClick()
+          }}
+        /&gt;
+      &lt;/div&gt;
+    )
+  }
+  numClick () {
+    this.setState({
+      num: this.state.num + 1
+    })
+  }
+}
+</code></pre>
+<h3 id="3-2-跨组件通讯"><a href="#3-2-跨组件通讯" class="headerlink" title="3.2 跨组件通讯"></a>3.2 跨组件通讯</h3><h4 id="3-2-1-props"><a href="#3-2-1-props" class="headerlink" title="3.2.1 props"></a>3.2.1 props</h4><p>使用 props 属性展开<br><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394080416551639408041652.png" alt="props"></p>
+<pre><code class="js">import React, { Component } from 'react'
+
+function Sun (props) {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;用户昵称: {props.nickname}&lt;/h2&gt;
+      &lt;h2&gt;用户等级: {props.level}&lt;/h2&gt;
+    &lt;/div&gt;
+  )
+}
+
+function Son (props) {
+  return (
+    &lt;div&gt;
+      &lt;Sun {...props} /&gt;
+      &lt;ul&gt;
+        &lt;li&gt;设置1&lt;/li&gt;
+        &lt;li&gt;设置2&lt;/li&gt;
+        &lt;li&gt;设置3&lt;/li&gt;
+        &lt;li&gt;设置4&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default class Father extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      nickname: 'loveZero',
+      level: 99
+    }
+  }
+
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;Son {...this.state} /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+<h4 id="3-2-2-context"><a href="#3-2-2-context" class="headerlink" title="3.2.2 context"></a>3.2.2 context</h4><p><strong>1.创建 context</strong></p>
+<pre><code class="js">const UserContext = React.createContext({ 默认值 })
+</code></pre>
+<p><strong>2.父组件中使用</strong></p>
+<pre><code class="js">&lt;UserContext.Provider value={this.state}&gt;
+  &lt;Son /&gt;
+&lt;/UserContext.Provider&gt;
+</code></pre>
+<p><strong>3.后续组件中绑定</strong></p>
+<pre><code class="js">Sun.contextType = UserContext
+</code></pre>
+<p><code>React.createContext</code></p>
 <ul>
-<li>十六进制转十进制(以0x开头就是十六进制)</li>
+<li>创建一个 context 对象</li>
+<li>会离自身最近开始匹配的 Provider 中读取 context 值</li>
+<li>如果没找到 Provider 就会使用默认值</li>
 </ul>
-<p>0x100 = 1_16^2 + 0_16^1 + 0*16^0 = 256</p>
-<h4 id="十进制转各进制就是-该进制的余数倒过来…"><a href="#十进制转各进制就是-该进制的余数倒过来…" class="headerlink" title="十进制转各进制就是/该进制的余数倒过来…"></a>十进制转各进制就是/该进制的余数倒过来…</h4><ul>
-<li>十进制转二进制</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661499-a409744a-df42-4062-9025-1bb38e04c68e.png#align=left&amp;display=inline&amp;height=667&amp;margin=%5Bobject%20Object%5D&amp;originHeight=667&amp;originWidth=859&amp;size=0&amp;status=done&amp;style=none&amp;width=859"></p>
+<p><code>Context.Provider</code></p>
 <ul>
-<li>别的进制同理</li>
+<li>Provider 接收一个 value 属性，传递给消费组件</li>
+<li>当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染</li>
 </ul>
-<h2 id="2-Number类型的特殊值—NaN"><a href="#2-Number类型的特殊值—NaN" class="headerlink" title="2.Number类型的特殊值—NaN"></a>2.Number类型的特殊值—NaN</h2><p>Not a Numberde 的简写，是Number类型</p>
-<p>特点：NaN不等于任何东西，包括他自己</p>
-<pre><code class="javascript">  &lt;script&gt;
-    // NaN不等于任何
-    console.log(NaN == NaN);//false
-    console.log(NaN =-= NaN);//false
-    // 返回NaN的情况
-    // 1.字符串计算
-    console.log('a' - 1);//NaN
-
-    // 2.类型转换时开头有无法转换成数字的值
-    // 不能转换的一定要在开头
-    console.log(parseFloat('1a'));//1
-    console.log(parseFloat('a1'));//NaN
-    console.log(parseFloat());//NaN
-    console.log(parseInt('x'));//NaN
-    console.log(Number('x'));//NaN
-  &lt;/script&gt;
-</code></pre>
-<h3 id="2-1-isNaN（）函数"><a href="#2-1-isNaN（）函数" class="headerlink" title="2.1 isNaN（）函数"></a>2.1 isNaN（）函数</h3><p>用来确定一个值是否为NaN</p>
-<pre><code class="javascript">    // isNaN()，判断传入的参数是否为NaN
-    console.log(isNaN(NaN)); //true
-
-    // 只有0/0会返回true，其他任何数值都是false
-    console.log(isNaN(0 / 0)); //true
-    console.log(isNaN(0 / 1)); //false
-    console.log(isNaN(1 / 0)); //false
-    console.log(isNaN(10)); //false（ 10 是一个数值）
-
-    //能转为数字的别的类型也会返回false,无法转换的返回true
-    console.log(isNaN("10")); //false（可以被转换成数值 10）
-    console.log(isNaN("a10")); //true（可以被转换成数值 10）
-    console.log(isNaN("hello")); //true（不能转换成数值）
-    console.log(isNaN(true)); //false（可以被转换成数值 1）
-</code></pre>
-<h2 id="3-0-1-0-2不等于0-3"><a href="#3-0-1-0-2不等于0-3" class="headerlink" title="3.0.1+0.2不等于0.3"></a>3.0.1+0.2不等于0.3</h2><p>失精<br>参考：<a target="_blank" rel="noopener" href="https://juejin.im/post/5b90e00e6fb9a05cf9080dff">https://juejin.im/post/5b90e00e6fb9a05cf9080dff</a></p>
-<pre><code class="javascript">       var a = 0.1 + 0.2;
-    console.log(a);  //0.30000000000000004
-</code></pre>
-<h1 id="五、Boolean类型"><a href="#五、Boolean类型" class="headerlink" title="五、Boolean类型"></a>五、Boolean类型</h1><p>只有两个值：true和false<br>在输出Boolean类型时，不能加引号哦。</p>
-<pre><code class="javascript">    console.log(false);//false ---&gt; 布尔类型
-    console.log('false');//false ---&gt; 字符串类型
-</code></pre>
-<h1 id="六、Null"><a href="#六、Null" class="headerlink" title="六、Null"></a>六、Null</h1><p>null表示”空对象”，即该处不应该有值，用来表示空指针引用。<br>typeof Null 返回的是object</p>
-<pre><code class="javascript">    console.log(typeof null); // object
-</code></pre>
-<h1 id="七、undefined"><a href="#七、undefined" class="headerlink" title="七、undefined"></a>七、undefined</h1><p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义。</p>
-<pre><code>    &lt;script&gt;
-      // 变量声明了未赋值，返回的即使undefined
-      var a;
-      console.log(a);//undefined
-      
-      // 检测undefined类型
-      console.log(typeof undefined);//undefined
-    &lt;/script&gt;
-</code></pre>
-<h1 id="八、比较Null和undefined"><a href="#八、比较Null和undefined" class="headerlink" title="八、比较Null和undefined"></a>八、比较Null和undefined</h1><p>简单理解，以糖葫芦为例，本来应该是一串糖葫芦，undefined相当于就剩一个竹签了，null就是连签都没有…<br>推荐文章<br><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">https://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html</a></p>
-<pre><code>    // null与undefined
-    console.log(null == undefined);//ture
-    console.log(null === undefined);//false
-
-    // 计算
-    console.log(1 + null);//1
-    console.log(1 + undefined);//NaN
-</code></pre>
-<h1 id="九、基本数据类型和引用数据类型区别"><a href="#九、基本数据类型和引用数据类型区别" class="headerlink" title="九、基本数据类型和引用数据类型区别"></a>九、基本数据类型和引用数据类型区别</h1><h2 id="1-储存位置不同"><a href="#1-储存位置不同" class="headerlink" title="1.储存位置不同"></a>1.储存位置不同</h2><ul>
-<li>基本数据类型存放在栈中，数据大小确定，内存空间大小可以分配，直接按值存放的，所以可以直接按值访问。</li>
-<li>引用数据类型存放在堆内存中，变量其实是保存的在栈内存中的一个指针（保存的是堆内存中的引用地址)，这个指针指向堆内存。在栈内存中保存的是对象在堆内存中的引用地址。通过这个引用地址可以快速查找到保存中堆内存中的对象</li>
+<p><code>Class.contextType</code></p>
+<ul>
+<li>挂载在 class 上的 contextType 属性会被重赋值为一个由 React.createContext() 创建的 Context 对象</li>
+<li>使用 this.context 来消费最近 Context 上的那个值；</li>
+<li>可以在任何生命周期中访问到它，包括 render 函数中</li>
 </ul>
-<blockquote>
-<p>在JS中，每一个数据都需要一个内存空间。内存空间又被分为两种，栈内存(stack)与堆内存(heap)。<br>堆：先进先出<br>栈：先进后出<br>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661556-a22ecd2b-19b9-49fc-a03e-a3961bdc15a0.png#align=left&amp;display=inline&amp;height=954&amp;margin=%5Bobject%20Object%5D&amp;originHeight=954&amp;originWidth=1713&amp;size=0&amp;status=done&amp;style=none&amp;width=1713"></p>
-</blockquote>
-<h2 id="2-复制操作"><a href="#2-复制操作" class="headerlink" title="2.复制操作"></a>2.复制操作</h2><ul>
-<li>基本数据类型从一个变量向一个变量复制时，会在栈中创建一个新值，然后把值复制到为新变量分配的位置上，改变源数据不会影响到新的变量（互不干涉）</li>
-<li>引用类型复制的是存储在栈中的指针，将指针复制到栈中为新变量分配的空间中，而这个指针副本和原指针执行存储在堆中的同一个对象，复制操作结束后，两个变量实际上将引用同一个对象；因此改变其中的一个，将影响另一个；</li>
+<p><code>Context.Consumer</code></p>
+<ul>
+<li>在函数式组件中使用</li>
 </ul>
-<pre><code>  &lt;script&gt;
-    var a = 10;
-    var b = a;
-    b = 20;
+<pre><code class="js">// 类组件中使用
+import React, { Component } from 'react'
+// 创建Context对象
+const UserContext = React.createContext({
+  nickname: 'aaaa',
+  level: -1
+})
 
-    var arr = ['小','艾','同学'];
-    var arr1 = arr;
-    arr1.push('666');
+class Sun extends Component {
+  render () {
+    console.log(this.context)
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;用户昵称: {this.context.nickname}&lt;/h2&gt;
+        &lt;h2&gt;用户等级: {this.context.level}&lt;/h2&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+Sun.contextType = UserContext
 
+class Son extends Component {
+  render () {
+    console.log(this.context)
+    return (
+      &lt;div&gt;
+        &lt;Sun /&gt;
+        &lt;ul&gt;
+          &lt;li&gt;设置1&lt;/li&gt;
+          &lt;li&gt;设置2&lt;/li&gt;
+          &lt;li&gt;设置3&lt;/li&gt;
+          &lt;li&gt;设置4&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    )
+  }
+}
 
-    // 基本数据类型复制后，改变复制的变量，原值不受影响
-    console.log(a);//10
-    console.log(b );//20
+export default class Father extends Component {
+  constructor (props) {
+    super(props)
 
-    // 引用类型复制后，改变复制的变量，原值也会跟着改变
-    console.log(arr);//['小','艾','同学','666']
-    console.log(arr1);//['小','艾','同学','666']
-  &lt;/script&gt;
+    this.state = {
+      nickname: 'loveZero',
+      level: 99
+    }
+  }
+
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value={this.state}&gt;
+          &lt;Son /&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  }
+}
 </code></pre>
-<p>图示：<br><img src="https://cdn.nlark.com/yuque/0/2020/png/1307005/1587290661598-aba71641-d1c0-4a7a-9606-cd5f1169e7ad.png#align=left&amp;display=inline&amp;height=1214&amp;margin=%5Bobject%20Object%5D&amp;originHeight=1214&amp;originWidth=2880&amp;size=0&amp;status=done&amp;style=none&amp;width=2880"></p>
+<pre><code class="js">// 在函数式组件中使用
+import React, { Component } from 'react'
+// 创建Context对象
+const UserContext = React.createContext({
+  nickname: 'aaaa',
+  level: -1
+})
+
+function Sun () {
+  return (
+    &lt;UserContext.Consumer&gt;
+      {value =&gt; {
+        return (
+          &lt;div&gt;
+            &lt;h2&gt;用户昵称:{value.nickname} &lt;/h2&gt;
+            &lt;h2&gt;用户等级:{value.level} &lt;/h2&gt;
+          &lt;/div&gt;
+        )
+      }}
+    &lt;/UserContext.Consumer&gt;
+  )
+}
+
+class Son extends Component {
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;Sun /&gt;
+        &lt;ul&gt;
+          &lt;li&gt;设置1&lt;/li&gt;
+          &lt;li&gt;设置2&lt;/li&gt;
+          &lt;li&gt;设置3&lt;/li&gt;
+          &lt;li&gt;设置4&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default class Father extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      nickname: 'loveZero',
+      level: 99
+    }
+  }
+
+  render () {
+    return (
+      &lt;div&gt;
+        &lt;UserContext.Provider value={this.state}&gt;
+          &lt;Son /&gt;
+        &lt;/UserContext.Provider&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+<h2 id="4-react-实现插槽"><a href="#4-react-实现插槽" class="headerlink" title="4.react 实现插槽"></a>4.react 实现插槽</h2><pre><code class="js">import React, { Component } from 'react'
+
+class NavBar extends Component {
+  render () {
+    const { leftSlot, centerSlot, rightSlot } = this.props
+
+    return (
+      &lt;div className='nav-item nav-bar'&gt;
+        &lt;div className='nav-left'&gt;{leftSlot}&lt;/div&gt;
+        &lt;div className='nav-item nav-center'&gt;{centerSlot}&lt;/div&gt;
+        &lt;div className='nav-item nav-right'&gt;{rightSlot}&lt;/div&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default class Slot extends Component {
+  render () {
+    const leftJsx = &lt;span&gt;aaa&lt;/span&gt;
+    return (
+      &lt;div&gt;
+        &lt;NavBar
+          leftSlot={leftJsx}
+          centerSlot={&lt;strong&gt;bbb&lt;/strong&gt;}
+          rightSlot={&lt;a href='/#'&gt;ccc&lt;/a&gt;}
+        /&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
 
             </div>
             <hr />
@@ -880,9 +1172,9 @@ console.log(typeof (10 + '10'));//string
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《01-Js数据类型》
+                    《React组件》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/08/03/javascript-js-shu-ju-lei-xing/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/12/15/react-zu-jian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -926,32 +1218,31 @@ console.log(typeof (10 + '10'));//string
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/08/04/javascript-shou-xie-promise/">
+                <a href="/2021/12/15/react-setstate/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="手写Promise">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="React-setState">
                         
-                        <span class="card-title">手写Promise</span>
+                        <span class="card-title">React-setState</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            手写Promise1.基本使用举个简单例子：
-你爸爸承诺下礼拜发工资了给你买个手机。你 [不知道] 你是否会得到手机直到下礼拜，此时进入等待态。你爸爸真的给你买一个手机(因为发工资有钱了)，也可以告诉你不买了(因为先给自己买了)。这是一个承
+                            setState一、为什么使用 setState1.因为直接修改 state 的值 React 并不知道数据发生了变化，必须通过 setState 来告知 React 数据已发生变化2.setState 方法是从 Component 中继承
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/React/" class="post-category" target="_blank">
+                                    React
                                 </a>
                             
                             
@@ -961,16 +1252,8 @@ console.log(typeof (10 + '10'));//string
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%93%E9%A2%98/" target="_blank">
-                        <span class="chip bg-color">专题</span>
-                    </a>
-                    
-                    <a href="/tags/Promise/" target="_blank">
-                        <span class="chip bg-color">Promise</span>
+                    <a href="/tags/React/" target="_blank">
+                        <span class="chip bg-color">React</span>
                     </a>
                     
                 </div>
@@ -981,48 +1264,50 @@ console.log(typeof (10 + '10'));//string
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/03/javascript-js-shu-ju-lei-xing/">
+                <a href="/2021/12/15/node-koa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="01-Js数据类型">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Koa">
                         
-                        <span class="card-title">01-Js数据类型</span>
+                        <span class="card-title">Koa</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、为什么要区分不同的数据类型在计算机中，不同的数据所需占用的存储空间不同，为了充分利用存储空间，于是定义了不同的数据类型。而且，不同的数据类型，寓意也不同。
-二、JS中一共有七种数据类型
-基本数据类型（值类型）：String 字符串、Nu
+                            Koa一、基本使用初始化 npm init -y安装 npm i koa
+  const Koa = require('koa');
+
+  const app = new Koa();
+
+  app.use((ctx, next) =&gt
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/Node/" class="post-category" target="_blank">
+                                    Node
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
+                    <a href="/tags/Node/" target="_blank">
+                        <span class="chip bg-color">Node</span>
                     </a>
                     
                 </div>

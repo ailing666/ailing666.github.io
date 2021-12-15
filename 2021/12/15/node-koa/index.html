@@ -4,15 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="React基础, loveZero 小艾同学 前端 js JavaScript">
+    <meta name="keywords" content="Koa, loveZero 小艾同学 前端 js JavaScript">
     <meta name="baidu-site-verification" content="fmlEuI34ir" />
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48" />
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7" />
-    <meta name="description" content="React一、HelloReact1.安装依赖需要依赖3个包
+    <meta name="description" content="Koa一、基本使用初始化 npm init -y安装 npm i koa
+  const Koa = require(&#39;koa&#39;);
 
-react：包含react所必须的核心代码
-react-dom：react渲染在不同平台所需要的核心代码
-web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
+  const app = new Koa();
+
+  app.use((ctx, next) =&amp;gt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>React基础 | 小艾同学的博客</title>
+    <title>Koa | 小艾同学的博客</title>
     <link rel="icon" type="image/jpeg" href="/medias/logo.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +305,13 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        React基础
+                        Koa
                     </div>
                 </div>
             </div>
@@ -421,8 +422,8 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/React/" target="_blank">
-                            <span class="chip bg-color">React</span>
+                        <a href="/tags/Node/" target="_blank">
+                            <span class="chip bg-color">Node</span>
                         </a>
                         
                     </div>
@@ -433,8 +434,8 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/React/" class="post-category" target="_blank">
-                            React
+                        <a href="/categories/Node/" class="post-category" target="_blank">
+                            Node
                         </a>
                         
                     </div>
@@ -445,7 +446,7 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-25
+                    2021-12-15
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -459,14 +460,14 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    520
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
                 
@@ -482,333 +483,153 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="React"><a href="#React" class="headerlink" title="React"></a>React</h1><h2 id="一、HelloReact"><a href="#一、HelloReact" class="headerlink" title="一、HelloReact"></a>一、HelloReact</h2><h3 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1.安装依赖"></a>1.安装依赖</h3><p>需要依赖3个包</p>
-<ul>
-<li>react：包含react所必须的核心代码</li>
-<li>react-dom：react渲染在不同平台所需要的核心代码<ul>
-<li>web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏览器中</li>
-<li>native端：react-dom会讲jsx最终渲染成原生的控件（比如Android中的Button，iOS中的UIButton）</li>
-</ul>
-</li>
-<li>babel：将jsx转换成React代码的工具<ul>
-<li>使用ES6来编写源码，之后通过Babel工具，将ES6转成大多数浏览器都支持的ES5的语法</li>
-</ul>
-</li>
-</ul>
-<p><strong>方式一：CDN引入</strong></p>
-<pre><code class="js">  &lt;!-- 添加React的依赖 --&gt;
-  &lt;script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
+                <h1 id="Koa"><a href="#Koa" class="headerlink" title="Koa"></a>Koa</h1><h2 id="一、基本使用"><a href="#一、基本使用" class="headerlink" title="一、基本使用"></a>一、基本使用</h2><p>初始化 <code>npm init -y</code><br>安装 <code>npm i koa</code></p>
+<pre><code class="js">  const Koa = require('koa');
+
+  const app = new Koa();
+
+  app.use((ctx, next) =&gt; {
+    ctx.response.body = "Hello World";
+  });
+
+  app.listen(8000, () =&gt; {
+    console.log("服务器启动成功");
+  });
 </code></pre>
-<p><strong>方式二：下载后本地依赖</strong></p>
-<p><strong>方式三：使用npm管理</strong></p>
-<h3 id="2-hello-react"><a href="#2-hello-react" class="headerlink" title="2.hello-react"></a>2.hello-react</h3><p><strong>原生实现</strong></p>
-<pre><code class="html">  &lt;h2 id="text"&gt;&lt;/h2&gt;
-  &lt;button id="btn"&gt;改变文本&lt;/button&gt;
+<h2 id="二、中间件"><a href="#二、中间件" class="headerlink" title="二、中间件"></a>二、中间件</h2><pre><code class="js">const Koa = require('koa');
 
-  &lt;script&gt;
-    // 命令式编程：每做一个操作都是给计算机一个命令
-    // 1.定义数据
-    let message = 'Hello World'
+const app = new Koa();
 
-    // 2.将数据显示h2元素中
-    const textEl = document.getElementById("text")
-    text.innerText = message
-
-    // 3.点击按钮，改变页面数据
-    const btnEl = document.getElementById("btn")
-    btnEl.addEventListener('click', () =&gt; {
-      message = 'Hello React'
-      textEl.innerText = message
-    })
-
-  &lt;/script&gt;
-</code></pre>
-<p><strong>React实现</strong></p>
-<ol>
-<li>编写React的script代码中，必须添加 type=”text/babel”，作用是可以让babel解析jsx语法</li>
-<li>ReactDOM.render函数<ul>
-<li>第一个参数是要渲染的内容，这个内容可以是HTML元素，也可以是React的组件</li>
-<li>第二个参数是将渲染的内容，挂载到哪一个HTML元素上</li>
-</ul>
-</li>
-</ol>
-<pre><code class="html">  &lt;div id="box"&gt;box&lt;/div&gt;
-  &lt;!-- 添加React的依赖 --&gt;
-  &lt;script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin&gt;&lt;/script&gt;
-  &lt;script src="https://unpkg.com/babel-standalone@6/babel.min.js"&gt;&lt;/script&gt;
-  &lt;!-- babel --&gt;
-  &lt;script type="text/babel"&gt;
-    let msg = "Hello World";
-
-    function btnClick() {
-      msg = "Hello React";
-      console.log(msg);
-      render();
+// use注册中间件
+app.use((ctx, next) =&gt; {
+  if (ctx.request.url === '/login') {
+    if (ctx.request.method === 'GET') {
+      ctx.response.body = "Login Success~";
     }
-    function render() {
-      ReactDOM.render(
-        &lt;div&gt;
-          &lt;h2&gt;{msg}&lt;/h2&gt;
-          &lt;button onClick={btnClick}&gt;改变文本&lt;/button&gt;
-        &lt;/div&gt;,
-        document.getElementById("box")
-      );
-    }
-
-    render();
-  &lt;/script&gt;
-</code></pre>
-<p><strong>组件化HelloReact</strong></p>
-<ol>
-<li>定义一个类继承自React.Component</li>
-<li>类中有一个render函数，返回jsx内容</li>
-<li>数据依赖<ol>
-<li>参与界面更新的数据（参与数据流）：当数据变量时，需要更新组件渲染的内容<ol>
-<li>定义在state对象中</li>
-<li>当数据变化时需要调用<code>this.setState</code>来变更数据</li>
-</ol>
-</li>
-<li>不参与界面更新的数据：当数据变量时，不需要更新将组建渲染的内容</li>
-</ol>
-</li>
-<li>事件绑定<ol>
-<li>click触发时，this是undefined。因为React渲染的不是真实DOM,其中button实际上市react的Element对象，所以触发时this时undefined</li>
-<li>解决：可以通过<code>bind</code>改变this指向</li>
-</ol>
-</li>
-</ol>
-<pre><code class="html">  &lt;script type="text/babel"&gt;
-  // 封装组件
-  class App extends React.Component {
-    constructor() {
-      super()
-      this.state = {
-        message: "HelloWorld"
-      }
-    }
-
-    render() {
-      return (
-        &lt;div&gt;
-          &lt;h2&gt;{this.state.message}&lt;/h2&gt;
-          &lt;button onClick={this.btnClick.bind(this)}&gt;改变文本&lt;/button&gt;
-        &lt;/div&gt;
-      )
-    }
-
-    btnClick() {
-      // setState改变后，才会重新渲染
-      this.setState({
-        message: "HelloReact"
-      })
-    }
+  } else {
+    ctx.response.body = "other request~";
   }
+});
 
-  // 渲染组件
-  ReactDOM.render(&lt;App /&gt;, document.getElementById("app"))
-&lt;/script&gt;
+app.listen(8000, () =&gt; {
+  console.log("koa初体验服务器启动成功~");
+});
 </code></pre>
-<h2 id="二、JSX语法"><a href="#二、JSX语法" class="headerlink" title="二、JSX语法"></a>二、JSX语法</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h3><p><code>{/*注释*/}</code></p>
-<pre><code class="jsx">      render() {
-        return (
-          &lt;div&gt;
-            {/*注释*/}
-          &lt;/div&gt;
-        )
-      }
-</code></pre>
-<h3 id="2-嵌入数据"><a href="#2-嵌入数据" class="headerlink" title="2.嵌入数据"></a>2.嵌入数据</h3><pre><code class="js">    class App extends React.Component {
-      constructor() {
-        super()
-        this.state = {
-          // 1.可以正常显示
-          name: 'loveZero',// String
-          age: 18,//Number
-          list: [1, 2, 'asdf', 'abc'],//Array
-          // 2.不显示
-          test1: null,
-          test2: undefined,
-          bool: true,
-          // 3.对象不能作为jsx的子类
-          obj: {
-            id: '007'
-          }
-        }
-      }
+<h2 id="三、路由"><a href="#三、路由" class="headerlink" title="三、路由"></a>三、路由</h2><h3 id="1-安装库"><a href="#1-安装库" class="headerlink" title="1.安装库"></a>1.安装库</h3><p><code>npm install koa-router</code></p>
+<h3 id="2-注册路由"><a href="#2-注册路由" class="headerlink" title="2.注册路由"></a>2.注册路由</h3><p>allowedMethods:用于判断某一个method是否支持</p>
+<ul>
+<li>路由中支持的请求就正常显示</li>
+<li>请求 link、copy、lock，自动报错：Not Implemented，状态码：501；</li>
+<li>请求 link、copy、lock，自动报错：Not Implemented，状态码：501；</li>
+</ul>
+<pre><code class="js">// user.js
+const Router = require('koa-router');
 
-      render() {
-        return (
-          &lt;div&gt;
-            {/*可以正常显示*/}
-            &lt;h2&gt;{this.state.name}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.age}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.list}&lt;/h2&gt;
-            {/*不显示*/}
-            &lt;h2&gt;{this.state.test1}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.test2}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.bool}&lt;/h2&gt;
-            {/*可以通过转为字符串让其渲染*/}
-            &lt;h2&gt;{this.state.test1 + ''}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.test2 + ''}&lt;/h2&gt;
-            &lt;h2&gt;{this.state.bool.toString()}&lt;/h2&gt;
-            {/*对象不能作为jsx的子类*/}
-            {/*&lt;h2&gt;{this.state.obj}&lt;/h2&gt;*/}
-          &lt;/div&gt;
-        )
-      }
-    }
-</code></pre>
-<h3 id="3-嵌入表达式"><a href="#3-嵌入表达式" class="headerlink" title="3.嵌入表达式"></a>3.嵌入表达式</h3><pre><code class="js">  {/*1.运算符表达式*/}
-  &lt;h2&gt;{name + " " + age}&lt;/h2&gt;
-  &lt;h2&gt;{20 * 50}&lt;/h2&gt;
+const router = new Router({prefix: "/users"});
 
-  {/*2.三元表达式*/}
-  &lt;h2&gt;{bool ? "真~" : "假~"}&lt;/h2&gt;
+router.get('/', (ctx, next) =&gt; {
+  ctx.response.body = "get request~";
+});
 
-  {/*3.进行函数调用*/}
-  &lt;h2&gt;{this.addNum()}&lt;/h2&gt;
-</code></pre>
-<h3 id="4-绑定属性"><a href="#4-绑定属性" class="headerlink" title="4.绑定属性"></a>4.绑定属性</h3><pre><code class="jsx">  &lt;img src={imgUrl} /&gt;
-  &lt;a href={linkUrl}&gt;百度&lt;/a&gt;
-  &lt;label htmlFor=""&gt;&lt;/label&gt;
-</code></pre>
-<h3 id="5-绑定class"><a href="#5-绑定class" class="headerlink" title="5.绑定class"></a>5.绑定class</h3><pre><code class="jsx">  &lt;div className="box"&gt;box1&lt;/div&gt;
-  {/*动态绑定class*/}
-  &lt;div className={"box " + (active &amp;&amp; "active")}&gt;box2&lt;/div&gt;
-</code></pre>
-<h3 id="6-绑定style"><a href="#6-绑定style" class="headerlink" title="6.绑定style"></a>6.绑定style</h3><pre><code class="jsx">  &lt;div style={{ color: 'red', fontWeight: 700 }}&gt;绑定style&lt;/div&gt;
-</code></pre>
-<h3 id="7-绑定事件"><a href="#7-绑定事件" class="headerlink" title="7.绑定事件"></a>7.绑定事件</h3><p>通过箭头函数来解决<code>this</code>指向</p>
-<pre><code class="jsx">    class App extends React.Component {
-      constructor() {
-        super()
-        this.state = {
-          list: ["大话西游", "海王", "流浪地球", "盗梦空间"]
-        }
-      }
+router.post('/', (ctx, next) =&gt; {
+  ctx.response.body = "post request~";
+});
 
-      render() {
-        const { list } = this.state
-        return (
-          &lt;div&gt;
-            &lt;ul&gt;
-              {
-                list.map((item, index) =&gt; {
-                  return (
-                    &lt;li className="li"
-                      style={{ color: 'red' }}
-                      onClick={e =&gt; { this.liClick(item, index, e) }}&gt;
-                      {item}
-                    &lt;/li&gt;
-                  )
-                })
-              }
-            &lt;/ul&gt;
-          &lt;/div&gt;
-        )
-      }
-      liClick(item, index, e) {
-        console.log(this);
-        console.log(item);
-        console.log(index);
-        console.log(e);
-      }
-    }
+
+module.exports = router;
+
+
+// index.js
+const Koa = require('koa');
+
+const userRouter = require('./router/user');
+
+const app = new Koa();
+
+app.use((ctx, next) =&gt; {
+  next();
+});
+
+app.use(userRouter.routes());
+app.use(userRouter.allowedMethods());
+
+app.listen(8000, () =&gt; {
+  console.log("koa路由服务器启动成功~");
+});
 </code></pre>
-<h3 id="8-条件渲染"><a href="#8-条件渲染" class="headerlink" title="8.条件渲染"></a>8.条件渲染</h3><p>方式一：通过<code>if</code>控制</p>
-<pre><code class="jsx">    class App extends React.Component {
-      constructor() {
-        super()
-        this.state = {
-          login: true
-        }
-      }
-
-      render() {
-        let message = null
-        let btnText = null
-        if (this.state.login) {
-          message = '您已登录'
-          btnText = '退出'
-        } else {
-          message = '请先登录'
-          btnText = '登录'
-        }
-        return (
-          &lt;div&gt;
-            &lt;h2&gt;{message}&lt;/h2&gt;
-            &lt;button onClick={e =&gt; this.btnClick()}&gt;{btnText}&lt;/button&gt;
-            &lt;hr /&gt;
-            &lt;div&gt;{this.state.login &amp;&amp; '欢迎'}&lt;/div&gt;
-          &lt;/div &gt;
-        )
-      }
-      btnClick() {
-        this.setState({
-          login: !this.state.login
-        })
-      }
-    }
+<h2 id="四、参数解析"><a href="#四、参数解析" class="headerlink" title="四、参数解析"></a>四、参数解析</h2><h3 id="1-params"><a href="#1-params" class="headerlink" title="1. params"></a>1. params</h3><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394499128141639449912805.png" alt="params"></p>
+<p><code>http://localhost:8000/users/007</code></p>
+<pre><code class="js">router.get('/:id', (ctx, next) =&gt; {
+  console.log(ctx.request.params);
+  ctx.response.body = ctx.request.params;
+})
 </code></pre>
-<p>方式二：通过控制<code>display</code>,类似<code>v-show</code></p>
-<pre><code class="jsx">    class App extends React.Component {
-      constructor(props) {
-        super(props);
-
-        this.state = {
-          isLogin: true
-        }
-      }
-
-      render() {
-        const { isLogin } = this.state;
-        const titleDisplayValue = isLogin ? "block" : "none";
-        return (
-          &lt;div&gt;
-            &lt;button onClick={e =&gt; this.loginClick()}&gt;{isLogin ? "退出" : "登录"}&lt;/button&gt;
-            &lt;h2 style={{ display: titleDisplayValue }}&gt;你好&lt;/h2&gt;
-          &lt;/div&gt;
-        )
-      }
-
-      loginClick() {
-        this.setState({
-          isLogin: !this.state.isLogin
-        })
-      }
-    }
+<h3 id="2-query"><a href="#2-query" class="headerlink" title="2. query"></a>2. query</h3><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394499553561639449955347.png" alt="query"></p>
+<pre><code class="js">router.get('/', (ctx, next) =&gt; {
+  console.log(ctx.request.query);
+  ctx.response.body = ctx.request.query;
+});
 </code></pre>
-<h3 id="9-列表渲染"><a href="#9-列表渲染" class="headerlink" title="9.列表渲染"></a>9.列表渲染</h3><p>通过es6函数渲染</p>
-<pre><code class="jsx">      render() {
-        return (
-          &lt;div&gt;
-            {/*1.全部渲染*/}
-            &lt;h2&gt;全部渲染&lt;/h2&gt;
-            &lt;ul&gt;
-              {
-                this.state.list.map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
-              }
-            &lt;/ul&gt;
-            {/*2.渲染大于50的*/}
-            &lt;h2&gt;渲染大于50&lt;/h2&gt;
-            &lt;ul&gt;
-              {
-                this.state.list.filter(item =&gt; item &gt; 50).map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
-              }
-            &lt;/ul&gt;
-            {/*3.渲染前4条*/}
-            &lt;h2&gt;渲染前4条&lt;/h2&gt;
-            &lt;ul&gt;
-              {
-                this.state.list.slice(0, 4).map(item =&gt; &lt;li&gt;{item}&lt;/li&gt;)
-              }
-            &lt;/ul&gt;
-          &lt;/div&gt;
-        )
-      }
+<h3 id="3-json和urlencoded"><a href="#3-json和urlencoded" class="headerlink" title="3. json和urlencoded"></a>3. json和urlencoded</h3><p>安装第三方库<code>npm i koa-bodyparser</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394509017231639450901714.png" alt="json"></p>
+<pre><code class="js">const bodyParser = require('koa-bodyparser');
+
+app.use(bodyParser());
+
+app.use((ctx, next) =&gt; {
+  console.log(ctx.request.body);
+  ctx.response.body = ctx.request.body;
+});
+</code></pre>
+<h3 id="4-formdata"><a href="#4-formdata" class="headerlink" title="4. formdata"></a>4. formdata</h3><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394512120051639451211996.png" alt="formdata"><br>安装<code>npm install koa-multer</code></p>
+<pre><code class="js">const multer = require('koa-multer');
+
+const upload = multer();
+
+app.use(upload.any());
+
+app.use((ctx, next) =&gt; {
+  console.log(ctx.req.body);
+  ctx.response.body = ctx.req.body;
+});
+</code></pre>
+<h3 id="4-响应数据"><a href="#4-响应数据" class="headerlink" title="4. 响应数据"></a>4. 响应数据</h3><pre><code class="js">app.use((ctx, next) =&gt; {
+  ctx.status = 404;
+  ctx.body = "Hello Koa~";
+});
+</code></pre>
+<h2 id="五、文件上传"><a href="#五、文件上传" class="headerlink" title="五、文件上传"></a>五、文件上传</h2><p><img src="https://cdn.jsdelivr.net/gh/ailing666/images@master/2021/16394521143481639452114339.png" alt="文件上传"></p>
+<pre><code class="js">const Koa = require('koa');
+const path = require('path');
+const Router = require('koa-router');
+const multer = require('koa-multer');
+
+const app = new Koa();
+const uploadRouter = new Router({prefix: '/upload'});
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) =&gt; {
+    cb(null, './uploads/')
+  },
+  filename: (req, file, cb) =&gt; {
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+})
+const upload = multer({
+  storage
+});
+
+// upload.single()里面的参数必须是传进来的文件名
+uploadRouter.post('/avatar', upload.single('avatar'), (ctx, next) =&gt; {
+  console.log(ctx.req.file);
+  ctx.response.body = "上传头像成功~";
+});
+
+app.use(uploadRouter.routes());
+
+app.listen(8000, () =&gt; {
+  console.log("koa初体验服务器启动成功~");
+});
 </code></pre>
 
             </div>
@@ -968,9 +789,9 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《React基础》
+                    《Koa》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/11/25/react/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/12/15/node-koa/" property="cc:attributionName"
                rel="cc:attributionURL">
                 小艾同学
             </a> 采用
@@ -1014,29 +835,85 @@ web端：react-dom会讲jsx最终渲染成真实的DOM，显示在浏">
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/25/node-http-mo-kuai/">
+                <a href="/2021/12/15/react-zu-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="http模块">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="React组件">
                         
-                        <span class="card-title">http模块</span>
+                        <span class="card-title">React组件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            http模块一、http初体验// 引入http模块
-const http = require('http')
+                            React 组件化开发一、创建项目1.安装脚手架npm i -g create-react-app
+2.创建项目create-react-app 项目名称
+3.目录结构
+二、组件1.组件的定义方式1.1 类组件特点：
 
-// 创建http请求
-const server = http.createServer((req, res) =&gt; {
+需要注意 this 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-25
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-12-15
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/React/" class="post-category" target="_blank">
+                                    React
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/React/" target="_blank">
+                        <span class="chip bg-color">React</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/25/node-express/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Express模块">
+                        
+                        <span class="card-title">Express模块</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Express一、安装 方式一：安装express-generator
+  安装脚手架
+  npm install -g express-generator
+  创建项目
+  express express-demo
+  安装依赖
+  np
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1054,64 +931,6 @@ const server = http.createServer((req, res) =&gt; {
                     
                     <a href="/tags/Node/" target="_blank">
                         <span class="chip bg-color">Node</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/11/02/ji-lu-yang-ying-wu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="养鹦鹉">
-                        
-                        <span class="card-title">养鹦鹉</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            养鹦鹉手册一、不同时期注意事项1.婴儿期指的是刚从蛋孵化出来，还没长满羽毛，身体无力还不会走路，不会自主进食需要主人喂
-注意：
-
-需要保温
-不能长时间撸它
-
-需要做的：
-
-长时间相处，培养亲人关系
-喂食 (让它慢慢依赖你，让它知道你是食物的
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-11-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%B0%E5%BD%95/" class="post-category" target="_blank">
-                                    记录
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%B0%E5%BD%95/" target="_blank">
-                        <span class="chip bg-color">记录</span>
                     </a>
                     
                 </div>
@@ -1266,7 +1085,7 @@ const server = http.createServer((req, res) =&gt; {
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">28.5k</span>
+            <span class="white-color">31.6k</span>
             
 
             <br>
